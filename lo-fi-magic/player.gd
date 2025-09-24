@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
 	
 	apply_central_force(twist_pivot.basis * input * 1200.0 * delta)
 
+	# Jump command
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		apply_central_force(Vector3.UP * 1000.0)
+
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
@@ -29,7 +33,16 @@ func _process(delta: float) -> void:
 	)
 	twist_input = 0.0
 	pitch_input = 0.0
-	
+
+func is_on_floor() -> bool:
+	# Simple ground check using raycast
+	var space_state = get_world_3d().direct_space_state
+	var origin = global_position
+	var end = origin + Vector3.DOWN * 1.1
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+	return !result.is_empty()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
