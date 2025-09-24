@@ -25,6 +25,10 @@ window/size/mode=2
 
 project/assembly_name="Lo-Fi_Magic"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_forward={
