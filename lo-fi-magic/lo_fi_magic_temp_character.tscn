@@ -1,26 +1,110 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpvi204vmb5m6"]
+[gd_scene load_steps=21 format=3 uid="uid://cpvi204vmb5m6"]
 
 [ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://LoFi_Magic_Temp_Character.glb" id="1_aqr14"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqr14"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5c5lt"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vqklx"]
+animation = &"MidAir_Pose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p0lyo"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uhg70"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tgg1h"]
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4jpha"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n3cnk"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e0xrq"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aih7e"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wf4r"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3f0m7"]
+advance_mode = 2
+advance_condition = &"Jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_33vaq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kmqyd"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"InAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5slqb"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_78jtk"]
+advance_mode = 2
+advance_condition = &"InAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l35dq"]
+advance_mode = 2
+advance_condition = &"InAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqr14"]
+advance_mode = 2
+advance_condition = &"InAir"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_735cc"]
+states/Idle/node = SubResource("AnimationNodeAnimation_aqr14")
+states/Idle/position = Vector2(205.00002, 117)
+states/Jump/node = SubResource("AnimationNodeAnimation_5c5lt")
+states/Jump/position = Vector2(205.00002, -37)
+states/MidAir_Pose/node = SubResource("AnimationNodeAnimation_vqklx")
+states/MidAir_Pose/position = Vector2(345, 35)
+states/Run/node = SubResource("AnimationNodeAnimation_p0lyo")
+states/Run/position = Vector2(62, 35)
+states/Start/position = Vector2(62, 117)
+states/Walk/node = SubResource("AnimationNodeAnimation_uhg70")
+states/Walk/position = Vector2(205.00002, 35)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_tgg1h"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_4jpha"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_n3cnk"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_e0xrq"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_aih7e"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_4wf4r"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_3f0m7"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_33vaq"), "Jump", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_kmqyd"), "MidAir_Pose", "Idle", SubResource("AnimationNodeStateMachineTransition_5slqb"), "Run", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_78jtk"), "Walk", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_l35dq"), "Idle", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_aqr14")]
+graph_offset = Vector2(-202.99998, -80)
 
 [node name="LoFi_Magic_Temp_Character" instance=ExtResource("1_aqr14")]
 
 [node name="Skeleton3D" parent="Armature_TempChar" index="0"]
-bones/0/position = Vector3(0, 0.49303478, 0.0016531142)
-bones/0/rotation = Quaternion(-0.06892902, 0, 0, 0.9976216)
-bones/2/rotation = Quaternion(-0.0033613357, 0, 0, 0.99999434)
-bones/3/rotation = Quaternion(-0.000557568, 0, 0, 0.99999994)
-bones/4/rotation = Quaternion(0.5287912, 0.08705594, -0.7960775, -0.28117955)
-bones/5/rotation = Quaternion(0.06418065, -0.0019532882, 0.4436367, 0.8939036)
-bones/6/rotation = Quaternion(0.5428142, -0.061544515, 0.7974666, -0.25614855)
-bones/7/rotation = Quaternion(0.05608646, 0.002010497, -0.38768706, 0.9200811)
-bones/8/rotation = Quaternion(0.99704534, 1.5837367e-08, -2.5899533e-08, 0.076816425)
-bones/9/rotation = Quaternion(0.25749215, 1.2412338e-15, 1.2031194e-15, 0.96628046)
-bones/10/rotation = Quaternion(0.99704534, -7.1616384e-09, -1.7015271e-08, 0.076816425)
-bones/11/rotation = Quaternion(0.25749215, 7.621954e-16, 6.092212e-16, 0.96628046)
-bones/12/position = Vector3(-0.26661238, 0.4536148, 0)
+bones/0/position = Vector3(0.004069596, 0.48969558, -0.033702753)
+bones/0/rotation = Quaternion(-0.06817306, -0.00040344396, -0.005904543, 0.997656)
+bones/1/rotation = Quaternion(0.11422577, -3.9567283e-11, -3.2147307e-10, 0.9934548)
+bones/2/rotation = Quaternion(0.0068102754, -2.4322029e-11, 1.1229901e-10, 0.9999769)
+bones/3/rotation = Quaternion(0.00019659082, 2.7910537e-11, 2.531589e-10, 1)
+bones/4/rotation = Quaternion(0.54082835, 0.02389901, -0.81014746, -0.2249325)
+bones/5/rotation = Quaternion(0.053980928, -0.0020238482, 0.37313315, 0.92620385)
+bones/6/rotation = Quaternion(0.5475566, -0.014625945, 0.80919933, -0.21251906)
+bones/7/rotation = Quaternion(0.050295793, 0.0020458475, -0.34766018, 0.9362685)
+bones/8/rotation = Quaternion(0.99196225, 0.00036547807, 0.0027377866, 0.12650384)
+bones/9/rotation = Quaternion(0.25761405, 4.86415e-10, -1.3776807e-09, 0.9662479)
+bones/10/rotation = Quaternion(0.99044263, 0.00031840403, 0.0027467706, 0.13789764)
+bones/11/rotation = Quaternion(0.27767807, 3.1090547e-10, 3.4556522e-09, 0.9606742)
+bones/12/position = Vector3(-0.26661238, 0.43772146, -0.0021744235)
 bones/12/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/13/position = Vector3(-0.26916173, 0.43778077, -0.17355636)
-bones/14/position = Vector3(0.27540317, 0.44210607, 0)
+bones/14/position = Vector3(0.27540317, 0.42621273, -0.0021744235)
 bones/14/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/15/position = Vector3(0.2536969, 0.41040862, -0.21886341)
 bones/16/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
@@ -32,3 +116,12 @@ bones/22/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_735cc")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/InAir = false
+parameters/conditions/Jump = false
+parameters/conditions/idle = false
+parameters/conditions/run = false
+parameters/conditions/walk = false
