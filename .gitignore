@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Node rules:
 ## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -14,3 +15,24 @@ _book
 *.epub
 *.mobi
 *.pdf
+=======
+lo-fi_magic/.godot/.gdignore
+lo-fi_magic/.godot/editor/editor_layout.cfg
+lo-fi_magic/.godot/editor/filesystem_cache10
+lo-fi_magic/.godot/editor/project_metadata.cfg
+lo-fi_magic/.godot/editor/script_editor_cache.cfg
+lo-fi_magic/.godot/global_script_class_cache.cfg
+lo-fi_magic/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex
+lo-fi_magic/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5
+lo-fi_magic/.godot/scene_groups_cache.cfg
+lo-fi_magic/.godot/shader_cache/SceneForwardClusteredShaderRD/d80c10b7bc0719bca4bd88fe927c7c6f3bcb42f5c79117523d47e0854b12d4dd/118dde12a46e72727c7cf74f74975d98887d51fd.vulkan.cache
+lo-fi_magic/.godot/uid_cache.bin
+lo-fi_magic/icon.svg.import
+lo-fi_magic/icon.svg.import
+lo-fi_magic/icon.svg.import
+lo-fi_magic/.godot/editor/editor_script_doc_cache.res
+lo-fi_magic/.godot/editor/editor_script_doc_cache.res-folding-a7de57390d6e786984ca20c70a831128.cfg
+lo-fi_magic/.godot/shader_cache/GiShaderRD/9e9b4b5d4c15f202f7ffb443fd0971df128a5f50e14bf72f2821620133146f3d/087916079fba7c625e62b0c2cca570e0fb87c99a.vulkan.cache
+lo-fi_magic/.godot/shader_cache/SceneForwardClusteredShaderRD/d80c10b7bc0719bca4bd88fe927c7c6f3bcb42f5c79117523d47e0854b12d4dd/3d6fc53bad5e871b1b878eb1a4ed0a0fcec449cb.vulkan.cache
+lo-fi_magic/icon.svg.import
+>>>>>>> Stashed changes
