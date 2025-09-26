@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2xr6v8tvicck"]
+
+[ext_resource type="Texture2D" uid="uid://dc0uerhq0fjbp" path="res://Alvaro Work/PNG/Light/texture_06.png" id="1_41k3l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
+albedo_texture = ExtResource("1_41k3l")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0410156, -2, 1)
+size = Vector3(12, 1, 19)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 4.8695507, 0)
+light_color = Color(0.4348803, 0.58451, 1, 1)

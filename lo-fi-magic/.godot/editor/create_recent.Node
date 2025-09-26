@@ -1,2 +1,5 @@
+CSGBox3D
+CSGCombiner3D
+DirectionalLight3D
 CollisionShape3D
 CollisionPolygon3D
