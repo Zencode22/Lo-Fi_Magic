@@ -8,6 +8,10 @@ var is_running := false
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
 
+var last_direction = Vector3.FORWARD
+@export var rotation_speed = 8
+var move_direction : Vector3
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -40,9 +44,14 @@ func _process(delta: float) -> void:
 		deg_to_rad(-30),
 		deg_to_rad(30)
 	)
-	
-	# Rotate player model to match camera's horizontal rotation
-	$LoFi_Magic_Temp_Character.rotation.y = twist_pivot.rotation.y
+	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
+	if direction:
+		last_direction = direction
+		# Rotate player model to match camera's horizontal rotation
+		#$LoFi_Magic_Temp_Character.rotation.y = twist_pivot.rotation.y
+		var target_rotation = atan2(last_direction.x, last_direction.z)
+		var current_rotation = $LoFi_Magic_Temp_Character.rotation
+		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
 	
 	twist_input = 0.0
 	pitch_input = 0.0
