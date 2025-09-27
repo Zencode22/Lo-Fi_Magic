@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3n118881c4wg"
-path.s3tc="res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png-135faaed592071cc5fca28630d181093.s3tc.ctex"
+uid="uid://dswbqgcrjyua3"
+path.s3tc="res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png"
-dest_files=["res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png-135faaed592071cc5fca28630d181093.s3tc.ctex"]
+source_file="res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png"
+dest_files=["res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex"]
 
 [params]
 

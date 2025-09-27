@@ -1,13 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1758901561
-icon.svg::CompressedTexture2D::73806414460693176::1758897230::1758897451::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Level.tscn::PackedScene::1859276042803677323::1758901561::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn
-LoFi_Magic_Temp_Character.glb::PackedScene::6181932970740363984::1758902829::1758903703::1::::<><><>0<>0<>8518de08b9e7018ff36fb200d4ca9c31<>res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn::uid://ct53r1tsh2dak::::res://LoFi_Magic_Temp_Character_Temp_Body_Base Color.png<>uid://dswbqgcrjyua3::::res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png
-LoFi_Magic_Temp_Character.tscn::PackedScene::2030798913022780355::1758897230::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
-LoFi_Magic_Temp_Character_Temp_Body_BaseColor.png::CompressedTexture2D::7904826509079506676::1758897230::1758903703::1::::<><><>0<>0<>2ba877f5fdabc8e839a3f8c4cf1e7c87<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_BaseColor.png-a902bf5dc7bf2bdec8a1ce4c6f638bbb.s3tc.ctex::
-LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png::CompressedTexture2D::4380172074597567350::1758897230::1758903703::1::::<><><>0<>0<>12c2f5e5a8673557b2f33f9a10f7f23c<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png-135faaed592071cc5fca28630d181093.s3tc.ctex::
-lo_fi_magic_temp_character.tscn::PackedScene::5869561266022843095::1758900923::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
-player.gd::GDScript::1253696348981396978::1758901340::0::1::::<>RigidBody3D<><>0<>0<><>::
-player.tscn::PackedScene::1687416399521251802::1758897230::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://lo_fi_magic_temp_character.tscn
-LoFi_Magic_Temp_Character_Temp_Body_Base Color.png::CompressedTexture2D::6170092559211099230::1758903703::1758903703::1::::<><><>0<>0<>c79ac20384e55e2276f9c7a08b7efd76<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_Base Color.png-b3ca95fdde524d537be2ae085c47286e.s3tc.ctex::
-LoFi_Magic_Temp_Character_Temp_Head Base Color.png::CompressedTexture2D::8468167155863551324::1758903703::1758903703::1::::<><><>0<>0<>1641059dc7fba0c5ca5ee509962ff7a7<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex::
+::res://::1758935036
+icon.svg::CompressedTexture2D::73806414460693176::1758734774::1758735887::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Level.tscn::PackedScene::1859276042803677323::1758934424::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn
+LoFi_Magic_Temp_Character.glb::PackedScene::6181932970740363984::1758934424::1758934424::1::::<><><>0<>0<>8518de08b9e7018ff36fb200d4ca9c31<>res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn::uid://ct53r1tsh2dak::::res://LoFi_Magic_Temp_Character_Temp_Body_Base Color.png<>uid://dswbqgcrjyua3::::res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png
+LoFi_Magic_Temp_Character.tscn::PackedScene::2030798913022780355::1758934424::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
+LoFi_Magic_Temp_Character_Temp_Body_BaseColor.png::CompressedTexture2D::7904826509079506676::1758746682::1758934533::1::::<><><>0<>0<>2ba877f5fdabc8e839a3f8c4cf1e7c87<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_BaseColor.png-a902bf5dc7bf2bdec8a1ce4c6f638bbb.s3tc.ctex::
+LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png::CompressedTexture2D::4380172074597567350::1758746682::1758934533::1::::<><><>0<>0<>12c2f5e5a8673557b2f33f9a10f7f23c<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head_Base_Color.png-135faaed592071cc5fca28630d181093.s3tc.ctex::
+lo_fi_magic_temp_character.tscn::PackedScene::5869561266022843095::1758934424::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
+player.gd::GDScript::1253696348981396978::1758934424::0::1::::<>RigidBody3D<><>0<>0<><>::
+player.tscn::PackedScene::1687416399521251802::1758934424::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://lo_fi_magic_temp_character.tscn
+LoFi_Magic_Temp_Character_Temp_Body_Base Color.png::CompressedTexture2D::6170092559211099230::1758935055::1758935055::1::::<><><>0<>0<>c79ac20384e55e2276f9c7a08b7efd76<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_Base Color.png-b3ca95fdde524d537be2ae085c47286e.s3tc.ctex::
+LoFi_Magic_Temp_Character_Temp_Head Base Color.png::CompressedTexture2D::8468167155863551324::1758935055::1758935055::1::::<><><>0<>0<>1641059dc7fba0c5ca5ee509962ff7a7<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex::
