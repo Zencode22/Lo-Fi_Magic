@@ -9,6 +9,15 @@ Game Requirements
     *Lo-Fi music mixer (easy for bigginers prefered)
   
     *In-game audio player (for refrence the player can listen to their Lo-fi music while out in the world puzzle solving)
+
+Level Design Todo List
+
+   *Making a simple level blockout
+   *Add ledge for player to climb on
+   *Setting: A fair on millennium park at night
+   *There should be puzzle element to the level
+   *Sound Token
+   
   
 Red lines
 

@@ -33,6 +33,12 @@ func _process(delta: float) -> void:
 	)
 	twist_input = 0.0
 	pitch_input = 0.0
+	
+	# https://youtu.be/eGt7ikx7FcQ?t=1554
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/idle", is_on_floor() && (input.x == 0 && input.z == 0) )
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/walk", is_on_floor() && (input.x != 0 || input.z != 0) )
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/Jump", Input.is_action_just_pressed("jump") && is_on_floor())
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/InAir", !is_on_floor())
 
 func is_on_floor() -> bool:
 	# Simple ground check using raycast

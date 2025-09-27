@@ -38,6 +38,6 @@ mesh = SubResource("PlaneMesh_qhyq2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bexhn")
 
-[node name="Player" parent="." instance=ExtResource("1_bexhn")]
+[node name="Player" parent="." groups=["LookAtPoint"] instance=ExtResource("1_bexhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 linear_damp = 3.0
