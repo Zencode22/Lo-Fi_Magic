@@ -3,6 +3,7 @@ extends RigidBody3D
 var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
+var is_running := false
 
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
@@ -16,7 +17,11 @@ func _process(delta: float) -> void:
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 	
-	apply_central_force(twist_pivot.basis * input * 1200.0 * delta)
+	# Check if shift is pressed for running
+	is_running = Input.is_action_pressed("sprint")
+	var move_speed = 1200.0 * (1.5 if is_running else 1.0)
+	
+	apply_central_force(twist_pivot.basis * input * move_speed * delta)
 
 	# Jump command
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -31,12 +36,17 @@ func _process(delta: float) -> void:
 		deg_to_rad(-30),
 		deg_to_rad(30)
 	)
+	
+	# Rotate player model to match camera's horizontal rotation
+	$LoFi_Magic_Temp_Character.rotation.y = twist_pivot.rotation.y
+	
 	twist_input = 0.0
 	pitch_input = 0.0
 	
-	# https://youtu.be/eGt7ikx7FcQ?t=1554
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/idle", is_on_floor() && (input.x == 0 && input.z == 0) )
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/walk", is_on_floor() && (input.x != 0 || input.z != 0) )
+	# Update animation conditions
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/idle", is_on_floor() && input.length() == 0)
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
+	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/Jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/InAir", !is_on_floor())
 

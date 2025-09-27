@@ -39,5 +39,5 @@ mesh = SubResource("PlaneMesh_qhyq2")
 shape = SubResource("ConcavePolygonShape3D_bexhn")
 
 [node name="Player" parent="." groups=["LookAtPoint"] instance=ExtResource("1_bexhn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+transform = Transform3D(0.99972856, 0, 0.023298062, 0, 1, 0, -0.023298062, 0, 0.99972856, 0, -0.03986633, -2)
 linear_damp = 3.0
