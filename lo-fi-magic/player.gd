@@ -18,14 +18,18 @@ func _process(delta: float) -> void:
 	input.z = Input.get_axis("move_forward", "move_back")
 	
 	# Check if shift is pressed for running
-	is_running = Input.is_action_pressed("sprint")
+	is_running = Input.is_action_pressed("run")
 	var move_speed = 1200.0 * (1.5 if is_running else 1.0)
 	
 	apply_central_force(twist_pivot.basis * input * move_speed * delta)
 
 	# Jump command
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		apply_central_force(Vector3.UP * 1000.0)
+		var jump_height = 5.0
+		var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+		var initial_velocity = sqrt(2 * gravity * jump_height)
+		var jump_impulse = mass * initial_velocity
+		apply_central_impulse(Vector3.UP * jump_impulse)
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
