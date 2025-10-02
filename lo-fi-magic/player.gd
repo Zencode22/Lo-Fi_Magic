@@ -12,6 +12,8 @@ var last_direction = Vector3.FORWARD
 @export var rotation_speed = 8
 var move_direction : Vector3
 
+@onready var state_machine = $LoFi_Magic_Temp_Character/AnimationTree.get("parameters/playback")
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -62,6 +64,7 @@ func _process(delta: float) -> void:
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/Jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/InAir", !is_on_floor())
+
 
 func is_on_floor() -> bool:
 	# Simple ground check using raycast
