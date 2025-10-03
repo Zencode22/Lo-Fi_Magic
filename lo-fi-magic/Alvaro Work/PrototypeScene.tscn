@@ -1,19 +1,126 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=5 format=3 uid="uid://b2xr6v8tvicck"]
 
-[ext_resource type="Texture2D" uid="uid://dc0uerhq0fjbp" path="res://Alvaro Work/PNG/Light/texture_06.png" id="1_41k3l"]
+[ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_ttobh"]
+[ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/PNG/Light/texture_08.png" id="2_ttobh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trvnc"]
+albedo_texture = ExtResource("2_ttobh")
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
-albedo_texture = ExtResource("1_41k3l")
+albedo_texture = ExtResource("2_ttobh")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
+[node name="Player" parent="." instance=ExtResource("1_ttobh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9702754, 0.3843211, 16.723242)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0410156, -2, 1)
-size = Vector3(12, 1, 19)
+[node name="Hallway1Area" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
+use_collision = true
+
+[node name="Hallway1Floor" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -2, -12.5)
+size = Vector3(27, 1, 8)
+material = SubResource("StandardMaterial3D_trvnc")
+
+[node name="HallwayPot1" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.9999999, -12.5)
+size = Vector3(4, 1, 2)
+material = SubResource("StandardMaterial3D_trvnc")
+
+[node name="HallwayPot2" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -1, -12.5)
+size = Vector3(4, 1, 2)
+material = SubResource("StandardMaterial3D_trvnc")
+
+[node name="HallwayPot3" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, -1, -12.5)
+size = Vector3(4, 1, 2)
+material = SubResource("StandardMaterial3D_trvnc")
+
+[node name="ChasePSArea" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
+use_collision = true
+
+[node name="ChasePSFloor" type="CSGBox3D" parent="ChasePSArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 5.498)
+size = Vector3(17, 1, 28)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall1" type="CSGBox3D" parent="ChasePSArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 5.502)
+size = Vector3(4, 1, 28)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall2" type="CSGBox3D" parent="ChasePSArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -1, 5.502)
+size = Vector3(4, 1, 28)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall3" type="CSGBox3D" parent="ChasePSArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, 16.5)
+size = Vector3(9, 1, 6)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSArea/ChasePSWall3"]
+operation = 2
+size = Vector3(3, 1, 7)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall4" type="CSGBox3D" parent="ChasePSArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -7)
+size = Vector3(9, 1, 3)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSArea/ChasePSWall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+operation = 2
+size = Vector3(2.5, 1, 3.5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanArea" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
+use_collision = true
+
+[node name="BeanFloor" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -2, -30.5)
+size = Vector3(27, 1, 28)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanWall1" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, -17.5)
+size = Vector3(27, 1, 2)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanWall2" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, -43.5)
+size = Vector3(27, 1, 2)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanWall3" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, -30.5)
+size = Vector3(4, 1, 24)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanWall4" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, -1, -30.5)
+size = Vector3(1, 1, 24)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="BeanWall4" type="CSGBox3D" parent="BeanArea/BeanWall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.25, 0)
+size = Vector3(13, 0.5, 24)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="BeanArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7917585, -0.9888245, -17.000252)
+operation = 2
+size = Vector3(3, 1.0194092, 3.0307617)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -1,5 +1,6 @@
-CSGBox3D
 CSGCombiner3D
+CSGBox3D
+Node
 DirectionalLight3D
 CollisionShape3D
 CollisionPolygon3D
