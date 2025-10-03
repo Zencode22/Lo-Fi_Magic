@@ -1,21 +1,22 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759503945
+::res://::1759510154
 icon.svg::CompressedTexture2D::73806414460693176::1758897230::1758897451::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Level.tscn::PackedScene::1859276042803677323::1759503891::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn
-LoFi_Magic_Temp_Character.glb::PackedScene::6181932970740363984::1759503891::1759503950::1::::<><><>0<>0<>36621d59ff17b341d76b1525ed312e23<>res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn::uid://ct53r1tsh2dak::::res://LoFi_Magic_Temp_Character_Temp_Body_Base Color.png<>uid://dswbqgcrjyua3::::res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png<>uid://8j7ccmopbqx3::::res://Temp_Char_Anims/Idle.res<>uid://crurbok6shh7j::::res://Temp_Char_Anims/Jump.res<>uid://djr1cyt6h34qd::::res://Temp_Char_Anims/LedgeClimb.res<>uid://biy5q43vagogn::::res://Temp_Char_Anims/LedgeHanging.res<>uid://ce0esc5gvsjto::::res://Temp_Char_Anims/MidAir_Pose.res<>uid://51y7k8nlfdeu::::res://Temp_Char_Anims/QuickClimb.res<>uid://co2al75nx01qu::::res://Temp_Char_Anims/Run.res<>uid://c6d6tg8p8lnex::::res://Temp_Char_Anims/Walk.res<>uid://don3j36bi76kf::::res://Temp_Char_Anims/Wave.res
+Level.tscn::PackedScene::1859276042803677323::1759507884::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://cs0cbpmefbgs7::::res://MovableObject.gd
+LoFi_Magic_Temp_Character.glb::PackedScene::6181932970740363984::1759510132::1759510156::1::::<><><>0<>0<>36621d59ff17b341d76b1525ed312e23<>res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn::uid://ct53r1tsh2dak::::res://LoFi_Magic_Temp_Character_Temp_Body_Base Color.png<>uid://dswbqgcrjyua3::::res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png<>uid://8j7ccmopbqx3::::res://Temp_Char_Anims/Idle.res<>uid://crurbok6shh7j::::res://Temp_Char_Anims/Jump.res<>uid://djr1cyt6h34qd::::res://Temp_Char_Anims/LedgeClimb.res<>uid://biy5q43vagogn::::res://Temp_Char_Anims/LedgeHanging.res<>uid://ce0esc5gvsjto::::res://Temp_Char_Anims/MidAir_Pose.res<>uid://51y7k8nlfdeu::::res://Temp_Char_Anims/QuickClimb.res<>uid://co2al75nx01qu::::res://Temp_Char_Anims/Run.res<>uid://c6d6tg8p8lnex::::res://Temp_Char_Anims/Walk.res<>uid://don3j36bi76kf::::res://Temp_Char_Anims/Wave.res
 LoFi_Magic_Temp_Character.tscn::PackedScene::2030798913022780355::1758897230::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
-LoFi_Magic_Temp_Character_Temp_Body_Base Color.png::CompressedTexture2D::6170092559211099230::1759503891::1759503949::1::::<><><>0<>0<>c79ac20384e55e2276f9c7a08b7efd76<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_Base Color.png-b3ca95fdde524d537be2ae085c47286e.s3tc.ctex::
-LoFi_Magic_Temp_Character_Temp_Head Base Color.png::CompressedTexture2D::8468167155863551324::1759503891::1759503949::1::::<><><>0<>0<>1641059dc7fba0c5ca5ee509962ff7a7<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex::
+LoFi_Magic_Temp_Character_Temp_Body_Base Color.png::CompressedTexture2D::6170092559211099230::1759503891::1759510155::1::::<><><>0<>0<>c79ac20384e55e2276f9c7a08b7efd76<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_Base Color.png-b3ca95fdde524d537be2ae085c47286e.s3tc.ctex::
+LoFi_Magic_Temp_Character_Temp_Head Base Color.png::CompressedTexture2D::8468167155863551324::1759503891::1759510155::1::::<><><>0<>0<>1641059dc7fba0c5ca5ee509962ff7a7<>res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Head Base Color.png-296450d349a7fb884129b8ab851ec35f.s3tc.ctex::
 lo_fi_magic_temp_character.tscn::PackedScene::5869561266022843095::1759503891::0::1::::<><><>0<>0<><>::uid://cuctsd7uo87v5::::res://LoFi_Magic_Temp_Character.glb
+MovableObject.gd::GDScript::6087974023078092660::1759504641::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.gd::GDScript::1253696348981396978::1759503891::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.tscn::PackedScene::1687416399521251802::1759503891::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://lo_fi_magic_temp_character.tscn
-::res://Temp_Char_Anims/::1759503891
-Idle.res::Animation::2336757879438496162::1759503949::0::1::::<><><>0<>0<><>::
-Jump.res::Animation::6008373991192665629::1759503949::0::1::::<><><>0<>0<><>::
-LedgeClimb.res::Animation::7827639570371023111::1759503949::0::1::::<><><>0<>0<><>::
-LedgeHanging.res::Animation::2999328148766340961::1759503949::0::1::::<><><>0<>0<><>::
-MidAir_Pose.res::Animation::5105481349743406936::1759503949::0::1::::<><><>0<>0<><>::
-QuickClimb.res::Animation::2160854060795485024::1759503949::0::1::::<><><>0<>0<><>::
-Run.res::Animation::5811244749124969844::1759503949::0::1::::<><><>0<>0<><>::
-Walk.res::Animation::6956805177132063323::1759503949::0::1::::<><><>0<>0<><>::
-Wave.res::Animation::8170460439357299637::1759503949::0::1::::<><><>0<>0<><>::
+::res://Temp_Char_Anims/::1759503949
+Idle.res::Animation::2336757879438496162::1759510155::0::1::::<><><>0<>0<><>::
+Jump.res::Animation::6008373991192665629::1759510155::0::1::::<><><>0<>0<><>::
+LedgeClimb.res::Animation::7827639570371023111::1759510156::0::1::::<><><>0<>0<><>::
+LedgeHanging.res::Animation::2999328148766340961::1759510156::0::1::::<><><>0<>0<><>::
+MidAir_Pose.res::Animation::5105481349743406936::1759510156::0::1::::<><><>0<>0<><>::
+QuickClimb.res::Animation::2160854060795485024::1759510156::0::1::::<><><>0<>0<><>::
+Run.res::Animation::5811244749124969844::1759510156::0::1::::<><><>0<>0<><>::
+Walk.res::Animation::6956805177132063323::1759510156::0::1::::<><><>0<>0<><>::
+Wave.res::Animation::8170460439357299637::1759510156::0::1::::<><><>0<>0<><>::
