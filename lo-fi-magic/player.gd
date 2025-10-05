@@ -14,6 +14,9 @@ var move_direction : Vector3
 
 @onready var state_machine = $LoFi_Magic_Temp_Character/AnimationTree.get("parameters/playback")
 
+var grabbed_object: RigidBody3D = null
+var grab_range: float = 5.0
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -65,6 +68,12 @@ func _process(delta: float) -> void:
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/Jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/InAir", !is_on_floor())
 
+# Handle grab input
+	if Input.is_action_just_pressed("grab"):
+		if grabbed_object:
+			release_object()
+		else:
+			try_grab_object()
 
 func is_on_floor() -> bool:
 	# Simple ground check using raycast
@@ -81,3 +90,35 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
+# Grab functionality
+func try_grab_object() -> void:
+	# Raycast to find objects in front of the player
+	var space_state = get_world_3d().direct_space_state
+	var camera = $TwistPivot/PitchPivot/Camera3D  # Adjust this path to match your camera node
+	var from = camera.global_position
+	var to = from + camera.global_transform.basis.z * -grab_range  # Forward direction
+	
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.collide_with_areas = true
+	query.exclude = [self]  # Exclude the player from the raycast
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var collider = result["collider"]
+		if collider.has_method("grab"):
+			grabbed_object = collider
+			collider.grab(self)
+			print("Grabbed object: ", collider.name)
+
+func release_object() -> void:
+	if grabbed_object and grabbed_object.has_method("release"):
+		grabbed_object.release()
+		print("Released object: ", grabbed_object.name)
+		grabbed_object = null
+
+# Optional: Auto-release if object gets too far
+func _physics_process(delta: float) -> void:
+	if grabbed_object:
+		var distance = global_position.distance_to(grabbed_object.global_position)
+		if distance > grab_range * 2.0:  # Auto-release if too far
+			release_object()
