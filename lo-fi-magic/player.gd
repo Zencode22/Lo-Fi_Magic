@@ -74,6 +74,9 @@ func _process(delta: float) -> void:
 			release_object()
 		else:
 			try_grab_object()
+	
+	if grabbed_object and not Input.is_action_pressed("grab"):
+		release_object()
 
 func is_on_floor() -> bool:
 	# Simple ground check using raycast

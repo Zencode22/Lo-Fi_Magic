@@ -9,7 +9,7 @@ var grab_force: float = 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	freeze = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,9 +18,7 @@ func _process(delta: float) -> void:
 # Physics process for handling grab mechanics
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
-		# Only move if the grabber is actually holding this object
 		if grabber.grabbed_object == self and Input.is_action_pressed("grab"):
-			# Calculate the target position for the object
 			var target_position = grabber.global_position + grabber.global_transform.basis.z * -grab_distance
 		
 # Calculate the direction and distance to the target
@@ -40,6 +38,9 @@ func grab(by: Node3D) -> void:
 		is_grabbed = true
 		grabber = by
 		
+		# Unfreeze the object when grabbed
+		freeze = false
+		
 		# Store the initial grab point relative to the object
 		grab_point = global_position
 		
@@ -51,6 +52,9 @@ func release() -> void:
 	if is_grabbed:
 		is_grabbed = false
 		grabber = null
+		
+		# Freeze the object again when released
+		freeze = true
 		
 		# Restore original damping
 		linear_damp = 0.0
