@@ -18,21 +18,19 @@ func _process(delta: float) -> void:
 # Physics process for handling grab mechanics
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
-		# Calculate the target position for the object
-		var target_position = grabber.global_position + grabber.global_transform.basis.z * -grab_distance
+		# Only move if the grabber is actually holding this object
+		if grabber.grabbed_object == self:
+			# Calculate the target position for the object
+			var target_position = grabber.global_position + grabber.global_transform.basis.z * -grab_distance
 		
-		# Calculate the direction and distance to the target
-		var direction = target_position - global_position
-		var distance = direction.length()
+# Calculate the direction and distance to the target
+			var direction = target_position - global_position
+			var distance = direction.length()
 		
-		# Apply force to move the object toward the grab point
-		if distance > 0.1:
-			var force = direction.normalized() * grab_force * distance
-			apply_central_force(force)
-		
-		# Optional: Add some damping to prevent excessive swinging
-		linear_velocity *= 0.95
-		angular_velocity *= 0.95
+# Apply force to move the object toward the grab point
+			if distance > 0.1:
+				var force = direction.normalized() * grab_force * distance
+				apply_central_force(force)
 
 # Method to grab the object
 func grab(by: Node3D) -> void:
@@ -45,10 +43,6 @@ func grab(by: Node3D) -> void:
 		
 		# Reduce linear damping while grabbed for more responsive movement
 		linear_damp = 0.5
-		
-		# Optional: Change collision layer/mask to avoid collisions with player
-		set_collision_layer_value(1, false)
-		set_collision_mask_value(1, false)
 
 # Method to release the object
 func release() -> void:
@@ -58,14 +52,3 @@ func release() -> void:
 		
 		# Restore original damping
 		linear_damp = 0.0
-		
-		# Optional: Restore collision layer/mask
-		set_collision_layer_value(1, true)
-		set_collision_mask_value(1, true)
-
-# Optional: Add visual feedback when grabbed
-func _input_event(camera: Camera3D, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			# You can connect this to your player's grab system
-			pass

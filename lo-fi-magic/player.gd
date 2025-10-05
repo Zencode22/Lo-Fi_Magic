@@ -115,10 +115,3 @@ func release_object() -> void:
 		grabbed_object.release()
 		print("Released object: ", grabbed_object.name)
 		grabbed_object = null
-
-# Optional: Auto-release if object gets too far
-func _physics_process(delta: float) -> void:
-	if grabbed_object:
-		var distance = global_position.distance_to(grabbed_object.global_position)
-		if distance > grab_range * 2.0:  # Auto-release if too far
-			release_object()

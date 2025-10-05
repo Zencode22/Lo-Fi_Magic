@@ -50,7 +50,6 @@ shape = SubResource("ConcavePolygonShape3D_bexhn")
 [node name="Player" parent="." groups=["LookAtPoint"] instance=ExtResource("1_bexhn")]
 transform = Transform3D(0.99972856, 0, 0.023298062, 0, 1, 0, -0.023298062, 0, 0.99972856, 0, -0.03986633, -2)
 linear_damp = 3.0
-rotation_speed = null
 
 [node name="MovableCube" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.52344126, -2.5)
