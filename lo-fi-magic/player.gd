@@ -92,15 +92,16 @@ func _unhandled_input(event: InputEvent) -> void:
 			pitch_input = - event.relative.y * mouse_sensitivity
 # Grab functionality
 func try_grab_object() -> void:
-	# Raycast to find objects in front of the player
 	var space_state = get_world_3d().direct_space_state
-	var camera = $TwistPivot/PitchPivot/Camera3D  # Adjust this path to match your camera node
+	var camera = $TwistPivot/PitchPivot/Camera3D
 	var from = camera.global_position
-	var to = from + camera.global_transform.basis.z * -grab_range  # Forward direction
+	var to = from + camera.global_transform.basis.z * -grab_range
 	
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.collide_with_areas = true
-	query.exclude = [self]  # Exclude the player from the raycast
+	query.exclude = [self]
+	query.collision_mask = 1
+	
 	var result = space_state.intersect_ray(query)
 	
 	if result:
