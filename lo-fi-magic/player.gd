@@ -4,15 +4,17 @@ var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
 var is_running := false
+var is_grabbing := false
+var default_movespeed := 1200.0
 
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
 
 var last_direction = Vector3.FORWARD
 @export var rotation_speed = 8
-var move_direction : Vector3
 
 @onready var state_machine = $LoFi_Magic_Temp_Character/AnimationTree.get("parameters/playback")
+@onready var anim_tree = $LoFi_Magic_Temp_Character/AnimationTree
 
 var grabbed_object: RigidBody3D = null
 var grab_range: float = 5.0
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	# Check if shift is pressed for running
 	is_running = Input.is_action_pressed("run")
-	var move_speed = 1200.0 * (1.5 if is_running else 1.0)
+	var move_speed = default_movespeed * (1.5 if is_running else 1.0)
 	
 	apply_central_force(twist_pivot.basis * input * move_speed * delta)
 
@@ -49,24 +51,27 @@ func _process(delta: float) -> void:
 		deg_to_rad(-30),
 		deg_to_rad(30)
 	)
+		
 	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
 	if direction:
-		last_direction = direction
+		if is_grabbing && grabbed_object != null:
+			last_direction = grabbed_object.position
+		else:
+			last_direction = direction
 		# Rotate player model to match camera's horizontal rotation
 		#$LoFi_Magic_Temp_Character.rotation.y = twist_pivot.rotation.y
 		var target_rotation = atan2(last_direction.x, last_direction.z)
 		var current_rotation = $LoFi_Magic_Temp_Character.rotation
 		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
 	
+	if is_grabbing:
+		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(direction.x,direction.z).normalized())
+	else:
+		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(direction.x,direction.z).normalized()) * (2 if is_running else 1))
+		
 	twist_input = 0.0
 	pitch_input = 0.0
 	
-	# Update animation conditions
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/idle", is_on_floor() && input.length() == 0)
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/Jump", Input.is_action_just_pressed("jump") && is_on_floor())
-	$LoFi_Magic_Temp_Character/AnimationTree.set("parameters/conditions/InAir", !is_on_floor())
 
 # Handle grab input
 	if Input.is_action_just_pressed("grab"):
@@ -78,6 +83,14 @@ func _process(delta: float) -> void:
 	if grabbed_object and not Input.is_action_pressed("grab"):
 		release_object()
 
+	# Update animation conditions
+	anim_tree.set("parameters/conditions/grounded", is_on_floor())
+	#anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
+	#anim_tree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
+	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
+	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
+	
+	
 func is_on_floor() -> bool:
 	# Simple ground check using raycast
 	var space_state = get_world_3d().direct_space_state
@@ -113,9 +126,18 @@ func try_grab_object() -> void:
 			grabbed_object = collider
 			collider.grab(self)
 			print("Grabbed object: ", collider.name)
+			is_grabbing = true
+			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
+			anim_tree.set("parameters/conditions/grounded", false)
+			state_machine.travel("IdlePushPull")
 
 func release_object() -> void:
 	if grabbed_object and grabbed_object.has_method("release"):
 		grabbed_object.release()
 		print("Released object: ", grabbed_object.name)
 		grabbed_object = null
+		is_grabbing = false
+		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
+		anim_tree.set("parameters/conditions/grounded", true)
+		state_machine.travel("IdleWalkRun")
+		
