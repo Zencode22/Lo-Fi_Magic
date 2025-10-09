@@ -19,14 +19,25 @@ var last_direction = Vector3.FORWARD
 var grabbed_object: RigidBody3D = null
 var grab_range: float = 5.0
 
+# Add these new variables for the grab prompt
+@onready var grab_prompt_label = $GrabPromptLabel
+var can_grab_object: bool = false
+var current_grab_target: Node3D = null
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Initialize grab prompt as hidden
+	if grab_prompt_label:
+		grab_prompt_label.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
+	
+	# Check for grab-able objects
+	check_for_grab_objects()
 	
 	# Check if shift is pressed for running
 	is_running = Input.is_action_pressed("run")
@@ -90,6 +101,9 @@ func _process(delta: float) -> void:
 	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
 	
+	# Update grab prompt visibility
+	update_grab_prompt()
+	
 	
 func is_on_floor() -> bool:
 	# Simple ground check using raycast
@@ -106,8 +120,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
-# Grab functionality
-func try_grab_object() -> void:
+
+# Add this new function to check for grab-able objects
+func check_for_grab_objects() -> void:
 	var space_state = get_world_3d().direct_space_state
 	var camera = $TwistPivot/PitchPivot/Camera3D
 	var from = camera.global_position
@@ -120,16 +135,60 @@ func try_grab_object() -> void:
 	
 	var result = space_state.intersect_ray(query)
 	
-	if result:
+	if result and not is_grabbing:
 		var collider = result["collider"]
 		if collider.has_method("grab"):
-			grabbed_object = collider
-			collider.grab(self)
-			print("Grabbed object: ", collider.name)
-			is_grabbing = true
-			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
-			anim_tree.set("parameters/conditions/grounded", false)
-			state_machine.travel("IdlePushPull")
+			can_grab_object = true
+			current_grab_target = collider
+			return
+	
+	can_grab_object = false
+	current_grab_target = null
+
+# Add this function to update the grab prompt
+func update_grab_prompt() -> void:
+	if grab_prompt_label:
+		if can_grab_object and not is_grabbing and current_grab_target != null:
+			grab_prompt_label.text = "Press [Grab] to grab"
+			grab_prompt_label.show()
+		else:
+			grab_prompt_label.hide()
+
+# Grab functionality
+func try_grab_object() -> void:
+	if current_grab_target and current_grab_target.has_method("grab"):
+		grabbed_object = current_grab_target
+		current_grab_target.grab(self)
+		print("Grabbed object: ", current_grab_target.name)
+		is_grabbing = true
+		can_grab_object = false
+		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
+		anim_tree.set("parameters/conditions/grounded", false)
+		state_machine.travel("IdlePushPull")
+	else:
+		# Fallback to original method if no current target
+		var space_state = get_world_3d().direct_space_state
+		var camera = $TwistPivot/PitchPivot/Camera3D
+		var from = camera.global_position
+		var to = from + camera.global_transform.basis.z * -grab_range
+		
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		query.collide_with_areas = true
+		query.exclude = [self]
+		query.collision_mask = 1
+		
+		var result = space_state.intersect_ray(query)
+		
+		if result:
+			var collider = result["collider"]
+			if collider.has_method("grab"):
+				grabbed_object = collider
+				collider.grab(self)
+				print("Grabbed object: ", collider.name)
+				is_grabbing = true
+				anim_tree.set("parameters/conditions/grabbing", is_grabbing)
+				anim_tree.set("parameters/conditions/grounded", false)
+				state_machine.travel("IdlePushPull")
 
 func release_object() -> void:
 	if grabbed_object and grabbed_object.has_method("release"):
@@ -140,4 +199,3 @@ func release_object() -> void:
 		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 		anim_tree.set("parameters/conditions/grounded", true)
 		state_machine.travel("IdleWalkRun")
-		

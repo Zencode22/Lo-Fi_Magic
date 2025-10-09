@@ -202,35 +202,6 @@ graph_offset = Vector2(-455, -38)
 
 [node name="LoFi_Magic_Temp_Character" instance=ExtResource("1_aqr14")]
 
-[node name="Skeleton3D" parent="Armature_TempChar" index="0"]
-bones/0/position = Vector3(0, 0.49200085, 0.0051087094)
-bones/0/rotation = Quaternion(-0.066304594, 1.1470324e-05, 0.00030991464, 0.99779946)
-bones/1/rotation = Quaternion(0.104312114, -3.1510185e-06, -8.119746e-05, 0.9945447)
-bones/2/rotation = Quaternion(-0.0029445544, 2.1853723e-05, 1.3504802e-05, 0.99999565)
-bones/3/rotation = Quaternion(7.275605e-05, 2.1828799e-05, 1.3545051e-05, 1)
-bones/4/rotation = Quaternion(0.5345213, 0.080707215, -0.79469824, -0.27609414)
-bones/5/rotation = Quaternion(0.06346836, -0.0019586515, 0.43871304, 0.896381)
-bones/6/rotation = Quaternion(0.540652, -0.0613176, 0.7998977, -0.25317836)
-bones/7/rotation = Quaternion(0.054519117, 0.0020204836, -0.37685317, 0.92466503)
-bones/8/rotation = Quaternion(0.99755114, -0.00021767225, -1.19188135e-05, 0.06994069)
-bones/9/rotation = Quaternion(0.27853125, 9.770966e-13, 4.6451707e-11, 0.96042717)
-bones/10/rotation = Quaternion(0.99733984, -0.00021670153, -1.796732e-05, 0.07289201)
-bones/11/rotation = Quaternion(0.25769976, -2.4361396e-12, 4.7480603e-11, 0.9662251)
-bones/12/position = Vector3(-0.26690248, 0.4526649, 0.009893461)
-bones/12/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/13/position = Vector3(-0.2688542, 0.43723646, -0.17445728)
-bones/14/position = Vector3(0.2753836, 0.4393495, -0.0019121022)
-bones/14/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/15/position = Vector3(0.2540044, 0.41095293, -0.2179625)
-bones/16/position = Vector3(-0.0853, 0.13065906, -0.00070983835)
-bones/16/rotation = Quaternion(-0.694243, 0, 0, 0.7197407)
-bones/17/position = Vector3(7.450581e-09, 1.4053101e-07, -9.075763e-06)
-bones/18/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
-bones/20/position = Vector3(0.0853, 0.12358994, 0.0059907427)
-bones/20/rotation = Quaternion(-0.7070081, 0, 0, 0.7072054)
-bones/21/position = Vector3(-7.450581e-09, 1.03919525e-07, -8.827467e-06)
-bones/22/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
-
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"
 

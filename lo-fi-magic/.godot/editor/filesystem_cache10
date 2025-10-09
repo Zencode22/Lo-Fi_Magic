@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759975822
+::res://::1759981802
 icon.svg::CompressedTexture2D::73806414460693176::1758734774::1758735887::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Level.tscn::PackedScene::1859276042803677323::1759685274::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://cs0cbpmefbgs7::::res://MovableObject.gd
 LoFi_Magic_Temp_Character.glb::PackedScene::6181932970740363984::1759638072::1759975823::1::::<><><>0<>0<>c4be873640f13e514dc81c68e27f91e9<>res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn::uid://ct53r1tsh2dak::::res://LoFi_Magic_Temp_Character_Temp_Body_Base Color.png<>uid://dswbqgcrjyua3::::res://LoFi_Magic_Temp_Character_Temp_Head Base Color.png<>uid://8j7ccmopbqx3::::res://Temp_Char_Anims/Idle.res<>uid://crurbok6shh7j::::res://Temp_Char_Anims/Jump.res<>uid://djr1cyt6h34qd::::res://Temp_Char_Anims/LedgeClimb.res<>uid://biy5q43vagogn::::res://Temp_Char_Anims/LedgeHanging.res<>uid://ce0esc5gvsjto::::res://Temp_Char_Anims/MidAir_Pose.res<>uid://b5xwn45yelgp6::::res://Temp_Char_Anims/Pull.res<>uid://c7ce8w3huug2m::::res://Temp_Char_Anims/Push.res<>uid://c0g8lgm666j65::::res://Temp_Char_Anims/PushPull_Pose.res<>uid://51y7k8nlfdeu::::res://Temp_Char_Anims/QuickClimb.res<>uid://co2al75nx01qu::::res://Temp_Char_Anims/Run.res<>uid://c6d6tg8p8lnex::::res://Temp_Char_Anims/Walk.res<>uid://don3j36bi76kf::::res://Temp_Char_Anims/Wave.res
@@ -10,7 +10,7 @@ lo_fi_magic_temp_character.tscn::PackedScene::5869561266022843095::1759975808::0
 MovableObject.gd::GDScript::6087974023078092660::1759685249::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.gd::GDScript::1253696348981396978::1759975808::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.tscn::PackedScene::1687416399521251802::1758949303::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://lo_fi_magic_temp_character.tscn
-::res://Temp_Char_Anims/::1759975808
+::res://Temp_Char_Anims/::1759975823
 Idle.res::Animation::2336757879438496162::1759975823::0::1::::<><><>0<>0<><>::
 Jump.res::Animation::6008373991192665629::1759975823::0::1::::<><><>0<>0<><>::
 LedgeClimb.res::Animation::7827639570371023111::1759975823::0::1::::<><><>0<>0<><>::
