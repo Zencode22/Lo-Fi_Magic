@@ -67,8 +67,11 @@ func release() -> void:
 		is_grabbed = false
 		grabber = null
 		
+		# Freeze the object again when released
+		freeze = true
+		
 		# Restore original damping values
 		linear_damp = original_linear_damp
 		angular_damp = original_angular_damp
 		
-		print("Object released: ", name)
+		print("Object released and frozen: ", name)
