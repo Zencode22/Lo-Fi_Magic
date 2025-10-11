@@ -8,6 +8,9 @@ var grab_distance: float = 2.0
 var grab_force: float = 15.0
 var grab_angular_damp: float = 5.0
 
+# Contact detection
+var players_in_contact: Array[Node3D] = []
+
 # Original values to restore when released
 var original_linear_damp: float = 0.0
 var original_angular_damp: float = 0.0
@@ -43,9 +46,9 @@ func _physics_process(delta: float) -> void:
 			# If grab button is not pressed, release the object
 			release()
 
-# Method to grab the object
+# Method to grab the object - now requires contact
 func grab(by: Node3D) -> void:
-	if not is_grabbed:
+	if not is_grabbed and players_in_contact.has(by):
 		is_grabbed = true
 		grabber = by
 		
@@ -60,6 +63,8 @@ func grab(by: Node3D) -> void:
 		angular_damp = 2.0
 		
 		print("Object grabbed: ", name)
+	else:
+		print("Cannot grab - not in contact with object")
 
 # Method to release the object
 func release() -> void:
@@ -75,3 +80,19 @@ func release() -> void:
 		angular_damp = original_angular_damp
 		
 		print("Object released and frozen: ", name)
+
+# Contact detection
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		if not players_in_contact.has(body):
+			players_in_contact.append(body)
+			print("Player entered contact with: ", name)
+
+func _on_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		players_in_contact.erase(body)
+		print("Player exited contact with: ", name)
+		
+		# Auto-release if the grabbing player loses contact
+		if is_grabbed and grabber == body:
+			release()

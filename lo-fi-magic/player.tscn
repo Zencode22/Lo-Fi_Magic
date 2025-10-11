@@ -30,6 +30,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0,
 offset_top = 363.0
 offset_right = 400.0
 offset_bottom = 423.0
-text = "Press [Grab] to grab"
+text = "Press [E] to grab"
 horizontal_alignment = 1
 vertical_alignment = 1
