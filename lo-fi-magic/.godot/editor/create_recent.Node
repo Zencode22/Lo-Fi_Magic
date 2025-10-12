@@ -1,7 +1,7 @@
-Label
+PhysicalBone3D
 CollisionShape3D
+Label
 MeshInstance3D
 StaticBody3D
 RigidBody3D
-PhysicalBone3D
 CollisionPolygon3D
