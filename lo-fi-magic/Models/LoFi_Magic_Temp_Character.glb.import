@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cuctsd7uo87v5"
-path="res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn"
+path="res://.godot/imported/LoFi_Magic_Temp_Character.glb-237bfe626f163631efa80342b3cd31c6.scn"
 
 [deps]
 
-source_file="res://LoFi_Magic_Temp_Character.glb"
-dest_files=["res://.godot/imported/LoFi_Magic_Temp_Character.glb-b83dfe638b5beb0a5a091300eb3cea9a.scn"]
+source_file="res://Models/LoFi_Magic_Temp_Character.glb"
+dest_files=["res://.godot/imported/LoFi_Magic_Temp_Character.glb-237bfe626f163631efa80342b3cd31c6.scn"]
 
 [params]
 
@@ -41,7 +41,7 @@ _subresources={
 "animations": {
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Idle.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Idle.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://8j7ccmopbqx3",
 "settings/loop_mode": 1,
@@ -2097,7 +2097,7 @@ _subresources={
 },
 "Jump": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Jump.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Jump.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://crurbok6shh7j",
 "settings/loop_mode": 0,
@@ -4153,7 +4153,7 @@ _subresources={
 },
 "LedgeClimb": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/LedgeClimb.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/LedgeClimb.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://djr1cyt6h34qd",
 "settings/loop_mode": 0,
@@ -6209,7 +6209,7 @@ _subresources={
 },
 "LedgeHanging": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/LedgeHanging.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/LedgeHanging.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://biy5q43vagogn",
 "settings/loop_mode": 0,
@@ -8265,7 +8265,7 @@ _subresources={
 },
 "MidAir_Pose": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/MidAir_Pose.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/MidAir_Pose.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://ce0esc5gvsjto",
 "settings/loop_mode": 0,
@@ -10321,7 +10321,7 @@ _subresources={
 },
 "Pull": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Pull.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Pull.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://b5xwn45yelgp6",
 "settings/loop_mode": 1,
@@ -12377,7 +12377,7 @@ _subresources={
 },
 "Push": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Push.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Push.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://c7ce8w3huug2m",
 "settings/loop_mode": 1,
@@ -14433,7 +14433,7 @@ _subresources={
 },
 "PushPull_Pose": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/PushPull_Pose.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/PushPull_Pose.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://c0g8lgm666j65",
 "settings/loop_mode": 0,
@@ -16489,7 +16489,7 @@ _subresources={
 },
 "QuickClimb": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/QuickClimb.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/QuickClimb.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://51y7k8nlfdeu",
 "settings/loop_mode": 0,
@@ -18545,7 +18545,7 @@ _subresources={
 },
 "Run": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Run.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Run.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://co2al75nx01qu",
 "settings/loop_mode": 1,
@@ -20601,7 +20601,7 @@ _subresources={
 },
 "Walk": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Walk.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Walk.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://c6d6tg8p8lnex",
 "settings/loop_mode": 1,
@@ -22657,7 +22657,7 @@ _subresources={
 },
 "Wave": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Temp_Char_Anims/Wave.res",
+"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Wave.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://don3j36bi76kf",
 "settings/loop_mode": 0,

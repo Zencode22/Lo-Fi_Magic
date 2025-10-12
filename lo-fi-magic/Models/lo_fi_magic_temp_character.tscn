@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://cpvi204vmb5m6"]
 
-[ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://LoFi_Magic_Temp_Character.glb" id="1_aqr14"]
+[ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://Models/LoFi_Magic_Temp_Character.glb" id="1_aqr14"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l35dq"]
 animation = &"Pull"
