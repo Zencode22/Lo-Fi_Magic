@@ -7,6 +7,7 @@
 height = 1.7299805
 
 [node name="Player" type="RigidBody3D"]
+collision_mask = 4
 lock_rotation = true
 script = ExtResource("1_4flbx")
 

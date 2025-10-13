@@ -54,6 +54,7 @@ linear_damp = 3.0
 
 [node name="MovableCube" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.52344126, -2.5)
+collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -62,9 +63,9 @@ script = ExtResource("2_t7iv1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovableCube"]
 shape = SubResource("BoxShape3D_wkftn")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableCube/CollisionShape3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableCube"]
 mesh = SubResource("BoxMesh_2nifc")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 1, -3)

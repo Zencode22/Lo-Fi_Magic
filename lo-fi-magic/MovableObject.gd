@@ -1,98 +1,130 @@
 extends RigidBody3D
 
-# Grab variables
 var is_grabbed: bool = false
 var grabber: Node3D = null
 var grab_point: Vector3 = Vector3.ZERO
-var grab_distance: float = 2.0
+var grab_distance: float = 1.0
 var grab_force: float = 15.0
 var grab_angular_damp: float = 5.0
 
-# Contact detection
 var players_in_contact: Array[Node3D] = []
 
-# Original values to restore when released
 var original_linear_damp: float = 0.0
 var original_angular_damp: float = 0.0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	sleeping = false
 	freeze = true
 	original_linear_damp = linear_damp
 	original_angular_damp = angular_damp
+	
+	# Nuclear option - collide with everything
+	collision_layer = 0xFFFFFFFF
+	collision_mask = 0xFFFFFFFF
+	
+	add_to_group("movable")
+	print("MovableObject ready - Layer: all, Mask: all")
+	
+	# Debug collision shape
+	call_deferred("_debug_collision_shape")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _debug_collision_shape():
+	var collision_shape = get_node_or_null("CollisionShape3D")
+	if collision_shape:
+		print("MovableObject collision shape: ", collision_shape.shape)
+		print("MovableObject collision shape position: ", collision_shape.position)
+		print("MovableObject collision shape global position: ", collision_shape.global_position)
+		print("MovableObject global position: ", global_position)
+		print("MovableObject scale: ", scale)
+	else:
+		print("MovableObject has NO CollisionShape3D!")
 
-# Physics process for handling grab mechanics
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
 		if grabber.grabbed_object == self and Input.is_action_pressed("grab"):
-			var target_position = grabber.global_position + grabber.global_transform.basis.z * -grab_distance
-		
-			# Calculate the direction and distance to the target
+			# Calculate target position in front of the player at chest height
+			var camera = grabber.get_node_or_null("TwistPivot/PitchPivot/Camera3D")
+			var target_position
+			
+			if camera:
+				# Use camera forward direction, but keep it at a reasonable height
+				var camera_forward = -camera.global_transform.basis.z
+				target_position = grabber.global_position + camera_forward * grab_distance
+				# Keep the object at a consistent height (chest level)
+				target_position.y = grabber.global_position.y + 0.5
+			else:
+				# Fallback to player forward direction
+				target_position = grabber.global_position + grabber.global_transform.basis.z * -grab_distance
+				target_position.y = grabber.global_position.y + 0.5
+			
 			var direction = target_position - global_position
 			var distance = direction.length()
-		
-			# Apply force to move the object toward the grab point
+			
 			if distance > 0.1:
-				var force = direction.normalized() * grab_force * distance
+				# Use different force calculations based on distance
+				var force_magnitude
+				if distance > 1.0:
+					# Far away - use stronger force
+					force_magnitude = grab_force * distance * mass * 2.0
+				else:
+					# Close - use gentler force for fine control
+					force_magnitude = grab_force * distance * mass * 0.5
+				
+				var force = direction.normalized() * force_magnitude
 				apply_central_force(force)
 				
-				# Reduce angular velocity for more stable grabbing
+				# Damp angular velocity more smoothly
 				angular_velocity = angular_velocity.lerp(Vector3.ZERO, grab_angular_damp * delta)
+				
+				# Counteract gravity based on distance - fixed ternary
+				var gravity_factor = 1.0 - clamp(distance / grab_distance, 0.0, 1.0)
+				var anti_gravity = Vector3.UP * mass * 4.0 * gravity_factor
+				apply_central_force(anti_gravity)
 		else:
-			# If grab button is not pressed, release the object
 			release()
 
-# Method to grab the object - now requires contact
 func grab(by: Node3D) -> void:
-	if not is_grabbed and players_in_contact.has(by):
-		is_grabbed = true
-		grabber = by
+	if not is_grabbed and by != null:
+		# TEMPORARY: Use proximity instead of contact for testing
+		var distance = global_position.distance_to(by.global_position)
+		var in_proximity = distance < 2.0
 		
-		# Unfreeze the object when grabbed
-		freeze = false
+		# Fixed boolean expression - no more ternary operator issues
+		var can_grab = false
+		if players_in_contact.has(by) or in_proximity:
+			can_grab = true
 		
-		# Store the initial grab point relative to the object
-		grab_point = global_position
-		
-		# Reduce damping while grabbed for more responsive movement
-		linear_damp = 0.5
-		angular_damp = 2.0
-		
-		print("Object grabbed: ", name)
-	else:
-		print("Cannot grab - not in contact with object")
+		if can_grab:
+			is_grabbed = true
+			grabber = by
+			freeze = false
+			grab_point = global_position
+			linear_damp = 0.5
+			angular_damp = 2.0
+			print("Object grabbed by player")
+		else:
+			print("Grab failed - player not in contact or proximity. Contacts: ", players_in_contact.size(), " Distance: ", distance)
 
-# Method to release the object
 func release() -> void:
 	if is_grabbed:
 		is_grabbed = false
 		grabber = null
-		
-		# Freeze the object again when released
 		freeze = true
-		
-		# Restore original damping values
 		linear_damp = original_linear_damp
 		angular_damp = original_angular_damp
-		
-		print("Object released and frozen: ", name)
+		print("Object released")
 
-# Contact detection
-func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		if not players_in_contact.has(body):
-			players_in_contact.append(body)
-			print("Player entered contact with: ", name)
-
-func _on_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		players_in_contact.erase(body)
-		print("Player exited contact with: ", name)
-		
-		# Auto-release if the grabbing player loses contact
-		if is_grabbed and grabber == body:
-			release()
+# Add a method to check if a player can grab this object
+func can_be_grabbed_by(player: Node3D) -> bool:
+	# TEMPORARY: Use proximity instead of contact for testing
+	var distance = global_position.distance_to(player.global_position)
+	var in_proximity = distance < 2.0
+	
+	# Fixed boolean expression - no more ternary operator issues
+	var can_grab = false
+	if not is_grabbed:
+		if players_in_contact.has(player) or in_proximity:
+			can_grab = true
+	
+	print("Can be grabbed by player: ", can_grab, " (in contact: ", players_in_contact.has(player), ", in proximity: ", in_proximity, ", distance: ", distance, ", is_grabbed: ", is_grabbed, ")")
+	return can_grab

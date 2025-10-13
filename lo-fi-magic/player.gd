@@ -17,36 +17,67 @@ var last_direction = Vector3.FORWARD
 @onready var anim_tree = $LoFi_Magic_Temp_Character/AnimationTree
 
 var grabbed_object: RigidBody3D = null
-var grab_range: float = 5.0
+var grab_range: float = 10.0
 
 @onready var grab_prompt_label = $GrabPromptLabel
 var can_grab_object: bool = false
 var current_grab_target: Node3D = null
 
 func _ready() -> void:
+	sleeping = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if grab_prompt_label:
 		grab_prompt_label.hide()
 	
-	# Add player to player group for contact detection
 	add_to_group("player")
+	
+	# Nuclear option - collide with everything
+	collision_layer = 0xFFFFFFFF
+	collision_mask = 0xFFFFFFFF
+	
+	setup_collision_shape()
+	print("Player ready - Layer: all, Mask: all")
+	
+	# Debug collision shape
+	call_deferred("_debug_collision_shape")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _debug_collision_shape():
+	var collision_shape = get_node_or_null("CollisionShape3D")
+	if collision_shape:
+		print("Player collision shape: ", collision_shape.shape)
+		print("Player collision shape position: ", collision_shape.position)
+		print("Player collision shape global position: ", collision_shape.global_position)
+		print("Player global position: ", global_position)
+		print("Player scale: ", scale)
+	else:
+		print("Player has NO CollisionShape3D!")
+
+func setup_collision_shape() -> void:
+	if not has_node("CollisionShape3D"):
+		var collision_shape = CollisionShape3D.new()
+		collision_shape.name = "CollisionShape3D"
+		collision_shape.shape = CapsuleShape3D.new()
+		collision_shape.shape.height = 1.8
+		collision_shape.shape.radius = 0.4
+		collision_shape.position = Vector3(0, 0.9, 0)
+		add_child(collision_shape)
+
 func _process(delta: float) -> void:
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
 	
-	# Check for grab-able objects
 	check_for_grab_objects()
 	
-	# Check if shift is pressed for running
 	is_running = Input.is_action_pressed("run")
-	var move_speed = default_movespeed * (1.5 if is_running else 1.0)
+	# Fixed ternary operator
+	var move_speed_multiplier = 1.5
+	if not is_running:
+		move_speed_multiplier = 1.0
+	var move_speed = default_movespeed * move_speed_multiplier
 	
 	apply_central_force(twist_pivot.basis * input * move_speed * delta)
 
-	# Jump command
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		var jump_height = 5.0
 		var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -67,7 +98,9 @@ func _process(delta: float) -> void:
 	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
 	if direction:
 		if is_grabbing && grabbed_object != null:
-			last_direction = grabbed_object.position
+			var look_direction = (grabbed_object.global_position - global_position).normalized()
+			if look_direction.length() > 0.1:
+				last_direction = Vector3(look_direction.x, 0, look_direction.z).normalized()
 		else:
 			last_direction = direction
 
@@ -78,13 +111,15 @@ func _process(delta: float) -> void:
 	if is_grabbing:
 		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(direction.x,direction.z).normalized())
 	else:
-		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(direction.x,direction.z).normalized()) * (2 if is_running else 1))
+		# Fixed ternary operator
+		var blend_multiplier = 1
+		if is_running:
+			blend_multiplier = 2
+		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(direction.x,direction.z).normalized()) * blend_multiplier)
 		
 	twist_input = 0.0
 	pitch_input = 0.0
-	
 
-	# Handle grab input
 	if Input.is_action_just_pressed("grab"):
 		if grabbed_object:
 			release_object()
@@ -94,16 +129,13 @@ func _process(delta: float) -> void:
 	if grabbed_object and not Input.is_action_pressed("grab"):
 		release_object()
 
-	# Update animation conditions
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
 	anim_tree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
 	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
 	
-	# Update grab prompt visibility
 	update_grab_prompt()
-	
 	
 func is_on_floor() -> bool:
 	var space_state = get_world_3d().direct_space_state
@@ -111,6 +143,7 @@ func is_on_floor() -> bool:
 	var end = origin + Vector3.DOWN * 1.1
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.exclude = [self]
+	query.collision_mask = 0xFFFFFFFF  # Check against everything
 	var result = space_state.intersect_ray(query)
 	return !result.is_empty()
 	
@@ -121,29 +154,27 @@ func _unhandled_input(event: InputEvent) -> void:
 			pitch_input = - event.relative.y * mouse_sensitivity
 
 func check_for_grab_objects() -> void:
-	var space_state = get_world_3d().direct_space_state
-	var camera = $TwistPivot/PitchPivot/Camera3D
-	var from = camera.global_position
-	var to = from + camera.global_transform.basis.z * -grab_range
+	var closest_object = null
+	var closest_distance = grab_range
 	
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	query.collide_with_areas = true
-	query.exclude = [self]
-	query.collision_mask = 1
+	# Check all movable objects in range
+	var movable_objects = get_tree().get_nodes_in_group("movable")
 	
-	var result = space_state.intersect_ray(query)
+	for node in movable_objects:
+		if node != self and node.has_method("grab") and node.has_method("can_be_grabbed_by"):
+			# Check if we can grab this object
+			if node.can_be_grabbed_by(self):
+				var distance = global_position.distance_to(node.global_position)
+				if distance < closest_distance:
+					closest_object = node
+					closest_distance = distance
 	
-	if result and not is_grabbing:
-		var collider = result["collider"]
-		if collider.has_method("grab") and collider.has_method("_on_body_entered"):
-			# Only show grab prompt if we're in contact with the object
-			if collider.players_in_contact.has(self):
-				can_grab_object = true
-				current_grab_target = collider
-				return
-	
-	can_grab_object = false
-	current_grab_target = null
+	if closest_object:
+		can_grab_object = true
+		current_grab_target = closest_object
+	else:
+		can_grab_object = false
+		current_grab_target = null
 
 func update_grab_prompt() -> void:
 	if grab_prompt_label:
@@ -153,55 +184,29 @@ func update_grab_prompt() -> void:
 		else:
 			grab_prompt_label.hide()
 
-# Grab functionality - now requires contact
 func try_grab_object() -> void:
-	if current_grab_target and current_grab_target.has_method("grab"):
-		# Check if we're in contact with the object before grabbing
-		if current_grab_target.players_in_contact.has(self):
+	if current_grab_target != null and current_grab_target.has_method("grab"):
+		# Double-check that we can still grab before grabbing
+		if current_grab_target.has_method("can_be_grabbed_by") and current_grab_target.can_be_grabbed_by(self):
 			grabbed_object = current_grab_target
 			current_grab_target.grab(self)
-			print("Grabbed object: ", current_grab_target.name)
 			is_grabbing = true
 			can_grab_object = false
 			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 			anim_tree.set("parameters/conditions/grounded", false)
 			state_machine.travel("IdlePushPull")
+			print("Player grabbed object")
 		else:
-			print("Cannot grab - not in contact with object")
+			print("Cannot grab - object cannot be grabbed")
 	else:
-		var space_state = get_world_3d().direct_space_state
-		var camera = $TwistPivot/PitchPivot/Camera3D
-		var from = camera.global_position
-		var to = from + camera.global_transform.basis.z * -grab_range
-		
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.collide_with_areas = true
-		query.exclude = [self]
-		query.collision_mask = 1
-		
-		var result = space_state.intersect_ray(query)
-		
-		if result:
-			var collider = result["collider"]
-			if collider.has_method("grab"):
-				# Check if we're in contact with the object before grabbing
-				if collider.players_in_contact.has(self):
-					grabbed_object = collider
-					collider.grab(self)
-					print("Grabbed object: ", collider.name)
-					is_grabbing = true
-					anim_tree.set("parameters/conditions/grabbing", is_grabbing)
-					anim_tree.set("parameters/conditions/grounded", false)
-					state_machine.travel("IdlePushPull")
-				else:
-					print("Cannot grab - not in contact with object")
+		print("No valid grab target")
 
 func release_object() -> void:
 	if grabbed_object and grabbed_object.has_method("release"):
 		grabbed_object.release()
-		print("Released object: ", grabbed_object.name)
 		grabbed_object = null
 		is_grabbing = false
 		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 		anim_tree.set("parameters/conditions/grounded", true)
 		state_machine.travel("IdleWalkRun")
+		print("Player released object")
