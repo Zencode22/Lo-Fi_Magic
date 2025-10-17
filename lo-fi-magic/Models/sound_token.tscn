@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0rv1fk1y8fcv" path="res://Textures/SoundToken/Token_BaseColor.png" id="2_3532l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayf8i"]
-albedo_color = Color(0.9843685, 0.24767402, 1, 1)
+albedo_color = Color(0.9843137, 0.24705882, 1, 1)
 albedo_texture = ExtResource("2_3532l")
 metallic = 1.0
 metallic_specular = 1.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_bexhn"]
 [ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://MovableObject.gd" id="2_t7iv1"]
-[ext_resource type="PackedScene" uid="uid://dshgsh0rtsfk" path="res://sound_token.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://273sj0ysbnro" path="res://sound_token_collectable.tscn" id="3_2nifc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_epcml"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -112,5 +112,5 @@ mesh = SubResource("BoxMesh_t7iv1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
 shape = SubResource("BoxShape3D_2nifc")
 
-[node name="Sound_Token" parent="." instance=ExtResource("3_2nifc")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.1738062, 3.675, 3.033019)
+[node name="Sound_Token_Collectable" parent="." instance=ExtResource("3_2nifc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.853382, 3.9857984, 3.103954)
