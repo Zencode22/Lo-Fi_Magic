@@ -12,6 +12,9 @@ var players_in_contact: Array[Node3D] = []
 var original_linear_damp: float = 0.0
 var original_angular_damp: float = 0.0
 
+var player_has_moved: bool = false
+var last_player_position: Vector3 = Vector3.ZERO
+
 func _ready() -> void:
 	sleeping = false
 	freeze = true
@@ -26,10 +29,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
 		if grabber.grabbed_object == self and Input.is_action_pressed("grab"):
-			# Use the player's forward direction instead of camera direction
-			var player_forward = -grabber.global_transform.basis.z
-			var target_position = grabber.global_position + player_forward * grab_distance
-			target_position.y = grabber.global_position.y + 0.5
+			if not player_has_moved and grabber.global_position.distance_to(last_player_position) > 0.1:
+				player_has_moved = true
+			
+			var target_position: Vector3
+			
+			if player_has_moved:
+				var player_forward = -grabber.global_transform.basis.z
+				target_position = grabber.global_position + player_forward * grab_distance
+				target_position.y = grabber.global_position.y + 0.5
+			else:
+				target_position = grab_point
 			
 			var direction = target_position - global_position
 			var distance = direction.length()
@@ -66,6 +76,8 @@ func grab(by: Node3D) -> void:
 			grabber = by
 			freeze = false
 			grab_point = global_position
+			last_player_position = by.global_position 
+			player_has_moved = false
 			linear_damp = 0.5
 			angular_damp = 2.0
 
@@ -74,6 +86,7 @@ func release() -> void:
 		is_grabbed = false
 		grabber = null
 		freeze = true
+		player_has_moved = false
 		linear_damp = original_linear_damp
 		angular_damp = original_angular_damp
 
