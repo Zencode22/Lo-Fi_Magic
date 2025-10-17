@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://273sj0ysbnro"]
+
+[ext_resource type="Script" uid="uid://ceou704owtnt0" path="res://sound_token.gd" id="1_5ystl"]
+[ext_resource type="PackedScene" uid="uid://dunvsv275xic7" path="res://Models/sound_token.tscn" id="2_pq252"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_40q3k"]
+
+[node name="Sound_Token_Collectable" type="StaticBody3D"]
+collision_layer = 0
+script = ExtResource("1_5ystl")
+
+[node name="Sound_Token" parent="." instance=ExtResource("2_pq252")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_40q3k")
