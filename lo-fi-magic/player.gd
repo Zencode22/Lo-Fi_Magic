@@ -31,7 +31,6 @@ func _ready() -> void:
 	
 	add_to_group("player")
 	
-	# Nuclear option - collide with everything
 	collision_layer = 0xFFFFFFFF
 	collision_mask = 0xFFFFFFFF
 	
@@ -56,7 +55,6 @@ func _process(delta: float) -> void:
 	check_for_grab_objects()
 	
 	is_running = Input.is_action_pressed("run")
-	# Fixed ternary operator
 	var move_speed_multiplier = 1.5
 	if not is_running:
 		move_speed_multiplier = 1.0
@@ -97,7 +95,6 @@ func _process(delta: float) -> void:
 	if is_grabbing:
 		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(direction.x,direction.z).normalized())
 	else:
-		# Fixed ternary operator
 		var blend_multiplier = 1
 		if is_running:
 			blend_multiplier = 2
@@ -129,7 +126,7 @@ func is_on_floor() -> bool:
 	var end = origin + Vector3.DOWN * 1.1
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.exclude = [self]
-	query.collision_mask = 0xFFFFFFFF  # Check against everything
+	query.collision_mask = 0xFFFFFFFF
 	var result = space_state.intersect_ray(query)
 	return !result.is_empty()
 	
@@ -143,12 +140,10 @@ func check_for_grab_objects() -> void:
 	var closest_object = null
 	var closest_distance = grab_range
 	
-	# Check all movable objects in range
 	var movable_objects = get_tree().get_nodes_in_group("movable")
 	
 	for node in movable_objects:
 		if node != self and node.has_method("grab") and node.has_method("can_be_grabbed_by"):
-			# Check if we can grab this object
 			if node.can_be_grabbed_by(self):
 				var distance = global_position.distance_to(node.global_position)
 				if distance < closest_distance:
@@ -172,7 +167,6 @@ func update_grab_prompt() -> void:
 
 func try_grab_object() -> void:
 	if current_grab_target != null and current_grab_target.has_method("grab"):
-		# Double-check that we can still grab before grabbing
 		if current_grab_target.has_method("can_be_grabbed_by") and current_grab_target.can_be_grabbed_by(self):
 			grabbed_object = current_grab_target
 			current_grab_target.grab(self)
