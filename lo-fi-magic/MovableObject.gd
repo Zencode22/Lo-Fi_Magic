@@ -23,21 +23,6 @@ func _ready() -> void:
 	collision_mask = 0xFFFFFFFF
 	
 	add_to_group("movable")
-	print("MovableObject ready - Layer: all, Mask: all")
-	
-	# Debug collision shape
-	call_deferred("_debug_collision_shape")
-
-func _debug_collision_shape():
-	var collision_shape = get_node_or_null("CollisionShape3D")
-	if collision_shape:
-		print("MovableObject collision shape: ", collision_shape.shape)
-		print("MovableObject collision shape position: ", collision_shape.position)
-		print("MovableObject collision shape global position: ", collision_shape.global_position)
-		print("MovableObject global position: ", global_position)
-		print("MovableObject scale: ", scale)
-	else:
-		print("MovableObject has NO CollisionShape3D!")
 
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
@@ -101,9 +86,6 @@ func grab(by: Node3D) -> void:
 			grab_point = global_position
 			linear_damp = 0.5
 			angular_damp = 2.0
-			print("Object grabbed by player")
-		else:
-			print("Grab failed - player not in contact or proximity. Contacts: ", players_in_contact.size(), " Distance: ", distance)
 
 func release() -> void:
 	if is_grabbed:
@@ -112,8 +94,6 @@ func release() -> void:
 		freeze = true
 		linear_damp = original_linear_damp
 		angular_damp = original_angular_damp
-		print("Object released")
-
 # Add a method to check if a player can grab this object
 func can_be_grabbed_by(player: Node3D) -> bool:
 	# TEMPORARY: Use proximity instead of contact for testing
@@ -125,6 +105,4 @@ func can_be_grabbed_by(player: Node3D) -> bool:
 	if not is_grabbed:
 		if players_in_contact.has(player) or in_proximity:
 			can_grab = true
-	
-	print("Can be grabbed by player: ", can_grab, " (in contact: ", players_in_contact.has(player), ", in proximity: ", in_proximity, ", distance: ", distance, ", is_grabbed: ", is_grabbed, ")")
 	return can_grab

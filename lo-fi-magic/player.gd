@@ -36,21 +36,7 @@ func _ready() -> void:
 	collision_mask = 0xFFFFFFFF
 	
 	setup_collision_shape()
-	print("Player ready - Layer: all, Mask: all")
-	
-	# Debug collision shape
-	call_deferred("_debug_collision_shape")
 
-func _debug_collision_shape():
-	var collision_shape = get_node_or_null("CollisionShape3D")
-	if collision_shape:
-		print("Player collision shape: ", collision_shape.shape)
-		print("Player collision shape position: ", collision_shape.position)
-		print("Player collision shape global position: ", collision_shape.global_position)
-		print("Player global position: ", global_position)
-		print("Player scale: ", scale)
-	else:
-		print("Player has NO CollisionShape3D!")
 
 func setup_collision_shape() -> void:
 	if not has_node("CollisionShape3D"):
@@ -195,11 +181,6 @@ func try_grab_object() -> void:
 			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 			anim_tree.set("parameters/conditions/grounded", false)
 			state_machine.travel("IdlePushPull")
-			print("Player grabbed object")
-		else:
-			print("Cannot grab - object cannot be grabbed")
-	else:
-		print("No valid grab target")
 
 func release_object() -> void:
 	if grabbed_object and grabbed_object.has_method("release"):
@@ -209,4 +190,3 @@ func release_object() -> void:
 		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 		anim_tree.set("parameters/conditions/grounded", true)
 		state_machine.travel("IdleWalkRun")
-		print("Player released object")
