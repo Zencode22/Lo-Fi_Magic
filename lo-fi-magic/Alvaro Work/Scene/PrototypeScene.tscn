@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=8 format=3 uid="uid://b2xr6v8tvicck"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
 [ext_resource type="Material" uid="uid://bo3av6dnb22l3" path="res://Alvaro Work/Materials/Mat_GrayPrototype.tres" id="3_gxy5r"]
 [ext_resource type="Material" uid="uid://dv8ux85akea7d" path="res://Alvaro Work/Materials/Mat_PurplePrototype.tres" id="4_5h3uk"]
+[ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -211,7 +212,19 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 1
 size = Vector3(6, 3, 1)
 material = ExtResource("4_5h3uk")
 
-[node name="TreeLayer" type="CSGCombiner3D" parent="."]
+[node name="TreeLayer" type="Node3D" parent="."]
+
+[node name="Tree1" parent="TreeLayer" instance=ExtResource("5_jl5o3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -5.8061814, 1.9945508, 6.1127987)
+
+[node name="Tree2" parent="TreeLayer" instance=ExtResource("5_jl5o3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.117914, 1.9945496, -6.7272835)
+
+[node name="Tree3" parent="TreeLayer" instance=ExtResource("5_jl5o3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -9.010874, 1.9945505, -6.416827)
+
+[node name="Tree4" parent="TreeLayer" instance=ExtResource("5_jl5o3")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.226428, 1.9945501, -3.6701493)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 4.8695507, 0)
