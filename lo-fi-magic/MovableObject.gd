@@ -47,26 +47,18 @@ func calculate_object_height() -> void:
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
 		if grabber.grabbed_object == self and Input.is_action_pressed("grab"):
-			if not player_has_moved and (grabber.global_position.distance_to(last_player_position) > 0.1 or grabber.global_transform.basis != last_player_rotation):
-				player_has_moved = true
-			
-			var target_position: Vector3
-			
-			if player_has_moved:
-				var player_forward = -grabber.global_transform.basis.z
+			# Always update grab point based on current player position
+			var player_forward = -grabber.global_transform.basis.z
+			var target_position = grabber.global_position + player_forward * grab_distance
 
-				target_position = grabber.global_position + player_forward * grab_distance
-
-				if stay_on_ground:
-					target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
-				else:
-					target_position.y = grabber.global_position.y + 0.5
-
-				grab_point = target_position
+			if stay_on_ground:
+				target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
 			else:
-				target_position = grab_point
+				target_position.y = grabber.global_position.y + 0.5
 
-			var direction = target_position - global_position
+			grab_point = target_position
+
+			var direction = grab_point - global_position
 			var distance = direction.length()
 			
 			if distance > 0.01:
@@ -105,21 +97,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			release()
 
-func get_ground_height_at_position(position: Vector3) -> float:
-	var space_state = get_world_3d().direct_space_state
-	var origin = Vector3(position.x, position.y + 10.0, position.z)
-	var end = Vector3(position.x, position.y - 10.0, position.z)
-	
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.exclude = [self]
-	query.collision_mask = 1
-	
-	var result = space_state.intersect_ray(query)
-	if result:
-		return result.position.y
-	else:
-		return 0.0
-
 func grab(by: Node3D) -> void:
 	if not is_grabbed and by != null:
 		var distance = global_position.distance_to(by.global_position)
@@ -134,6 +111,7 @@ func grab(by: Node3D) -> void:
 			grabber = by
 			freeze = false
 			
+			# Calculate initial grab point
 			var player_forward = -by.global_transform.basis.z
 			grab_point = by.global_position + player_forward * grab_distance
 			
@@ -142,18 +120,30 @@ func grab(by: Node3D) -> void:
 			else:
 				grab_point.y = by.global_position.y + 0.8
 			
-			last_player_position = by.global_position 
-			last_player_rotation = by.global_transform.basis
-			player_has_moved = false
-			
 			linear_damp = 1.5
 			angular_damp = 4.0
 			
+			# Apply immediate force to start moving toward grab point
 			var initial_direction = (grab_point - global_position).normalized()
 			if stay_on_ground:
 				initial_direction.y = 0
-			var initial_force = initial_direction * mass * 2.0
+			var initial_force = initial_direction * mass * 8.0  # Increased force for more immediate response
 			apply_central_impulse(initial_force)
+
+func get_ground_height_at_position(position: Vector3) -> float:
+	var space_state = get_world_3d().direct_space_state
+	var origin = Vector3(position.x, position.y + 10.0, position.z)
+	var end = Vector3(position.x, position.y - 10.0, position.z)
+	
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.exclude = [self]
+	query.collision_mask = 1
+	
+	var result = space_state.intersect_ray(query)
+	if result:
+		return result.position.y
+	else:
+		return 0.0
 
 func release() -> void:
 	if is_grabbed:
