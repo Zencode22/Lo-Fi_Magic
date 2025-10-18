@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyhnse20ora2s"]
+
+[ext_resource type="Material" uid="uid://oqwlytaokd3w" path="res://Alvaro Work/Materials/Mat_BarkPrototype.tres" id="1_s324x"]
+[ext_resource type="Material" uid="uid://mxju83h8o3dj" path="res://Alvaro Work/Materials/Mat_LeafPrototype.tres" id="2_sew3w"]
+
+[node name="Tree1" type="Node3D"]
+
+[node name="Bark" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(0.5, 2, 0.5)
+material = ExtResource("1_s324x")
+
+[node name="Leaf" type="CSGSphere3D" parent="Bark"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7053833, 0)
+radius = 1.0
+material = ExtResource("2_sew3w")
