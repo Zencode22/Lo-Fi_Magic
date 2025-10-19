@@ -17,7 +17,7 @@ var last_direction = Vector3.FORWARD
 @onready var anim_tree = $LoFi_Magic_Temp_Character/AnimationTree
 
 var grabbed_object: RigidBody3D = null
-var grab_range: float = 10.0
+var grab_range: float = 1.5
 
 @onready var grab_prompt_label = $GrabPromptLabel
 var can_grab_object: bool = false
