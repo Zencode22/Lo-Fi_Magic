@@ -36,7 +36,6 @@ func _ready() -> void:
 	
 	setup_collision_shape()
 
-
 func setup_collision_shape() -> void:
 	if not has_node("CollisionShape3D"):
 		var collision_shape = CollisionShape3D.new()
@@ -135,6 +134,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
+	
+	# Add this section to recapture mouse when clicking
+	if event is InputEventMouseButton:
+		if event.pressed and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func check_for_grab_objects() -> void:
 	var closest_object = null
