@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb7qfixek2t4k"
+uid="uid://i6dy5ooskxkn"
 path.s3tc="res://.godot/imported/LoFi_Magic_Temp_Character_Temp_Body_Base Color.png-9c0d1e8c63a996c42ad45d61efea3751.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "b21d681905674b54ddaf896ba9f66da8"
 }
 
 [deps]
