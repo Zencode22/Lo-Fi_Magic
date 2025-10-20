@@ -22,7 +22,7 @@ var stay_on_ground: bool = true
 
 func _ready() -> void:
 	sleeping = false
-	freeze = false
+	freeze = true  # Start frozen by default
 	can_sleep = false
 	original_linear_damp = linear_damp
 	original_angular_damp = angular_damp
@@ -124,7 +124,7 @@ func grab(by: Node3D) -> void:
 		if can_grab:
 			is_grabbed = true
 			grabber = by
-			freeze = false
+			freeze = false  # Unfreeze when grabbed
 			can_sleep = false
 			
 			last_player_position = by.global_position
@@ -176,7 +176,7 @@ func release() -> void:
 	if is_grabbed:
 		is_grabbed = false
 		grabber = null
-		freeze = false
+		freeze = true  # Freeze immediately when released
 		can_sleep = true
 		player_has_moved = false
 		linear_damp = original_linear_damp
