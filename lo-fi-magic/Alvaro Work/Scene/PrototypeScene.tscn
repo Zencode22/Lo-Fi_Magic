@@ -21,6 +21,7 @@ uv2_world_triplanar = true
 
 [node name="Player" parent="." instance=ExtResource("1_8k8km")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.970276, 0.3843211, 16.723242)
+linear_damp = 3.0
 
 [node name="MillenniumParkArea" type="CSGCombiner3D" parent="."]
 use_collision = true
