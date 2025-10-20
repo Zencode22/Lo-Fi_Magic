@@ -1,9 +1,7 @@
-Node3D
-CSGSphere3D
-CSGBox3D
-CSGCombiner3D
-CSGPolygon3D
-Node
-DirectionalLight3D
+StaticBody3D
+PhysicalBone3D
 CollisionShape3D
+Label
+MeshInstance3D
+RigidBody3D
 CollisionPolygon3D
