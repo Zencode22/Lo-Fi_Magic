@@ -102,15 +102,15 @@ func _process(delta: float) -> void:
 	twist_input = 0.0
 	pitch_input = 0.0
 
+	# Toggle grab on key press - no need to hold the key
 	if Input.is_action_just_pressed("grab"):
-		if grabbed_object:
+		if is_grabbing:
 			release_object()
 		else:
 			try_grab_object()
 	
-	if grabbed_object and not Input.is_action_pressed("grab"):
-		release_object()
-
+	# Removed the continuous check for grab key release
+	
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
 	anim_tree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
@@ -165,6 +165,9 @@ func update_grab_prompt() -> void:
 	if grab_prompt_label:
 		if can_grab_object and not is_grabbing and current_grab_target != null:
 			grab_prompt_label.text = "Press [E] to grab"
+			grab_prompt_label.show()
+		elif is_grabbing and grabbed_object != null:
+			grab_prompt_label.text = "Press [E] to release"
 			grab_prompt_label.show()
 		else:
 			grab_prompt_label.hide()

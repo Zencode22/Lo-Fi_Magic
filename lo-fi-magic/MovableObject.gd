@@ -47,55 +47,62 @@ func calculate_object_height() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
-		if grabber.grabbed_object == self and Input.is_action_pressed("grab"):
+		# Check if grabber is still grabbing this object
+		if grabber.grabbed_object == self:
 			if freeze:
 				freeze = false
 			
-			var player_moved = false
-			var player_rotated = false
-			
-			if last_player_position.distance_to(grabber.global_position) > 0.01:
-				player_moved = true
+			# If we just started grabbing, initialize positions but don't apply forces yet
+			var just_grabbed = last_player_position == Vector3.ZERO
+			if just_grabbed:
 				last_player_position = grabber.global_position
-			
-			if last_player_rotation != grabber.global_transform.basis:
-				player_rotated = true
 				last_player_rotation = grabber.global_transform.basis
-			
-			if player_moved or player_rotated:
-				var player_forward = -grabber.global_transform.basis.z
-				var target_position = grabber.global_position + player_forward * grab_distance
-
-				if stay_on_ground:
-					target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
-				else:
-					target_position.y = grabber.global_position.y + 0.5
-
-				grab_point = target_position
-
-				var direction = grab_point - global_position
-				var distance = direction.length()
+			else:
+				var player_moved = false
+				var player_rotated = false
 				
-				if distance > 0.01:
-					var force_magnitude
-					
-					if distance > 1.0:
-						force_magnitude = grab_force * distance * mass * 2.0
-					else:
-						force_magnitude = grab_force * distance * mass * 1.2
-					
-					var force = direction.normalized() * force_magnitude
-					
-					if stay_on_ground:
-						force.y = 0
-					
-					apply_central_force(force)
+				if last_player_position.distance_to(grabber.global_position) > 0.01:
+					player_moved = true
+					last_player_position = grabber.global_position
+				
+				if last_player_rotation != grabber.global_transform.basis:
+					player_rotated = true
+					last_player_rotation = grabber.global_transform.basis
+				
+				if player_moved or player_rotated:
+					var player_forward = -grabber.global_transform.basis.z
+					var target_position = grabber.global_position + player_forward * grab_distance
 
-					if grabber is RigidBody3D:
-						var velocity_match = (grabber.linear_velocity - linear_velocity) * mass * 0.5
+					if stay_on_ground:
+						target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
+					else:
+						target_position.y = grabber.global_position.y + 0.5
+
+					grab_point = target_position
+
+					var direction = grab_point - global_position
+					var distance = direction.length()
+					
+					if distance > 0.01:
+						var force_magnitude
+						
+						if distance > 1.0:
+							force_magnitude = grab_force * distance * mass * 2.0
+						else:
+							force_magnitude = grab_force * distance * mass * 1.2
+						
+						var force = direction.normalized() * force_magnitude
+						
 						if stay_on_ground:
-							velocity_match.y = 0
-						apply_central_force(velocity_match)
+							force.y = 0
+						
+						apply_central_force(force)
+
+						if grabber is RigidBody3D:
+							var velocity_match = (grabber.linear_velocity - linear_velocity) * mass * 0.5
+							if stay_on_ground:
+								velocity_match.y = 0
+							apply_central_force(velocity_match)
 			
 			angular_velocity = angular_velocity.lerp(Vector3.ZERO, grab_angular_damp * delta)
 			
@@ -127,25 +134,17 @@ func grab(by: Node3D) -> void:
 			freeze = false
 			can_sleep = false
 			
-			last_player_position = by.global_position
-			last_player_rotation = by.global_transform.basis
+			# Initialize tracking variables but don't move the object yet
+			last_player_position = Vector3.ZERO  # This will trigger the "just grabbed" check
+			last_player_rotation = Basis.IDENTITY
 			
-			var player_forward = -by.global_transform.basis.z
-			grab_point = by.global_position + player_forward * grab_distance
-			
-			if stay_on_ground:
-				grab_point.y = get_ground_height_at_position(grab_point) + (object_height / 2)
-			else:
-				grab_point.y = by.global_position.y + 0.8
+			# KEEP THE OBJECT IN ITS CURRENT POSITION
+			grab_point = global_position
 			
 			linear_damp = 2.0
 			angular_damp = 6.0
 			
-			var initial_direction = (grab_point - global_position).normalized()
-			if stay_on_ground:
-				initial_direction.y = 0
-			var initial_force = initial_direction * mass * 15.0
-			apply_central_impulse(initial_force)
+			# Don't apply any initial force - keep it where it is
 
 func can_be_grabbed_by(player: Node3D) -> bool:
 	var distance = global_position.distance_to(player.global_position)
@@ -181,6 +180,8 @@ func release() -> void:
 		player_has_moved = false
 		linear_damp = original_linear_damp
 		angular_damp = original_angular_damp
+		last_player_position = Vector3.ZERO
+		last_player_rotation = Basis.IDENTITY
 
 func set_stay_on_ground(should_stay: bool) -> void:
 	stay_on_ground = should_stay
