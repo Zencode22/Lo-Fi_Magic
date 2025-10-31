@@ -1,9 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1761919740
+::res://::1761921502
 icon.svg::CompressedTexture2D::73806414460693176::1760576591::1760576684::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Level.tscn::PackedScene::1859276042803677323::1760929517::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://cs0cbpmefbgs7::::res://MovableObject.gd<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn
-MovableObject.gd::GDScript::6087974023078092660::1761338358::0::1::::<>RigidBody3D<><>0<>0<><>::
-player.gd::GDScript::1253696348981396978::1761338358::0::1::::<>RigidBody3D<><>0<>0<><>::
+Level.tscn::PackedScene::1859276042803677323::1761919873::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://cs0cbpmefbgs7::::res://MovableObject.gd<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn
+MovableObject.gd::GDScript::6087974023078092660::1761920671::0::1::::<>RigidBody3D<><>0<>0<><>::
+player.gd::GDScript::1253696348981396978::1761920671::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.tscn::PackedScene::1687416399521251802::1760929517::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://Models/lo_fi_magic_temp_character.tscn
 sound_token.gd::GDScript::5083770874304793931::1761618761::0::1::::<>Node3D<><>0<>0<><>::
 sound_token.tscn::PackedScene::248162021593272324::1760929517::0::1::::<><><>0<>0<><>::uid://1wk82p2jqmpu::::res://Models/Sound_Token.fbx<>uid://c0rv1fk1y8fcv::::res://Textures/SoundToken/Token_BaseColor.png<>uid://ceou704owtnt0::::res://sound_token.gd
@@ -42,7 +42,7 @@ CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.editor.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_debug.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_release.framework/::1761618571
-::res://addons/fmod/libs/windows/::1761919732
+::res://addons/fmod/libs/windows/::1761921495
 CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/tool/::1761618571
 FmodBankDatabase.gd::GDScript::8186486955615663266::1761618571::0::1::::FmodBankDatabase<>Node<><>0<>0<><>::

@@ -23,6 +23,10 @@ var grab_range: float = 1.3
 var can_grab_object: bool = false
 var current_grab_target: Node3D = null
 
+var jump_count := 0
+var max_jumps := 2
+var can_double_jump := false
+
 func _ready() -> void:
 	sleeping = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -61,12 +65,15 @@ func _process(delta: float) -> void:
 	
 	apply_central_force(twist_pivot.basis * input * move_speed * delta)
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		var jump_height = 5.0
-		var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-		var initial_velocity = sqrt(2 * gravity * jump_height)
-		var jump_impulse = mass * initial_velocity
-		apply_central_impulse(Vector3.UP * jump_impulse)
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			perform_jump()
+			jump_count = 1
+			can_double_jump = true
+		elif can_double_jump and jump_count < max_jumps:
+			perform_jump()
+			jump_count += 1
+			can_double_jump = false
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -108,13 +115,29 @@ func _process(delta: float) -> void:
 		else:
 			try_grab_object()
 	
+	if is_on_floor():
+		jump_count = 0
+		can_double_jump = true
+	
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
 	anim_tree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
-	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
+	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && (is_on_floor() || can_double_jump))
 	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
 	
 	update_grab_prompt()
+
+func perform_jump() -> void:
+	var jump_height = 5.0
+	var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	var initial_velocity = sqrt(2 * gravity * jump_height)
+	var jump_impulse = mass * initial_velocity
+	
+	var current_velocity = linear_velocity
+	current_velocity.y = 0
+	linear_velocity = current_velocity
+	
+	apply_central_impulse(Vector3.UP * jump_impulse)
 	
 func is_on_floor() -> bool:
 	var space_state = get_world_3d().direct_space_state
