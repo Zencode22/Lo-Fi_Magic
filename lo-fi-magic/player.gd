@@ -57,6 +57,10 @@ func _process(delta: float) -> void:
 	
 	check_for_grab_objects()
 	
+	# Auto-release grabbed object when jumping/falling
+	if is_grabbing and grabbed_object != null and abs(linear_velocity.y) > 0.5:
+		release_object()
+	
 	is_running = Input.is_action_pressed("run")
 	var move_speed_multiplier = 1.5
 	if not is_running:

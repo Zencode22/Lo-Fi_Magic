@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbl5g7kqjr4o6"]
+
+[ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://MovableObject.gd" id="1_8knle"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wkftn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2nifc"]
+
+[node name="MovableCube" type="RigidBody3D"]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_8knle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wkftn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2nifc")
+skeleton = NodePath("../..")

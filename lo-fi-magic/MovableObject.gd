@@ -20,6 +20,9 @@ var ground_height: float = 0.0
 var object_height: float = 1.0
 var stay_on_ground: bool = true
 
+var grab_allowed_angle: float = 0.5
+var grab_side: Vector3 = Vector3.BACK
+
 func _ready() -> void:
 	sleeping = false
 	freeze = true
@@ -121,8 +124,8 @@ func grab(by: Node3D) -> void:
 	if not is_grabbed and by != null:
 		var distance = global_position.distance_to(by.global_position)
 		var in_proximity = distance < 1.3
-		
 		var can_grab = false
+		
 		if players_in_contact.has(by) or in_proximity:
 			can_grab = true
 		
@@ -141,14 +144,27 @@ func grab(by: Node3D) -> void:
 			angular_damp = 6.0
 
 func can_be_grabbed_by(player: Node3D) -> bool:
+	# Check if player is jumping/falling (vertical velocity threshold)
+	if player is RigidBody3D:
+		if abs(player.linear_velocity.y) > 0.5:  # Adjust threshold as needed
+			return false
+	
 	var distance = global_position.distance_to(player.global_position)
 	var in_proximity = distance < 1.3
-	
+	var can_grab_from_correct_side = is_player_on_allowed_side(player)
 	var can_grab = false
-	if not is_grabbed:
+	
+	if not is_grabbed and can_grab_from_correct_side:
 		if players_in_contact.has(player) or in_proximity:
 			can_grab = true
 	return can_grab
+
+func is_player_on_allowed_side(player: Node3D) -> bool:
+	var to_player = (player.global_position - global_position).normalized()
+	var world_allowed_side = global_transform.basis * grab_side
+	var dot_product = to_player.dot(world_allowed_side)
+
+	return dot_product > grab_allowed_angle
 
 func get_ground_height_at_position(_pos: Vector3) -> float:
 	var space_state = get_world_3d().direct_space_state
@@ -179,6 +195,12 @@ func release() -> void:
 
 func set_stay_on_ground(should_stay: bool) -> void:
 	stay_on_ground = should_stay
+
+func set_grab_side(side: Vector3) -> void:
+	grab_side = side.normalized()
+
+func set_grab_angle_threshold(threshold: float) -> void:
+	grab_allowed_angle = clamp(threshold, 0.0, 1.0)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):

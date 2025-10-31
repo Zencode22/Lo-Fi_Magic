@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://1qwafr6qsdnv"]
+[gd_scene load_steps=11 format=3 uid="uid://1qwafr6qsdnv"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_bexhn"]
-[ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://MovableObject.gd" id="2_t7iv1"]
+[ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="2_2nifc"]
 [ext_resource type="PackedScene" uid="uid://273sj0ysbnro" path="res://sound_token_collectable.tscn" id="3_2nifc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_epcml"]
@@ -22,10 +22,6 @@ size = Vector2(10, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bexhn"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wkftn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_2nifc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_t7iv1"]
 
@@ -52,20 +48,8 @@ shape = SubResource("ConcavePolygonShape3D_bexhn")
 transform = Transform3D(0.99972856, 0, 0.023298062, 0, 1, 0, -0.023298062, 0, 0.99972856, 0, -0.03986633, -2)
 linear_damp = 3.0
 
-[node name="MovableCube" type="RigidBody3D" parent="."]
+[node name="MovableCube" parent="." instance=ExtResource("2_2nifc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.52344126, -2.5)
-collision_layer = 2
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-script = ExtResource("2_t7iv1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableCube"]
-shape = SubResource("BoxShape3D_wkftn")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableCube"]
-mesh = SubResource("BoxMesh_2nifc")
-skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 1, -3)
