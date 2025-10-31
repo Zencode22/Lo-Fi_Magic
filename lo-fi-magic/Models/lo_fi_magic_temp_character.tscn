@@ -271,37 +271,6 @@ graph_offset = Vector2(-139, -46)
 
 [node name="LoFi_Magic_Temp_Character" instance=ExtResource("1_aqr14")]
 
-[node name="Skeleton3D" parent="Armature_TempChar" index="0"]
-bones/0/position = Vector3(0, 0.43529975, 0.0016531162)
-bones/0/rotation = Quaternion(-0.066507846, 0, 0, 0.9977859)
-bones/1/rotation = Quaternion(0.21561092, 0, 0, 0.97647935)
-bones/2/rotation = Quaternion(-0.012966735, 0, 0, 0.999916)
-bones/3/rotation = Quaternion(0.1592409, 0, 0, 0.98723984)
-bones/4/rotation = Quaternion(0.7253819, -0.15034802, -0.16442963, -0.65129066)
-bones/5/rotation = Quaternion(0.05979732, -0.001985404, 0.41333786, 0.9086101)
-bones/6/rotation = Quaternion(0.663684, 0.13859548, 0.43642125, -0.5914824)
-bones/7/rotation = Quaternion(0.11215468, 0.00135832, -0.77524847, 0.62161833)
-bones/8/rotation = Quaternion(0.96810395, -1.8936253e-09, -2.1809415e-08, 0.250549)
-bones/9/rotation = Quaternion(0.156512, -6.320156e-17, -8.976463e-16, 0.9876761)
-bones/10/rotation = Quaternion(0.99276537, 1.6890898e-08, -1.3926084e-08, -0.120070845)
-bones/11/rotation = Quaternion(0.65155214, -1.6726041e-15, 1.1016953e-15, 0.7586039)
-bones/12/position = Vector3(-0.54528606, 0.9080719, -0.21950613)
-bones/12/rotation = Quaternion(-0.4703887, -0.2214028, 0.12320484, 0.84530234)
-bones/13/position = Vector3(-0.2691618, 0.43778074, -0.0020923018)
-bones/14/position = Vector3(0.4525779, 0.7080256, 0.1309197)
-bones/14/rotation = Quaternion(-0.4018946, 0, 0, 0.915686)
-bones/15/position = Vector3(0.2536969, 0.41040856, -0.21886346)
-bones/16/position = Vector3(-0.0853, 0.098957755, 0.16851994)
-bones/16/rotation = Quaternion(-0.7723894, 0, 0, 0.6351494)
-bones/17/position = Vector3(0, -1.2326346e-07, -1.692617e-07)
-bones/18/rotation = Quaternion(-0.6295355, 0, 0, 0.7769718)
-bones/20/position = Vector3(0.0853, 0.2431426, -0.21350557)
-bones/20/rotation = Quaternion(-0.52169234, 0, 0, 0.8531338)
-bones/21/position = Vector3(7.450581e-09, 9.289441e-06, -1.2980139e-05)
-bones/21/rotation = Quaternion(-0.45643055, 0, 0, 0.88975906)
-bones/22/rotation = Quaternion(-0.8571643, 0, 0, 0.51504314)
-bones/23/position = Vector3(7.450581e-09, -0.29763085, 0.19648634)
-
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_wm31k"),
