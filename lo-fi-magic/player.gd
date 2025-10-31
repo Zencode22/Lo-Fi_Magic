@@ -78,6 +78,7 @@ func _process(delta: float) -> void:
 			perform_jump()
 			jump_count += 1
 			can_double_jump = false
+			state_machine.travel("Jump_MidAir")
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

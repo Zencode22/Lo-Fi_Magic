@@ -13,22 +13,10 @@
 [ext_resource type="Animation" uid="uid://co2al75nx01qu" path="res://Animations/Temp_Char_Anims/Run.res" id="11_q8idn"]
 [ext_resource type="Animation" uid="uid://c6d6tg8p8lnex" path="res://Animations/Temp_Char_Anims/Walk.res" id="12_2kyjr"]
 [ext_resource type="Animation" uid="uid://don3j36bi76kf" path="res://Animations/Temp_Char_Anims/Wave.res" id="13_ikiow"]
-[ext_resource type="Animation" uid="uid://p4mxacgbo8i2" path="res://Animations/Temp_Char_Anims/Jump_MidAir.res" id="14_xu10g"]
+[ext_resource type="Animation" uid="uid://bhxa84dpsh4s8" path="res://Animations/Temp_Char_Anims/Jump_MidAir.res" id="14_xu10g"]
 
 [sub_resource type="Animation" id="Animation_igilx"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer:speed_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wm31k"]
 _data = {
@@ -179,11 +167,16 @@ max_space = Vector2(2, 2)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5c5lt"]
 animation = &"PlayerAnims/Jump"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vqklx"]
-animation = &"PlayerAnims/MidAir_Pose"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_um8eu"]
 animation = &"PlayerAnims/Jump_MidAir"
+use_custom_timeline = true
+timeline_length = 0.4
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vqklx"]
+animation = &"PlayerAnims/MidAir_Pose"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kmqyd"]
 xfade_time = 0.1
@@ -202,9 +195,7 @@ advance_mode = 2
 advance_condition = &"grounded"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ge5of"]
-xfade_time = 0.1
-reset = false
-switch_mode = 1
+xfade_time = 0.05
 advance_mode = 2
 advance_condition = &"jump"
 
@@ -216,9 +207,8 @@ advance_mode = 2
 advance_condition = &"InAir"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b8he5"]
-xfade_time = 0.1
+xfade_time = 0.05
 reset = false
-switch_mode = 1
 advance_mode = 2
 advance_condition = &"jump"
 
@@ -271,13 +261,13 @@ states/IdleWalkRun/position = Vector2(57, 179)
 "states/IdleWalkRun 2/position" = Vector2(-150, 87)
 states/Jump/node = SubResource("AnimationNodeAnimation_5c5lt")
 states/Jump/position = Vector2(303, 46)
+states/Jump_MidAir/node = SubResource("AnimationNodeAnimation_um8eu")
+states/Jump_MidAir/position = Vector2(559, 8)
 states/MidAir_Pose/node = SubResource("AnimationNodeAnimation_vqklx")
 states/MidAir_Pose/position = Vector2(303, 179)
-states/PlayerAnims_Jump_MidAir/node = SubResource("AnimationNodeAnimation_um8eu")
-states/PlayerAnims_Jump_MidAir/position = Vector2(559, 8)
 states/Start/position = Vector2(-133, 179)
-transitions = ["Jump", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_kmqyd"), "Start", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_78jtk"), "MidAir_Pose", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_l35dq"), "IdleWalkRun", "Jump", SubResource("AnimationNodeStateMachineTransition_ge5of"), "IdleWalkRun", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_735cc"), "IdlePushPull", "Jump", SubResource("AnimationNodeStateMachineTransition_b8he5"), "IdleWalkRun", "IdlePushPull", SubResource("AnimationNodeStateMachineTransition_pdj85"), "IdlePushPull", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_2cmtg"), "IdlePushPull", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_aqr14"), "MidAir_Pose", "IdlePushPull", SubResource("AnimationNodeStateMachineTransition_5c5lt"), "Jump", "PlayerAnims_Jump_MidAir", SubResource("AnimationNodeStateMachineTransition_v4us3"), "PlayerAnims_Jump_MidAir", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_xqs7c"), "MidAir_Pose", "PlayerAnims_Jump_MidAir", SubResource("AnimationNodeStateMachineTransition_8sjsp")]
-graph_offset = Vector2(-372, -100)
+transitions = ["Jump", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_kmqyd"), "Start", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_78jtk"), "MidAir_Pose", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_l35dq"), "IdleWalkRun", "Jump", SubResource("AnimationNodeStateMachineTransition_ge5of"), "IdleWalkRun", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_735cc"), "IdlePushPull", "Jump", SubResource("AnimationNodeStateMachineTransition_b8he5"), "IdleWalkRun", "IdlePushPull", SubResource("AnimationNodeStateMachineTransition_pdj85"), "IdlePushPull", "IdleWalkRun", SubResource("AnimationNodeStateMachineTransition_2cmtg"), "IdlePushPull", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_aqr14"), "MidAir_Pose", "IdlePushPull", SubResource("AnimationNodeStateMachineTransition_5c5lt"), "Jump", "Jump_MidAir", SubResource("AnimationNodeStateMachineTransition_v4us3"), "Jump_MidAir", "MidAir_Pose", SubResource("AnimationNodeStateMachineTransition_xqs7c"), "MidAir_Pose", "Jump_MidAir", SubResource("AnimationNodeStateMachineTransition_8sjsp")]
+graph_offset = Vector2(-139, -46)
 
 [node name="LoFi_Magic_Temp_Character" instance=ExtResource("1_aqr14")]
 
