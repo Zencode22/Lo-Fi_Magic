@@ -3,7 +3,7 @@ extends RigidBody3D
 var is_grabbed: bool = false
 var grabber: Node3D = null
 var grab_point: Vector3 = Vector3.ZERO
-var grab_distance: float = 1.5
+var grab_distance: float = 1.3
 var grab_force: float = 80.0
 var grab_angular_damp: float = 8.0
 
@@ -47,12 +47,10 @@ func calculate_object_height() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_grabbed and grabber:
-		# Check if grabber is still grabbing this object
 		if grabber.grabbed_object == self:
 			if freeze:
 				freeze = false
-			
-			# If we just started grabbing, initialize positions but don't apply forces yet
+
 			var just_grabbed = last_player_position == Vector3.ZERO
 			if just_grabbed:
 				last_player_position = grabber.global_position
@@ -122,7 +120,7 @@ func _physics_process(delta: float) -> void:
 func grab(by: Node3D) -> void:
 	if not is_grabbed and by != null:
 		var distance = global_position.distance_to(by.global_position)
-		var in_proximity = distance < 1.5
+		var in_proximity = distance < 1.3
 		
 		var can_grab = false
 		if players_in_contact.has(by) or in_proximity:
@@ -133,22 +131,18 @@ func grab(by: Node3D) -> void:
 			grabber = by
 			freeze = false
 			can_sleep = false
-			
-			# Initialize tracking variables but don't move the object yet
-			last_player_position = Vector3.ZERO  # This will trigger the "just grabbed" check
+
+			last_player_position = Vector3.ZERO
 			last_player_rotation = Basis.IDENTITY
-			
-			# KEEP THE OBJECT IN ITS CURRENT POSITION
+
 			grab_point = global_position
 			
 			linear_damp = 2.0
 			angular_damp = 6.0
-			
-			# Don't apply any initial force - keep it where it is
 
 func can_be_grabbed_by(player: Node3D) -> bool:
 	var distance = global_position.distance_to(player.global_position)
-	var in_proximity = distance < 1.5
+	var in_proximity = distance < 1.3
 	
 	var can_grab = false
 	if not is_grabbed:

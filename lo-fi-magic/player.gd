@@ -17,7 +17,7 @@ var last_direction = Vector3.FORWARD
 @onready var anim_tree = $LoFi_Magic_Temp_Character/AnimationTree
 
 var grabbed_object: RigidBody3D = null
-var grab_range: float = 1.5
+var grab_range: float = 1.3
 
 @onready var grab_prompt_label = $GrabPromptLabel
 var can_grab_object: bool = false
@@ -102,14 +102,11 @@ func _process(delta: float) -> void:
 	twist_input = 0.0
 	pitch_input = 0.0
 
-	# Toggle grab on key press - no need to hold the key
 	if Input.is_action_just_pressed("grab"):
 		if is_grabbing:
 			release_object()
 		else:
 			try_grab_object()
-	
-	# Removed the continuous check for grab key release
 	
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
@@ -134,8 +131,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
-	
-	# Add this section to recapture mouse when clicking
 	if event is InputEventMouseButton:
 		if event.pressed and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
