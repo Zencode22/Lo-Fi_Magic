@@ -8,12 +8,20 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://Sounds/FMODBanks/Desktop"
+
 [application]
 
 config/name="Lo-Fi_Magic"
 run/main_scene="uid://1qwafr6qsdnv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
 
 [display]
 
@@ -24,6 +32,10 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="Lo-Fi_Magic"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [filesystem]
 

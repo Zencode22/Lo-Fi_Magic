@@ -35,3 +35,4 @@ func collect_token() -> void:
 	var tween = create_tween()
 	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.3)
 	tween.tween_callback(queue_free)
+	$CollisionShape3D/FmodEventEmitter3D_Collect.play()

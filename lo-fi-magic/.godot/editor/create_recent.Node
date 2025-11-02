@@ -1,3 +1,6 @@
+FmodEventEmitter3D
+FmodListener3D
+FmodBankLoader
 StaticBody3D
 PhysicalBone3D
 CollisionShape3D

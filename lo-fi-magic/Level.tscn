@@ -98,3 +98,6 @@ shape = SubResource("BoxShape3D_2nifc")
 
 [node name="Sound_Token_Collectable" parent="." instance=ExtResource("3_2nifc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.853382, 3.9857984, 3.103954)
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
