@@ -14,3 +14,14 @@ script = ExtResource("1_5ystl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_40q3k")
+
+[node name="FmodEventEmitter3D_Loop" type="FmodEventEmitter3D" parent="CollisionShape3D"]
+event_name = "event:/SoundTokenLoop"
+event_guid = "{dddc7c75-f835-45b9-81c1-8e5e8a315d45}"
+autoplay = true
+volume = 1.5
+
+[node name="FmodEventEmitter3D_Collect" type="FmodEventEmitter3D" parent="CollisionShape3D"]
+event_name = "event:/SoundTokenCollect"
+event_guid = "{328ad67a-13f1-4130-97d4-6594f39583ab}"
+auto_release = true
