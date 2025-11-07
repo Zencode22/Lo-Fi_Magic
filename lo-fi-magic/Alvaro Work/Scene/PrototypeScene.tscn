@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
 [ext_resource type="Material" uid="uid://bo3av6dnb22l3" path="res://Alvaro Work/Materials/Mat_GrayPrototype.tres" id="3_gxy5r"]
 [ext_resource type="Material" uid="uid://dv8ux85akea7d" path="res://Alvaro Work/Materials/Mat_PurplePrototype.tres" id="4_5h3uk"]
-[ext_resource type="PackedScene" path="res://movable_cube.tscn" id="4_a77h8"]
+[ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="4_a77h8"]
 [ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
 [ext_resource type="PackedScene" uid="uid://dshgsh0rtsfk" path="res://sound_token.tscn" id="5_x8ifo"]
 
@@ -20,6 +20,7 @@ uv2_triplanar = true
 uv2_world_triplanar = true
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(0.9975404, -0.058852203, -0.03807279, 0.059071437, 0.9982429, 0.0046582, 0.037731748, -0.0068957424, 0.9992641, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_8k8km")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.970276, 0.3843211, 16.410023)
@@ -194,11 +195,11 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -7, -0.25, 8)
 [node name="Sound_Token4" parent="ChasePSArea" instance=ExtResource("5_x8ifo")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.75, -0.25, 0)
 
+[node name="Sound_Token7" parent="ChasePSArea" instance=ExtResource("5_x8ifo")]
+transform = Transform3D(0.25, 1.891749e-10, 0, 5.0931703e-11, 0.25, -1.1641532e-10, 0, -2.3283064e-10, 0.25000003, 0.56249905, -0.3125, 9.375001)
+
 [node name="Sound_Token5" parent="ChasePSArea" instance=ExtResource("5_x8ifo")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.75, -0.25, -2)
-
-[node name="Sound_Token5" parent="ChasePSArea/Sound_Token5" instance=ExtResource("5_x8ifo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.25, -0.25, 45.5)
 
 [node name="Sound_Token6" parent="ChasePSArea" instance=ExtResource("5_x8ifo")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3, 3.6875, 8.875)
