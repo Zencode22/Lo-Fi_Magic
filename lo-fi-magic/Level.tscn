@@ -1,8 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://1qwafr6qsdnv"]
+[gd_scene load_steps=21 format=3 uid="uid://1qwafr6qsdnv"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="2_2nifc"]
 [ext_resource type="PackedScene" uid="uid://273sj0ysbnro" path="res://sound_token_collectable.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="4_wkftn"]
+[ext_resource type="Material" uid="uid://b6cfakoauhowt" path="res://Textures/ExtraCharacters/Head12.tres" id="5_sypgb"]
+[ext_resource type="Material" uid="uid://dbaiq4csidn5i" path="res://Textures/ExtraCharacters/Body3.tres" id="6_dn5x0"]
+[ext_resource type="Material" uid="uid://dtt4kg3fr3yii" path="res://Textures/ExtraCharacters/Head8.tres" id="7_esphl"]
+[ext_resource type="Material" uid="uid://cxt5nscbsxhv3" path="res://Textures/ExtraCharacters/Head6.tres" id="8_5qkpu"]
+[ext_resource type="Material" uid="uid://cqa4m8obxb6dj" path="res://Textures/ExtraCharacters/Body5.tres" id="9_dcckh"]
+[ext_resource type="Material" uid="uid://br8gfcyhcmv6r" path="res://Textures/ExtraCharacters/Head4.tres" id="10_jftiw"]
+[ext_resource type="Material" uid="uid://dk1rlt8468ndl" path="res://Textures/ExtraCharacters/Body7.tres" id="11_yye10"]
+[ext_resource type="Material" uid="uid://cqt2d8wf36vej" path="res://Textures/ExtraCharacters/Head2.tres" id="12_pd0bf"]
+[ext_resource type="Material" uid="uid://dde6mo3446b7r" path="res://Textures/ExtraCharacters/Body1.tres" id="13_viiqw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_epcml"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -79,7 +89,7 @@ mesh = SubResource("BoxMesh_t7iv1")
 shape = SubResource("BoxShape3D_2nifc")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.0801468, 5.613882, 7)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.0801468, 3.613882, 7)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
 mesh = SubResource("BoxMesh_t7iv1")
@@ -88,7 +98,7 @@ mesh = SubResource("BoxMesh_t7iv1")
 shape = SubResource("BoxShape3D_2nifc")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.9198532, 5.613882, 7)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.9198532, 3.613882, 7)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
 mesh = SubResource("BoxMesh_t7iv1")
@@ -101,3 +111,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.853382, 3.9857984, 3.10395
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
+
+[node name="RigidBody3D" parent="." instance=ExtResource("4_wkftn")]
+transform = Transform3D(-0.8660253, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660253, -3.7085369, 7.613882, 5.6397)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+IdleAnim_Name = "NPC_Anims/Idle3"
+HeadTex = ExtResource("5_sypgb")
+BodyTex = ExtResource("6_dn5x0")
+
+[node name="RigidBody3D5" parent="." instance=ExtResource("4_wkftn")]
+transform = Transform3D(-0.9683876, 0, -0.24945047, 0, 1, 0, 0.24945047, 0, -0.9683876, -2.295504, 7.613882, 7.374572)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+IdleAnim_Name = "NPC_Anims/Idle2"
+HeadTex = ExtResource("7_esphl")
+
+[node name="RigidBody3D2" parent="." instance=ExtResource("4_wkftn")]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 2.2914631, 7.613882, 5.6397)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+IdleAnim_Name = "NPC_Anims/Idle4"
+HeadTex = ExtResource("8_5qkpu")
+BodyTex = ExtResource("9_dcckh")
+
+[node name="RigidBody3D3" parent="." instance=ExtResource("4_wkftn")]
+transform = Transform3D(-0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, -0.9659258, 3.8510275, 7.613882, 5.6397)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+IdleAnim_Name = "NPC_Anims/Idle5"
+HeadTex = ExtResource("10_jftiw")
+BodyTex = ExtResource("11_yye10")
+
+[node name="RigidBody3D4" parent="." instance=ExtResource("4_wkftn")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 2.8510275, 7.613882, 7.6397)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+IdleAnim_Name = "NPC_Anims/Idle6"
+HeadTex = ExtResource("12_pd0bf")
+BodyTex = ExtResource("13_viiqw")

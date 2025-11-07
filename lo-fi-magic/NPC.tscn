@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://30perxxbx2ig"]
+
+[ext_resource type="Script" uid="uid://dr726y4sht0an" path="res://npc.gd" id="1_ll5ud"]
+[ext_resource type="PackedScene" uid="uid://l0p55v60cku7" path="res://Models/npc_character.tscn" id="1_twre2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ll5ud"]
+height = 1.7172852
+
+[node name="NPC" type="RigidBody3D"]
+script = ExtResource("1_ll5ud")
+
+[node name="NPC_Character" parent="." instance=ExtResource("1_twre2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.854268, 0)
+shape = SubResource("CapsuleShape3D_ll5ud")
