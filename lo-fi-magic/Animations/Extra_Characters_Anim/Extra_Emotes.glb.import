@@ -2098,7 +2098,7 @@ _subresources={
 "Point": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Point.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://8vw0tg5mgpvq",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
@@ -4150,6 +4150,11 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": false
 }
 }
 }

@@ -15,7 +15,7 @@ General/banks_path="res://Sounds/FMODBanks/Desktop"
 [application]
 
 config/name="Lo-Fi_Magic"
-run/main_scene="uid://1qwafr6qsdnv"
+run/main_scene="uid://b2xr6v8tvicck"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

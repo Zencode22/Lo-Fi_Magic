@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cpvi204vmb5m6"]
+[gd_scene load_steps=58 format=3 uid="uid://cpvi204vmb5m6"]
 
 [ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://Models/LoFi_Magic_Temp_Character.glb" id="1_aqr14"]
 [ext_resource type="Animation" uid="uid://8j7ccmopbqx3" path="res://Animations/Temp_Char_Anims/Idle.res" id="2_igilx"]
@@ -12,8 +12,8 @@
 [ext_resource type="Animation" uid="uid://51y7k8nlfdeu" path="res://Animations/Temp_Char_Anims/QuickClimb.res" id="10_k5glk"]
 [ext_resource type="Animation" uid="uid://co2al75nx01qu" path="res://Animations/Temp_Char_Anims/Run.res" id="11_q8idn"]
 [ext_resource type="Animation" uid="uid://c6d6tg8p8lnex" path="res://Animations/Temp_Char_Anims/Walk.res" id="12_2kyjr"]
-[ext_resource type="Animation" uid="uid://don3j36bi76kf" path="res://Animations/Temp_Char_Anims/Wave.res" id="13_ikiow"]
-[ext_resource type="Animation" uid="uid://bhxa84dpsh4s8" path="res://Animations/Temp_Char_Anims/Jump_MidAir.res" id="14_xu10g"]
+[ext_resource type="Animation" uid="uid://don3j36bi76kf" path="res://Animations/Extra_Characters_Anim/Wave.res" id="13_ikiow"]
+[ext_resource type="AnimationLibrary" uid="uid://bhclfcrc6goi4" path="res://Animations/Temp_Char_Anims/PlayerAnims.res" id="14_igilx"]
 
 [sub_resource type="Animation" id="Animation_igilx"]
 length = 0.001
@@ -30,23 +30,6 @@ _data = {
 &"PushPull_Pose": ExtResource("9_eegw5"),
 &"QuickClimb": ExtResource("10_k5glk"),
 &"RESET": SubResource("Animation_igilx"),
-&"Run": ExtResource("11_q8idn"),
-&"Walk": ExtResource("12_2kyjr"),
-&"Wave": ExtResource("13_ikiow")
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_c10ut"]
-_data = {
-&"Idle": ExtResource("2_igilx"),
-&"Jump": ExtResource("3_ale1x"),
-&"Jump_MidAir": ExtResource("14_xu10g"),
-&"LedgeClimb": ExtResource("4_4dwpa"),
-&"LedgeHanging": ExtResource("5_go4nk"),
-&"MidAir_Pose": ExtResource("6_kiw7r"),
-&"Pull": ExtResource("7_mo2qq"),
-&"Push": ExtResource("8_u6g3j"),
-&"PushPull_Pose": ExtResource("9_eegw5"),
-&"QuickClimb": ExtResource("10_k5glk"),
 &"Run": ExtResource("11_q8idn"),
 &"Walk": ExtResource("12_2kyjr"),
 &"Wave": ExtResource("13_ikiow")
@@ -274,7 +257,7 @@ graph_offset = Vector2(-139, -46)
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_wm31k"),
-&"PlayerAnims": SubResource("AnimationLibrary_c10ut")
+&"PlayerAnims": ExtResource("14_igilx")
 }
 autoplay = "Idle"
 

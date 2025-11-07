@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://l0p55v60cku7"]
+
+[ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://Models/LoFi_Magic_Temp_Character.glb" id="1_o14ed"]
+[ext_resource type="AnimationLibrary" uid="uid://vvavi1k206mi" path="res://Animations/Extra_Characters_Anim/NPC_Anims.res" id="2_plqon"]
+[ext_resource type="AnimationLibrary" uid="uid://bhclfcrc6goi4" path="res://Animations/Temp_Char_Anims/PlayerAnims.res" id="10_pnpna"]
+
+[node name="NPC_Model" instance=ExtResource("1_o14ed")]
+
+[node name="Skeleton3D" parent="Armature_TempChar" index="0"]
+bones/0/position = Vector3(0, 0.49303478, 0.0016531142)
+bones/0/rotation = Quaternion(-0.06892902, 0, 0, 0.9976216)
+bones/2/rotation = Quaternion(-0.0033613357, 0, 0, 0.99999434)
+bones/3/rotation = Quaternion(-0.000557568, 0, 0, 0.99999994)
+bones/4/rotation = Quaternion(0.5287912, 0.08705594, -0.7960775, -0.28117955)
+bones/5/rotation = Quaternion(0.06418065, -0.0019532882, 0.4436367, 0.8939036)
+bones/6/rotation = Quaternion(0.5428142, -0.061544515, 0.7974666, -0.25614855)
+bones/7/rotation = Quaternion(0.05608646, 0.002010497, -0.38768706, 0.9200811)
+bones/8/rotation = Quaternion(0.99704534, 1.5837369e-08, -2.589953e-08, 0.076816425)
+bones/9/rotation = Quaternion(0.25749215, 3.351278e-16, 1.1540849e-15, 0.96628046)
+bones/10/rotation = Quaternion(0.99704534, -7.1616375e-09, -1.701527e-08, 0.076816425)
+bones/11/rotation = Quaternion(0.25749215, 7.744541e-16, 3.8269438e-16, 0.96628046)
+bones/12/position = Vector3(-0.26661238, 0.4536148, 0)
+bones/12/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/13/position = Vector3(-0.26916173, 0.43778077, -0.17355636)
+bones/14/position = Vector3(0.27540317, 0.44210607, 0)
+bones/14/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/15/position = Vector3(0.2536969, 0.41040862, -0.21886341)
+bones/16/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/17/position = Vector3(7.450581e-09, 1.14629756e-07, -9.260659e-06)
+bones/18/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
+bones/20/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/21/position = Vector3(-7.450581e-09, 1.14629756e-07, -9.260659e-06)
+bones/22/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"NPC_Anims": ExtResource("2_plqon"),
+&"PlayerAnims": ExtResource("10_pnpna")
+}
+autoplay = "Idle"
+playback_default_blend_time = 0.05

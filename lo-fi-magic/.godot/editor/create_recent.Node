@@ -1,10 +1,10 @@
+CollisionShape3D
+RigidBody3D
 FmodEventEmitter3D
 FmodListener3D
 FmodBankLoader
 StaticBody3D
 PhysicalBone3D
-CollisionShape3D
 Label
 MeshInstance3D
-RigidBody3D
 CollisionPolygon3D

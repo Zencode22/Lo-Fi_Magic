@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/Extra_Idles.glb-39ebea0ba873a1f0840cf938d8618
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
-nodes/apply_root_scale=true
+nodes/apply_root_scale=false
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
@@ -42,7 +42,7 @@ _subresources={
 "Idle2": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle2.res",
-"save_to_file/keep_custom_tracks": true,
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ccltbs4cmehj3",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -2098,7 +2098,7 @@ _subresources={
 "Idle3": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle3.res",
-"save_to_file/keep_custom_tracks": true,
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://divrbwi073y5w",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -4154,7 +4154,7 @@ _subresources={
 "Idle4": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle4.res",
-"save_to_file/keep_custom_tracks": true,
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://bqqmwa7d8wbe3",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -6210,7 +6210,7 @@ _subresources={
 "Idle5": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle5.res",
-"save_to_file/keep_custom_tracks": true,
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ck1q5nclym2xu",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
@@ -8266,7 +8266,7 @@ _subresources={
 "Idle6": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle6.res",
-"save_to_file/keep_custom_tracks": true,
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ctjdjmhv2wnxd",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
