@@ -32,6 +32,12 @@ bones/20/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
 bones/21/position = Vector3(-7.450581e-09, 1.14629756e-07, -9.260659e-06)
 bones/22/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
 
+[node name="Temp_Body" parent="Armature_TempChar/Skeleton3D" index="0"]
+lod_bias = 10.0
+
+[node name="Temp_Head" parent="Armature_TempChar/Skeleton3D" index="1"]
+lod_bias = 4.0
+
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"NPC_Anims": ExtResource("2_plqon"),

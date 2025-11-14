@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=12 format=3 uid="uid://b2xr6v8tvicck"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -6,6 +6,9 @@
 [ext_resource type="Material" uid="uid://dv8ux85akea7d" path="res://Alvaro Work/Materials/Mat_PurplePrototype.tres" id="4_5h3uk"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="4_a77h8"]
 [ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
+[ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="7_x8ifo"]
+[ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Textures/ExtraCharacters/Head11.tres" id="8_x8ifo"]
+[ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Textures/ExtraCharacters/Body8.tres" id="9_ydnef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -19,7 +22,7 @@ uv2_triplanar = true
 uv2_world_triplanar = true
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(0.9975404, -0.058852203, -0.03807279, 0.059071437, 0.9982429, 0.0046582, 0.037731748, -0.0068957424, 0.9992641, 0, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_8k8km")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.970276, 0.3843211, 16.410023)
@@ -357,3 +360,9 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 2, 2, -17.375)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 4.8695507, 0)
 light_color = Color(0.4348803, 0.58451, 1, 1)
+
+[node name="NPC" parent="." instance=ExtResource("7_x8ifo")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -13.000002, 0.625, 9.5)
+IdleAnim_Name = "NPC_Anims/Idle3"
+HeadTex = ExtResource("8_x8ifo")
+BodyTex = ExtResource("9_ydnef")
