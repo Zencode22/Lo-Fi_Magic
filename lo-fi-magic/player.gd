@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		move_speed_multiplier = 1.0
 	var move_speed = default_movespeed * move_speed_multiplier
 	
-	apply_central_force(twist_pivot.basis * input * move_speed * delta)
+	apply_central_force(twist_pivot.global_transform.basis * input * move_speed * delta)
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
