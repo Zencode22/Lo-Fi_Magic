@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762718003
+::res://::1763134439
 icon.svg::CompressedTexture2D::73806414460693176::1760576591::1760576684::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Level.tscn::PackedScene::1859276042803677323::1762536924::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://bbl5g7kqjr4o6::::res://movable_cube.tscn<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn<>uid://30perxxbx2ig::::res://NPC.tscn<>uid://b6cfakoauhowt::::res://Textures/ExtraCharacters/Head12.tres<>uid://dbaiq4csidn5i::::res://Textures/ExtraCharacters/Body3.tres<>uid://dtt4kg3fr3yii::::res://Textures/ExtraCharacters/Head8.tres<>uid://cxt5nscbsxhv3::::res://Textures/ExtraCharacters/Head6.tres<>uid://cqa4m8obxb6dj::::res://Textures/ExtraCharacters/Body5.tres<>uid://br8gfcyhcmv6r::::res://Textures/ExtraCharacters/Head4.tres<>uid://dk1rlt8468ndl::::res://Textures/ExtraCharacters/Body7.tres<>uid://cqt2d8wf36vej::::res://Textures/ExtraCharacters/Head2.tres<>uid://dde6mo3446b7r::::res://Textures/ExtraCharacters/Body1.tres
 MovableObject.gd::GDScript::6087974023078092660::1761927126::0::1::::<>RigidBody3D<><>0<>0<><>::
@@ -45,7 +45,7 @@ CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.editor.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_debug.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_release.framework/::1761618571
-::res://addons/fmod/libs/windows/::1762717994
+::res://addons/fmod/libs/windows/::1763134433
 CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/tool/::1761618571
 FmodBankDatabase.gd::GDScript::8186486955615663266::1761618571::0::1::::FmodBankDatabase<>Node<><>0<>0<><>::
@@ -185,7 +185,7 @@ texture_11.svg::CompressedTexture2D::1586672398220826224::1760929400::1760996523
 texture_12.svg::CompressedTexture2D::51309225212024955::1760929400::1760996523::1::::<><><>0<>0<>0218acd0b89a986ed8997e5a3a1bbddf<>res://.godot/imported/texture_12.svg-c03139683407b66b25682131c476fa10.ctex::
 texture_13.svg::CompressedTexture2D::2136268121403809491::1760929400::1760996523::1::::<><><>0<>0<>fbecc2b8d658b192247ac8d1dd0f148e<>res://.godot/imported/texture_13.svg-042d04be0c1b8d4d768c63618dc8035a.ctex::
 ::res://Animations/::1761952924
-::res://Animations/Extra_Characters_Anim/::1762536924
+::res://Animations/Extra_Characters_Anim/::1762718006
 Cheer1.res::Animation::8539374732121155439::1762718006::0::1::::<><><>0<>0<><>::
 Extra_Emotes.glb::PackedScene::8488104730711814845::1762536924::1762718006::1::::<><><>0<>0<>cb548bfc396ec62ca97f2a5f94efd9ed<>res://.godot/imported/Extra_Emotes.glb-07e00343191d7c7875a0991dfb11cd92.scn::uid://dtwsiv44bgfb0::::res://Animations/Extra_Characters_Anim/Cheer1.res<>uid://8vw0tg5mgpvq::::res://Animations/Extra_Characters_Anim/Point.res
 Extra_Idles.glb::PackedScene::4571117124466292675::1762536924::1762718006::1::::<><><>0<>0<>6449196e4b890694ae7a8d82a9b8a699<>res://.godot/imported/Extra_Idles.glb-39ebea0ba873a1f0840cf938d86181a8.scn::uid://ccltbs4cmehj3::::res://Animations/Extra_Characters_Anim/Idle2.res<>uid://divrbwi073y5w::::res://Animations/Extra_Characters_Anim/Idle3.res<>uid://bqqmwa7d8wbe3::::res://Animations/Extra_Characters_Anim/Idle4.res<>uid://ck1q5nclym2xu::::res://Animations/Extra_Characters_Anim/Idle5.res<>uid://ctjdjmhv2wnxd::::res://Animations/Extra_Characters_Anim/Idle6.res
@@ -226,7 +226,7 @@ Token_Collected.wav::AudioStreamWAV::7282825092261144603::1761317960::1761318005
 ::res://Sounds/FMODBanks/::1762134419
 ::res://Sounds/FMODBanks/Desktop/::1762134419
 ::res://Textures/::1761618569
-::res://Textures/ExtraCharacters/::1762536925
+::res://Textures/ExtraCharacters/::1762718006
 Body1.png::CompressedTexture2D::2589855135264947870::1761618569::1762718006::1::::<><><>0<>0<>b31abb5790233961ba11d859ac731daf<>res://.godot/imported/Body1.png-4014b5ae839685a511d095bcf1f7403c.s3tc.ctex::
 Body1.tres::StandardMaterial3D::7379990529251285949::1762536924::0::1::::<><><>0<>0<><>::uid://bc5sshi73q775::::res://Textures/ExtraCharacters/Body1.png
 Body2.png::CompressedTexture2D::8669894587007851384::1761618569::1762718006::1::::<><><>0<>0<>3214f578faae8e90b350d9813c701ae5<>res://.godot/imported/Body2.png-eb4fdff4182a8e080fcf782e07f47c33.s3tc.ctex::
