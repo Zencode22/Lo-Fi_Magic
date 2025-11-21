@@ -150,45 +150,45 @@ operation = 2
 size = Vector3(2, 4.25, 0.75)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade4" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.1855698e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -21.313, 2.55, -9.499998)
+[node name="TallBarricade4" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(-2.1855699e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -21.313, 0.68044937, -9.499998)
 size = Vector3(2, 4.375, 0.625)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade4Subtraction" type="CSGBox3D" parent="TallBarricade4"]
+[node name="TallBarricade4Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
 operation = 2
 size = Vector3(2, 4.25, 0.75)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade5" type="CSGBox3D" parent="."]
-transform = Transform3D(0.25881872, 0, 0.9659263, 0, 1, 0, -0.96592593, 0, 0.25881872, -20.938, 2.475, -11.75)
+[node name="TallBarricade5" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(0.25881872, 0, 0.96592635, 0, 1, 0, -0.96592593, 0, 0.25881872, -20.938, 0.6054493, -11.75)
 size = Vector3(2, 4.375, 0.625)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade5Subtraction" type="CSGBox3D" parent="TallBarricade5"]
+[node name="TallBarricade5Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
 operation = 2
 size = Vector3(2, 4.25, 0.75)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade6" type="CSGBox3D" parent="."]
-transform = Transform3D(0.70710653, 0, 0.70710754, 0, 1, 0, -0.70710695, 0, 0.7071066, -19.812994, 2.475, -13.75)
+[node name="TallBarricade6" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(0.70710653, 0, 0.70710754, 0, 1, 0, -0.70710695, 0, 0.7071066, -19.812994, 0.6054493, -13.75)
 size = Vector3(2, 4.375, 0.625)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade6Subtraction" type="CSGBox3D" parent="TallBarricade6"]
+[node name="TallBarricade6Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
 operation = 2
 size = Vector3(2, 4.25, 0.75)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade7" type="CSGBox3D" parent="."]
-transform = Transform3D(0.7071063, 0, 0.707108, 0, 1, 0, -0.7071074, 0, 0.7071067, -18.125, 2.475, -15.383)
+[node name="TallBarricade7" type="CSGBox3D" parent="Hallway1Area"]
+transform = Transform3D(0.7071063, 0, 0.707108, 0, 1, 0, -0.7071074, 0, 0.7071067, -18.125, 0.6054493, -15.383)
 size = Vector3(2, 4.375, 0.625)
 material = SubResource("StandardMaterial3D_ydnef")
 
-[node name="TallBarricade7Subtraction" type="CSGBox3D" parent="TallBarricade7"]
+[node name="TallBarricade7Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
 operation = 2
 size = Vector3(2, 4.25, 0.75)
