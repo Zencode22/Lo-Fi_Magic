@@ -57,7 +57,6 @@ func _process(delta: float) -> void:
 	
 	check_for_grab_objects()
 	
-	# Auto-release grabbed object when jumping/falling
 	if is_grabbing and grabbed_object != null and abs(linear_velocity.y) > 0.5:
 		release_object()
 	
@@ -91,25 +90,21 @@ func _process(delta: float) -> void:
 	)
 		
 	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
-	if direction:
-		if is_grabbing && grabbed_object != null:
-			var look_direction = (grabbed_object.global_position - global_position).normalized()
-			if look_direction.length() > 0.1:
-				last_direction = Vector3(look_direction.x, 0, look_direction.z).normalized()
-		else:
-			last_direction = direction
-
+	
+	# FIXED: Only update rotation when NOT grabbing an object
+	if direction and not is_grabbing:
+		last_direction = direction
 		var target_rotation = atan2(last_direction.x, last_direction.z)
 		var current_rotation = $LoFi_Magic_Temp_Character.rotation
 		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
 	
 	if is_grabbing:
-		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(direction.x,direction.z).normalized())
+		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(input.x, input.z).normalized())
 	else:
 		var blend_multiplier = 1
 		if is_running:
 			blend_multiplier = 2
-		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(direction.x,direction.z).normalized()) * blend_multiplier)
+		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(input.x, input.z).normalized()) * blend_multiplier)
 		
 	twist_input = 0.0
 	pitch_input = 0.0
@@ -203,7 +198,6 @@ func try_grab_object() -> void:
 			is_grabbing = true
 			can_grab_object = false
 			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
-			anim_tree.set("parameters/conditions/grounded", false)
 			state_machine.travel("IdlePushPull")
 
 func release_object() -> void:

@@ -54,69 +54,66 @@ func _physics_process(delta: float) -> void:
 			if freeze:
 				freeze = false
 
-			var just_grabbed = last_player_position == Vector3.ZERO
-			if just_grabbed:
+			if last_player_position == Vector3.ZERO:
 				last_player_position = grabber.global_position
-				last_player_rotation = grabber.global_transform.basis
-			else:
-				var player_moved = false
-				var player_rotated = false
-				
-				if last_player_position.distance_to(grabber.global_position) > 0.01:
-					player_moved = true
-					last_player_position = grabber.global_position
-				
-				if last_player_rotation != grabber.global_transform.basis:
-					player_rotated = true
-					last_player_rotation = grabber.global_transform.basis
-				
-				if player_moved or player_rotated:
-					var player_forward = -grabber.global_transform.basis.z
-					var target_position = grabber.global_position + player_forward * grab_distance
-
-					if stay_on_ground:
-						target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
-					else:
-						target_position.y = grabber.global_position.y + 0.5
-
-					grab_point = target_position
-
-					var direction = grab_point - global_position
-					var distance = direction.length()
-					
-					if distance > 0.01:
-						var force_magnitude
-						
-						if distance > 1.0:
-							force_magnitude = grab_force * distance * mass * 2.0
-						else:
-							force_magnitude = grab_force * distance * mass * 1.2
-						
-						var force = direction.normalized() * force_magnitude
-						
-						if stay_on_ground:
-							force.y = 0
-						
-						apply_central_force(force)
-
-						if grabber is RigidBody3D:
-							var velocity_match = (grabber.linear_velocity - linear_velocity) * mass * 0.5
-							if stay_on_ground:
-								velocity_match.y = 0
-							apply_central_force(velocity_match)
+				return
 			
+			var input_dir = Vector3.ZERO
+			if grabber.has_method("get_movement_input"):
+				input_dir = grabber.get_movement_input()
+			
+			var player_movement = grabber.global_position - last_player_position
+			var player_moved = player_movement.length() > 0.001
+			
+			if input_dir.length() > 0.1:
+				var world_input_dir = grabber.global_transform.basis * input_dir
+				
+				var target_velocity = world_input_dir * 5.0
+				var current_velocity = linear_velocity
+				
+				var velocity_difference = Vector3(target_velocity.x - current_velocity.x, 0, target_velocity.z - current_velocity.z)
+				var force = velocity_difference * mass * grab_force * delta
+				
+				apply_central_force(force)
+			elif player_moved:
+				# FIXED: Use player's forward direction (basis.z) instead of backward (-basis.z)
+				var player_forward = grabber.global_transform.basis.z
+				var target_position = grabber.global_position + player_forward * grab_distance
+				
+				if stay_on_ground:
+					target_position.y = get_ground_height_at_position(target_position) + (object_height / 2)
+				else:
+					target_position.y = grabber.global_position.y + 0.5
+				
+				var desired_movement = target_position - global_position
+				
+				if desired_movement.length() > 0.01:
+					var target_velocity = desired_movement / delta
+					var current_velocity = linear_velocity
+
+					var velocity_difference = target_velocity - current_velocity
+					var force = velocity_difference * mass
+					
+					if stay_on_ground:
+						force.y = 0
+					
+					apply_central_force(force)
+			
+			last_player_position = grabber.global_position
+
 			angular_velocity = angular_velocity.lerp(Vector3.ZERO, grab_angular_damp * delta)
+			
+			if input_dir.length() <= 0.1 and !player_moved:
+				linear_velocity.x = lerp(linear_velocity.x, 0.0, linear_damp * delta)
+				linear_velocity.z = lerp(linear_velocity.z, 0.0, linear_damp * delta)
 			
 			if stay_on_ground:
 				var current_ground_height = get_ground_height_at_position(global_position)
 				var height_above_ground = global_position.y - (current_ground_height + object_height / 2)
 				
-				if height_above_ground > 0.1:
-					var downward_force = Vector3.DOWN * mass * 12.0 * height_above_ground
-					apply_central_force(downward_force)
-				elif height_above_ground < -0.1:
-					var upward_force = Vector3.UP * mass * 6.0 * abs(height_above_ground)
-					apply_central_force(upward_force)
+				if abs(height_above_ground) > 0.05:
+					var vertical_force = Vector3(0, -height_above_ground * mass * 20.0, 0)
+					apply_central_force(vertical_force)
 		else:
 			release()
 
@@ -144,9 +141,8 @@ func grab(by: Node3D) -> void:
 			angular_damp = 6.0
 
 func can_be_grabbed_by(player: Node3D) -> bool:
-	# Check if player is jumping/falling (vertical velocity threshold)
 	if player is RigidBody3D:
-		if abs(player.linear_velocity.y) > 0.5:  # Adjust threshold as needed
+		if abs(player.linear_velocity.y) > 0.5:
 			return false
 	
 	var distance = global_position.distance_to(player.global_position)
