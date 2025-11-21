@@ -75,20 +75,22 @@ ParameterDisplay.tscn::PackedScene::2744232029172525152::1763739264::0::1::::<><
 TestFmodBankExplorer.tscn::PackedScene::411348537671190282::1763739264::0::1::::<><><>0<>0<><>::uid://nr38urn226al::::res://addons/fmod/tool/ui/FmodBankExplorer.tscn
 ::res://Alvaro Work/::1763740809
 ::res://Alvaro Work/Export/::1763740814
-::res://Alvaro Work/Export/References/::1763740816
+::res://Alvaro Work/Export/References/::1763741419
 LockDoor.gltf::PackedScene::2662300896947335368::1763740816::1763740817::1::::<><><>0<>0<>fd88507c8c2744eb2b6db80d2bbec3ef<>res://.godot/imported/LockDoor.gltf-1e9f11b4420b64bce04fa9de3410e214.scn::uid://cxn667erxjo5v::::res://Alvaro Work/Export/References/textures/_albedo.png
-::res://Alvaro Work/Export/References/textures/::1763740816
-_albedo.png::CompressedTexture2D::6415960955980467361::1763740816::1763740817::1::::<><><>0<>0<>9a877176aff63cd9d0cbf989b50e6ba1<>res://.godot/imported/_albedo.png-02f293273195e9f101bb9a6e08c8cd8e.s3tc.ctex::
+TallBarricade.gltf::PackedScene::7526603155572399600::1763741419::1763741419::1::::<><><>0<>0<>7dd20ffc0941c378d71fa22c735eeee4<>res://.godot/imported/TallBarricade.gltf-b2030113a9827b206a239c60b375fcb3.scn::uid://cxn667erxjo5v::::res://Alvaro Work/Export/References/textures/_albedo.png
+::res://Alvaro Work/Export/References/textures/::1763741419
+_albedo.png::CompressedTexture2D::6415960955980467361::1763741419::1763741419::1::::<><><>0<>0<>9a877176aff63cd9d0cbf989b50e6ba1<>res://.godot/imported/_albedo.png-02f293273195e9f101bb9a6e08c8cd8e.s3tc.ctex::
 ::res://Alvaro Work/Materials/::1763739263
 Mat_BarkPrototype.tres::StandardMaterial3D::1017030562502019402::1763739263::0::1::::<><><>0<>0<><>::uid://dc0uerhq0fjbp::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_06.png
 Mat_GrayPrototype.tres::StandardMaterial3D::3426906206862588358::1763739263::0::1::::<><><>0<>0<><>::uid://dvbc4n1268nu3::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png
 Mat_LeafPrototype.tres::StandardMaterial3D::890330757700567743::1763739263::0::1::::<><><>0<>0<><>::uid://cmfmct7fta7hc::::res://Alvaro Work/Texture/PrototypePNG/Green/texture_08.png
 Mat_PurplePrototype.tres::StandardMaterial3D::8702609426105306627::1763739263::0::1::::<><><>0<>0<><>::uid://bvyrgnqcgxmny::::res://Alvaro Work/Texture/PrototypePNG/Purple/texture_10.png
-::res://Alvaro Work/Prefabs/::1763740776
-LockDoor.tscn::PackedScene::8476357296690976852::1763740776::0::1::::<><><>0<>0<><>::uid://bvyrgnqcgxmny::::res://Alvaro Work/Texture/PrototypePNG/Purple/texture_10.png
+::res://Alvaro Work/Prefabs/::1763741403
+LockDoor.tscn::PackedScene::8476357296690976852::1763740981::0::1::::<><><>0<>0<><>::uid://bvyrgnqcgxmny::::res://Alvaro Work/Texture/PrototypePNG/Purple/texture_10.png
+TallBarricade.tscn::PackedScene::8211602854857065027::1763741403::0::1::::<><><>0<>0<><>::uid://diqcm23k4w66p::::res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png
 Tree.tscn::PackedScene::6472645977132033136::1763739263::0::1::::<><><>0<>0<><>::uid://oqwlytaokd3w::::res://Alvaro Work/Materials/Mat_BarkPrototype.tres<>uid://mxju83h8o3dj::::res://Alvaro Work/Materials/Mat_LeafPrototype.tres
-::res://Alvaro Work/Scene/::1763740772
-PrototypeScene.tscn::PackedScene::4330088853611983622::1763740772::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://dvbc4n1268nu3::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png<>uid://bo3av6dnb22l3::::res://Alvaro Work/Materials/Mat_GrayPrototype.tres<>uid://dv8ux85akea7d::::res://Alvaro Work/Materials/Mat_PurplePrototype.tres<>uid://mxju83h8o3dj::::res://Alvaro Work/Materials/Mat_LeafPrototype.tres<>uid://cyhnse20ora2s::::res://Alvaro Work/Prefabs/Tree.tscn<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn<>uid://bbl5g7kqjr4o6::::res://movable_cube.tscn<>uid://b6e82j82ym542::::res://gates_lockable.tscn<>uid://ds1ampnxmxlxc::::res://Alvaro Work/Prefabs/LockDoor.tscn<>uid://30perxxbx2ig::::res://NPC.tscn<>uid://b2m166pyucp68::::res://Materials/Head11.tres<>uid://diqcm23k4w66p::::res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png<>uid://bkuvam5bdgvok::::res://Materials/Body8.tres
+::res://Alvaro Work/Scene/::1763741293
+PrototypeScene.tscn::PackedScene::4330088853611983622::1763741293::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://dvbc4n1268nu3::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png<>uid://bo3av6dnb22l3::::res://Alvaro Work/Materials/Mat_GrayPrototype.tres<>uid://dv8ux85akea7d::::res://Alvaro Work/Materials/Mat_PurplePrototype.tres<>uid://mxju83h8o3dj::::res://Alvaro Work/Materials/Mat_LeafPrototype.tres<>uid://cyhnse20ora2s::::res://Alvaro Work/Prefabs/Tree.tscn<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn<>uid://bbl5g7kqjr4o6::::res://movable_cube.tscn<>uid://b6e82j82ym542::::res://gates_lockable.tscn<>uid://ds1ampnxmxlxc::::res://Alvaro Work/Prefabs/LockDoor.tscn<>uid://30perxxbx2ig::::res://NPC.tscn<>uid://b2m166pyucp68::::res://Materials/Head11.tres<>uid://diqcm23k4w66p::::res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png<>uid://bkuvam5bdgvok::::res://Materials/Body8.tres
 ::res://Alvaro Work/Texture/::1763739263
 ::res://Alvaro Work/Texture/PrototypePNG/::1763739263
 ::res://Alvaro Work/Texture/PrototypePNG/Dark/::1763739857

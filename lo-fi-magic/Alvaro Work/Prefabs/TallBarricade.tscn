@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://do805ttww3j76"]
+
+[ext_resource type="Texture2D" uid="uid://diqcm23k4w66p" path="res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png" id="1_50oau"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl7y7"]
+albedo_texture = ExtResource("1_50oau")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[node name="TallBarricade" type="Node3D"]
+
+[node name="TallBarricade1" type="CSGBox3D" parent="."]
+size = Vector3(2, 4.375, 0.75)
+material = SubResource("StandardMaterial3D_hl7y7")
+
+[node name="TallBarricade1Subtraction" type="CSGBox3D" parent="TallBarricade1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
+operation = 2
+size = Vector3(2, 4.25, 0.75)
+material = SubResource("StandardMaterial3D_hl7y7")
