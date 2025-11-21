@@ -22657,7 +22657,7 @@ _subresources={
 },
 "Wave": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Temp_Char_Anims/Wave.res",
+"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Wave.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://don3j36bi76kf",
 "settings/loop_mode": 0,

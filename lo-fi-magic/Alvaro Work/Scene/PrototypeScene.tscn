@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=17 format=3 uid="uid://b2xr6v8tvicck"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://mxju83h8o3dj" path="res://Alvaro Work/Materials/Mat_LeafPrototype.tres" id="4_8b0og"]
 [ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
 [ext_resource type="PackedScene" uid="uid://273sj0ysbnro" path="res://sound_token_collectable.tscn" id="5_ydnef"]
+[ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="6_tddbr"]
+[ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://gates_lockable.tscn" id="7_3vhle"]
 [ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="7_x8ifo"]
 [ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Head11.tres" id="8_x8ifo"]
 [ext_resource type="Texture2D" uid="uid://diqcm23k4w66p" path="res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png" id="9_x8ifo"]
@@ -241,7 +243,7 @@ material = SubResource("StandardMaterial3D_ttobh")
 [node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSArea/ChasePSWall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
 operation = 2
-size = Vector3(2.5, 1, 3)
+size = Vector3(3, 1, 3)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSBoothWall" type="CSGBox3D" parent="ChasePSArea"]
@@ -382,8 +384,12 @@ material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="Locked Door" type="CSGCombiner3D" parent="."]
 
-[node name="LockedDoor1" type="CSGBox3D" parent="Locked Door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.75, 1.75, -7)
+[node name="LockGates1" parent="Locked Door" instance=ExtResource("7_3vhle")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.750009, 0.375, -7)
+
+[node name="LockedDoor1" type="CSGBox3D" parent="Locked Door/LockGates1"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0.12500763, 1.375, 0)
+visible = false
 size = Vector3(2.5, 3, 1)
 material = ExtResource("4_5h3uk")
 
@@ -499,3 +505,6 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -13.000002, 0.625, 9.
 IdleAnim_Name = "NPC_Anims/Idle3"
 HeadTex = ExtResource("8_x8ifo")
 BodyTex = ExtResource("9_ydnef")
+
+[node name="MovableCube" parent="." instance=ExtResource("6_tddbr")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.750002, 0.875, 1.25)
