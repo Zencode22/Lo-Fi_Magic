@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ybnrb2sa4r6q"]
 
 [ext_resource type="Script" uid="uid://r4kgwh2qn6ha" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://cpvi204vmb5m6" path="res://Models/lo_fi_magic_temp_character.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cpvi204vmb5m6" path="res://Models/Characters/lo_fi_magic_temp_character.tscn" id="2_onrkg"]
+
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 height = 1.7299805

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6e82j82ym542"]
 
 [ext_resource type="Script" uid="uid://cio1npl2jn6qo" path="res://gates_lockable.gd" id="1_k8uvy"]
-[ext_resource type="PackedScene" uid="uid://ltsun53tmf7n" path="res://Models/gates_r.tscn" id="1_mv4s8"]
-[ext_resource type="PackedScene" uid="uid://ccxelhfyknqrx" path="res://Models/gate_l.tscn" id="2_78khb"]
+[ext_resource type="PackedScene" uid="uid://ltsun53tmf7n" path="res://Models/Gates/gates_r.tscn" id="1_mv4s8"]
+[ext_resource type="PackedScene" uid="uid://ccxelhfyknqrx" path="res://Models/Gates/gate_l.tscn" id="2_78khb"]
 
 [sub_resource type="Animation" id="Animation_ebs6s"]
 resource_name = "Closed"

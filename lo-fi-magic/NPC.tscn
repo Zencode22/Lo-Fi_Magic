@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://30perxxbx2ig"]
 
 [ext_resource type="Script" uid="uid://dr726y4sht0an" path="res://npc.gd" id="1_ll5ud"]
-[ext_resource type="PackedScene" uid="uid://l0p55v60cku7" path="res://Models/npc_character.tscn" id="1_twre2"]
+[ext_resource type="PackedScene" uid="uid://l0p55v60cku7" path="res://Models/Characters/npc_character.tscn" id="1_twre2"]
+
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ll5ud"]
 height = 1.7172852

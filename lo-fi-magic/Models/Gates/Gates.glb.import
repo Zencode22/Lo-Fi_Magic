@@ -1,0 +1,89 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bda82o0fwox4"
+path="res://.godot/imported/Gates.glb-dcf67d8f24f038ab9e5179971ffa7696.scn"
+
+[deps]
+
+source_file="res://Models/Gates/Gates.glb"
+dest_files=["res://.godot/imported/Gates.glb-dcf67d8f24f038ab9e5179971ffa7696.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Gates_Cube": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Models/Gates/Gate_R_Collision.res",
+"save_to_file/path": "uid://bhxqar517vcwi"
+},
+"Gates_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Models/Gates/Gate_R.res",
+"save_to_file/path": "uid://bda4hsfriqx81"
+},
+"Gates_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Models/Gates/Gate_L_Collision.res",
+"save_to_file/path": "uid://cmq42sanou43h"
+},
+"Gates_Cube_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Models/Gates/Gate_L.res",
+"save_to_file/path": "uid://d2g83f0gbvvlc"
+}
+},
+"nodes": {
+"PATH:Gate_Collision_L": {
+"generate/physics": true
+},
+"PATH:Gate_Collision_R": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
