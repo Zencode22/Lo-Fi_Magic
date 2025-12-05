@@ -5,6 +5,7 @@ extends Node3D
 var collision_area: Area3D
 
 func _ready() -> void:
+	TokenTracker.register_token()
 	setup_collision_area()
 	if collision_area:
 		collision_area.body_entered.connect(_on_body_entered)
@@ -32,6 +33,7 @@ func _on_body_entered(body: Node3D) -> void:
 		collect_token()
 
 func collect_token() -> void:
+	TokenTracker.collect_token()
 	var tween = create_tween()
 	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.3)
 	tween.tween_callback(queue_free)

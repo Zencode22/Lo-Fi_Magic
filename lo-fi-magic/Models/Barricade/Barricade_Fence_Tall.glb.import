@@ -41,12 +41,12 @@ _subresources={
 "materials": {
 "ChainLink": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/Mat_Gate.tres",
+"use_external/fallback_path": "res://Materials/Props/Mat_Gate.tres",
 "use_external/path": "uid://bki1dfc711ea"
 },
 "Fence": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/Mat_Gate.tres",
+"use_external/fallback_path": "res://Materials/Props/Mat_Gate.tres",
 "use_external/path": "uid://bki1dfc711ea"
 }
 },
