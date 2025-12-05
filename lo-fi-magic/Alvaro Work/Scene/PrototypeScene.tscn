@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=16 format=3 uid="uid://b2xr6v8tvicck"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="7_x8ifo"]
 [ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Characters/Head11.tres" id="8_x8ifo"]
 [ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
+[ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://gates_lockable.tscn" id="10_3vhle"]
 [ext_resource type="PackedScene" uid="uid://clnj0lrwgpxrd" path="res://Models/Gates/gates_model.tscn" id="11_a4s3b"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="13_3vhle"]
 
@@ -442,8 +443,8 @@ material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="Locked Door" type="Node3D" parent="."]
 
-[node name="LockedGate1" parent="Locked Door" instance=ExtResource("11_a4s3b")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.500004, 0.375, -6.5)
+[node name="LockedGate" parent="Locked Door" instance=ExtResource("10_3vhle")]
+transform = Transform3D(1.1000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.500006, 0.375, -6.5)
 
 [node name="Gates" parent="Locked Door" instance=ExtResource("11_a4s3b")]
 transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, 2.5000002, 0.375, -29.5)
