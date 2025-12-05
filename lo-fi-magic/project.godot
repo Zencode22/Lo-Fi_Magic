@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 FmodManager="*res://addons/fmod/FmodManager.gd"
+TokenTracker="*res://token_tracker.gd"
 
 [display]
 

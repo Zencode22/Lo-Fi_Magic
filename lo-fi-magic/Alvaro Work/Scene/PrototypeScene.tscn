@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://gates_lockable.tscn" id="7_3vhle"]
 [ext_resource type="PackedScene" uid="uid://ds1ampnxmxlxc" path="res://Alvaro Work/Prefabs/LockDoor.tscn" id="7_a4s3b"]
 [ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="7_x8ifo"]
-[ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Head11.tres" id="8_x8ifo"]
+[ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Characters/Head11.tres" id="8_x8ifo"]
 [ext_resource type="Texture2D" uid="uid://diqcm23k4w66p" path="res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png" id="9_x8ifo"]
-[ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Body8.tres" id="9_ydnef"]
+[ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")

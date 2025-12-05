@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://m74ufpijpgvy"]
+[gd_scene load_steps=4 format=3 uid="uid://ltxhpag8mut0"]
 
+[ext_resource type="PackedScene" uid="uid://c825hvtp12olc" path="res://Models/Barricade/tall_barricade_model.tscn" id="1_1jnn2"]
 [ext_resource type="Texture2D" uid="uid://diqcm23k4w66p" path="res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png" id="1_audjp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jnn2"]
@@ -9,8 +10,12 @@ uv2_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 
+[node name="TallBarricade" parent="." instance=ExtResource("1_1jnn2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
 [node name="TallBarricade1" type="CSGBox3D" parent="."]
 transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0)
+visible = false
 size = Vector3(2, 4.375, 0.75)
 material = SubResource("StandardMaterial3D_1jnn2")
 
