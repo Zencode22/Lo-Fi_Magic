@@ -22,8 +22,8 @@
 
 The game can be obtained **only** from the official GitHub repository.  
 
-1. Visit the repository: **https://github.com/yourusername/Lo-Fi_Magic**  
-2. Click the **Code** button and select **Download ZIP** (or clone the repo with `git clone https://github.com/yourusername/Lo-Fi_Magic.git`).  
+1. Visit the repository: **https://github.com/Zencode22/Lo-Fi_Magic.git**  
+2. Click the **Code** button and select **Download ZIP** (or clone the repo with `git clone https://github.com/Zencode22/Lo-Fi_Magic.git`).  
 3. Extract the archive (if you downloaded the ZIP) to a location of your choice.  
 4. Inside the extracted folder, run `LoFiMagic.exe` (Windows) or the appropriate binary for macOS/Linux.  
 
