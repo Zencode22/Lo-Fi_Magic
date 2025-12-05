@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c825hvtp12olc"]
+[gd_scene load_steps=5 format=3 uid="uid://c825hvtp12olc"]
 
 [ext_resource type="ArrayMesh" uid="uid://ddp5p2gtrsv8l" path="res://Models/Barricade/Barricade_Fence_Tall.res" id="1_vsr8i"]
+[ext_resource type="Material" uid="uid://hajdgbwbuos2" path="res://Materials/Barricade_Fence_Tall.tres" id="2_b13er"]
+[ext_resource type="Material" uid="uid://p3xdhxa77sk2" path="res://Materials/Fence.tres" id="3_36kge"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kn0v2"]
 points = PackedVector3Array(-1.1500001, 0.28980863, -0.060000002, -1.1500001, 0.28980863, 0.060000002, -1.1500001, 4.2153797, -0.060000002, 1.1500001, 0.28980863, -0.060000002, 1.1500001, 0.28980863, 0.060000002, -1.1500001, 4.2153797, 0.060000002, -0.97754514, 4.351759, -0.060000002, 1.1500001, 4.2153797, -0.060000002, 1.1500001, 4.2153797, 0.060000002, -0.97754514, 4.351759, 0.060000002, 0.97731996, 4.351759, -0.060000002, 0.97731996, 4.351759, 0.060000002)
@@ -10,6 +12,8 @@ points = PackedVector3Array(-1.1500001, 0.28980863, -0.060000002, -1.1500001, 0.
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.125, 0)
 mesh = ExtResource("1_vsr8i")
+surface_material_override/0 = ExtResource("2_b13er")
+surface_material_override/1 = ExtResource("3_36kge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
