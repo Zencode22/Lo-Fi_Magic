@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 
 func _on_all_tokens_collected() -> void:
 	if animation_player:
-		animation_player.play("open")
+		animation_player.play("Opening")
