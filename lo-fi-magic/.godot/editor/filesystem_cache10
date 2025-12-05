@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1763724073
+::res://::1764907284
 gates_lockable.gd::GDScript::5364856068262421314::1763724053::0::1::::<>Node3D<><>0<>0<><>::
 gates_lockable.tscn::PackedScene::4572584749633102445::1763724053::0::1::::<><><>0<>0<><>::uid://cio1npl2jn6qo::::res://gates_lockable.gd<>uid://ltsun53tmf7n::::res://Models/gates_r.tscn<>uid://ccxelhfyknqrx::::res://Models/gate_l.tscn
 icon.svg::CompressedTexture2D::73806414460693176::1758921964::1758922110::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -45,7 +45,7 @@ CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1762495958::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.editor.framework/::1762495958
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_debug.framework/::1762495958
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_release.framework/::1762495958
-::res://addons/fmod/libs/windows/::1763724069
+::res://addons/fmod/libs/windows/::1764907279
 CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1762495958::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/tool/::1762495958
 FmodBankDatabase.gd::GDScript::8186486955615663266::1762495958::0::1::::FmodBankDatabase<>Node<><>0<>0<><>::
@@ -82,8 +82,8 @@ Mat_PurplePrototype.tres::StandardMaterial3D::8702609426105306627::1761000677::0
 ::res://Alvaro Work/Prefabs/::1761000677
 LockDoor.tscn::PackedScene::8476357296690976852::1761000677::0::1::::<><><>0<>0<><>::uid://bvyrgnqcgxmny::::res://Alvaro Work/Texture/PrototypePNG/Purple/texture_10.png
 Tree.tscn::PackedScene::6472645977132033136::1761000677::0::1::::<><><>0<>0<><>::uid://oqwlytaokd3w::::res://Alvaro Work/Materials/Mat_BarkPrototype.tres<>uid://mxju83h8o3dj::::res://Alvaro Work/Materials/Mat_LeafPrototype.tres
-::res://Alvaro Work/Scene/::1763724440
-PrototypeScene.tscn::PackedScene::4330088853611983622::1763724670::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://dvbc4n1268nu3::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png<>uid://bo3av6dnb22l3::::res://Alvaro Work/Materials/Mat_GrayPrototype.tres<>uid://dv8ux85akea7d::::res://Alvaro Work/Materials/Mat_PurplePrototype.tres<>uid://cyhnse20ora2s::::res://Alvaro Work/Prefabs/Tree.tscn<>uid://30perxxbx2ig::::res://NPC.tscn<>uid://b2m166pyucp68::::res://Materials/Head11.tres<>uid://bkuvam5bdgvok::::res://Materials/Body8.tres
+::res://Alvaro Work/Scene/::1764905133
+PrototypeScene.tscn::PackedScene::4330088853611983622::1764905133::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://dvbc4n1268nu3::::res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png<>uid://bo3av6dnb22l3::::res://Alvaro Work/Materials/Mat_GrayPrototype.tres<>uid://dv8ux85akea7d::::res://Alvaro Work/Materials/Mat_PurplePrototype.tres<>uid://mxju83h8o3dj::::res://Alvaro Work/Materials/Mat_LeafPrototype.tres<>uid://cyhnse20ora2s::::res://Alvaro Work/Prefabs/Tree.tscn<>uid://273sj0ysbnro::::res://sound_token_collectable.tscn<>uid://30perxxbx2ig::::res://NPC.tscn<>uid://b2m166pyucp68::::res://Materials/Head11.tres<>uid://diqcm23k4w66p::::res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png<>uid://bkuvam5bdgvok::::res://Materials/Body8.tres
 ::res://Alvaro Work/Texture/::1761000677
 ::res://Alvaro Work/Texture/PrototypePNG/::1761000677
 ::res://Alvaro Work/Texture/PrototypePNG/Dark/::1762495998
@@ -128,7 +128,7 @@ texture_10.png::CompressedTexture2D::8319335447639105149::1761000677::1762495998
 texture_11.png::CompressedTexture2D::4038095587010970668::1761000677::1762495998::1::::<><><>0<>0<>718f9cdfaef8f079093b5938999ddaef<>res://.godot/imported/texture_11.png-57d03ceb67a0e9d6b984087047835c14.ctex::
 texture_12.png::CompressedTexture2D::4122977083525578335::1761000677::1762495998::1::::<><><>0<>0<>ff97d81dd79fb9a46e4e1b399e059292<>res://.godot/imported/texture_12.png-5763f17973dda6e875a51f178c9b6e7a.ctex::
 texture_13.png::CompressedTexture2D::8405972267134935520::1761000677::1762495998::1::::<><><>0<>0<>131830f668af8141ff54ba2705f0a99e<>res://.godot/imported/texture_13.png-5d00ac759113fa176b2e3be2e62650b5.ctex::
-::res://Alvaro Work/Texture/PrototypePNG/Orange/::1762495998
+::res://Alvaro Work/Texture/PrototypePNG/Orange/::1763724763
 texture_01.png::CompressedTexture2D::6552389785202637274::1761000677::1762495998::1::::<><><>0<>0<>f9721cf5ed00a01b595dede028c16dea<>res://.godot/imported/texture_01.png-8c15f81d23f18701e78c08584f91ec46.ctex::
 texture_02.png::CompressedTexture2D::6834392797012975331::1761000677::1762495998::1::::<><><>0<>0<>31a861a776b800a565493908bcef788c<>res://.godot/imported/texture_02.png-8538de9a76ed323d363f0f1068452b70.ctex::
 texture_03.png::CompressedTexture2D::1036059237449234627::1761000677::1762495998::1::::<><><>0<>0<>c988126a90b975d32bc95d5c8fb60812<>res://.godot/imported/texture_03.png-0f041ec2b53a18c33f6707296ee8763b.ctex::
