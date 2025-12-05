@@ -1,17 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2xr6v8tvicck"]
+[gd_scene load_steps=15 format=3 uid="uid://b2xr6v8tvicck"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
 [ext_resource type="Material" uid="uid://bo3av6dnb22l3" path="res://Alvaro Work/Materials/Mat_GrayPrototype.tres" id="3_gxy5r"]
-[ext_resource type="Material" uid="uid://dv8ux85akea7d" path="res://Alvaro Work/Materials/Mat_PurplePrototype.tres" id="4_5h3uk"]
 [ext_resource type="Material" uid="uid://mxju83h8o3dj" path="res://Alvaro Work/Materials/Mat_LeafPrototype.tres" id="4_8b0og"]
 [ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
 [ext_resource type="PackedScene" uid="uid://273sj0ysbnro" path="res://sound_token_collectable.tscn" id="5_ydnef"]
 [ext_resource type="PackedScene" uid="uid://ltxhpag8mut0" path="res://Alvaro Work/Prefabs/TallBarricade1.tscn" id="6_tddbr"]
 [ext_resource type="PackedScene" uid="uid://30perxxbx2ig" path="res://NPC.tscn" id="7_x8ifo"]
 [ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Characters/Head11.tres" id="8_x8ifo"]
-[ext_resource type="Texture2D" uid="uid://diqcm23k4w66p" path="res://Alvaro Work/Texture/PrototypePNG/Orange/texture_09.png" id="9_x8ifo"]
 [ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
+[ext_resource type="PackedScene" uid="uid://clnj0lrwgpxrd" path="res://Models/Gates/gates_model.tscn" id="11_a4s3b"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="13_3vhle"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
@@ -24,11 +23,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 uv2_triplanar = true
 uv2_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydnef"]
-albedo_texture = ExtResource("9_x8ifo")
-uv1_triplanar = true
-uv2_triplanar = true
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -114,82 +108,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -2, -12.5)
 size = Vector3(27, 1, 8)
 material = SubResource("StandardMaterial3D_trvnc")
 
-[node name="TallBarricade1" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 5, 0.68044937, -9.875)
-size = Vector3(2, 4.375, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade1" parent="Hallway1Area" instance=ExtResource("6_tddbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.25, 5.1250005, 0.6304494, -9.75)
 
-[node name="TallBarricade1Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade2" parent="Hallway1Area" instance=ExtResource("6_tddbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.25, 5.1250005, 0.6304494, -15.25)
 
-[node name="TallBarricade2" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(3.059797e-07, 0, -1, 0, 1, 0, 1, 0, 3.0597974e-07, 5.0000005, 0.68044937, -15.125)
-size = Vector3(2, 4.375, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade3" parent="Hallway1Area" instance=ExtResource("6_tddbr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.25, 5.125, 0.6250001, -12.5)
 
-[node name="TallBarricade2Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188, 0.376)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade4" parent="Hallway1Area" instance=ExtResource("6_tddbr")]
+transform = Transform3D(-1.0000001, 0, 8.742278e-08, 0, 1, 0, -8.7422784e-08, 0, -1, -21.000002, 0.6304494, -9.6875)
 
-[node name="TallBarricade3" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(6.556708e-07, 0, -1, 0, 1, 0, 1, 0, 6.556709e-07, 5.0000005, 0.68044937, -12.5)
-size = Vector3(2, 4.375, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade5" parent="." instance=ExtResource("6_tddbr")]
+transform = Transform3D(-0.9659263, 0, 0.2588193, 0, 1, 0, -0.25881937, 0, -0.96592575, -20.687502, 2.5, -11.875)
 
-[node name="TallBarricade3Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade6" parent="." instance=ExtResource("6_tddbr")]
+transform = Transform3D(-0.86602646, 0, 0.5000005, 0, 1, 0, -0.50000066, 0, -0.8660251, -19.812502, 2.5, -13.9375)
 
-[node name="TallBarricade4" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(-2.1855699e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, -21.313, 0.68044937, -9.499998)
-size = Vector3(2, 4.375, 0.625)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade4Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade5" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(0.25881872, 0, 0.96592635, 0, 1, 0, -0.96592593, 0, 0.25881872, -20.938, 0.6054493, -11.75)
-size = Vector3(2, 4.375, 0.625)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade5Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade6" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(0.70710653, 0, 0.70710754, 0, 1, 0, -0.70710695, 0, 0.7071066, -19.812994, 0.6054493, -13.75)
-size = Vector3(2, 4.375, 0.625)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade6Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade7" type="CSGBox3D" parent="Hallway1Area"]
-transform = Transform3D(0.7071063, 0, 0.707108, 0, 1, 0, -0.7071074, 0, 0.7071067, -18.125, 0.6054493, -15.383)
-size = Vector3(2, 4.375, 0.625)
-material = SubResource("StandardMaterial3D_ydnef")
-
-[node name="TallBarricade7Subtraction" type="CSGBox3D" parent="Hallway1Area/TallBarricade7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1875, 0.375)
-operation = 2
-size = Vector3(2, 4.25, 0.75)
-material = SubResource("StandardMaterial3D_ydnef")
+[node name="TallBarricade7" parent="." instance=ExtResource("6_tddbr")]
+transform = Transform3D(-0.50000054, 0, 0.866027, 0, 1, 0, -0.86602676, 0, -0.4999988, -18.312502, 2.5, -15.4375)
 
 [node name="ChasePSArea" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.8695506, 0)
@@ -227,9 +165,9 @@ size = Vector3(17, 1, 3)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSArea/ChasePSWall4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.750002, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.500002, 0, 0)
 operation = 2
-size = Vector3(2.5, 1, 3)
+size = Vector3(3.25, 1, 3)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSBoothWall" type="CSGBox3D" parent="ChasePSArea"]
@@ -343,7 +281,7 @@ size = Vector3(0.875, 0.625, 2.75)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSTallBarricade1" parent="ChasePSArea" instance=ExtResource("6_tddbr")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 2.999999, 0.6250001, 11.125)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 2.999999, 0.6250001, 11.1875)
 
 [node name="ChasePSTallBarricade2" parent="ChasePSArea" instance=ExtResource("6_tddbr")]
 transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, 2.999999, 0.6250001, 13.375)
@@ -352,13 +290,13 @@ transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, 2.999999, 0.6250001, 
 transform = Transform3D(-4.371141e-08, 0, 0.7, 0, 1, 0, -1.0000005, 0, -3.059797e-08, 3.875, 0.6250001, 14.75)
 
 [node name="ChasePSTallBarricade4" parent="ChasePSArea" instance=ExtResource("6_tddbr")]
-transform = Transform3D(-1.0000002, 0, 8.742278e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.7499986, 0.6250001, 13.375)
+transform = Transform3D(-1.0000002, 0, 8.742278e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.7499986, 0.6250001, 13.3125)
 
 [node name="ChasePSTallBarricade5" parent="ChasePSArea" instance=ExtResource("6_tddbr")]
 transform = Transform3D(-1.0000004, 0, 8.742278e-08, 0, 1, 0, -8.7422805e-08, 0, -1, 4.7499986, 0.6250001, 11.125)
 
 [node name="ChasePSTallBarricade6" parent="ChasePSArea" instance=ExtResource("6_tddbr")]
-transform = Transform3D(-1.0000007, 0, 8.742282e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.0000005, 0.7500001, 5.75)
+transform = Transform3D(-1.0000007, 0, 8.742282e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.8750005, 0.7500001, 5.75)
 
 [node name="ChasePSBoothWall2" type="CSGBox3D" parent="ChasePSArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.875, 0.5000001, 12.1875)
@@ -497,22 +435,18 @@ size = Vector3(4, 4, 7)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSWall3Subtraction2" type="CSGBox3D" parent="BeanArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 3.5, -1, -31.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 3.437501, -1, -29.626)
 operation = 2
-size = Vector3(4, 1, 3)
+size = Vector3(4.125, 1, 1.625)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="Locked Door" type="CSGCombiner3D" parent="."]
+[node name="Locked Door" type="Node3D" parent="."]
 
-[node name="LockedDoor1" type="CSGBox3D" parent="Locked Door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.750001, 1.75, -7)
-size = Vector3(2.5, 3, 1)
-material = ExtResource("4_5h3uk")
+[node name="LockedGate1" parent="Locked Door" instance=ExtResource("11_a4s3b")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.500004, 0.375, -6.5)
 
-[node name="LockedDoor2" type="CSGBox3D" parent="Locked Door"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 1.75, -31)
-size = Vector3(6, 3, 1)
-material = ExtResource("4_5h3uk")
+[node name="Gates" parent="Locked Door" instance=ExtResource("11_a4s3b")]
+transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, 2.5000002, 0.375, -29.5)
 
 [node name="TreeLayer" type="Node3D" parent="."]
 
