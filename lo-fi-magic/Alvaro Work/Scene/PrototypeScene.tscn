@@ -556,3 +556,6 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 
 [node name="MovableCube" parent="." instance=ExtResource("13_3vhle")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -2.0000002, 0.875, -25.125)
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]

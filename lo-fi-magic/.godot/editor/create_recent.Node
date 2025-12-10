@@ -1,12 +1,12 @@
+FmodBankLoader
+FmodEventEmitter3D
 BoneAttachment3D
 MeshInstance3D
 Node3D
 CSGBox3D
 CollisionShape3D
 RigidBody3D
-FmodEventEmitter3D
 FmodListener3D
-FmodBankLoader
 StaticBody3D
 PhysicalBone3D
 Label
