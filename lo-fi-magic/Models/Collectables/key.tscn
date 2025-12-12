@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ief0fegcqxl"]
+
+[ext_resource type="PackedScene" uid="uid://dmr3odcjcn3fj" path="res://Models/Collectables/Key.fbx" id="1_vb57b"]
+[ext_resource type="Material" uid="uid://behklva3dpe2t" path="res://Materials/Props/Key.tres" id="2_pnsid"]
+
+[node name="Key" instance=ExtResource("1_vb57b")]
+
+[node name="Key" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_pnsid")
