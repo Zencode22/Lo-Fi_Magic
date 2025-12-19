@@ -3,7 +3,6 @@ extends RigidBody3D
 var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
-var is_running := false
 var is_grabbing := false
 var default_movespeed := 1200.0
 
@@ -24,8 +23,7 @@ var can_grab_object: bool = false
 var current_grab_target: Node3D = null
 
 var jump_count := 0
-var max_jumps := 2
-var can_double_jump := false
+var max_jumps := 1
 
 func _ready() -> void:
 	sleeping = false
@@ -60,11 +58,7 @@ func _process(delta: float) -> void:
 	if is_grabbing and grabbed_object != null and abs(linear_velocity.y) > 0.5:
 		release_object()
 	
-	is_running = Input.is_action_pressed("run")
-	var move_speed_multiplier = 1.5
-	if not is_running:
-		move_speed_multiplier = 1.0
-	var move_speed = default_movespeed * move_speed_multiplier
+	var move_speed = default_movespeed
 	
 	apply_central_force(twist_pivot.global_transform.basis * input * move_speed * delta)
 
@@ -72,12 +66,6 @@ func _process(delta: float) -> void:
 		if is_on_floor():
 			perform_jump()
 			jump_count = 1
-			can_double_jump = true
-		elif can_double_jump and jump_count < max_jumps:
-			perform_jump()
-			jump_count += 1
-			can_double_jump = false
-			state_machine.travel("Jump_MidAir")
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -91,7 +79,6 @@ func _process(delta: float) -> void:
 		
 	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
 	
-	# FIXED: Only update rotation when NOT grabbing an object
 	if direction and not is_grabbing:
 		last_direction = direction
 		var target_rotation = atan2(last_direction.x, last_direction.z)
@@ -101,10 +88,8 @@ func _process(delta: float) -> void:
 	if is_grabbing:
 		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(input.x, input.z).normalized())
 	else:
-		var blend_multiplier = 1
-		if is_running:
-			blend_multiplier = 2
-		anim_tree.set("parameters/IdleWalkRun/blend_position", (Vector2(input.x, input.z).normalized()) * blend_multiplier)
+		# Removed running blend multiplier
+		anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(input.x, input.z).normalized())
 		
 	twist_input = 0.0
 	pitch_input = 0.0
@@ -117,12 +102,10 @@ func _process(delta: float) -> void:
 	
 	if is_on_floor():
 		jump_count = 0
-		can_double_jump = true
 	
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
-	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0 && !is_running)
-	anim_tree.set("parameters/conditions/run", is_on_floor() && input.length() > 0 && is_running)
-	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && (is_on_floor() || can_double_jump))
+	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0)
+	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
 	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
 	
 	update_grab_prompt()
