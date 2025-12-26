@@ -5,7 +5,7 @@ extends Node3D
 func _ready() -> void:
 	TokenTracker.all_tokens_collected.connect(_on_all_tokens_collected)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_all_tokens_collected() -> void:

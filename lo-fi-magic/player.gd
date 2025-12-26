@@ -4,7 +4,6 @@ var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
 var is_grabbing := false
-var default_movespeed := 1200.0
 
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
@@ -25,9 +24,23 @@ var current_grab_target: Node3D = null
 var jump_count := 0
 var max_jumps := 1
 
+# Movement variables
+var move_force = 600.0
+var max_speed = 5.0
+var jump_height_limit := 5.0
+var is_above_jump_limit := false
+
+# Jump physics
+var jump_height: float = 5.0  # Desired jump height in units
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 func _ready() -> void:
+	freeze = false
 	sleeping = false
+	can_sleep = false
+	continuous_cd = 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	if grab_prompt_label:
 		grab_prompt_label.hide()
 	
@@ -49,6 +62,8 @@ func setup_collision_shape() -> void:
 		add_child(collision_shape)
 
 func _process(delta: float) -> void:
+	freeze = false
+	
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
@@ -58,39 +73,26 @@ func _process(delta: float) -> void:
 	if is_grabbing and grabbed_object != null and abs(linear_velocity.y) > 0.5:
 		release_object()
 	
-	var move_speed = default_movespeed
-	
-	apply_central_force(twist_pivot.global_transform.basis * input * move_speed * delta)
-
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			perform_jump()
-			jump_count = 1
-
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
 	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x,
 		deg_to_rad(-30),
 		deg_to_rad(30)
 	)
-		
+	
 	var direction = ($TwistPivot.transform.basis * Vector3(input.x, 0, input.z)).normalized()
 	
-	if direction and not is_grabbing:
+	if direction.length() > 0.1 and not is_grabbing:
 		last_direction = direction
 		var target_rotation = atan2(last_direction.x, last_direction.z)
 		var current_rotation = $LoFi_Magic_Temp_Character.rotation
 		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
 	
 	if is_grabbing:
-		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(input.x, input.z).normalized())
+		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(input.x, input.z))
 	else:
-		# Removed running blend multiplier
-		anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(input.x, input.z).normalized())
-		
+		anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(input.x, input.z))
+	
 	twist_input = 0.0
 	pitch_input = 0.0
 
@@ -100,9 +102,35 @@ func _process(delta: float) -> void:
 		else:
 			try_grab_object()
 	
+	# Check ground height for jump limit
+	var space_state = get_world_3d().direct_space_state
+	var origin = global_position
+	var end = origin + Vector3.DOWN * 100.0
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.exclude = [self]
+	query.collision_mask = 0xFFFFFFFF
+	var result = space_state.intersect_ray(query)
+	
+	if !result.is_empty():
+		var current_height = global_position.y - result.position.y
+		is_above_jump_limit = current_height >= jump_height_limit
+	else:
+		is_above_jump_limit = false
+	
+	# Jump input
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_above_jump_limit:
+		perform_jump()
+		jump_count = 1
+
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	# Reset jump count when on floor
 	if is_on_floor():
 		jump_count = 0
+		is_above_jump_limit = false
 	
+	# Animation conditions
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0)
 	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
@@ -110,17 +138,63 @@ func _process(delta: float) -> void:
 	
 	update_grab_prompt()
 
+func _physics_process(delta: float) -> void:
+	# Always ensure we're not frozen
+	freeze = false
+	sleeping = false
+	
+	# Get movement input
+	var input := Vector3.ZERO
+	input.x = Input.get_axis("move_left", "move_right")
+	input.z = Input.get_axis("move_forward", "move_back")
+	
+	# Normalize input for consistent speed in all directions
+	if input.length() > 1.0:
+		input = input.normalized()
+	
+	# Calculate movement direction based on camera
+	var move_direction = twist_pivot.global_transform.basis * Vector3(input.x, 0, input.z)
+	move_direction = move_direction.normalized()
+	
+	# Apply movement force (only if we have input)
+	if input.length() > 0.1:
+		# Get current horizontal velocity
+		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
+		var target_horizontal_velocity = move_direction * max_speed
+		
+		# Calculate velocity difference
+		var velocity_diff = target_horizontal_velocity - current_horizontal_velocity
+		
+		# Apply force to achieve target velocity
+		var force = velocity_diff * move_force * delta
+		apply_central_force(force)
+	else:
+		# Apply damping when no input
+		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
+		if current_horizontal_velocity.length() > 0.1:
+			var damping_force = -current_horizontal_velocity.normalized() * move_force * 0.5 * delta
+			apply_central_force(damping_force)
+	
+	# Apply downward force when above jump limit
+	if is_above_jump_limit and linear_velocity.y > 0:
+		var downward_force = Vector3(0, -gravity * mass * 3.0, 0)
+		apply_central_force(downward_force)
+
 func perform_jump() -> void:
-	var jump_height = 5.0
-	var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-	var initial_velocity = sqrt(2 * gravity * jump_height)
-	var jump_impulse = mass * initial_velocity
+	if not is_on_floor() or is_above_jump_limit:
+		return
 	
-	var current_velocity = linear_velocity
-	current_velocity.y = 0
-	linear_velocity = current_velocity
+	# Calculate the required initial velocity to reach jump_height
+	# Using physics formula: v = sqrt(2 * g * h)
+	var required_velocity = sqrt(2 * gravity * jump_height)
 	
-	apply_central_impulse(Vector3.UP * jump_impulse)
+	# Set the vertical velocity directly for precise jump height
+	# This ensures exactly 5 units jump height
+	var current_vel = linear_velocity
+	current_vel.y = required_velocity
+	linear_velocity = current_vel
+	
+	is_above_jump_limit = false
 	
 func is_on_floor() -> bool:
 	var space_state = get_world_3d().direct_space_state
