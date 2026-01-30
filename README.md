@@ -50,11 +50,12 @@ The game can be obtained **only** from the official GitHub repository.
 ### Development Team  
 
 - **Connor Lonergan** – Lead Designer & Programmer  
-  - B.S. in Computer Programming (Columbia College Chicago)
+  - B.A. in Computer Programming (Columbia College Chicago)
   - A.S. in Computer Programming (Joliet Junior College).  
 
 - **Vinh Nguyen** – Character & Asset Modeling, Animation
    - B.A. in Game Design with Game Art Minor (Columbia College Chicago)  
 
 - **Alvaro Troncoso** – Level Design
-   - A.A. in Game Design and Development (Joliet Junior College)  
+   - A.A. in Game Design and Development (Joliet Junior College) 
+   - B.A. in Game Design and Devlopment (Columbia College Chicago)
