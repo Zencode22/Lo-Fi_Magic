@@ -200,7 +200,6 @@ material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="NPC" parent="ChasePSArea/ChasePSBooth1" instance=ExtResource("7_x8ifo")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -2.861023e-06, -1.7445507, -0.001999855)
-IdleAnim_Name = "NPC_Anims/Idle3"
 HeadTex = ExtResource("8_x8ifo")
 BodyTex = ExtResource("9_ydnef")
 
@@ -329,56 +328,17 @@ transform = Transform3D(1.0000057, 0, 3.496931e-07, 0, 1, 0, -3.4969312e-07, 0, 
 size = Vector3(1.75, 2.875, 2.25)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="Sound_Token_Collectable" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, -0.375, 15.5)
-
-[node name="Sound_Token_Collectable2" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
+[node name="Sound_Token_Collectable1" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -2.3750057, -0.375, 18.625)
 
-[node name="Sound_Token_Collectable3" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, -0.375, 14.49917)
-
 [node name="Sound_Token_Collectable4" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000005, 0, 0, 0, 1, 0, 0, 0, 1, -6.750004, -0.375, 13.5)
-
-[node name="Sound_Token_Collectable5" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
 transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1, -2.7500076, 3.5, 13.75)
 
-[node name="Sound_Token_Collectable6" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.000001, 0, 0, 0, 1, 0, 0, 0, 1, 1.3749971, -0.375, 14.875)
-
-[node name="Sound_Token_Collectable7" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
+[node name="Sound_Token_Collectable2" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -0.50000095, 0.13044941, 11.5)
 
-[node name="Sound_Token_Collectable8" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, -0.375, 14.5)
-
-[node name="Sound_Token_Collectable9" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, -0.375, 12)
-
-[node name="Sound_Token_Collectable10" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 6.7499995, 0.3804494, 9.25)
-
-[node name="Sound_Token_Collectable11" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
+[node name="Sound_Token_Collectable3" parent="ChasePSArea" instance=ExtResource("5_ydnef")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 6.7499995, 1.6304494, 6)
-
-[node name="Sound_Token_Collectable12" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1, -3.2500005, 2.2495506, 2.375)
-
-[node name="Sound_Token_Collectable15" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(-4.3711406e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.371139e-08, -14.624999, 1.8745506, -4.75)
-
-[node name="Sound_Token_Collectable13" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(-1.0000005, 0, -8.74228e-08, 0, 1, 0, 8.7422805e-08, 0, -1.0000002, -17.374998, 1.8745506, 2.7499995)
-
-[node name="Sound_Token_Collectable14" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(-2.1855703e-07, 0, 1.0000007, 0, 1, 0, -1.0000007, 0, -2.1855703e-07, -13.374998, 1.8745506, 5.75)
-
-[node name="Sound_Token_Collectable16" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(-3.9340296e-07, 0, 1.0000014, 0, 1, 0, -1.0000014, 0, -3.9340296e-07, -8.499997, 3.6245506, 5.75)
-
-[node name="Sound_Token_Collectable17" parent="." instance=ExtResource("5_ydnef")]
-transform = Transform3D(-1.0000029, 0, -7.868073e-07, 0, 1, 0, 7.8680705e-07, 0, -1.0000029, -6.2499986, 5.374551, 7.875)
 
 [node name="BeanArea" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)

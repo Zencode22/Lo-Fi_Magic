@@ -24,15 +24,16 @@ var current_grab_target: Node3D = null
 var jump_count := 0
 var max_jumps := 1
 
-# Movement variables
 var move_force = 600.0
 var max_speed = 5.0
 var jump_height_limit := 5.0
 var is_above_jump_limit := false
 
-# Jump physics
-var jump_height: float = 5.0  # Desired jump height in units
+var jump_height: float = 5.0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var token_counter_label: Label
+var gate_message_label: Label
 
 func _ready() -> void:
 	freeze = false
@@ -50,6 +51,12 @@ func _ready() -> void:
 	collision_mask = 0xFFFFFFFF
 	
 	setup_collision_shape()
+	setup_token_ui()
+
+	var token_tracker = get_node("/root/TokenTracker")
+	if token_tracker:
+		token_tracker.token_collected_updated.connect(_on_token_collected_updated)
+		token_tracker.all_tokens_collected.connect(_on_all_tokens_collected)
 
 func setup_collision_shape() -> void:
 	if not has_node("CollisionShape3D"):
@@ -60,6 +67,66 @@ func setup_collision_shape() -> void:
 		collision_shape.shape.radius = 0.4
 		collision_shape.position = Vector3(0, 0.9, 0)
 		add_child(collision_shape)
+
+func setup_token_ui() -> void:
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.name = "TokenCanvasLayer"
+	canvas_layer.layer = 10
+	add_child(canvas_layer)
+
+	var control = Control.new()
+	control.name = "TokenUIControl"
+	canvas_layer.add_child(control)
+
+	var vbox = VBoxContainer.new()
+	vbox.name = "TokenVBox"
+	vbox.anchor_left = 0.0
+	vbox.anchor_top = 0.0
+	vbox.anchor_right = 1.0
+	vbox.anchor_bottom = 1.0
+	vbox.offset_left = 20
+	vbox.offset_top = 20
+	control.add_child(vbox)
+
+	token_counter_label = Label.new()
+	token_counter_label.name = "TokenCounterLabel"
+	token_counter_label.text = "Tokens: 0/4"
+	token_counter_label.add_theme_font_size_override("font_size", 24)
+	token_counter_label.add_theme_color_override("font_color", Color.WHITE)
+	token_counter_label.add_theme_constant_override("outline_size", 4)
+	token_counter_label.add_theme_color_override("font_outline_color", Color.BLACK)
+	vbox.add_child(token_counter_label)
+
+	gate_message_label = Label.new()
+	gate_message_label.name = "GateMessageLabel"
+	gate_message_label.text = "Gate opened!"
+	gate_message_label.add_theme_font_size_override("font_size", 32)
+	gate_message_label.add_theme_color_override("font_color", Color.GREEN)
+	gate_message_label.add_theme_constant_override("outline_size", 6)
+	gate_message_label.add_theme_color_override("font_outline_color", Color.BLACK)
+	gate_message_label.hide()
+	vbox.add_child(gate_message_label)
+
+func _on_token_collected_updated(current: int, total: int) -> void:
+	if token_counter_label:
+		token_counter_label.text = "Tokens: %d/%d" % [current, total]
+
+		if current > 0:
+			var tween = create_tween()
+			tween.tween_property(token_counter_label, "scale", Vector2(1.3, 1.3), 0.1)
+			tween.tween_property(token_counter_label, "scale", Vector2(1.0, 1.0), 0.1)
+
+func _on_all_tokens_collected() -> void:
+	if gate_message_label:
+		gate_message_label.show()
+
+		var tween = create_tween()
+		tween.tween_property(gate_message_label, "modulate:a", 1.0, 0.5).from(0.0)
+		tween.tween_property(gate_message_label, "scale", Vector2(1.2, 1.2), 0.3)
+		tween.tween_property(gate_message_label, "scale", Vector2(1.0, 1.0), 0.3)
+		tween.tween_interval(3.0)
+		tween.tween_property(gate_message_label, "modulate:a", 0.0, 1.0)
+		tween.tween_callback(gate_message_label.hide)
 
 func _process(delta: float) -> void:
 	freeze = false
@@ -101,8 +168,7 @@ func _process(delta: float) -> void:
 			release_object()
 		else:
 			try_grab_object()
-	
-	# Check ground height for jump limit
+
 	var space_state = get_world_3d().direct_space_state
 	var origin = global_position
 	var end = origin + Vector3.DOWN * 100.0
@@ -116,21 +182,18 @@ func _process(delta: float) -> void:
 		is_above_jump_limit = current_height >= jump_height_limit
 	else:
 		is_above_jump_limit = false
-	
-	# Jump input
+
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_above_jump_limit:
 		perform_jump()
 		jump_count = 1
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
-	# Reset jump count when on floor
+
 	if is_on_floor():
 		jump_count = 0
 		is_above_jump_limit = false
-	
-	# Animation conditions
+
 	anim_tree.set("parameters/conditions/grounded", is_on_floor())
 	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0)
 	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
@@ -139,43 +202,33 @@ func _process(delta: float) -> void:
 	update_grab_prompt()
 
 func _physics_process(delta: float) -> void:
-	# Always ensure we're not frozen
 	freeze = false
 	sleeping = false
-	
-	# Get movement input
+
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
-	
-	# Normalize input for consistent speed in all directions
+
 	if input.length() > 1.0:
 		input = input.normalized()
-	
-	# Calculate movement direction based on camera
+
 	var move_direction = twist_pivot.global_transform.basis * Vector3(input.x, 0, input.z)
 	move_direction = move_direction.normalized()
-	
-	# Apply movement force (only if we have input)
+
 	if input.length() > 0.1:
-		# Get current horizontal velocity
 		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 		var target_horizontal_velocity = move_direction * max_speed
-		
-		# Calculate velocity difference
+
 		var velocity_diff = target_horizontal_velocity - current_horizontal_velocity
-		
-		# Apply force to achieve target velocity
+
 		var force = velocity_diff * move_force * delta
 		apply_central_force(force)
 	else:
-		# Apply damping when no input
 		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 		if current_horizontal_velocity.length() > 0.1:
 			var damping_force = -current_horizontal_velocity.normalized() * move_force * 0.5 * delta
 			apply_central_force(damping_force)
-	
-	# Apply downward force when above jump limit
+
 	if is_above_jump_limit and linear_velocity.y > 0:
 		var downward_force = Vector3(0, -gravity * mass * 3.0, 0)
 		apply_central_force(downward_force)
@@ -183,13 +236,9 @@ func _physics_process(delta: float) -> void:
 func perform_jump() -> void:
 	if not is_on_floor() or is_above_jump_limit:
 		return
-	
-	# Calculate the required initial velocity to reach jump_height
-	# Using physics formula: v = sqrt(2 * g * h)
+
 	var required_velocity = sqrt(2 * gravity * jump_height)
-	
-	# Set the vertical velocity directly for precise jump height
-	# This ensures exactly 5 units jump height
+
 	var current_vel = linear_velocity
 	current_vel.y = required_velocity
 	linear_velocity = current_vel
