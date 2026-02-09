@@ -1,17 +1,42 @@
 extends Node
 
-signal all_tokens_collected
-signal token_collected_updated(current: int, total: int)
+signal all_tokens_collected(set_name: String)
+signal token_collected_updated(set_name: String, current: int, total: int)
 
-var total_tokens := 0
-var collected_tokens := 0
+var token_sets := {
+	"default": {
+		"total": 0,
+		"collected": 0
+	},
+	"set_1": {
+		"total": 0,
+		"collected": 0
+	}
+}
 
-func register_token() -> void:
-	total_tokens += 1
-	token_collected_updated.emit(collected_tokens, total_tokens)
+func register_token(set_name: String = "default") -> void:
+	if not token_sets.has(set_name):
+		token_sets[set_name] = {"total": 0, "collected": 0}
+	
+	token_sets[set_name].total += 1
+	token_collected_updated.emit(set_name, token_sets[set_name].collected, token_sets[set_name].total)
 
-func collect_token() -> void:
-	collected_tokens += 1
-	token_collected_updated.emit(collected_tokens, total_tokens)
-	if collected_tokens >= total_tokens:
-		all_tokens_collected.emit()
+func collect_token(set_name: String = "default") -> void:
+	if not token_sets.has(set_name):
+		return
+	
+	token_sets[set_name].collected += 1
+	token_collected_updated.emit(set_name, token_sets[set_name].collected, token_sets[set_name].total)
+	
+	if token_sets[set_name].collected >= token_sets[set_name].total:
+		all_tokens_collected.emit(set_name)
+
+func get_collected_count(set_name: String = "default") -> int:
+	if token_sets.has(set_name):
+		return token_sets[set_name].collected
+	return 0
+
+func get_total_count(set_name: String = "default") -> int:
+	if token_sets.has(set_name):
+		return token_sets[set_name].total
+	return 0

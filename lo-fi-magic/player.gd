@@ -33,6 +33,7 @@ var jump_height: float = 5.0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var token_counter_label: Label
+var gate2_token_label: Label  # Changed from gate1_token_label to gate2_token_label
 var gate_message_label: Label
 
 func _ready() -> void:
@@ -90,12 +91,21 @@ func setup_token_ui() -> void:
 
 	token_counter_label = Label.new()
 	token_counter_label.name = "TokenCounterLabel"
-	token_counter_label.text = "Tokens: 0/4"
+	token_counter_label.text = "Gate 1: 0/4"  # Updated to show 0/4 initially
 	token_counter_label.add_theme_font_size_override("font_size", 24)
 	token_counter_label.add_theme_color_override("font_color", Color.WHITE)
 	token_counter_label.add_theme_constant_override("outline_size", 4)
 	token_counter_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	vbox.add_child(token_counter_label)
+
+	gate2_token_label = Label.new()  # Changed to gate2_token_label
+	gate2_token_label.name = "Gate2TokenLabel"
+	gate2_token_label.text = "Gate 2: 0/6"  # Updated to show 0/6 initially
+	gate2_token_label.add_theme_font_size_override("font_size", 24)
+	gate2_token_label.add_theme_color_override("font_color", Color.CYAN)
+	gate2_token_label.add_theme_constant_override("outline_size", 4)
+	gate2_token_label.add_theme_color_override("font_outline_color", Color.BLACK)
+	vbox.add_child(gate2_token_label)
 
 	gate_message_label = Label.new()
 	gate_message_label.name = "GateMessageLabel"
@@ -107,17 +117,30 @@ func setup_token_ui() -> void:
 	gate_message_label.hide()
 	vbox.add_child(gate_message_label)
 
-func _on_token_collected_updated(current: int, total: int) -> void:
-	if token_counter_label:
-		token_counter_label.text = "Tokens: %d/%d" % [current, total]
+func _on_token_collected_updated(set_name: String, current: int, total: int) -> void:
+	# Update the appropriate label based on the token set
+	if set_name == "default":
+		if token_counter_label:
+			token_counter_label.text = "Gate 1: %d/%d" % [current, total]
+			if current > 0:
+				var tween = create_tween()
+				tween.tween_property(token_counter_label, "scale", Vector2(1.3, 1.3), 0.1)
+				tween.tween_property(token_counter_label, "scale", Vector2(1.0, 1.0), 0.1)
+	elif set_name == "set_1":
+		if gate2_token_label:  # Changed to gate2_token_label
+			gate2_token_label.text = "Gate 2: %d/%d" % [current, total]
+			if current > 0:
+				var tween = create_tween()
+				tween.tween_property(gate2_token_label, "scale", Vector2(1.3, 1.3), 0.1)
+				tween.tween_property(gate2_token_label, "scale", Vector2(1.0, 1.0), 0.1)
 
-		if current > 0:
-			var tween = create_tween()
-			tween.tween_property(token_counter_label, "scale", Vector2(1.3, 1.3), 0.1)
-			tween.tween_property(token_counter_label, "scale", Vector2(1.0, 1.0), 0.1)
-
-func _on_all_tokens_collected() -> void:
+func _on_all_tokens_collected(set_name: String) -> void:
 	if gate_message_label:
+		if set_name == "default":
+			gate_message_label.text = "Gate 1 opened!"
+		elif set_name == "set_1":
+			gate_message_label.text = "Gate 2 opened!"
+		
 		gate_message_label.show()
 
 		var tween = create_tween()

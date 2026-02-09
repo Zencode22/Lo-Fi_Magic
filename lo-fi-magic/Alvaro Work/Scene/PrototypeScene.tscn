@@ -11,9 +11,9 @@
 [ext_resource type="Material" uid="uid://b2m166pyucp68" path="res://Materials/Characters/Head11.tres" id="8_x8ifo"]
 [ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
 [ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://gates_lockable.tscn" id="10_3vhle"]
-[ext_resource type="PackedScene" uid="uid://clnj0lrwgpxrd" path="res://Models/Gates/gates_model.tscn" id="11_a4s3b"]
+[ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://sound_token2.gd" id="11_a4s3b"]
+[ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://movable_cube.tscn" id="13_3vhle"]
-[ext_resource type="PackedScene" uid="uid://cedxrbbdfjldi" path="res://Alvaro Work/Prefabs/CoinReferencePlacement.tscn" id="14_a4s3b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -310,7 +310,7 @@ size = Vector3(0.875, 0.625, 3.25)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSJumpBox3" type="CSGBox3D" parent="ChasePSArea"]
-transform = Transform3D(-4.3711434e-08, 0, 1.0000007, 0, 1, 0, -1.0000007, 0, -4.3711406e-08, 6.7499995, -1.187, 2.375)
+transform = Transform3D(-4.3711434e-08, 0, 1.0000007, 0, 1, 0, -1.0000007, 0, -4.3711406e-08, 6.7499995, -1.187, 3.5625)
 size = Vector3(0.875, 0.625, 3.25)
 material = SubResource("StandardMaterial3D_ttobh")
 
@@ -462,37 +462,47 @@ operation = 2
 size = Vector3(4.0625, 1, 1.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="CoinReferencePlacement" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3.000001, -0.24455059, -35)
-
-[node name="CoinReferencePlacement2" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, -8.875001, 1.7554494, -40.375)
-
-[node name="CoinReferencePlacement3" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(-4.3711406e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -4.37114e-08, -22.750002, 1.7554494, -40.5625)
-
-[node name="CoinReferencePlacement4" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(-4.3711427e-08, 0, -1.0000002, 0, 1, 0, 1.0000002, 0, -4.3711406e-08, -22.750002, 1.7554494, -29.187485)
-
-[node name="CoinReferencePlacement5" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(-1.0000005, 0, 8.7422855e-08, 0, 1, 0, -8.7422855e-08, 0, -1.0000005, -16.187502, 1.7554494, -24.312496)
-
-[node name="CoinReferencePlacement6" parent="BeanArea" instance=ExtResource("14_a4s3b")]
-transform = Transform3D(-2.1855725e-07, 0, -1.000001, 0, 1, 0, 1.000001, 0, -2.185572e-07, -8.750001, 3.9429493, -29.187496)
-
 [node name="MovableCube" parent="BeanArea" instance=ExtResource("13_3vhle")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3.0625021, -0.9945506, -32)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3.0625024, -0.9945506, -32)
 
 [node name="MovableCube2" parent="BeanArea" instance=ExtResource("13_3vhle")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1.0000002, 0, -4.371139e-08, -16.312506, -0.9945506, -22.625)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1.0000002, 0, -4.371139e-08, -21.312506, -0.9945506, -40.5)
+
+[node name="Sound_Token_Collectable1_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.245, -35)
+script = ExtResource("11_a4s3b")
+
+[node name="Sound_Token_Collectable2_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -8.875, 1.755, -40.375)
+script = ExtResource("11_a4s3b")
+
+[node name="Sound_Token_Collectable3_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -22.75, 1.755, -40.562)
+script = ExtResource("11_a4s3b")
+
+[node name="Sound_Token_Collectable4_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -22.75, 1.755, -29.187)
+script = ExtResource("11_a4s3b")
+
+[node name="Sound_Token_Collectable5_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(-1.0000001, 0, -8.742278e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -16.188, 1.755, -24.312)
+script = ExtResource("11_a4s3b")
+
+[node name="Sound_Token_Collectable6_1" parent="BeanArea" instance=ExtResource("5_ydnef")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -8.75, 3.943, -29.187)
+script = ExtResource("11_a4s3b")
 
 [node name="Locked Door" type="Node3D" parent="."]
 
 [node name="LockedGate" parent="Locked Door" instance=ExtResource("10_3vhle")]
 transform = Transform3D(-1.1000001, 0, -8.742278e-08, 0, 1, 0, 9.616507e-08, 0, -1, -14.500007, 0.375, -6.5)
 
-[node name="Gates" parent="Locked Door" instance=ExtResource("11_a4s3b")]
-transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, 4.5000005, 0.375, -29.5)
+[node name="LockedGate_1" parent="Locked Door" instance=ExtResource("10_3vhle")]
+transform = Transform3D(-4.8082534e-08, 0, 1, 0, 1, 0, -1.1000001, 0, -4.371139e-08, 4.5, 0.375, -29.5)
+script = ExtResource("12_3vhle")
+token_set = "set_1"
+gate_name = "Gate 2"
+required_tokens = 6
 
 [node name="TreeLayer" type="Node3D" parent="."]
 

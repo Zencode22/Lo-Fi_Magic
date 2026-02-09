@@ -9,6 +9,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_all_tokens_collected(set_name: String) -> void:
-	# Only open for Gate 1 tokens (default set)
-	if set_name == "default" and animation_player:
+	# Only open for Gate 2 tokens (set_1)
+	if set_name == "set_1" and animation_player:
 		animation_player.play("Opening")
