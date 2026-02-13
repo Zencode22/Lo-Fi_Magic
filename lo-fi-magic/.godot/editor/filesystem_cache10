@@ -1,20 +1,20 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770680195
+::res://::1771009723
 Art Test.tscn::PackedScene::6658578875861835067::1769546653::0::1::::<><><>0<>0<><>::uid://ybnrb2sa4r6q::::res://player.tscn<>uid://bvgstsbmjaal0::::res://Materials/World/DetailTexture.gdshader<>uid://btwfu465jeocp::::res://Textures/World/grass_pattern.png<>uid://b3qg3lstbkbs0::::res://Textures/World/grass_stripe_pattern.png<>uid://bu7btmmt1denc::::res://Materials/World/BrickWall.tres<>uid://b6e82j82ym542::::res://gates_lockable.tscn<>uid://c825hvtp12olc::::res://Models/Barricade/tall_barricade_model.tscn<>uid://w3i6qhspr1uu::::res://Materials/World/ArtTestSky.tres
-gates_lockable.gd::GDScript::5364856068262421314::1770412539::0::1::::<>Node3D<><>0<>0<><>::
+gates_lockable.gd::GDScript::5364856068262421314::1771008469::0::1::::<>Node3D<><>0<>0<><>::
 gates_lockable.tscn::PackedScene::4572584749633102445::1769546654::0::1::::<><><>0<>0<><>::uid://cio1npl2jn6qo::::res://gates_lockable.gd<>uid://ltsun53tmf7n::::res://Models/Gates/gates_r.tscn<>uid://ccxelhfyknqrx::::res://Models/Gates/gate_l.tscn
-gates_lockable_1.gd::GDScript::2202879628698501930::1770412539::0::1::::<>Node3D<><>0<>0<><>::
+gates_lockable_1.gd::GDScript::2202879628698501930::1771008470::0::1::::<>Node3D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::73806414460693176::1760576591::1760576684::1::::<><><>0<>0<>ab0b39c0908f6307adfa2bed07d32c02<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-MovableObject.gd::GDScript::6087974023078092660::1769546654::0::1::::<>RigidBody3D<><>0<>0<><>::
+MovableObject.gd::GDScript::6087974023078092660::1770690518::0::1::::<>RigidBody3D<><>0<>0<><>::
 movable_cube.tscn::PackedScene::2481151604107159047::1770401012::0::1::::<><><>0<>0<><>::uid://cs0cbpmefbgs7::::res://MovableObject.gd
 npc.gd::GDScript::8420228505659212025::1769546654::0::1::::<>RigidBody3D<><>0<>0<><>::
 NPC.tscn::PackedScene::2017815893258258282::1769546654::0::1::::<><><>0<>0<><>::uid://dr726y4sht0an::::res://npc.gd<>uid://l0p55v60cku7::::res://Models/Characters/npc_character.tscn
-player.gd::GDScript::1253696348981396978::1770411730::0::1::::<>RigidBody3D<><>0<>0<><>::
+player.gd::GDScript::1253696348981396978::1771009328::0::1::::<>RigidBody3D<><>0<>0<><>::
 player.tscn::PackedScene::1687416399521251802::1769546654::0::1::::<><><>0<>0<><>::uid://r4kgwh2qn6ha::::res://player.gd<>uid://cpvi204vmb5m6::::res://Models/Characters/lo_fi_magic_temp_character.tscn
-sound_token2.gd::GDScript::8974723759382667764::1770412794::0::1::::<>Node3D<><>0<>0<><>::
-sound_token.gd::GDScript::5083770874304793931::1770412433::0::1::::<>Node3D<><>0<>0<><>::
+sound_token2.gd::GDScript::8974723759382667764::1771008470::0::1::::<>Node3D<><>0<>0<><>::
+sound_token.gd::GDScript::5083770874304793931::1771008470::0::1::::<>Node3D<><>0<>0<><>::
 sound_token_collectable.tscn::PackedScene::1962891598889357164::1769546654::0::1::::<><><>0<>0<><>::uid://ceou704owtnt0::::res://sound_token.gd<>uid://dunvsv275xic7::::res://Models/Collectables/sound_token.tscn
-token_tracker.gd::GDScript::8171962357790173048::1770411472::0::1::::<>Node<><>0<>0<><>::
+token_tracker.gd::GDScript::8171962357790173048::1771008266::0::1::::<>Node<><>0<>0<><>::
 ::res://addons/::1761618569
 ::res://addons/fmod/::1761618571
 fmod.gdextension::GDExtension::8337934167360620478::1761618569::0::1::::<><><>0<>0<><>::
@@ -49,7 +49,7 @@ CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.editor.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_debug.framework/::1761618571
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_release.framework/::1761618571
-::res://addons/fmod/libs/windows/::1770680189
+::res://addons/fmod/libs/windows/::1771009716
 CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1761618571::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/tool/::1761618571
 FmodBankDatabase.gd::GDScript::8186486955615663266::1761618571::0::1::::FmodBankDatabase<>Node<><>0<>0<><>::

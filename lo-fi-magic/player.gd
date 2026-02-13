@@ -33,8 +33,15 @@ var jump_height: float = 5.0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var token_counter_label: Label
-var gate2_token_label: Label  # Changed from gate1_token_label to gate2_token_label
+var gate2_token_label: Label
 var gate_message_label: Label
+
+var is_grounded := true
+var ground_check_distance: float = 1.1
+
+var can_jump := true
+var jump_cooldown_timer: float = 0.0
+var jump_cooldown_duration: float = 0.2
 
 func _ready() -> void:
 	freeze = false
@@ -53,11 +60,22 @@ func _ready() -> void:
 	
 	setup_collision_shape()
 	setup_token_ui()
+	
+	initialize_animations()
 
 	var token_tracker = get_node("/root/TokenTracker")
 	if token_tracker:
 		token_tracker.token_collected_updated.connect(_on_token_collected_updated)
 		token_tracker.all_tokens_collected.connect(_on_all_tokens_collected)
+
+func initialize_animations() -> void:
+	anim_tree.set("parameters/conditions/grounded", true)
+	anim_tree.set("parameters/conditions/walk", false)
+	anim_tree.set("parameters/conditions/jump", false)
+	anim_tree.set("parameters/conditions/InAir", false)
+	anim_tree.set("parameters/conditions/grabbing", false)
+
+	state_machine.travel("IdleWalkRun")
 
 func setup_collision_shape() -> void:
 	if not has_node("CollisionShape3D"):
@@ -91,16 +109,16 @@ func setup_token_ui() -> void:
 
 	token_counter_label = Label.new()
 	token_counter_label.name = "TokenCounterLabel"
-	token_counter_label.text = "Gate 1: 0/4"  # Updated to show 0/4 initially
+	token_counter_label.text = "Gate 1: 0/4"
 	token_counter_label.add_theme_font_size_override("font_size", 24)
 	token_counter_label.add_theme_color_override("font_color", Color.WHITE)
 	token_counter_label.add_theme_constant_override("outline_size", 4)
 	token_counter_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	vbox.add_child(token_counter_label)
 
-	gate2_token_label = Label.new()  # Changed to gate2_token_label
+	gate2_token_label = Label.new()
 	gate2_token_label.name = "Gate2TokenLabel"
-	gate2_token_label.text = "Gate 2: 0/6"  # Updated to show 0/6 initially
+	gate2_token_label.text = "Gate 2: 0/6"
 	gate2_token_label.add_theme_font_size_override("font_size", 24)
 	gate2_token_label.add_theme_color_override("font_color", Color.CYAN)
 	gate2_token_label.add_theme_constant_override("outline_size", 4)
@@ -117,28 +135,27 @@ func setup_token_ui() -> void:
 	gate_message_label.hide()
 	vbox.add_child(gate_message_label)
 
-func _on_token_collected_updated(set_name: String, current: int, total: int) -> void:
-	# Update the appropriate label based on the token set
-	if set_name == "default":
+func _on_token_collected_updated(token_set: String, current: int, total: int) -> void:
+	if token_set == "default":
 		if token_counter_label:
 			token_counter_label.text = "Gate 1: %d/%d" % [current, total]
 			if current > 0:
 				var tween = create_tween()
 				tween.tween_property(token_counter_label, "scale", Vector2(1.3, 1.3), 0.1)
 				tween.tween_property(token_counter_label, "scale", Vector2(1.0, 1.0), 0.1)
-	elif set_name == "set_1":
-		if gate2_token_label:  # Changed to gate2_token_label
+	elif token_set == "set_1":
+		if gate2_token_label:
 			gate2_token_label.text = "Gate 2: %d/%d" % [current, total]
 			if current > 0:
 				var tween = create_tween()
 				tween.tween_property(gate2_token_label, "scale", Vector2(1.3, 1.3), 0.1)
 				tween.tween_property(gate2_token_label, "scale", Vector2(1.0, 1.0), 0.1)
 
-func _on_all_tokens_collected(set_name: String) -> void:
+func _on_all_tokens_collected(token_set: String) -> void:
 	if gate_message_label:
-		if set_name == "default":
+		if token_set == "default":
 			gate_message_label.text = "Gate 1 opened!"
-		elif set_name == "set_1":
+		elif token_set == "set_1":
 			gate_message_label.text = "Gate 2 opened!"
 		
 		gate_message_label.show()
@@ -178,13 +195,20 @@ func _process(delta: float) -> void:
 		var current_rotation = $LoFi_Magic_Temp_Character.rotation
 		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
 	
+	# Updated animation handling for consistent push/pull
 	if is_grabbing:
-		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(input.x, input.z))
+		# Use the same blend for both pushing and pulling
+		# The magnitude of movement determines animation intensity
+		var move_intensity = input.length()
+		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(move_intensity, 0))
 	else:
 		anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(input.x, input.z))
 	
 	twist_input = 0.0
 	pitch_input = 0.0
+
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	if Input.is_action_just_pressed("grab"):
 		if is_grabbing:
@@ -192,37 +216,12 @@ func _process(delta: float) -> void:
 		else:
 			try_grab_object()
 
-	var space_state = get_world_3d().direct_space_state
-	var origin = global_position
-	var end = origin + Vector3.DOWN * 100.0
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.exclude = [self]
-	query.collision_mask = 0xFFFFFFFF
-	var result = space_state.intersect_ray(query)
-	
-	if !result.is_empty():
-		var current_height = global_position.y - result.position.y
-		is_above_jump_limit = current_height >= jump_height_limit
-	else:
-		is_above_jump_limit = false
-
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_above_jump_limit:
-		perform_jump()
-		jump_count = 1
-
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-	if is_on_floor():
-		jump_count = 0
-		is_above_jump_limit = false
-
-	anim_tree.set("parameters/conditions/grounded", is_on_floor())
-	anim_tree.set("parameters/conditions/walk", is_on_floor() && input.length() > 0)
-	anim_tree.set("parameters/conditions/jump", Input.is_action_just_pressed("jump") && is_on_floor())
-	anim_tree.set("parameters/conditions/InAir", !is_on_floor())
-	
 	update_grab_prompt()
+
+	if not can_jump:
+		jump_cooldown_timer -= delta
+		if jump_cooldown_timer <= 0:
+			can_jump = true
 
 func _physics_process(delta: float) -> void:
 	freeze = false
@@ -238,26 +237,121 @@ func _physics_process(delta: float) -> void:
 	var move_direction = twist_pivot.global_transform.basis * Vector3(input.x, 0, input.z)
 	move_direction = move_direction.normalized()
 
-	if input.length() > 0.1:
+	if input.length() > 0.1 and not is_grounded:
+		var space_state_air = get_world_3d().direct_space_state
+		var ray_origin = global_position
+		
+		var ray_heights = [0.0, 0.5, 1.0]
+		var hit_wall = false
+		var ray_distance = 0.6
+		var wall_normal = Vector3.ZERO
+		
+		for height in ray_heights:
+			var origin_offset = Vector3(0, height, 0)
+			var ray_start = ray_origin + origin_offset
+			var ray_end = ray_start + (move_direction * ray_distance)
+			
+			var ray_query = PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+			ray_query.exclude = [self]
+			ray_query.collision_mask = 0xFFFFFFFF
+			
+			var ray_result = space_state_air.intersect_ray(ray_query)
+			
+			if not ray_result.is_empty():
+				hit_wall = true
+				wall_normal = ray_result.normal
+				break
+		
+		if hit_wall:
+			var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
+			
+			var damping_strength = 15.0
+			var damping_force = -current_horizontal_velocity * damping_strength * mass * delta
+			apply_central_force(damping_force)
+			
+			var push_away_force = wall_normal * mass * 2.0 * delta
+			apply_central_force(push_away_force)
+			
+			pass
+		else:
+			var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
+			var target_horizontal_velocity = move_direction * max_speed
+			var velocity_diff = target_horizontal_velocity - current_horizontal_velocity
+			var force = velocity_diff * move_force * delta
+			apply_central_force(force)
+	
+	elif input.length() > 0.1 and is_grounded:
 		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 		var target_horizontal_velocity = move_direction * max_speed
-
 		var velocity_diff = target_horizontal_velocity - current_horizontal_velocity
-
 		var force = velocity_diff * move_force * delta
 		apply_central_force(force)
+	
 	else:
 		var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 		if current_horizontal_velocity.length() > 0.1:
-			var damping_force = -current_horizontal_velocity.normalized() * move_force * 0.5 * delta
+			var damping_force = -current_horizontal_velocity.normalized() * move_force * 0.8 * delta
 			apply_central_force(damping_force)
 
+	var new_grounded = check_grounded()
+
+	if new_grounded and not is_grounded:
+		is_grounded = true
+		can_jump = false
+		jump_cooldown_timer = jump_cooldown_duration
+		jump_count = 0
+		is_above_jump_limit = false
+	elif not new_grounded and is_grounded:
+		is_grounded = false
+
+	if Input.is_action_just_pressed("jump") and is_grounded and not is_above_jump_limit and can_jump:
+		perform_jump()
+		can_jump = false
+
+	var space_state_height = get_world_3d().direct_space_state
+	var height_origin = global_position
+	var height_end = height_origin + Vector3.DOWN * 100.0
+	var height_query = PhysicsRayQueryParameters3D.create(height_origin, height_end)
+	height_query.exclude = [self]
+	height_query.collision_mask = 0xFFFFFFFF
+	var height_result = space_state_height.intersect_ray(height_query)
+	
+	if !height_result.is_empty():
+		var current_height = global_position.y - height_result.position.y
+		is_above_jump_limit = current_height >= jump_height_limit
+	else:
+		is_above_jump_limit = false
+
+	if not is_grabbing:
+		anim_tree.set("parameters/conditions/grounded", is_grounded)
+		anim_tree.set("parameters/conditions/walk", is_grounded and input.length() > 0)
+		anim_tree.set("parameters/conditions/InAir", not is_grounded)
+	
 	if is_above_jump_limit and linear_velocity.y > 0:
 		var downward_force = Vector3(0, -gravity * mass * 3.0, 0)
 		apply_central_force(downward_force)
 
+func check_grounded() -> bool:
+	var space_state_ground = get_world_3d().direct_space_state
+	var ground_origin = global_position
+	var ground_end = ground_origin + Vector3.DOWN * ground_check_distance
+	var ground_query = PhysicsRayQueryParameters3D.create(ground_origin, ground_end)
+	ground_query.exclude = [self]
+	ground_query.collision_mask = 0xFFFFFFFF
+	var ground_result = space_state_ground.intersect_ray(ground_query)
+	
+	if not ground_result.is_empty():
+		var floor_normal = ground_result.normal
+		var floor_angle = floor_normal.angle_to(Vector3.UP)
+		var max_slope_angle = deg_to_rad(45)
+		
+		if floor_angle <= max_slope_angle:
+			return true
+	
+	return false
+
 func perform_jump() -> void:
-	if not is_on_floor() or is_above_jump_limit:
+	if not is_grounded or is_above_jump_limit or not can_jump:
 		return
 
 	var required_velocity = sqrt(2 * gravity * jump_height)
@@ -267,16 +361,6 @@ func perform_jump() -> void:
 	linear_velocity = current_vel
 	
 	is_above_jump_limit = false
-	
-func is_on_floor() -> bool:
-	var space_state = get_world_3d().direct_space_state
-	var origin = global_position
-	var end = origin + Vector3.DOWN * 1.1
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.exclude = [self]
-	query.collision_mask = 0xFFFFFFFF
-	var result = space_state.intersect_ray(query)
-	return !result.is_empty()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
