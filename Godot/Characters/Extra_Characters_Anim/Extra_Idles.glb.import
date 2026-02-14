@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6ejvpwl1ol2r"
-path="res://.godot/imported/Extra_Idles.glb-39ebea0ba873a1f0840cf938d86181a8.scn"
+path="res://.godot/imported/Extra_Idles.glb-7c85361c210e210e4ad3a7c11462dd37.scn"
 
 [deps]
 
-source_file="res://Animations/Extra_Characters_Anim/Extra_Idles.glb"
-dest_files=["res://.godot/imported/Extra_Idles.glb-39ebea0ba873a1f0840cf938d86181a8.scn"]
+source_file="res://Characters/Extra_Characters_Anim/Extra_Idles.glb"
+dest_files=["res://.godot/imported/Extra_Idles.glb-7c85361c210e210e4ad3a7c11462dd37.scn"]
 
 [params]
 
@@ -41,7 +41,7 @@ _subresources={
 "animations": {
 "Idle2": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle2.res",
+"save_to_file/fallback_path": "res://Characters/Extra_Characters_Anim/Idle2.res",
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ccltbs4cmehj3",
 "settings/loop_mode": 1,
@@ -2097,7 +2097,7 @@ _subresources={
 },
 "Idle3": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle3.res",
+"save_to_file/fallback_path": "res://Characters/Extra_Characters_Anim/Idle3.res",
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://divrbwi073y5w",
 "settings/loop_mode": 1,
@@ -4153,7 +4153,7 @@ _subresources={
 },
 "Idle4": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle4.res",
+"save_to_file/fallback_path": "res://Characters/Extra_Characters_Anim/Idle4.res",
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://bqqmwa7d8wbe3",
 "settings/loop_mode": 1,
@@ -6209,7 +6209,7 @@ _subresources={
 },
 "Idle5": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle5.res",
+"save_to_file/fallback_path": "res://Characters/Extra_Characters_Anim/Idle5.res",
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ck1q5nclym2xu",
 "settings/loop_mode": 1,
@@ -8265,7 +8265,7 @@ _subresources={
 },
 "Idle6": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/Extra_Characters_Anim/Idle6.res",
+"save_to_file/fallback_path": "res://Characters/Extra_Characters_Anim/Idle6.res",
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://ctjdjmhv2wnxd",
 "settings/loop_mode": 1,
