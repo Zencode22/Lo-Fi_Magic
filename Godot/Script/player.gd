@@ -37,7 +37,7 @@ var gate2_token_label: Label
 var gate_message_label: Label
 
 var is_grounded := true
-var ground_check_distance: float = 1.1
+var ground_check_distance: float = 0.1  # Changed from 1.1 to 0.1
 
 var can_jump := true
 var jump_cooldown_timer: float = 0.0
@@ -194,11 +194,8 @@ func _process(delta: float) -> void:
 		var target_rotation = atan2(last_direction.x, last_direction.z)
 		var current_rotation = $LoFi_Magic_Temp_Character.rotation
 		$LoFi_Magic_Temp_Character.rotation.y = lerp_angle(current_rotation.y, target_rotation, delta * rotation_speed)
-	
-	# Updated animation handling for consistent push/pull
+
 	if is_grabbing:
-		# Use the same blend for both pushing and pulling
-		# The magnitude of movement determines animation intensity
 		var move_intensity = input.length()
 		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(move_intensity, 0))
 	else:
