@@ -37,7 +37,7 @@ var gate2_token_label: Label
 var gate_message_label: Label
 
 var is_grounded := true
-var ground_check_distance: float = 0.1  # Changed from 1.1 to 0.1
+var ground_check_distance: float = 0.4  # CHANGED: Increased from 0.1 to 0.4
 
 var can_jump := true
 var jump_cooldown_timer: float = 0.0
@@ -290,7 +290,7 @@ func _physics_process(delta: float) -> void:
 			var damping_force = -current_horizontal_velocity.normalized() * move_force * 0.8 * delta
 			apply_central_force(damping_force)
 
-	var new_grounded = check_grounded()
+	var new_grounded = check_grounded()  # CHANGED: Now using the improved check_grounded function
 
 	if new_grounded and not is_grounded:
 		is_grounded = true
@@ -328,22 +328,43 @@ func _physics_process(delta: float) -> void:
 		var downward_force = Vector3(0, -gravity * mass * 3.0, 0)
 		apply_central_force(downward_force)
 
+# CHANGED: Completely rewritten check_grounded function with multiple raycasts
 func check_grounded() -> bool:
-	var space_state_ground = get_world_3d().direct_space_state
-	var ground_origin = global_position
-	var ground_end = ground_origin + Vector3.DOWN * ground_check_distance
-	var ground_query = PhysicsRayQueryParameters3D.create(ground_origin, ground_end)
-	ground_query.exclude = [self]
-	ground_query.collision_mask = 0xFFFFFFFF
-	var ground_result = space_state_ground.intersect_ray(ground_query)
+	var space_state = get_world_3d().direct_space_state
 	
-	if not ground_result.is_empty():
-		var floor_normal = ground_result.normal
-		var floor_angle = floor_normal.angle_to(Vector3.UP)
-		var max_slope_angle = deg_to_rad(45)
+	# Cast multiple rays in a small pattern to better detect ground at edges
+	var ray_offsets = [
+		Vector3(0, 0, 0),    # Center
+		Vector3(0.2, 0, 0),  # Right
+		Vector3(-0.2, 0, 0), # Left
+		Vector3(0, 0, 0.2),  # Forward
+		Vector3(0, 0, -0.2)  # Back
+	]
+	
+	var ray_distance = 0.5  # How far down to cast the ray
+	var max_ground_distance = 0.3  # Maximum distance to consider grounded (tolerance)
+	
+	for offset in ray_offsets:
+		var ray_origin = global_position + offset
+		var ray_end = ray_origin + Vector3.DOWN * ray_distance
 		
-		if floor_angle <= max_slope_angle:
-			return true
+		var ray_query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+		ray_query.exclude = [self]
+		ray_query.collision_mask = 0xFFFFFFFF
+		
+		var ray_result = space_state.intersect_ray(ray_query)
+		
+		if not ray_result.is_empty():
+			var floor_normal = ray_result.normal
+			var floor_angle = floor_normal.angle_to(Vector3.UP)
+			var max_slope_angle = deg_to_rad(45)
+			
+			# Check if the surface is walkable (not too steep)
+			if floor_angle <= max_slope_angle:
+				var distance_to_ground = global_position.y - ray_result.position.y
+				# If we're close enough to the ground, consider it grounded
+				if distance_to_ground <= max_ground_distance:
+					return true
 	
 	return false
 
