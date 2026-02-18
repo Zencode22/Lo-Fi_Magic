@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{138fa170-a62c-452b-bfb5-b5b2061ec4f7}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../GitHub/Lo-Fi_Magic/lo-fi-magic/Sounds/FMODBanks</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{e9a65482-4e48-4b92-a2d4-18942d97e5ff}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{f17ad16c-d5b1-4ad9-9c85-d7dac30ffbbb}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{9f88b8b1-409b-4610-9919-67d8186d6744}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{9dd1d245-d670-48b0-8570-e4cb9ee67ee8}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{ab4fc68e-1202-46e1-914a-3c77a896530e}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{2686e6a5-0dc6-45d6-929a-93ea80ec3426}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{e6794a0d-08c0-47cf-86f6-ed1b25ec80a0}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{9841d860-7171-490e-a0fe-b85f72e9c3e1}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{61714120-7c40-43cd-85a8-c2c9ef327941}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{a2873e91-947c-4401-a0a3-8094a1beb266}</destination>
+		</relationship>
+	</object>
+</objects>
