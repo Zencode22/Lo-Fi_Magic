@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://273sj0ysbnro"]
 
-[ext_resource type="Script" uid="uid://ceou704owtnt0" path="res://sound_token.gd" id="1_5ystl"]
+[ext_resource type="Script" uid="uid://ceou704owtnt0" path="res://Script/sound_token.gd" id="1_5ystl"]
 [ext_resource type="PackedScene" uid="uid://dunvsv275xic7" path="res://Models/Collectables/sound_token.tscn" id="2_pq252"]
-
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_40q3k"]
 
@@ -24,5 +23,5 @@ volume = 1.5
 
 [node name="FmodEventEmitter3D_Collect" type="FmodEventEmitter3D" parent="CollisionShape3D"]
 event_name = "event:/SoundTokenCollect"
-event_guid = "{328ad67a-13f1-4130-97d4-6594f39583ab}"
+event_guid = "{b7a71a93-8498-45d5-8f1a-7a261f737c8a}"
 auto_release = true

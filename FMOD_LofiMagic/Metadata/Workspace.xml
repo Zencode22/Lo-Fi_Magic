@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Workspace" id="{138fa170-a62c-452b-bfb5-b5b2061ec4f7}">
 		<property name="builtBanksOutputDirectory">
-			<value>../../GitHub/Lo-Fi_Magic/lo-fi-magic/Sounds/FMODBanks</value>
+			<value>../Godot/Sounds/FMODBanks</value>
 		</property>
 		<relationship name="masterEventFolder">
 			<destination>{e9a65482-4e48-4b92-a2d4-18942d97e5ff}</destination>

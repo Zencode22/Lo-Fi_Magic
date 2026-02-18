@@ -8,7 +8,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{e9a65482-4e48-4b92-a2d4-18942d97e5ff}</destination>
+			<destination>{f7f87d1a-1b30-46fc-9650-0e829f81a7e3}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{9cfaadfc-46d4-46a9-b455-fc5e1fe54be2}</destination>
@@ -187,7 +187,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{72e4bf30-e82c-4233-b45c-f8cbdd06897b}">
 		<property name="volume">
-			<value>-1</value>
+			<value>-5</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
@@ -444,7 +444,10 @@
 			<value>-4</value>
 		</property>
 		<property name="midGain">
-			<value>-62</value>
+			<value>-33</value>
+		</property>
+		<property name="highGain">
+			<value>-33</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{1313c1a9-978c-4631-96f9-6ede4dfa773d}">
