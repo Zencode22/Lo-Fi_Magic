@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://06rc4p7bap4p"]
+[gd_scene load_steps=24 format=3 uid="uid://06rc4p7bap4p"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://Scene/player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -14,6 +14,12 @@
 [ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://Script/sound_token2.gd" id="11_a4s3b"]
 [ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://Script/gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://Scene/movable_cube.tscn" id="13_3vhle"]
+[ext_resource type="PackedScene" uid="uid://c73xsbjt2l518" path="res://Models/Plants/Bush.fbx" id="15_a5a62"]
+[ext_resource type="PackedScene" uid="uid://j6h25beh3qgv" path="res://Models/Plants/Tree.fbx" id="16_45hoa"]
+[ext_resource type="PackedScene" uid="uid://bm6svd13ygpdf" path="res://Models/Crates/wooden Crate.fbx" id="17_ktqbh"]
+[ext_resource type="PackedScene" uid="uid://bvc5jck73rlay" path="res://Models/Buildings/Building 1.fbx" id="18_3dbqj"]
+[ext_resource type="PackedScene" uid="uid://b5o6ebxmdktpg" path="res://Models/Buildings/Building 2.fbx" id="19_oi2a6"]
+[ext_resource type="PackedScene" uid="uid://eo3uus58pqcw" path="res://Models/Buildings/Building 3.fbx" id="20_0inoe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -625,3 +631,21 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
+
+[node name="Bush" parent="." instance=ExtResource("15_a5a62")]
+transform = Transform3D(9.067008, 0, 0, 0, 9.067007, 0, 0, 0, 9.067007, 9.453317, 0.4463409, 2.1023464)
+
+[node name="Tree" parent="." instance=ExtResource("16_45hoa")]
+transform = Transform3D(17.100002, 0, 0, 0, 17.1, 0, 0, 0, 17.1, 6.746766, 0.38163048, 3.9123573)
+
+[node name="wooden Crate" parent="." instance=ExtResource("17_ktqbh")]
+transform = Transform3D(23.743433, 0, 0, 0, 23.74343, 0, 0, 0, 23.74343, 8.06317, 0.37243223, 3.3008728)
+
+[node name="Building 1" parent="." instance=ExtResource("18_3dbqj")]
+transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+
+[node name="Building 2" parent="." instance=ExtResource("19_oi2a6")]
+transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+
+[node name="Building 3" parent="." instance=ExtResource("20_0inoe")]
+transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
