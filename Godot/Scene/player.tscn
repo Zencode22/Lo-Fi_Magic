@@ -28,6 +28,11 @@ fmod_parameters/SurfaceIndex = 0
 fmod_parameters/SurfaceIndex/variant_type = 2
 
 [node name="FmodFootstepEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+event_name = "event:/Player Character/PlayerFootsteps"
+event_guid = "{ee1d2e48-245e-498f-8b5c-925b0c5db85d}"
+fmod_parameters/SurfaceIndex/id = 1206182703528516397
+fmod_parameters/SurfaceIndex = 0
+fmod_parameters/SurfaceIndex/variant_type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869812, -0.02353084)

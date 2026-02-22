@@ -1,20 +1,21 @@
-[gd_scene load_steps=60 format=3 uid="uid://cpvi204vmb5m6"]
+[gd_scene load_steps=61 format=3 uid="uid://cpvi204vmb5m6"]
 
 [ext_resource type="PackedScene" uid="uid://cuctsd7uo87v5" path="res://Models/Characters/LoFi_Magic_Temp_Character.glb" id="1_aqr14"]
 [ext_resource type="ArrayMesh" uid="uid://c6d5m3bwyn55i" path="res://Models/Characters/Accessories/Headphones.res" id="2_60q7f"]
-[ext_resource type="Animation" uid="uid://8j7ccmopbqx3" path="res://Animations/Temp_Char_Anims/Idle.res" id="2_igilx"]
-[ext_resource type="Animation" uid="uid://crurbok6shh7j" path="res://Animations/Temp_Char_Anims/Jump.res" id="3_ale1x"]
-[ext_resource type="Animation" uid="uid://djr1cyt6h34qd" path="res://Animations/Temp_Char_Anims/LedgeClimb.res" id="4_4dwpa"]
-[ext_resource type="Animation" uid="uid://biy5q43vagogn" path="res://Animations/Temp_Char_Anims/LedgeHanging.res" id="5_go4nk"]
-[ext_resource type="Animation" uid="uid://ce0esc5gvsjto" path="res://Animations/Temp_Char_Anims/MidAir_Pose.res" id="6_kiw7r"]
-[ext_resource type="Animation" uid="uid://b5xwn45yelgp6" path="res://Animations/Temp_Char_Anims/Pull.res" id="7_mo2qq"]
-[ext_resource type="Animation" uid="uid://c7ce8w3huug2m" path="res://Animations/Temp_Char_Anims/Push.res" id="8_u6g3j"]
-[ext_resource type="Animation" uid="uid://c0g8lgm666j65" path="res://Animations/Temp_Char_Anims/PushPull_Pose.res" id="9_eegw5"]
-[ext_resource type="Animation" uid="uid://51y7k8nlfdeu" path="res://Animations/Temp_Char_Anims/QuickClimb.res" id="10_k5glk"]
-[ext_resource type="Animation" uid="uid://co2al75nx01qu" path="res://Animations/Temp_Char_Anims/Run.res" id="11_q8idn"]
-[ext_resource type="Animation" uid="uid://c6d6tg8p8lnex" path="res://Animations/Temp_Char_Anims/Walk.res" id="12_2kyjr"]
-[ext_resource type="Animation" uid="uid://don3j36bi76kf" path="res://Animations/Extra_Characters_Anim/Wave.res" id="13_ikiow"]
-[ext_resource type="AnimationLibrary" uid="uid://bhclfcrc6goi4" path="res://Animations/Temp_Char_Anims/PlayerAnims.res" id="14_igilx"]
+[ext_resource type="Animation" uid="uid://8j7ccmopbqx3" path="res://Characters/Temp_Char_Anims/Idle.res" id="2_igilx"]
+[ext_resource type="Script" uid="uid://dl2h7y6gr2a5m" path="res://Models/Characters/lo_fi_magic_temp_character.gd" id="2_s5co0"]
+[ext_resource type="Animation" uid="uid://crurbok6shh7j" path="res://Characters/Temp_Char_Anims/Jump.res" id="3_ale1x"]
+[ext_resource type="Animation" uid="uid://djr1cyt6h34qd" path="res://Characters/Temp_Char_Anims/LedgeClimb.res" id="4_4dwpa"]
+[ext_resource type="Animation" uid="uid://biy5q43vagogn" path="res://Characters/Temp_Char_Anims/LedgeHanging.res" id="5_go4nk"]
+[ext_resource type="Animation" uid="uid://ce0esc5gvsjto" path="res://Characters/Temp_Char_Anims/MidAir_Pose.res" id="6_kiw7r"]
+[ext_resource type="Animation" uid="uid://b5xwn45yelgp6" path="res://Characters/Temp_Char_Anims/Pull.res" id="7_mo2qq"]
+[ext_resource type="Animation" uid="uid://c7ce8w3huug2m" path="res://Characters/Temp_Char_Anims/Push.res" id="8_u6g3j"]
+[ext_resource type="Animation" uid="uid://c0g8lgm666j65" path="res://Characters/Temp_Char_Anims/PushPull_Pose.res" id="9_eegw5"]
+[ext_resource type="Animation" uid="uid://51y7k8nlfdeu" path="res://Characters/Temp_Char_Anims/QuickClimb.res" id="10_k5glk"]
+[ext_resource type="Animation" uid="uid://co2al75nx01qu" path="res://Characters/Temp_Char_Anims/Run.res" id="11_q8idn"]
+[ext_resource type="Animation" uid="uid://c6d6tg8p8lnex" path="res://Characters/Temp_Char_Anims/Walk.res" id="12_2kyjr"]
+[ext_resource type="Animation" uid="uid://don3j36bi76kf" path="res://Characters/Extra_Characters_Anim/Wave.res" id="13_ikiow"]
+[ext_resource type="AnimationLibrary" uid="uid://bhclfcrc6goi4" path="res://Characters/Temp_Char_Anims/PlayerAnims.res" id="14_igilx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60q7f"]
 albedo_color = Color(0.41366664, 0, 0.73, 1)
@@ -258,9 +259,40 @@ transitions = ["Jump", "MidAir_Pose", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(-139, -46)
 
 [node name="LoFi_Magic_Temp_Character" instance=ExtResource("1_aqr14")]
+script = ExtResource("2_s5co0")
+
+[node name="Skeleton3D" parent="Armature_TempChar" index="0"]
+bones/0/position = Vector3(0, 0.46654683, 0.0053309454)
+bones/0/rotation = Quaternion(0.037851073, 0.00031869882, 0.0085912915, 0.9992465)
+bones/1/rotation = Quaternion(0.12517752, 0.0016986178, 0.008427726, 0.9920971)
+bones/2/rotation = Quaternion(-0.003361345, -4.8676875e-11, -1.2231138e-09, 0.99999434)
+bones/3/rotation = Quaternion(-0.054391574, -1.7810283e-11, -9.0534097e-10, 0.9985198)
+bones/4/rotation = Quaternion(0.5979256, -0.13350493, -0.7689546, -0.1826756)
+bones/5/rotation = Quaternion(0.08561306, -0.0017514334, 0.59178364, 0.80153567)
+bones/6/rotation = Quaternion(0.44072717, -0.102565914, 0.8660854, -0.21245188)
+bones/7/rotation = Quaternion(0.016065491, 0.0021713346, -0.111049645, 0.9936826)
+bones/8/rotation = Quaternion(0.9813533, -0.008651013, 0.0022820793, -0.19200441)
+bones/9/rotation = Quaternion(0.44867712, -3.9125914e-10, -7.092105e-09, 0.893694)
+bones/10/rotation = Quaternion(0.8729762, -0.008010006, -0.0035363534, 0.48768446)
+bones/11/rotation = Quaternion(0.30212626, -2.2994423e-10, -4.699218e-09, 0.953268)
+bones/12/position = Vector3(-0.26661238, 0.49269715, 0.27534983)
+bones/12/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/13/position = Vector3(-0.26916173, 0.43778077, -0.17355636)
+bones/14/position = Vector3(0.28120092, 0.4609605, -0.17981179)
+bones/14/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/15/position = Vector3(0.2536969, 0.4104086, -0.21886341)
+bones/16/position = Vector3(-0.0853, 0.26424724, -0.26804638)
+bones/16/rotation = Quaternion(-0.35704148, 0, 0, 0.9340886)
+bones/17/position = Vector3(0, 1.1737848e-06, -7.428768e-06)
+bones/18/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
+bones/20/position = Vector3(0.0853, 0.16967732, 0.20791593)
+bones/20/rotation = Quaternion(-0.78144896, 0, 0, 0.62396914)
+bones/21/position = Vector3(7.450581e-09, -1.4389042e-06, -2.903234e-06)
+bones/22/rotation = Quaternion(-0.8073139, 0, 0, 0.59012216)
+bones/23/position = Vector3(0, -0.29763088, 0.19648634)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_TempChar/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.9979717, -0.06365864, 0, 0.06365864, 0.9979717, 0, 1.1974897, 0.0025400454)
+transform = Transform3D(0.9994087, -0.033629797, 0.0071546165, 0.034382395, 0.97720444, -0.20949724, 5.3825126e-05, 0.20961934, 0.977783, -0.01925857, 1.1366117, 0.17346153)
 bone_name = "head"
 bone_idx = 3
 
@@ -275,7 +307,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_wm31k"),
 &"PlayerAnims": ExtResource("14_igilx")
 }
-autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeStateMachine_735cc")

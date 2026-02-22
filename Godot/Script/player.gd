@@ -443,3 +443,29 @@ func release_object() -> void:
 		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 		anim_tree.set("parameters/conditions/grounded", true)
 		state_machine.travel("IdleWalkRun")
+			
+func get_surface_index() -> int:
+	var space_state = get_world_3d().direct_space_state
+	var ray_start = global_position
+	var ray_end = ray_start + Vector3.DOWN *1.5
+	
+	var query = PhysicsRayQueryParameters3D.create(ray_start,ray_end)
+	query.exclude = [self]
+	
+	var result = space_state.intersect_ray(query)
+	
+	if result.is_empty():
+		return 0
+	
+	var collider = result.collider
+	if collider and collider.has_meta("SurfaceIndex"):
+		return collider.get_meta("SurfaceIndex")
+	
+	return 0
+func play_footstep():
+		if not is_grounded:
+			return
+		var surface_index = get_surface_index()
+		if footstep_sound:
+			footstep_sound.set_parameter("SurfaceIndex",surface_index)
+			footstep_sound.play()

@@ -160,6 +160,7 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-06, -2, 6.748)
 size = Vector3(23, 1, 30.5)
 material = SubResource("StandardMaterial3D_ttobh")
+metadata/SurfaceIndex = 0
 
 [node name="ChasePSWall1" type="CSGBox3D" parent="ChasePSArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.000001, -1, 6.752)
