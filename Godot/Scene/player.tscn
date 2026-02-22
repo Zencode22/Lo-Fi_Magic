@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cpvi204vmb5m6" path="res://Models/Characters/lo_fi_magic_temp_character.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8w33"]
+radius = 0.40722656
+height = 1.8372803
 
 [node name="Player" type="RigidBody3D"]
 collision_mask = 4
@@ -14,7 +16,7 @@ script = ExtResource("1_4flbx")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8425293, 0.07390034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869812, -0.02353084)
 shape = SubResource("CapsuleShape3D_y8w33")
 
 [node name="TwistPivot" type="Node3D" parent="."]
