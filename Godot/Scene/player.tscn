@@ -15,6 +15,20 @@ script = ExtResource("1_4flbx")
 [node name="LoFi_Magic_Temp_Character" parent="." instance=ExtResource("2_onrkg")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 
+[node name="FmodJumpEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+event_name = "event:/Player Character/PlayerJump"
+event_guid = "{f2a09a5d-b5f4-4281-a5ca-af59324b9123}"
+transform = Transform3D(-0.9999999, 1.5180785e-08, -8.609462e-08, 0, 0.9848078, 0.17364796, 8.742277e-08, 0.17364794, -0.98480767, 0, 0, 0)
+
+[node name="FmodLandingEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+event_name = "event:/Player Character/PlayerLandings"
+event_guid = "{76ebd990-e1ad-4fcd-9b7d-8cb20423c535}"
+fmod_parameters/SurfaceIndex/id = 1206182703528516397
+fmod_parameters/SurfaceIndex = 0
+fmod_parameters/SurfaceIndex/variant_type = 2
+
+[node name="FmodFootstepEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869812, -0.02353084)
 shape = SubResource("CapsuleShape3D_y8w33")

@@ -43,6 +43,10 @@ var can_jump := true
 var jump_cooldown_timer: float = 0.0
 var jump_cooldown_duration: float = 0.2
 
+@onready var jump_sound = $LoFi_Magic_Temp_Character/FmodJumpEmitter3D
+@onready var landing_sound = $LoFi_Magic_Temp_Character/FmodLandingEmitter3D
+@onready var footstep_sound = $LoFi_Magic_Temp_Character/FmodFootstepEmitter3D
+
 func _ready() -> void:
 	freeze = false
 	sleeping = false
@@ -294,6 +298,9 @@ func _physics_process(delta: float) -> void:
 
 	if new_grounded and not is_grounded:
 		is_grounded = true
+		if landing_sound and linear_velocity.y < -2.0:
+			landing_sound.play()
+		
 		can_jump = false
 		jump_cooldown_timer = jump_cooldown_duration
 		jump_count = 0
@@ -303,6 +310,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_grounded and not is_above_jump_limit and can_jump:
 		perform_jump()
+		jump_sound.play()
 		can_jump = false
 
 	var space_state_height = get_world_3d().direct_space_state
@@ -369,7 +377,7 @@ func perform_jump() -> void:
 		return
 
 	var required_velocity = sqrt(2 * gravity * jump_height)
-
+ 
 	var current_vel = linear_velocity
 	current_vel.y = required_velocity
 	linear_velocity = current_vel
