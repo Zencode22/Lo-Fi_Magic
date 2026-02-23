@@ -34,6 +34,10 @@ fmod_parameters/SurfaceIndex/id = 1206182703528516397
 fmod_parameters/SurfaceIndex = 0
 fmod_parameters/SurfaceIndex/variant_type = 2
 
+[node name="FmodGrabEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+event_name = "event:/Player Character/PlayerGrab"
+event_guid = "{04279d22-38f5-4368-8f72-9b2b43f67d43}"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869812, -0.02353084)
 shape = SubResource("CapsuleShape3D_y8w33")

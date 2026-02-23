@@ -46,7 +46,7 @@ var jump_cooldown_duration: float = 0.2
 @onready var jump_sound = $LoFi_Magic_Temp_Character/FmodJumpEmitter3D
 @onready var landing_sound = $LoFi_Magic_Temp_Character/FmodLandingEmitter3D
 @onready var footstep_sound = $LoFi_Magic_Temp_Character/FmodFootstepEmitter3D
-
+@onready var grab_sound = $LoFi_Magic_Temp_Character/FmodGrabEmitter3D
 func _ready() -> void:
 	freeze = false
 	sleeping = false
@@ -431,6 +431,7 @@ func try_grab_object() -> void:
 			grabbed_object = current_grab_target
 			current_grab_target.grab(self)
 			is_grabbing = true
+			grab_sound.play()
 			can_grab_object = false
 			anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 			state_machine.travel("IdlePushPull")

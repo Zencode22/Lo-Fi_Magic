@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6e82j82ym542"]
 
-[ext_resource type="Script" uid="uid://cio1npl2jn6qo" path="res://gates_lockable.gd" id="1_k8uvy"]
+[ext_resource type="Script" uid="uid://cio1npl2jn6qo" path="res://Script/gates_lockable.gd" id="1_k8uvy"]
 [ext_resource type="PackedScene" uid="uid://ltsun53tmf7n" path="res://Models/Gates/gates_r.tscn" id="1_mv4s8"]
 [ext_resource type="PackedScene" uid="uid://ccxelhfyknqrx" path="res://Models/Gates/gate_l.tscn" id="2_78khb"]
 
@@ -318,3 +318,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_j1gvq")
 }
 autoplay = "Closed"
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Environment/GateOpen"
+event_guid = "{3552520a-e8d4-4ce5-849a-e1f2958ba364}"
