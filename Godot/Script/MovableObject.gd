@@ -6,6 +6,12 @@ var local_grab_offset: Vector3 = Vector3.ZERO
 
 var players_in_contact: Array[Node3D] = []
 
+var previous_position: Vector3
+var movement_threshold := 0.02
+var stop_threshold := 0.015
+var is_drag_sound_playing := false
+
+@onready var drag_emitter = $FmodDragEmitter3D
 func _ready() -> void:
 	sleeping = false
 	freeze = true
@@ -13,7 +19,7 @@ func _ready() -> void:
 	
 	collision_layer = 0xFFFFFFFF
 	collision_mask = 0xFFFFFFFF
-	
+	previous_position = global_position
 	add_to_group("movable")
 
 func _physics_process(delta: float) -> void:
@@ -34,9 +40,10 @@ func _physics_process(delta: float) -> void:
 			# Apply small damping to prevent wild movement
 			linear_velocity = linear_velocity.lerp(Vector3.ZERO, 10.0 * delta)
 			angular_velocity = angular_velocity.lerp(Vector3.ZERO, 10.0 * delta)
+			
 		else:
 			release()
-
+	_handle_drag_audio(delta)
 func grab(by: Node3D) -> void:
 	if not is_grabbed and by != null:
 		var can_grab = players_in_contact.has(by) or global_position.distance_to(by.global_position) < 2.0
@@ -68,6 +75,9 @@ func release() -> void:
 		freeze = true
 		can_sleep = true
 		local_grab_offset = Vector3.ZERO
+		if is_drag_sound_playing:
+			drag_emitter.stop()
+			is_drag_sound_playing = false
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -78,3 +88,18 @@ func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		if players_in_contact.has(body):
 			players_in_contact.erase(body)
+func _handle_drag_audio(delta: float) -> void:
+	var displacement = global_position.distance_to(previous_position)
+	var speed = displacement / delta
+	
+	previous_position = global_position
+	
+	if is_grabbed and speed > movement_threshold:
+		if not is_drag_sound_playing:
+			drag_emitter.play()
+			is_drag_sound_playing = true
+	
+	elif not is_grabbed or speed < stop_threshold:
+		if is_drag_sound_playing:
+			drag_emitter.stop()
+			is_drag_sound_playing = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbl5g7kqjr4o6"]
 
-[ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://MovableObject.gd" id="1_8knle"]
+[ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://Script/MovableObject.gd" id="1_8knle"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wkftn"]
 
@@ -27,3 +27,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.25, 0.535)
 size = Vector3(0.0625, 0.1875, 1)
 material = SubResource("StandardMaterial3D_8knle")
+
+[node name="FmodDragEmitter3D" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Environment/Dumpster"
+event_guid = "{6f708b32-e515-48f5-9d17-dde60678bccb}"
