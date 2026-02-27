@@ -40,7 +40,7 @@ The game can be obtained **only** from the official GitHub repository.
 | Move left             | ← (Left Arrow) or **A** |
 | Move right            | → (Right Arrow) or **D** |
 | Jump                  | **Space** |
-| Interact / Unlock Gate| **E** |
+| Interact              | **E** |
 | Pause / Open menu     | **Esc** |
 
 ---  
@@ -51,7 +51,7 @@ The game can be obtained **only** from the official GitHub repository.
 
 - **Connor Lonergan** – Lead Designer & Programmer  
   - B.A. in Computer Programming (Columbia College Chicago)
-  - A.S. in Computer Programming (Joliet Junior College).  
+  - A.S. in Computer Programming (Joliet Junior College)  
 
 - **Vinh Nguyen** – Character & Asset Modeling, Animation
    - B.A. in Game Design with Game Art Minor (Columbia College Chicago)  
@@ -59,3 +59,9 @@ The game can be obtained **only** from the official GitHub repository.
 - **Alvaro Troncoso** – Level Design
    - A.A. in Game Design and Development (Joliet Junior College) 
    - B.A. in Game Design and Devlopment (Columbia College Chicago)
+
+- **Phap Le** - Prop Design
+  - B.A. in Game Art (Columbia College Chicago)
+
+- **Marcus Escoto**
+  - B.A. in Sound Design (Columbia College Chicago)
