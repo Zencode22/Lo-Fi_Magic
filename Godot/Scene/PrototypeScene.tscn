@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://06rc4p7bap4p"]
+[gd_scene load_steps=25 format=3 uid="uid://06rc4p7bap4p"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://Scene/player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bvc5jck73rlay" path="res://Models/Buildings/Building 1.fbx" id="18_3dbqj"]
 [ext_resource type="PackedScene" uid="uid://b5o6ebxmdktpg" path="res://Models/Buildings/Building 2.fbx" id="19_oi2a6"]
 [ext_resource type="PackedScene" uid="uid://eo3uus58pqcw" path="res://Models/Buildings/Building 3.fbx" id="20_0inoe"]
+[ext_resource type="PackedScene" uid="uid://b113c3pmyusr" path="res://Models/Bean/bean.fbx" id="21_45hoa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -649,3 +650,6 @@ transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.40
 
 [node name="Building 3" parent="." instance=ExtResource("20_0inoe")]
 transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+
+[node name="bean" parent="." instance=ExtResource("21_45hoa")]
+transform = Transform3D(9.604335, 0, 0, 0, 9.604334, 0, 0, 0, 9.604334, 17.207262, 3.1866746, 22.391415)
