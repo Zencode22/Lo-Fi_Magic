@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://06rc4p7bap4p"]
+[gd_scene load_steps=29 format=3 uid="uid://06rc4p7bap4p"]
 
 [ext_resource type="PackedScene" uid="uid://ybnrb2sa4r6q" path="res://Scene/player.tscn" id="1_8k8km"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
@@ -14,13 +14,15 @@
 [ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://Script/sound_token2.gd" id="11_a4s3b"]
 [ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://Script/gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://Scene/movable_cube.tscn" id="13_3vhle"]
-[ext_resource type="PackedScene" uid="uid://c73xsbjt2l518" path="res://Models/Plants/Bush.fbx" id="15_a5a62"]
-[ext_resource type="PackedScene" uid="uid://j6h25beh3qgv" path="res://Models/Plants/Tree.fbx" id="16_45hoa"]
-[ext_resource type="PackedScene" uid="uid://bm6svd13ygpdf" path="res://Models/Crates/wooden Crate.fbx" id="17_ktqbh"]
-[ext_resource type="PackedScene" uid="uid://bvc5jck73rlay" path="res://Models/Buildings/Building 1.fbx" id="18_3dbqj"]
-[ext_resource type="PackedScene" uid="uid://b5o6ebxmdktpg" path="res://Models/Buildings/Building 2.fbx" id="19_oi2a6"]
-[ext_resource type="PackedScene" uid="uid://eo3uus58pqcw" path="res://Models/Buildings/Building 3.fbx" id="20_0inoe"]
-[ext_resource type="PackedScene" uid="uid://b113c3pmyusr" path="res://Models/Bean/bean.fbx" id="21_45hoa"]
+[ext_resource type="PackedScene" uid="uid://cb3ra5dporgi8" path="res://Models/Plants/Bush.fbx" id="15_a5a62"]
+[ext_resource type="PackedScene" uid="uid://dd2c113jfgqow" path="res://Models/Plants/Tree.fbx" id="16_45hoa"]
+[ext_resource type="PackedScene" uid="uid://c71416b8vpoge" path="res://Models/Crates/wooden Crate.fbx" id="17_ktqbh"]
+[ext_resource type="PackedScene" uid="uid://ct3d6o0kpx6kn" path="res://Models/Buildings/Building 1.fbx" id="18_3dbqj"]
+[ext_resource type="PackedScene" uid="uid://dajhse7kpul1m" path="res://Models/Buildings/Building 2.fbx" id="19_oi2a6"]
+[ext_resource type="PackedScene" uid="uid://df3jidqwpi2nu" path="res://Models/Buildings/Building 3.fbx" id="20_0inoe"]
+[ext_resource type="PackedScene" uid="uid://rnhwjm27v1kh" path="res://Models/Bean/bean.fbx" id="21_45hoa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45hoa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -36,12 +38,23 @@ uv2_world_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_24jh7"]
 size = Vector3(2.8838196, 1.4811058, 0.51171875)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_45hoa"]
+radius = 0.6689453
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45hoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oi2a6"]
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_8k8km")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.397312, 0.3843192, 20.724972)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.877927, 1.7542778, -12.84547)
 linear_damp = 3.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8285793, 0)
+shape = SubResource("CapsuleShape3D_45hoa")
 
 [node name="MillenniumParkArea" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -633,23 +646,43 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
-[node name="Bush" parent="." instance=ExtResource("15_a5a62")]
-transform = Transform3D(9.067008, 0, 0, 0, 9.067007, 0, 0, 0, 9.067007, 9.453317, 0.4463409, 2.1023464)
+[node name="bean" parent="." instance=ExtResource("21_45hoa")]
+transform = Transform3D(0.0822304, 0, -3.0989113, 0, 3.1000006, 0, 3.0989115, 0, 0.08223036, 18.385752, -0.12795758, -17.783298)
 
-[node name="Tree" parent="." instance=ExtResource("16_45hoa")]
-transform = Transform3D(17.100002, 0, 0, 0, 17.1, 0, 0, 0, 17.1, 6.746766, 0.38163048, 3.9123573)
+[node name="StaticBody3D" type="StaticBody3D" parent="bean"]
 
-[node name="wooden Crate" parent="." instance=ExtResource("17_ktqbh")]
-transform = Transform3D(23.743433, 0, 0, 0, 23.74343, 0, 0, 0, 23.74343, 8.06317, 0.37243223, 3.3008728)
-
-[node name="Building 1" parent="." instance=ExtResource("18_3dbqj")]
-transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bean/StaticBody3D"]
+transform = Transform3D(1.7585833, 0, 1.8626451e-08, 0, 1.0000007, 0, 4.8428774e-08, 0, 1.1182742, -0.29539967, 0.74685454, 1.3384085)
+shape = SubResource("CylinderShape3D_45hoa")
 
 [node name="Building 2" parent="." instance=ExtResource("19_oi2a6")]
-transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 25.731445, 0.5306196, 2.222021)
 
 [node name="Building 3" parent="." instance=ExtResource("20_0inoe")]
-transform = Transform3D(11.579498, 0, 0, 0, 11.579497, 0, 0, 0, 11.579497, 19.406443, 0, 59.58055)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 25.731443, 0.2533245, -4.8850183)
 
-[node name="bean" parent="." instance=ExtResource("21_45hoa")]
-transform = Transform3D(9.604335, 0, 0, 0, 9.604334, 0, 0, 0, 9.604334, 17.207262, 3.1866746, 22.391415)
+[node name="StaticBody3D" type="StaticBody3D" parent="Building 3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 3/StaticBody3D"]
+transform = Transform3D(1.5767431, 0, 0, 0, 5.275918, 0, 0, 0, 4.992463, 0, 2.0866709, -0.22045612)
+shape = SubResource("BoxShape3D_45hoa")
+
+[node name="wooden Crate" parent="." instance=ExtResource("17_ktqbh")]
+transform = Transform3D(2.590523, 0, 0, 0, 2.5905228, 0, 0, 0, 2.5905228, 17.216042, 0.37660965, 0.9195967)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wooden Crate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wooden Crate/StaticBody3D"]
+transform = Transform3D(0.46711677, 0, 0, 0, 0.90277284, 0, 0, 0, 0.43929264, 0.015395641, 0, 0)
+shape = SubResource("BoxShape3D_oi2a6")
+
+[node name="Bush" parent="." instance=ExtResource("15_a5a62")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 25.556602, 0.3782096, -11.121786)
+
+[node name="Tree" parent="." instance=ExtResource("16_45hoa")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 25.556604, 0.3782096, -8.860262)
+
+[node name="Building 1" parent="." instance=ExtResource("18_3dbqj")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.22304, 0.39875805, 3.0894332)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
