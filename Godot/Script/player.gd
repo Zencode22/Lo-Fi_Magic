@@ -33,7 +33,7 @@ var jump_height: float = 5.0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var token_counter_label: Label
-var gate2_token_label: Label
+var set2_token_label: Label
 var gate_message_label: Label
 
 var is_grounded := true
@@ -47,11 +47,11 @@ var jump_cooldown_duration: float = 0.2
 @onready var landing_sound = $LoFi_Magic_Temp_Character/FmodLandingEmitter3D
 @onready var footstep_sound = $LoFi_Magic_Temp_Character/FmodFootstepEmitter3D
 @onready var grab_sound = $LoFi_Magic_Temp_Character/FmodGrabEmitter3D
+
 func _ready() -> void:
 	freeze = false
 	sleeping = false
 	can_sleep = false
-	continuous_cd = 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if grab_prompt_label:
@@ -71,6 +71,14 @@ func _ready() -> void:
 	if token_tracker:
 		token_tracker.token_collected_updated.connect(_on_token_collected_updated)
 		token_tracker.all_tokens_collected.connect(_on_all_tokens_collected)
+		
+		if has_node("LoFi_Magic_Temp_Character/FmodMusicPlayer"):
+			var music_player = $LoFi_Magic_Temp_Character/FmodMusicPlayer
+			token_tracker.set_music_player("Set 1", music_player)
+			token_tracker.set_music_player("Set 2", music_player)
+			print("Music player connected successfully at: LoFi_Magic_Temp_Character/FmodMusicPlayer")
+		else:
+			print("FmodMusicPlayer not found at LoFi_Magic_Temp_Character/FmodMusicPlayer")
 
 func initialize_animations() -> void:
 	anim_tree.set("parameters/conditions/grounded", true)
@@ -113,21 +121,21 @@ func setup_token_ui() -> void:
 
 	token_counter_label = Label.new()
 	token_counter_label.name = "TokenCounterLabel"
-	token_counter_label.text = "Gate 1: 0/4"
+	token_counter_label.text = "Set 1: 0/4"
 	token_counter_label.add_theme_font_size_override("font_size", 24)
 	token_counter_label.add_theme_color_override("font_color", Color.WHITE)
 	token_counter_label.add_theme_constant_override("outline_size", 4)
 	token_counter_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	vbox.add_child(token_counter_label)
 
-	gate2_token_label = Label.new()
-	gate2_token_label.name = "Gate2TokenLabel"
-	gate2_token_label.text = "Gate 2: 0/6"
-	gate2_token_label.add_theme_font_size_override("font_size", 24)
-	gate2_token_label.add_theme_color_override("font_color", Color.CYAN)
-	gate2_token_label.add_theme_constant_override("outline_size", 4)
-	gate2_token_label.add_theme_color_override("font_outline_color", Color.BLACK)
-	vbox.add_child(gate2_token_label)
+	set2_token_label = Label.new()
+	set2_token_label.name = "Set2TokenLabel"
+	set2_token_label.text = "Set 2: 0/6"
+	set2_token_label.add_theme_font_size_override("font_size", 24)
+	set2_token_label.add_theme_color_override("font_color", Color.CYAN)
+	set2_token_label.add_theme_constant_override("outline_size", 4)
+	set2_token_label.add_theme_color_override("font_outline_color", Color.BLACK)
+	vbox.add_child(set2_token_label)
 
 	gate_message_label = Label.new()
 	gate_message_label.name = "GateMessageLabel"
@@ -140,27 +148,27 @@ func setup_token_ui() -> void:
 	vbox.add_child(gate_message_label)
 
 func _on_token_collected_updated(token_set: String, current: int, total: int) -> void:
-	if token_set == "default":
+	if token_set == "Set 1":
 		if token_counter_label:
-			token_counter_label.text = "Gate 1: %d/%d" % [current, total]
+			token_counter_label.text = "Set 1: %d/%d" % [current, total]
 			if current > 0:
 				var tween = create_tween()
 				tween.tween_property(token_counter_label, "scale", Vector2(1.3, 1.3), 0.1)
 				tween.tween_property(token_counter_label, "scale", Vector2(1.0, 1.0), 0.1)
-	elif token_set == "set_1":
-		if gate2_token_label:
-			gate2_token_label.text = "Gate 2: %d/%d" % [current, total]
+	elif token_set == "Set 2":
+		if set2_token_label:
+			set2_token_label.text = "Set 2: %d/%d" % [current, total]
 			if current > 0:
 				var tween = create_tween()
-				tween.tween_property(gate2_token_label, "scale", Vector2(1.3, 1.3), 0.1)
-				tween.tween_property(gate2_token_label, "scale", Vector2(1.0, 1.0), 0.1)
+				tween.tween_property(set2_token_label, "scale", Vector2(1.3, 1.3), 0.1)
+				tween.tween_property(set2_token_label, "scale", Vector2(1.0, 1.0), 0.1)
 
 func _on_all_tokens_collected(token_set: String) -> void:
 	if gate_message_label:
-		if token_set == "default":
-			gate_message_label.text = "Gate 1 opened!"
-		elif token_set == "set_1":
-			gate_message_label.text = "Gate 2 opened!"
+		if token_set == "Set 1":
+			gate_message_label.text = "Set 1 Complete! Gate 1 opened!"
+		elif token_set == "Set 2":
+			gate_message_label.text = "Set 2 Complete! Gate 2 opened!"
 		
 		gate_message_label.show()
 
@@ -463,10 +471,11 @@ func get_surface_index() -> int:
 		return collider.get_meta("SurfaceIndex")
 	
 	return 0
+	
 func play_footstep():
-		if not is_grounded:
-			return
-		var surface_index = get_surface_index()
-		if footstep_sound:
-			footstep_sound.set_parameter("SurfaceIndex",surface_index)
-			footstep_sound.play()
+	if not is_grounded:
+		return
+	var surface_index = get_surface_index()
+	if footstep_sound:
+		footstep_sound.set_parameter("SurfaceIndex", surface_index)
+		footstep_sound.play()

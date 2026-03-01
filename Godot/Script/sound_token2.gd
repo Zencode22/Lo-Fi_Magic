@@ -1,11 +1,15 @@
 extends Node3D
 
 @export var speed : float = 5
+@export var layer_name: String = "Melody"
+@export var fmod_parameter: String = "Layer_Melody"
+
 @onready var mesh = $Sound_Token/Circle
 var collision_area: Area3D
+var stack_position: int = 0
 
 func _ready() -> void:
-	TokenTracker.register_token("set_1")
+	TokenTracker.register_token("Set 2", self)
 	setup_collision_area()
 	if collision_area:
 		collision_area.body_entered.connect(_on_body_entered)
@@ -33,7 +37,10 @@ func _on_body_entered(body: Node3D) -> void:
 		collect_token()
 
 func collect_token() -> void:
-	TokenTracker.collect_token("set_1")
+	stack_position = TokenTracker.get_stack_position("Set 2", self)
+	
+	TokenTracker.collect_token("Set 2", stack_position, layer_name, fmod_parameter)
+	
 	var tween = create_tween()
 	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.3)
 	tween.tween_callback(queue_free)

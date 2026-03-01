@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ybnrb2sa4r6q"]
+[gd_scene format=3 uid="uid://ybnrb2sa4r6q"]
 
 [ext_resource type="Script" uid="uid://r4kgwh2qn6ha" path="res://Script/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://cpvi204vmb5m6" path="res://Models/Characters/lo_fi_magic_temp_character.tscn" id="2_onrkg"]
@@ -7,54 +7,54 @@
 radius = 0.18701172
 height = 1.8372803
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player" type="RigidBody3D" unique_id=862147463]
 collision_mask = 4
 lock_rotation = true
 script = ExtResource("1_4flbx")
 
-[node name="LoFi_Magic_Temp_Character" parent="." instance=ExtResource("2_onrkg")]
+[node name="LoFi_Magic_Temp_Character" parent="." unique_id=835260632 instance=ExtResource("2_onrkg")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 
-[node name="FmodJumpEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+[node name="FmodJumpEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character" unique_id=1592605984]
 event_name = "event:/Player Character/PlayerJump"
 event_guid = "{f2a09a5d-b5f4-4281-a5ca-af59324b9123}"
 transform = Transform3D(-0.9999999, 1.5180785e-08, -8.609462e-08, 0, 0.9848078, 0.17364796, 8.742277e-08, 0.17364794, -0.98480767, 0, 0, 0)
 
-[node name="FmodLandingEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+[node name="FmodLandingEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character" unique_id=565205032]
 event_name = "event:/Player Character/PlayerLandings"
 event_guid = "{76ebd990-e1ad-4fcd-9b7d-8cb20423c535}"
 fmod_parameters/SurfaceIndex/id = 1206182703528516397
 fmod_parameters/SurfaceIndex = 0
 fmod_parameters/SurfaceIndex/variant_type = 2
 
-[node name="FmodFootstepEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+[node name="FmodFootstepEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character" unique_id=1805145242]
 event_name = "event:/Player Character/PlayerFootsteps"
 event_guid = "{ee1d2e48-245e-498f-8b5c-925b0c5db85d}"
 fmod_parameters/SurfaceIndex/id = 1206182703528516397
 fmod_parameters/SurfaceIndex = 0
 fmod_parameters/SurfaceIndex/variant_type = 2
 
-[node name="FmodGrabEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character"]
+[node name="FmodGrabEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character" unique_id=864896686]
 event_name = "event:/Player Character/PlayerGrab"
 event_guid = "{04279d22-38f5-4368-8f72-9b2b43f67d43}"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1252776507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869812, -0.02353084)
 shape = SubResource("CapsuleShape3D_y8w33")
 
-[node name="TwistPivot" type="Node3D" parent="."]
+[node name="TwistPivot" type="Node3D" parent="." unique_id=850425696]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 0)
 
-[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+[node name="PitchPivot" type="Node3D" parent="TwistPivot" unique_id=2049187736]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
+[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot" unique_id=2066341571]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0.694, 2.696)
 
-[node name="FmodListener3D" type="FmodListener3D" parent="TwistPivot/PitchPivot/Camera3D"]
+[node name="FmodListener3D" type="FmodListener3D" parent="TwistPivot/PitchPivot/Camera3D" unique_id=422330672]
 transform = Transform3D(0.9998477, 0, 0.017452406, 0, 1, -1.4901161e-08, -0.017452408, 0, 0.9998477, 0, 0, 0)
 
-[node name="GrabPromptLabel" type="Label" parent="."]
+[node name="GrabPromptLabel" type="Label" parent="." unique_id=1117827374]
 offset_top = 363.0
 offset_right = 400.0
 offset_bottom = 423.0

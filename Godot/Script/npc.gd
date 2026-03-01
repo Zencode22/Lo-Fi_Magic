@@ -31,15 +31,11 @@ func play_idle_animation() -> void:
 			for anim_name in common_names:
 				if AP.has_animation(name):
 					AP.play(name)
-					print("Playing animation: ", name)
 					return
 			
 			var animations = AP.get_animation_list()
 			if animations.size() > 0:
 				AP.play(animations[0])
-				print("Playing first available animation: ", animations[0])
-			else:
-				print("No animations found in AnimationPlayer")
 
 func _process(_delta: float) -> void:
 	if not AP.is_playing():
@@ -48,5 +44,3 @@ func _process(_delta: float) -> void:
 func Play_Anim(AnimPathName: String) -> void:
 	if AP.has_animation(AnimPathName):
 		AP.play(AnimPathName)
-	else:
-		print("Animation not found: ", AnimPathName)

@@ -12,6 +12,7 @@ var stop_threshold := 0.015
 var is_drag_sound_playing := false
 
 @onready var drag_emitter = $FmodDragEmitter3D
+
 func _ready() -> void:
 	sleeping = false
 	freeze = true
@@ -28,22 +29,20 @@ func _physics_process(delta: float) -> void:
 			if freeze:
 				freeze = false
 			
-			# Calculate where the object should be relative to the player
 			var current_player_basis = grabber.global_transform.basis
 			var target_position = grabber.global_position + (current_player_basis * local_grab_offset)
 			
-			# Smoothly move toward target position for natural feel
 			var move_speed = 15.0
 			var new_position = global_position.lerp(target_position, move_speed * delta)
 			global_position = new_position
 			
-			# Apply small damping to prevent wild movement
 			linear_velocity = linear_velocity.lerp(Vector3.ZERO, 10.0 * delta)
 			angular_velocity = angular_velocity.lerp(Vector3.ZERO, 10.0 * delta)
 			
 		else:
 			release()
 	_handle_drag_audio(delta)
+	
 func grab(by: Node3D) -> void:
 	if not is_grabbed and by != null:
 		var can_grab = players_in_contact.has(by) or global_position.distance_to(by.global_position) < 2.0
@@ -54,13 +53,10 @@ func grab(by: Node3D) -> void:
 			freeze = false
 			can_sleep = false
 			
-			# Calculate offset from player - this determines both push and pull position
 			var initial_player_basis = by.global_transform.basis
 			var world_offset = global_position - by.global_position
 			local_grab_offset = initial_player_basis.inverse() * world_offset
 			
-			# Set a consistent grab distance for both push and pull
-			# This will make the object stay at a fixed distance from player
 			var grab_distance = 1.5
 			local_grab_offset = local_grab_offset.normalized() * grab_distance
 
@@ -88,6 +84,7 @@ func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		if players_in_contact.has(body):
 			players_in_contact.erase(body)
+			
 func _handle_drag_audio(delta: float) -> void:
 	var displacement = global_position.distance_to(previous_position)
 	var speed = displacement / delta
