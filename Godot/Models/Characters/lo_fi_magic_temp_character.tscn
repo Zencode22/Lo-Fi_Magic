@@ -67,6 +67,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_5slqb")
 blend_point_3/pos = Vector2(0, -1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_78jtk")
 blend_point_4/pos = Vector2(-1, 0)
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqr14"]
 animation = &"PlayerAnims/Idle"
@@ -96,6 +97,7 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_aih7e")
 blend_point_4/pos = Vector2(1, 0)
 min_space = Vector2(-2, -2)
 max_space = Vector2(2, 2)
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5c5lt"]
 animation = &"PlayerAnims/Jump"
@@ -188,8 +190,37 @@ graph_offset = Vector2(-353, -46)
 [node name="LoFi_Magic_Temp_Character" unique_id=687792634 instance=ExtResource("1_aqr14")]
 script = ExtResource("2_s5co0")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_TempChar/Skeleton3D" parent_id_path=PackedInt32Array(671226494) index="2" unique_id=109629620]
-transform = Transform3D(1, 0, 0, 0, 0.9979717, -0.06365864, 0, 0.06365864, 0.9979717, 0, 1.1974897, 0.0025400454)
+[node name="Skeleton3D" parent="Armature_TempChar" parent_id_path=PackedInt32Array(2137359276) index="0" unique_id=671226494]
+bones/0/position = Vector3(-0.0051888674, 0.46775123, -0.021925341)
+bones/0/rotation = Quaternion(-0.04488751, 0.0004907975, 0.010746723, 0.9989342)
+bones/1/rotation = Quaternion(0.12599158, -5.77631e-07, -3.32264e-05, 0.99203134)
+bones/2/rotation = Quaternion(0.014805337, 1.0200688e-05, 6.5490203e-06, 0.99989045)
+bones/3/rotation = Quaternion(0.009294119, 1.0251296e-05, 6.470003e-06, 0.99995685)
+bones/4/rotation = Quaternion(0.53183794, 0.058289163, -0.8060898, -0.25292316)
+bones/5/rotation = Quaternion(0.06065553, -0.001979338, 0.41927013, 0.9058309)
+bones/6/rotation = Quaternion(0.54984593, 0.00091236725, 0.8125707, -0.19338413)
+bones/7/rotation = Quaternion(0.040768508, 0.0020946506, -0.28180465, 0.9586031)
+bones/8/rotation = Quaternion(0.97085595, -0.0022313108, -0.004688906, 0.23960747)
+bones/9/rotation = Quaternion(0.45183823, -3.589264e-10, -5.9500738e-09, 0.8920999)
+bones/10/rotation = Quaternion(0.9743057, -0.0023265493, -0.0046448535, 0.22516978)
+bones/11/rotation = Quaternion(0.41849267, -4.088748e-10, -6.0997065e-09, 0.90822023)
+bones/12/position = Vector3(-0.26678884, 0.41430932, -0.012757721)
+bones/12/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/13/position = Vector3(-0.26897466, 0.43744966, -0.17410438)
+bones/14/position = Vector3(0.27536777, 0.40182373, -0.01761655)
+bones/14/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/15/position = Vector3(0.25388396, 0.4107397, -0.2183154)
+bones/16/position = Vector3(-0.0853, 0.12761642, 0.003944709)
+bones/16/rotation = Quaternion(-0.7007166, 0, 0, 0.7134397)
+bones/17/position = Vector3(4.1197925e-09, 1.1284611e-07, -9.216902e-06)
+bones/18/rotation = Quaternion(-0.80731404, 0, 0, 0.5901222)
+bones/20/position = Vector3(0.0853, 0.12396493, 0.0058235107)
+bones/20/rotation = Quaternion(-0.7071064, 0, 0, 0.70710725)
+bones/21/position = Vector3(-1.0781369e-08, 1.0761332e-07, -9.153704e-06)
+bones/22/rotation = Quaternion(-0.80731404, 0, 0, 0.5901222)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_TempChar/Skeleton3D" index="2" unique_id=109629620]
+transform = Transform3D(0.99976915, -0.020503491, 0.0064193862, 0.021393316, 0.97759324, -0.20941223, -0.0019818677, 0.20950125, 0.9778063, -0.019781673, 1.155555, 0.038886435)
 bone_name = "head"
 bone_idx = 3
 
@@ -210,5 +241,5 @@ parameters/conditions/InAir = false
 parameters/conditions/grabbing = false
 parameters/conditions/grounded = false
 parameters/conditions/jump = false
-parameters/IdlePushPull/blend_position = Vector2(0, 0)
-parameters/IdleWalk/blend_position = Vector2(0.0070672035, 0.010810852)
+parameters/IdlePushPull/blend_position = Vector2(-0.3381995, 0.13397121)
+parameters/IdleWalk/blend_position = Vector2(0.024330854, 0)

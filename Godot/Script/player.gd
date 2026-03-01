@@ -87,7 +87,7 @@ func initialize_animations() -> void:
 	anim_tree.set("parameters/conditions/InAir", false)
 	anim_tree.set("parameters/conditions/grabbing", false)
 
-	state_machine.travel("IdleWalkRun")
+	state_machine.travel("IdleWalk")
 
 func setup_collision_shape() -> void:
 	if not has_node("CollisionShape3D"):
@@ -211,7 +211,7 @@ func _process(delta: float) -> void:
 		var move_intensity = input.length()
 		anim_tree.set("parameters/IdlePushPull/blend_position", Vector2(move_intensity, 0))
 	else:
-		anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(input.x, input.z))
+		anim_tree.set("parameters/IdleWalk/blend_position", Vector2(input.x, input.z))
 	
 	twist_input = 0.0
 	pitch_input = 0.0
@@ -451,7 +451,7 @@ func release_object() -> void:
 		is_grabbing = false
 		anim_tree.set("parameters/conditions/grabbing", is_grabbing)
 		anim_tree.set("parameters/conditions/grounded", true)
-		state_machine.travel("IdleWalkRun")
+		state_machine.travel("IdleWalk")
 			
 func get_surface_index() -> int:
 	var space_state = get_world_3d().direct_space_state
