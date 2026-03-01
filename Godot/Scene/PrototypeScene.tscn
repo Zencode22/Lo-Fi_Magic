@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://Script/sound_token2.gd" id="11_a4s3b"]
 [ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://Script/gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://Scene/movable_cube.tscn" id="13_3vhle"]
+[ext_resource type="PackedScene" uid="uid://cd6v2c3nnqnn5" path="res://Models/Bean/bean.fbx" id="15_sbbyl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -523,21 +524,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4999967, 2, -37.75)
 size = Vector3(2, 5, 13.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="BeanBooth1" type="CSGBox3D" parent="BeanArea" unique_id=1404834963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37499997, 0.5000001, -32.53125)
-size = Vector3(3.5, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth2" type="CSGBox3D" parent="BeanArea" unique_id=432045688]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8125005, 0.5000001, -32.53125)
-size = Vector3(3.5, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBoothRoof" type="CSGBox3D" parent="BeanArea" unique_id=799784399]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0937529, 1.7500001, -32.53125)
-size = Vector3(1.9375, 1.5, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
 [node name="BeanBooth3" type="CSGBox3D" parent="BeanArea" unique_id=1706862451]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -28.90625)
 size = Vector3(3.875, 4, 2.8125)
@@ -778,3 +764,6 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=33895425]
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
+
+[node name="bean" parent="." unique_id=605089836 instance=ExtResource("15_sbbyl")]
+transform = Transform3D(0.031639148, 0, -1.8861736, 0, 1.8864381, 0, 1.8861729, 0, 0.031639118, -3.0900006, 0.197, -32.5)
