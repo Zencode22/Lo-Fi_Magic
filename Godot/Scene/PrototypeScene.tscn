@@ -580,11 +580,6 @@ operation = 2
 size = Vector3(3, 1.125, 2)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="TheBean" type="CSGBox3D" parent="BeanArea" unique_id=2079541348]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.500004, 0.5000001, -31)
-size = Vector3(4, 4, 7)
-material = SubResource("StandardMaterial3D_ttobh")
-
 [node name="ChasePSWall3Subtraction2" type="CSGBox3D" parent="BeanArea" unique_id=1679542322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 3.4687524, -1, -29.501)
 operation = 2
@@ -766,4 +761,4 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="bean" parent="." unique_id=605089836 instance=ExtResource("15_sbbyl")]
-transform = Transform3D(0.031639148, 0, -1.8861736, 0, 1.8864381, 0, 1.8861729, 0, 0.031639118, -3.0900006, 0.197, -32.5)
+transform = Transform3D(-1.8834068, 0, -0.10691481, 0, 1.8864381, 0, 0.10691475, 0, -1.8834069, -16.643671, 0.4047037, -31.348753)
