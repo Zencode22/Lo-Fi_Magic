@@ -43,6 +43,9 @@ size = Vector3(12.133118, 5.2368164, 3.4604187)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cspmu"]
 size = Vector3(7.3036804, 5.591919, 3.5211182)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxya1"]
+size = Vector3(3.8008423, 5.2695313, 1.0649414)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l30dt"]
 size = Vector3(5.3949127, 2.993866, 3.0569763)
 
@@ -236,9 +239,9 @@ size = Vector3(17, 1, 3.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSArea/ChasePSWall3" unique_id=1031993571]
-transform = Transform3D(1.1586682, 0, 0, 0, 1, 0, 0, 0, 1, -2.3653593, 0, 0)
+transform = Transform3D(1.1586682, 0, 0, 0, 1, 0, 0, 0, 1, -2.3653631, 0, -0.50827026)
 operation = 2
-size = Vector3(3.2324219, 1, 3.5)
+size = Vector3(3.2324219, 1, 2.4834595)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="GardenBoundry" type="StaticBody3D" parent="ChasePSArea/ChasePSWall3" unique_id=1737113321]
@@ -254,6 +257,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.039137, 1, -0.5250168)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePSArea/ChasePSWall3/GardenBoundry2" unique_id=1084831223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19407654, 2.2959595, 0.5026245)
 shape = SubResource("BoxShape3D_cspmu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ChasePSArea/ChasePSWall3" unique_id=1677173445]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePSArea/ChasePSWall3/StaticBody3D" unique_id=1200170644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3598757, 3.0974488, 1.2340565)
+shape = SubResource("BoxShape3D_nxya1")
 
 [node name="ChasePSWall4" type="CSGBox3D" parent="ChasePSArea" unique_id=298141190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -7)
@@ -790,4 +799,4 @@ light_color = Color(0.4348803, 0.58451, 1, 1)
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="Player" parent="." unique_id=862147463 instance=ExtResource("1_8k8km")]
-transform = Transform3D(-0.9978787, 0, -0.06510695, 0, 1, 0, 0.06510696, 0, -0.9978783, -21.974802, 0.36954963, -23.706635)
+transform = Transform3D(-0.9978792, 0, -0.06510695, 0, 1, 0, 0.06510696, 0, -0.9978783, -12.900043, 0.36954963, 20.32849)
