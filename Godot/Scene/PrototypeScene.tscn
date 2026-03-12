@@ -21,7 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://dajhse7kpul1m" path="res://Models/Buildings/Building 2.fbx" id="19_oi2a6"]
 [ext_resource type="PackedScene" uid="uid://df3jidqwpi2nu" path="res://Models/Buildings/Building 3.fbx" id="20_0inoe"]
 [ext_resource type="PackedScene" uid="uid://rnhwjm27v1kh" path="res://Models/Bean/bean.fbx" id="21_45hoa"]
-[ext_resource type="PackedScene" uid="uid://csu8chwcbkm0q" path="res://Models/floor/floor2.fbx" id="22_ktqbh"]
+[ext_resource type="PackedScene" uid="uid://dtg82focihs24" path="res://Models/floor/floor3.fbx" id="22_0inoe"]
+[ext_resource type="PackedScene" uid="uid://d3y80focibmxu" path="res://Models/floor/floor4thebean.fbx" id="23_8ihit"]
+[ext_resource type="PackedScene" uid="uid://bmivx2qdjdl0c" path="res://Models/floor/floor5.fbx" id="24_1m8de"]
+[ext_resource type="PackedScene" uid="uid://cwh10m5giuro7" path="res://Models/floor/floor2marketarea.fbx" id="25_ms50h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45hoa"]
 
@@ -688,8 +691,14 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.22304, 0.39875805,
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1514292368]
 
-[node name="floor2" parent="." unique_id=219534405 instance=ExtResource("22_ktqbh")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -9.802906, -0.10922718, 6.753996)
+[node name="floor3" parent="." unique_id=822891847 instance=ExtResource("22_0inoe")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -8.652307, 0.029517055, -12.472516)
 
-[node name="floor3" parent="." unique_id=1470148354 instance=ExtResource("22_ktqbh")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -6.7691746, 0.018138766, -23.653938)
+[node name="floor4thebean" parent="." unique_id=304755895 instance=ExtResource("23_8ihit")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -10.99823, -0.07381058, -30.560987)
+
+[node name="floor5" parent="." unique_id=1589153074 instance=ExtResource("24_1m8de")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.461203, -0.09015274, -23.532904)
+
+[node name="floor2marketarea" parent="." unique_id=1218164604 instance=ExtResource("25_ms50h")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -10.071176, -0.05829966, 6.7362394)
