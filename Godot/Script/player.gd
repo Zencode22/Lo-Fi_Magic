@@ -26,21 +26,29 @@ var max_jumps := 1
 
 var move_force = 600.0
 var max_speed = 5.0
-var jump_height_limit := 3.0  # REDUCED: from 5.0 to 3.0 meters max
+var jump_height_limit := 3.0
 var is_above_jump_limit := false
 
-# FIXED: Adjusted jump height and added velocity cap
-var jump_height: float = 2.2  # REDUCED: from 3.5 to 2.2 to achieve ~3m max height
+var jump_height: float = 2.2
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var max_jump_velocity: float = 7.0  # REDUCED: from 9.0 to 7.0
+var max_jump_velocity: float = 7.0
 
+# Jump protection variables
+var just_jumped: bool = false
+var jump_protection_timer: float = 0.0
+var jump_protection_duration: float = 0.2  # 200ms of jump protection
+
+# UI References (keeping only token UI)
 var token_counter_label: Label
 var set2_token_label: Label
 var gate_message_label: Label
 
 var is_grounded := true
 var ground_check_distance: float = 0.5
-var was_grounded_last_frame := true  # ADDED: Track previous grounded state for animation
+var was_grounded_last_frame := true
+var is_jumping := false
+var jump_animation_played := false
+var current_height_above_ground: float = 0.0
 
 var can_jump := true
 var jump_cooldown_timer: float = 0.0
@@ -69,9 +77,6 @@ func _ready() -> void:
 	setup_token_ui()
 	
 	initialize_animations()
-	
-	# Debug gravity value
-	print("Gravity value: ", gravity)
 
 	var token_tracker = get_node("/root/TokenTracker")
 	if token_tracker:
@@ -189,6 +194,13 @@ func _on_all_tokens_collected(token_set: String) -> void:
 func _process(delta: float) -> void:
 	freeze = false
 	
+	# Update jump protection timer
+	if just_jumped:
+		jump_protection_timer += delta
+		if jump_protection_timer >= jump_protection_duration:
+			just_jumped = false
+			jump_protection_timer = 0.0
+	
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward", "move_back")
@@ -252,7 +264,22 @@ func _physics_process(delta: float) -> void:
 	var move_direction = twist_pivot.global_transform.basis * Vector3(input.x, 0, input.z)
 	move_direction = move_direction.normalized()
 
-	if input.length() > 0.1 and not is_grounded:
+	# Jump protection - if we just jumped, prioritize vertical movement
+	if just_jumped:
+		# During jump protection, reduce horizontal forces to prevent wall interference
+		if input.length() > 0.1:
+			var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
+			var target_horizontal_velocity = move_direction * max_speed * 0.3  # Reduced during jump protection
+			var velocity_diff = target_horizontal_velocity - current_horizontal_velocity
+			var force = velocity_diff * move_force * delta * 0.5  # Reduced force
+			apply_central_force(force)
+		
+		# Ensure vertical velocity is maintained
+		if linear_velocity.y < max_jump_velocity * 0.5:
+			linear_velocity.y = max_jump_velocity * 0.8
+	
+	# Apply movement forces (modified for jump protection)
+	elif input.length() > 0.1 and not is_grounded:
 		var space_state_air = get_world_3d().direct_space_state
 		var ray_origin = global_position
 		
@@ -280,14 +307,14 @@ func _physics_process(delta: float) -> void:
 		if hit_wall:
 			var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 			
-			var damping_strength = 15.0
+			# Reduced damping when hitting walls in air
+			var damping_strength = 8.0  # Reduced from 15.0
 			var damping_force = -current_horizontal_velocity * damping_strength * mass * delta
 			apply_central_force(damping_force)
 			
-			var push_away_force = wall_normal * mass * 2.0 * delta
+			# Gentler push away from walls
+			var push_away_force = wall_normal * mass * 1.0 * delta  # Reduced from 2.0
 			apply_central_force(push_away_force)
-			
-			pass
 		else:
 			var current_horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
 			var target_horizontal_velocity = move_direction * max_speed
@@ -310,10 +337,14 @@ func _physics_process(delta: float) -> void:
 
 	var new_grounded = check_grounded()
 
-	# FIXED: Animation states - properly trigger jump animation
+	# Animation state management
 	if new_grounded and not was_grounded_last_frame:
 		# Just landed
 		is_grounded = true
+		is_jumping = false
+		jump_animation_played = false
+		just_jumped = false  # Reset jump protection on landing
+		
 		if landing_sound and linear_velocity.y < -2.0:
 			landing_sound.play()
 		
@@ -327,27 +358,48 @@ func _physics_process(delta: float) -> void:
 		anim_tree.set("parameters/conditions/InAir", false)
 		anim_tree.set("parameters/conditions/jump", false)
 		
+		# Transition back to idle/walk based on input
+		if input.length() > 0.1:
+			state_machine.travel("IdleWalk")
+		else:
+			state_machine.travel("IdleWalk")
+		
 	elif not new_grounded and was_grounded_last_frame:
 		# Just left ground - this is when jump should trigger
 		is_grounded = false
+		is_jumping = true
+		jump_animation_played = true
 		
 		# Update animation conditions for being in air
 		anim_tree.set("parameters/conditions/grounded", false)
 		anim_tree.set("parameters/conditions/InAir", true)
-		anim_tree.set("parameters/conditions/jump", true)  # Trigger jump animation
+		anim_tree.set("parameters/conditions/jump", true)
+		
+		# Force jump animation to play
+		state_machine.travel("Jump")
+	
+	# While in air, keep the InAir condition true
+	if not new_grounded:
+		anim_tree.set("parameters/conditions/InAir", true)
+		anim_tree.set("parameters/conditions/grounded", false)
+		
+		# Allow movement animations to blend with jump
+		if input.length() > 0.1:
+			anim_tree.set("parameters/conditions/walk", true)
+		else:
+			anim_tree.set("parameters/conditions/walk", false)
 	
 	# Store current grounded state for next frame
 	was_grounded_last_frame = new_grounded
 	is_grounded = new_grounded
 
-	# FIXED: Height checking and limiting
-	var current_height = check_height_above_ground()
-	is_above_jump_limit = current_height >= jump_height_limit
+	# Height checking and limiting
+	current_height_above_ground = check_height_above_ground()
+	is_above_jump_limit = current_height_above_ground >= jump_height_limit
 	
 	# If above limit, prevent further upward movement
 	if is_above_jump_limit and linear_velocity.y > 0:
 		linear_velocity.y = 0
-		# Optional: Add slight downward force
 		var downward_force = Vector3(0, -gravity * mass * 2.0, 0)
 		apply_central_force(downward_force)
 
@@ -369,7 +421,7 @@ func check_height_above_ground() -> float:
 	
 	if not ray_result.is_empty():
 		return global_position.y - ray_result.position.y
-	return 999.9  # Return large value if no ground found
+	return 0.0
 
 func check_grounded() -> bool:
 	var space_state = get_world_3d().direct_space_state
@@ -407,7 +459,6 @@ func check_grounded() -> bool:
 	
 	return false
 
-# FIXED: Perform jump with velocity cap
 func perform_jump() -> void:
 	if not is_grounded or is_above_jump_limit or not can_jump:
 		return
@@ -418,11 +469,12 @@ func perform_jump() -> void:
 	# Apply cap to prevent super jumps
 	required_velocity = min(required_velocity, max_jump_velocity)
 	
-	# Set velocity
+	# Set velocity with priority
 	linear_velocity.y = required_velocity
 	
-	# Debug to see actual values
-	print("Jump - Target height: ", jump_height, "m, Velocity: ", required_velocity)
+	# Activate jump protection
+	just_jumped = true
+	jump_protection_timer = 0.0
 	
 	is_above_jump_limit = false
 	

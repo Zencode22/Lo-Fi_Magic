@@ -13,7 +13,7 @@ lock_rotation = true
 script = ExtResource("1_4flbx")
 
 [node name="LoFi_Magic_Temp_Character" parent="." unique_id=835260632 instance=ExtResource("2_onrkg")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, -0.051693678, 0)
 
 [node name="FmodJumpEmitter3D" type="FmodEventEmitter3D" parent="LoFi_Magic_Temp_Character" unique_id=1592605984]
 event_name = "event:/Player Character/PlayerJump"

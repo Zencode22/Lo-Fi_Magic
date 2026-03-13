@@ -13,10 +13,14 @@ var is_drag_sound_playing := false
 
 @onready var drag_emitter = $FmodDragEmitter3D
 
-# New variables for ground tracking
+# Variables for ground tracking
 var ground_y: float = 0.0
 var has_ground: bool = false
 var ground_check_distance: float = 2.0
+
+# FIXED: Simple position locking
+var locked_position: Vector3
+var position_lock_strength: float = 20.0
 
 func _ready() -> void:
 	sleeping = false
@@ -41,33 +45,39 @@ func _physics_process(delta: float) -> void:
 			var current_player_basis = grabber.global_transform.basis
 			var target_position = grabber.global_position + (current_player_basis * local_grab_offset)
 			
-			# If we have ground, lock the Y position to ground level
+			# FIXED: Simple ground offset - always maintain 5cm above ground
 			if has_ground:
-				target_position.y = ground_y
+				target_position.y = ground_y + 0.05
 			
-			# Smooth movement
-			var move_speed = 15.0
-			var new_position = global_position.lerp(target_position, move_speed * delta)
-			global_position = new_position
+			# FIXED: Use forces instead of direct position for smoother physics interaction
+			var direction = (target_position - global_position).normalized()
+			var distance = global_position.distance_to(target_position)
 			
-			# Apply forces for pushing/pulling feel while maintaining ground contact
-			var horizontal_velocity = Vector3(linear_velocity.x, 0, linear_velocity.z)
-			var target_horizontal_velocity = (target_position - global_position) / delta
-			target_horizontal_velocity.y = 0
+			# Strong force to pull toward target, but allows physics to handle collisions
+			var pull_force = direction * distance * mass * position_lock_strength
+			apply_central_force(pull_force)
 			
-			var velocity_diff = target_horizontal_velocity - horizontal_velocity
-			var force = velocity_diff * mass * 10.0 * delta
-			apply_central_force(force)
+			# FIXED: Dampen lateral movement when close to target to prevent oscillation
+			if distance < 0.1:
+				var horizontal_vel = Vector3(linear_velocity.x, 0, linear_velocity.z)
+				var damping_force = -horizontal_vel * mass * 5.0
+				apply_central_force(damping_force)
 			
-			# Keep object on ground with slight downward force
+			# FIXED: Keep object on ground with constant slight downward force
 			if has_ground:
-				apply_central_force(Vector3.DOWN * mass * 20.0 * delta)
+				# Apply just enough downward force to maintain contact
+				if global_position.y > ground_y + 0.06:
+					apply_central_force(Vector3.DOWN * mass * 10.0 * delta)
+				elif global_position.y < ground_y + 0.04:
+					# Push up slightly if sinking
+					apply_central_force(Vector3.UP * mass * 5.0 * delta)
 			
 		else:
 			release()
+	
 	_handle_drag_audio(delta)
 
-# New function to check and store ground position
+# Function to check and store ground position
 func check_ground_position() -> void:
 	var space_state = get_world_3d().direct_space_state
 	
@@ -109,6 +119,10 @@ func grab(by: Node3D) -> void:
 			
 			var grab_distance = 1.5
 			local_grab_offset = local_grab_offset.normalized() * grab_distance
+			
+			# FIXED: Zero out velocity on grab for stable start
+			linear_velocity = Vector3.ZERO
+			angular_velocity = Vector3.ZERO
 
 func can_be_grabbed_by(player: Node3D) -> bool:
 	var distance = global_position.distance_to(player.global_position)

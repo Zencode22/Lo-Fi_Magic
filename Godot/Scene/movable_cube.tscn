@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bbl5g7kqjr4o6"]
 
 [ext_resource type="Script" uid="uid://cs0cbpmefbgs7" path="res://Script/MovableObject.gd" id="1_8knle"]
+[ext_resource type="PackedScene" uid="uid://b03sef6qnx6ir" path="res://Models/Crate/wooden Crate.fbx" id="2_v1f60"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wkftn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_2nifc"]
 
 [node name="MovableCube" type="RigidBody3D" unique_id=1459776484]
 collision_layer = 2
@@ -16,10 +15,9 @@ script = ExtResource("1_8knle")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256572042]
 shape = SubResource("BoxShape3D_wkftn")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1908382540]
-mesh = SubResource("BoxMesh_2nifc")
-skeleton = NodePath("../..")
-
 [node name="FmodDragEmitter3D" type="FmodEventEmitter3D" parent="." unique_id=209319449]
 event_name = "event:/Environment/Dumpster"
 event_guid = "{6f708b32-e515-48f5-9d17-dde60678bccb}"
+
+[node name="wooden Crate" parent="." unique_id=964836867 instance=ExtResource("2_v1f60")]
+transform = Transform3D(1.8686624, 0, 0, 0, 2.051541, 0, 0, 0, 1.9165127, 0, -0.523408, 0)
