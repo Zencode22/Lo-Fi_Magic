@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bmivx2qdjdl0c" path="res://Models/floor/floor5.fbx" id="2_a5a62"]
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="2_jl5o3"]
 [ext_resource type="Material" uid="uid://bo3av6dnb22l3" path="res://Alvaro Work/Materials/Mat_GrayPrototype.tres" id="3_gxy5r"]
+[ext_resource type="Material" uid="uid://d4mmrsn4b0pj6" path="res://Materials/Characters/Head10.tres" id="3_oi2a6"]
+[ext_resource type="Material" uid="uid://b55l6r07p4la1" path="res://Materials/Characters/Body2.tres" id="4_0inoe"]
 [ext_resource type="Material" uid="uid://mxju83h8o3dj" path="res://Alvaro Work/Materials/Mat_LeafPrototype.tres" id="4_8b0og"]
 [ext_resource type="PackedScene" uid="uid://dtg82focihs24" path="res://Models/floor/floor3.fbx" id="4_cspmu"]
 [ext_resource type="PackedScene" uid="uid://cyhnse20ora2s" path="res://Alvaro Work/Prefabs/Tree.tscn" id="5_jl5o3"]
@@ -26,6 +28,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sftu8"]
+size = Vector3(0.882, 1.3230001, 2.583)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trvnc"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -67,9 +72,6 @@ size = Vector3(0.7324219, 1.5790405, 3.0723877)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wq1ld"]
 size = Vector3(1, 1.5328369, 3.097229)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sftu8"]
-size = Vector3(0.91308594, 1.5623779, 3.0788574)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ktqbh"]
 size = Vector3(5.0485535, 5.000122, 2.0544891)
 
@@ -97,22 +99,96 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="MillenniumParkArea" type="CSGCombiner3D" parent="." unique_id=203636045]
 use_collision = true
 
-[node name="MillenniumParkFloor" type="CSGBox3D" parent="MillenniumParkArea" unique_id=598852851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, -0.1304493, -23.5)
-size = Vector3(34, 1, 65)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="floor5" parent="MillenniumParkArea/MillenniumParkFloor" unique_id=610979769 instance=ExtResource("2_a5a62")]
-transform = Transform3D(1, 0, 0, 0, 1.0113406, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="MillenniumTheater" type="CSGBox3D" parent="MillenniumParkArea" unique_id=295457417]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 4.939231, -49.5)
 size = Vector3(34, 9.125, 13)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="MillenniumWall2" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1801343944]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.7467308, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.7467308, -1.75)
 size = Vector3(32, 1, 2)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth1" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1076788614]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 8.125004, 2.3695507, -32.53125)
+size = Vector3(5, 4, 2.8125)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth2" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1268491290]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 12.375005, 2.3695507, -32.53125)
+size = Vector3(3, 4, 2.8125)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth3" type="CSGBox3D" parent="MillenniumParkArea" unique_id=366129368]
+transform = Transform3D(1, 0, 6.993822e-07, 0, 1, 0, -6.993822e-07, 0, 1, 12.375008, 2.3695507, -28.4375)
+size = Vector3(3, 4, 5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth4" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1487518503]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, 12.375011, 2.3695507, -28.4375)
+size = Vector3(3, 4, 5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth5" type="CSGBox3D" parent="MillenniumParkArea" unique_id=2017292534]
+transform = Transform3D(1, 0, 2.7975289e-06, 0, 1, 0, -2.7975289e-06, 0, 1, 12.375014, 2.3695507, -23.4375)
+size = Vector3(3, 4, 4.5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth5Subtraction1" type="CSGBox3D" parent="MillenniumParkArea/ParkBooth5" unique_id=890952994]
+transform = Transform3D(2.5789707e-06, 0, 1, 0, 1, 0, -1, 0, 2.5789718e-06, -5.722046e-06, -0.375, -0.0625)
+operation = 2
+size = Vector3(3.375, 2.5, 2.125)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth5Subtraction2" type="CSGBox3D" parent="MillenniumParkArea/ParkBooth5" unique_id=804033461]
+transform = Transform3D(-1, 0, 5.1579427e-06, 0, 1, 0, -5.1579427e-06, 0, -1, -1.279521, -0.25600028, -0.054000854)
+operation = 2
+size = Vector3(0.441, 1.26, 2.52)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="NPC2" parent="MillenniumParkArea/ParkBooth5" unique_id=1796218408 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-2.6663938e-06, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -2.666395e-06, -0.56700134, -1.638, -1.9073486e-06)
+HeadTex = ExtResource("3_oi2a6")
+BodyTex = ExtResource("4_0inoe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/ParkBooth5" unique_id=493426786]
+transform = Transform3D(1.0000001, 0, -2.4846047e-06, 0, 1, 0, 2.4995059e-06, 0, 1.0000001, -2.7090025, 0, -7.6293945e-06)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/ParkBooth5/StaticBody3D" unique_id=364300286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6615839, -0.23593736, -0.060028076)
+shape = SubResource("BoxShape3D_sftu8")
+
+[node name="ParkBooth6" type="CSGBox3D" parent="MillenniumParkArea" unique_id=734153070]
+transform = Transform3D(-2.8412403e-06, 0, 1, 0, 1, 0, -1, 0, -2.8412403e-06, 10.125014, 2.3695507, -6.9375)
+size = Vector3(3, 4, 5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkBooth7" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1534007147]
+transform = Transform3D(1, 0, 4.1962935e-06, 0, 1, 0, -4.196293e-06, 0, 1, 12.375021, 2.3695507, -18.6875)
+size = Vector3(3, 4, 4.5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="MillenniumParkFloor" type="CSGBox3D" parent="MillenniumParkArea" unique_id=598852851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 22.5, -0.1304493, -23.5)
+size = Vector3(34, 1, 65)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="floor5" parent="MillenniumParkArea/MillenniumParkFloor" unique_id=610979769 instance=ExtResource("2_a5a62")]
+transform = Transform3D(1, 0, 0, 0, 1.0113406, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="ParkBox1" type="CSGBox3D" parent="MillenniumParkArea" unique_id=727332034]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, 6.3750076, 0.8695507, -24.437506)
+size = Vector3(1.5, 1, 1.5)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="StandardFence1" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1731948851]
+transform = Transform3D(1, 0, 2.7975289e-06, 0, 1, 0, -2.7975289e-06, 0, 1, 8.187512, 1.9320507, -19.812511)
+size = Vector3(5.375, 3.125, 0.25)
+material = SubResource("StandardMaterial3D_ttobh")
+
+[node name="ParkDumpster" type="CSGBox3D" parent="MillenniumParkArea" unique_id=973479773]
+transform = Transform3D(1, 0, 2.7975289e-06, 0, 1, 0, -2.7975289e-06, 0, 1, 6.3750067, 1.3070507, -21.687506)
+size = Vector3(1.5, 1.875, 2.75)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="Hallway1Area" type="CSGCombiner3D" parent="." unique_id=1811692489]
@@ -512,8 +588,8 @@ material = ExtResource("3_gxy5r")
 transform = Transform3D(1, 0, 0, 0, 1.035096, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="BeanWall1" type="CSGBox3D" parent="BeanArea" unique_id=1030760094]
-transform = Transform3D(0.9961711, 0, 0, 0, 0.99616563, 0, 0, 0, 0.99616563, -10.997879, -1, -17.5)
-size = Vector3(33.12265, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.997879, -1, -17.5)
+size = Vector3(33, 1, 2)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="BeanArea/BeanWall1" unique_id=1657983953]
