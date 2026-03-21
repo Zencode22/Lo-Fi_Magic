@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://cqylo6usrups5" path="res://Models/Buildings/shop2.fbx" id="26_8ihit"]
 [ext_resource type="PackedScene" uid="uid://bwpvr3fv303cu" path="res://Models/Buildings/shop.fbx" id="27_1m8de"]
 [ext_resource type="PackedScene" uid="uid://bwadypohn8rmk" path="res://Models/Buildings/shop4.fbx" id="28_ms50h"]
+[ext_resource type="PackedScene" uid="uid://276k0ij6qk5s" path="res://Models/Plants/tree7.fbx" id="29_wq1ld"]
+[ext_resource type="PackedScene" uid="uid://cj6ij7vrmllij" path="res://Models/Plants/tree8.fbx" id="30_sftu8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45hoa"]
 
@@ -714,3 +716,9 @@ transform = Transform3D(-1.0000001, 0, -8.742278e-08, 0, 1, 0, 8.7422784e-08, 0,
 
 [node name="shop4" parent="." unique_id=1419400405 instance=ExtResource("28_ms50h")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -7.488132, 0.3988731, 1.9300139)
+
+[node name="tree7" parent="." unique_id=855885402 instance=ExtResource("29_wq1ld")]
+transform = Transform3D(3.9855173, 0, 0, 0, 3.9855168, 0, 0, 0, 3.9855168, 35.226246, 0.37820673, 0.755023)
+
+[node name="tree8" parent="." unique_id=1227470719 instance=ExtResource("30_sftu8")]
+transform = Transform3D(3.0528386, 0, 0, 0, 3.052838, 0, 0, 0, 3.052838, 45.95371, 0, 11.859679)
