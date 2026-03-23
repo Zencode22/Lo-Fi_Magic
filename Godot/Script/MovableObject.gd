@@ -18,9 +18,10 @@ var ground_y: float = 0.0
 var has_ground: bool = false
 var ground_check_distance: float = 2.0
 
-# FIXED: Simple position locking
+# FIXED: Position locking with velocity matching
 var locked_position: Vector3
-var position_lock_strength: float = 20.0
+var position_lock_strength: float = 25.0  # Increased for better responsiveness
+var last_player_velocity: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	sleeping = false
@@ -41,36 +42,58 @@ func _physics_process(delta: float) -> void:
 			if freeze:
 				freeze = false
 			
+			# Get player's velocity for speed matching
+			var player_velocity = grabber.linear_velocity
+			
 			# Calculate target position based on player movement
 			var current_player_basis = grabber.global_transform.basis
 			var target_position = grabber.global_position + (current_player_basis * local_grab_offset)
 			
-			# FIXED: Simple ground offset - always maintain 5cm above ground
+			# FIXED: Ground offset - maintain 5cm above ground
 			if has_ground:
 				target_position.y = ground_y + 0.05
 			
-			# FIXED: Use forces instead of direct position for smoother physics interaction
-			var direction = (target_position - global_position).normalized()
-			var distance = global_position.distance_to(target_position)
+			# FIXED: IMPROVED - Use velocity matching with spring force
+			var current_velocity = linear_velocity
+			var target_velocity = player_velocity  # Match player's velocity
 			
-			# Strong force to pull toward target, but allows physics to handle collisions
-			var pull_force = direction * distance * mass * position_lock_strength
-			apply_central_force(pull_force)
+			# Calculate position error
+			var position_error = target_position - global_position
 			
-			# FIXED: Dampen lateral movement when close to target to prevent oscillation
-			if distance < 0.1:
-				var horizontal_vel = Vector3(linear_velocity.x, 0, linear_velocity.z)
-				var damping_force = -horizontal_vel * mass * 5.0
-				apply_central_force(damping_force)
+			# Calculate velocity error
+			var velocity_error = target_velocity - current_velocity
+			
+			# Spring-damper system for smooth, responsive movement
+			# Higher spring constant = stronger pull to target
+			var spring_constant = position_lock_strength * mass
+			var damping_constant = 15.0 * mass  # Critical damping
+			
+			# Spring force (position correction)
+			var spring_force = position_error * spring_constant
+			
+			# Damping force (velocity matching)
+			var damping_force = velocity_error * damping_constant
+			
+			# Combined force
+			var total_force = spring_force + damping_force
+			
+			# Apply forces
+			apply_central_force(total_force)
 			
 			# FIXED: Keep object on ground with constant slight downward force
 			if has_ground:
-				# Apply just enough downward force to maintain contact
-				if global_position.y > ground_y + 0.06:
-					apply_central_force(Vector3.DOWN * mass * 10.0 * delta)
-				elif global_position.y < ground_y + 0.04:
-					# Push up slightly if sinking
-					apply_central_force(Vector3.UP * mass * 5.0 * delta)
+				# Maintain ground contact
+				var ground_force = Vector3.DOWN * mass * 10.0
+				apply_central_force(ground_force * delta)
+				
+				# Prevent sinking or floating
+				var y_error = (ground_y + 0.05) - global_position.y
+				if abs(y_error) > 0.01:
+					var vertical_force = y_error * mass * 20.0
+					apply_central_force(Vector3.UP * vertical_force)
+			
+			# Store player velocity for next frame
+			last_player_velocity = player_velocity
 			
 		else:
 			release()
@@ -110,6 +133,7 @@ func grab(by: Node3D) -> void:
 			# Check ground immediately when grabbed
 			check_ground_position()
 			
+			# Calculate grab offset based on player's orientation
 			var initial_player_basis = by.global_transform.basis
 			var world_offset = global_position - by.global_position
 			local_grab_offset = initial_player_basis.inverse() * world_offset
@@ -117,12 +141,16 @@ func grab(by: Node3D) -> void:
 			# Keep offset horizontal only (don't lift object)
 			local_grab_offset.y = 0
 			
+			# Set grab distance in front of player
 			var grab_distance = 1.5
 			local_grab_offset = local_grab_offset.normalized() * grab_distance
 			
-			# FIXED: Zero out velocity on grab for stable start
-			linear_velocity = Vector3.ZERO
+			# FIXED: Match player's velocity when grabbing
+			linear_velocity = by.linear_velocity
 			angular_velocity = Vector3.ZERO
+			
+			# Store initial player velocity
+			last_player_velocity = by.linear_velocity
 
 func can_be_grabbed_by(player: Node3D) -> bool:
 	var distance = global_position.distance_to(player.global_position)
@@ -135,6 +163,7 @@ func release() -> void:
 		freeze = true
 		can_sleep = true
 		local_grab_offset = Vector3.ZERO
+		last_player_velocity = Vector3.ZERO
 		if is_drag_sound_playing:
 			drag_emitter.stop()
 			is_drag_sound_playing = false
