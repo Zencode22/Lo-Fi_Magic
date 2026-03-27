@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5y8pp0n6aohg"
+uid="uid://1yvl7mqkec7m"
 path.s3tc="res://.godot/imported/Grass_marketfront_1.png-be24063a8b57ecb1b5313d1e30363bf1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "435b188c119fcd636d29946aa7c8a71b"
 }
 
 [deps]
