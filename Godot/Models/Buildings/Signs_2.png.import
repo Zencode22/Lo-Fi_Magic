@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3a3akfsrfujw"
-path.s3tc="res://.godot/imported/Tree_1.png-08e87089cde3958c110b84051a51b630.s3tc.ctex"
+uid="uid://c8iee10mee86j"
+path.s3tc="res://.godot/imported/Signs_2.png-65e8db73087e2788632a1855e42be6f5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "ffa48d4f92afa8d6d724073f2ff4c49e"
+}
 
 [deps]
 
-source_file="res://Models/Plants/Tree_1.png"
-dest_files=["res://.godot/imported/Tree_1.png-08e87089cde3958c110b84051a51b630.s3tc.ctex"]
+source_file="res://Models/Buildings/Signs_2.png"
+dest_files=["res://.godot/imported/Signs_2.png-65e8db73087e2788632a1855e42be6f5.s3tc.ctex"]
 
 [params]
 
