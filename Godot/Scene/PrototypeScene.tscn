@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://276k0ij6qk5s" path="res://Models/Plants/tree7.fbx" id="29_wq1ld"]
 [ext_resource type="PackedScene" uid="uid://cj6ij7vrmllij" path="res://Models/Plants/tree8.fbx" id="30_sftu8"]
 [ext_resource type="PackedScene" uid="uid://bl4lw7pcgrbfd" path="res://Models/Buildings/Signs.fbx" id="31_sftu8"]
+[ext_resource type="PackedScene" uid="uid://8kgax7vtvnvj" path="res://Models/Buildings/shop5.fbx" id="32_xyhvy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45hoa"]
 
@@ -427,31 +428,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4999967, 2, -37.75)
 size = Vector3(2, 5, 13.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="BeanBooth3" type="CSGBox3D" parent="BeanArea" unique_id=971424909]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -28.90625)
-size = Vector3(3.875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth4" type="CSGBox3D" parent="BeanArea" unique_id=299336389]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -24.8125)
-size = Vector3(3.9375, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth5" type="CSGBox3D" parent="BeanArea" unique_id=125752913]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -20.625)
-size = Vector3(3.9375, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth6" type="CSGBox3D" parent="BeanArea" unique_id=302192307]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.031251, 0.5000001, -32.53125)
-size = Vector3(2.6875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth7" type="CSGBox3D" parent="BeanArea" unique_id=244835265]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -35.96875)
-size = Vector3(3.875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
 [node name="BeanBooth8" type="CSGBox3D" parent="BeanArea" unique_id=1238722088]
 transform = Transform3D(-5.3144653e-08, 0, 1, 0, 1, 0, -1.2158079, 0, -4.371139e-08, -9.000001, -0.49999988, -40.28125)
 size = Vector3(3.875, 2, 2.8125)
@@ -711,3 +687,6 @@ transform = Transform3D(3.0528386, 0, 0, 0, 3.052838, 0, 0, 0, 3.052838, 45.9537
 
 [node name="Signs" parent="." unique_id=1264593596 instance=ExtResource("31_sftu8")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3.0379949, 0.2656498, -31.833334)
+
+[node name="shop5" parent="." unique_id=290368774 instance=ExtResource("32_xyhvy")]
+transform = Transform3D(-0.010820718, 0, 0.9999417, 0, 1, 0, -0.9999416, 0, -0.010820657, -8.936525, 0.42151177, -27.8952)
