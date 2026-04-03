@@ -775,10 +775,6 @@ script = ExtResource("11_a4s3b")
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -22.75, 1.755, -29.187)
 script = ExtResource("11_a4s3b")
 
-[node name="Sound_Token_Collectable5_1" parent="BeanArea" unique_id=157449130 instance=ExtResource("5_ydnef")]
-transform = Transform3D(-1.0000001, 0, -8.742278e-08, 0, 1, 0, 8.7422784e-08, 0, -1, -16.188, 1.755, -24.312)
-script = ExtResource("11_a4s3b")
-
 [node name="Sound_Token_Collectable6_1" parent="BeanArea" unique_id=600576589 instance=ExtResource("5_ydnef")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -8.75, 3.943, -29.187)
 script = ExtResource("11_a4s3b")
