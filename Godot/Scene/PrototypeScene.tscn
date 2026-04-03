@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://cd6v2c3nnqnn5" path="res://Models/Bean/bean.fbx" id="15_sbbyl"]
 [ext_resource type="PackedScene" uid="uid://cu4mak0j3teg0" path="res://Models/Plants/Tree.fbx" id="19_45hoa"]
 [ext_resource type="PackedScene" uid="uid://dqeasshaqimfu" path="res://Models/Plants/Bush.fbx" id="21_ktqbh"]
+[ext_resource type="PackedScene" uid="uid://bk6g60qpc6r00" path="res://Models/Buildings/shop5.fbx" id="22_ms50h"]
+[ext_resource type="PackedScene" uid="uid://bl4lw7pcgrbfd" path="res://Models/Buildings/Signs.fbx" id="23_el850"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -123,11 +125,26 @@ size = Vector3(2.0424805, 4.9937744, 13.541748)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ihit"]
 size = Vector3(2.0649414, 4.9954453, 28.00216)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xyhvy"]
-size = Vector3(2.4019775, 2.355957, 0.49169922)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_3dbqj"]
 size = Vector3(2.2902832, 5.600769, 9.536911)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xyhvy"]
+size = Vector3(2.4120178, 10.676636, 0.42700195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6u35"]
+size = Vector3(18.99147, 4.5843506, 2.9589844)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whge6"]
+size = Vector3(4.770874, 0.6244507, 1.2860107)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tot7q"]
+size = Vector3(4.579834, 0.064697266, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8eg1t"]
+size = Vector3(8.320557, 2.567505, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3layp"]
+size = Vector3(2.1693726, 6.61911, 2.2485352)
 
 [node name="Node3D" type="Node3D" unique_id=211779595]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -694,40 +711,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4999967, 2, -37.75)
 size = Vector3(2, 5, 13.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="BeanBooth3" type="CSGBox3D" parent="BeanArea" unique_id=1706862451]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -28.90625)
-size = Vector3(3.875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth4" type="CSGBox3D" parent="BeanArea" unique_id=957289735]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -24.8125)
-size = Vector3(3.9375, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth5" type="CSGBox3D" parent="BeanArea" unique_id=1965520907]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -20.625)
-size = Vector3(3.9375, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth6" type="CSGBox3D" parent="BeanArea" unique_id=560608976]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.031251, 0.5000001, -32.53125)
-size = Vector3(2.6875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="BeanBooth7" type="CSGBox3D" parent="BeanArea" unique_id=1849342540]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.000001, 0.5000001, -35.96875)
-size = Vector3(3.875, 4, 2.8125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="TallBarricade" parent="BeanArea/BeanBooth7" unique_id=851333842 instance=ExtResource("9_l30dt")]
-transform = Transform3D(0.014027767, 0, -1.0022483, 0, 0.5325173, 0, 1.197762, 0, 0.011737998, 1.5468216, 3.1626573, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="BeanArea/BeanBooth7/TallBarricade" unique_id=480867660]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/BeanBooth7/TallBarricade/StaticBody3D" unique_id=297555563]
-transform = Transform3D(1, 0, -9.313226e-10, 0, 1, 0, -9.033829e-08, 0, 1, -0.09686422, -0.6779785, -0.2541504)
-shape = SubResource("BoxShape3D_xyhvy")
-
 [node name="BeanBooth8" type="CSGBox3D" parent="BeanArea" unique_id=1266803812]
 transform = Transform3D(-5.3145214e-08, 0, 1, 0, 1, 0, -1.2158079, 0, -4.371139e-08, -9.000001, -0.380432, -40.207935)
 size = Vector3(3.7543945, 2.2391357, 2.8125)
@@ -760,7 +743,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3.0625029, -0.994929
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1.0000002, 0, -4.371139e-08, -21.312506, -0.9945506, -40.5)
 
 [node name="Sound_Token_Collectable1_1" parent="BeanArea" unique_id=2122344123 instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.245, -35)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.245, -36.58397)
 script = ExtResource("11_a4s3b")
 
 [node name="Sound_Token_Collectable2_1" parent="BeanArea" unique_id=357570629 instance=ExtResource("5_ydnef")]
@@ -821,6 +804,57 @@ transform = Transform3D(-5.851914e-08, 0, 0.91037595, 0, 1, 0, -1.3387618, 0, -3
 
 [node name="TallBarricade8" parent="BeanArea" unique_id=910007935 instance=ExtResource("9_l30dt")]
 transform = Transform3D(-5.8519145e-08, 0, 0.910376, 0, 1, 0, -1.3387618, 0, -3.9793793e-08, -14.223453, 0.6509718, -35.04304)
+
+[node name="shops" parent="BeanArea" unique_id=1163019597 instance=ExtResource("22_ms50h")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -9, -1.3695506, -27.944405)
+
+[node name="TallBarricade" parent="BeanArea/shops" unique_id=851333842 instance=ExtResource("9_l30dt")]
+transform = Transform3D(0.014027766, 0, -1.0022482, 0, 0.5325173, 0, 1.197762, 0, 0.011737999, 9.571165, 5.032208, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BeanArea/shops/TallBarricade" unique_id=480867660]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/shops/TallBarricade/StaticBody3D" unique_id=297555563]
+transform = Transform3D(1, 0, -9.313226e-10, 0, 1, 0, -9.033829e-08, 0, 1, 0.088728905, -4.838319, -0.22179413)
+shape = SubResource("BoxShape3D_xyhvy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BeanArea/shops" unique_id=489277090]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/shops/StaticBody3D" unique_id=1888262440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12346649, 1.7921753, 0.13769531)
+shape = SubResource("BoxShape3D_p6u35")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="BeanArea/shops" unique_id=1582601154]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/shops/StaticBody3D2" unique_id=1488250616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.922943, 3.446774, -1.975131)
+shape = SubResource("BoxShape3D_whge6")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="BeanArea/shops" unique_id=429139499]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/shops/StaticBody3D3" unique_id=1083544787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.014511, 1.2210808, -1.5306044)
+shape = SubResource("BoxShape3D_tot7q")
+
+[node name="Sign" parent="BeanArea" unique_id=1745541280 instance=ExtResource("23_el850")]
+transform = Transform3D(1.0856886, 0, 0, 0, 1.0856885, 0, 0, 0, 1.0856885, -3.017921, -1.4999996, -36.86253)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BeanArea/Sign" unique_id=1986472198]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/Sign/StaticBody3D" unique_id=428780419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04675269, 4.9523, 0)
+shape = SubResource("BoxShape3D_8eg1t")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="BeanArea/Sign" unique_id=668519868]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/Sign/StaticBody3D2" unique_id=1901011337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.271679, 2.8095543, -0.09692383)
+shape = SubResource("BoxShape3D_3layp")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="BeanArea/Sign" unique_id=813363800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/Sign/StaticBody3D3" unique_id=110703588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.986101, 2.8095543, -0.09692383)
+shape = SubResource("BoxShape3D_3layp")
 
 [node name="Locked Door" type="Node3D" parent="." unique_id=1395292766]
 
