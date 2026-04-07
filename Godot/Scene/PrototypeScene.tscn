@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://dqeasshaqimfu" path="res://Models/Plants/Bush.fbx" id="21_ktqbh"]
 [ext_resource type="PackedScene" uid="uid://bk6g60qpc6r00" path="res://Models/Buildings/shop5.fbx" id="22_ms50h"]
 [ext_resource type="PackedScene" uid="uid://bl4lw7pcgrbfd" path="res://Models/Buildings/Signs.fbx" id="23_el850"]
+[ext_resource type="PackedScene" uid="uid://cthxe6y4nd8us" path="res://Models/Barricade/scaffolding2.fbx" id="30_wq1ld"]
+[ext_resource type="PackedScene" uid="uid://dq7lv3fhenrsg" path="res://Models/Barricade/scaffolding.fbx" id="31_sftu8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -769,7 +771,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.648763, 1.6881772, -23.2183
 shape = SubResource("BoxShape3D_3dbqj")
 
 [node name="ScafoldRoof" type="CSGBox3D" parent="BeanArea" unique_id=943955326]
-transform = Transform3D(-1.7368085, 0, 0.008928921, 0, 1.618053, 0, -0.007940925, 0, -1.9528952, -16.327738, 2.809564, -32.017498)
+transform = Transform3D(-1.7368087, 0, 0.008928921, 0, 1.618053, 0, -0.007940925, 0, -1.9528952, -16.327738, 2.5177917, -32.017498)
 size = Vector3(2.368805, 0.228302, 4.3793945)
 material = SubResource("StandardMaterial3D_ttobh")
 
@@ -780,30 +782,6 @@ transform = Transform3D(-1.7368001, 0, 0.008929967, 0, 1.618141, 0, -0.00794195,
 transform = Transform3D(1, 0, 6.993822e-07, 0, 1, 0, -6.993822e-07, 0, 1, -12.230479, 1.1920929e-07, -32.15545)
 size = Vector3(1.375, 3, 1.5)
 material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="TallBarricade" parent="BeanArea" unique_id=773320266 instance=ExtResource("9_l30dt")]
-transform = Transform3D(1.6656759, 0, 0, 0, 1.0417167, 0, 0, 0, 1, -16.489038, 0.7217511, -36.382328)
-
-[node name="TallBarricade2" parent="BeanArea" unique_id=930304290 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.851914e-08, 0, 0.9103757, 0, 1, 0, -1.3387618, 0, -3.9793782e-08, -18.423187, 0.6509718, -34.886673)
-
-[node name="TallBarricade3" parent="BeanArea" unique_id=1314024547 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.851914e-08, 0, 0.9103759, 0, 1, 0, -1.3387618, 0, -3.9793793e-08, -18.423187, 0.6509718, -32.018616)
-
-[node name="TallBarricade4" parent="BeanArea" unique_id=1793816730 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.851914e-08, 0, 0.9103758, 0, 1, 0, -1.3387618, 0, -3.9793786e-08, -18.423187, 0.6509718, -29.129728)
-
-[node name="TallBarricade5" parent="BeanArea" unique_id=771244998 instance=ExtResource("9_l30dt")]
-transform = Transform3D(1.6656761, 0, 0, 0, 1.0417167, 0, 0, 0, 1, -16.489038, 0.7217511, -27.677017)
-
-[node name="TallBarricade6" parent="BeanArea" unique_id=684186733 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.8519163e-08, 0, 0.91037625, 0, 1, 0, -1.3387618, 0, -3.9793793e-08, -14.215636, 0.6509718, -29.104492)
-
-[node name="TallBarricade7" parent="BeanArea" unique_id=539551269 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.851914e-08, 0, 0.91037595, 0, 1, 0, -1.3387618, 0, -3.9793793e-08, -14.223452, 0.6509718, -32.075012)
-
-[node name="TallBarricade8" parent="BeanArea" unique_id=910007935 instance=ExtResource("9_l30dt")]
-transform = Transform3D(-5.8519145e-08, 0, 0.910376, 0, 1, 0, -1.3387618, 0, -3.9793793e-08, -14.223453, 0.6509718, -35.04304)
 
 [node name="shops" parent="BeanArea" unique_id=1163019597 instance=ExtResource("22_ms50h")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -9, -1.3695506, -27.944405)
@@ -999,3 +977,9 @@ bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="Player" parent="." unique_id=862147463 instance=ExtResource("1_8k8km")]
 transform = Transform3D(-0.9978804, 0, -0.06510695, 0, 1, 0, 0.06510696, 0, -0.9978783, -12.388507, 0.36954963, 20.145977)
+
+[node name="scaffolding2" parent="." unique_id=1569395236 instance=ExtResource("30_wq1ld")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -33.12586, 0.3695506, -32.18849)
+
+[node name="scaffolding" parent="." unique_id=85770791 instance=ExtResource("31_sftu8")]
+transform = Transform3D(-4.3711392e-08, 0, 1.0540817, 0, 1, 0, -1.0000001, 0, -4.6075375e-08, -17.936525, 0.3596139, -32.25985)
