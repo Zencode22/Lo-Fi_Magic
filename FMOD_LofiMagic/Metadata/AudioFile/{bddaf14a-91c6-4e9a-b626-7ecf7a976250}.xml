@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bddaf14a-91c6-4e9a-b626-7ecf7a976250}">
+		<property name="assetPath">
+			<value>Scaf_step2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.43320833333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e6794a0d-08c0-47cf-86f6-ed1b25ec80a0}</destination>
+		</relationship>
+	</object>
+</objects>
