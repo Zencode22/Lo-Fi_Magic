@@ -29,8 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://dqeasshaqimfu" path="res://Models/Plants/Bush.fbx" id="21_ktqbh"]
 [ext_resource type="PackedScene" uid="uid://bk6g60qpc6r00" path="res://Models/Buildings/shop5.fbx" id="22_ms50h"]
 [ext_resource type="PackedScene" uid="uid://bl4lw7pcgrbfd" path="res://Models/Buildings/Signs.fbx" id="23_el850"]
+[ext_resource type="PackedScene" uid="uid://blgrrr3dvgn3h" path="res://Models/DirectorySign/directorysign.fbx" id="24_xyhvy"]
 [ext_resource type="PackedScene" uid="uid://cthxe6y4nd8us" path="res://Models/Barricade/scaffolding2.fbx" id="30_wq1ld"]
 [ext_resource type="PackedScene" uid="uid://dq7lv3fhenrsg" path="res://Models/Barricade/scaffolding.fbx" id="31_sftu8"]
+[ext_resource type="PackedScene" uid="uid://cy067ewdu7fbg" path="res://Models/DirectorySign/umbrella1.fbx" id="33_nxya1"]
+[ext_resource type="PackedScene" uid="uid://dvo2x16si7vqa" path="res://Models/Buildings/shop11.fbx" id="34_l3f6x"]
+[ext_resource type="PackedScene" uid="uid://c4patlmqxm38u" path="res://Models/Buildings/pavillion.fbx" id="35_bsvmp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -518,30 +522,9 @@ size = Vector3(3, 4, 4.7719727)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSBooth5" type="CSGBox3D" parent="ChasePSArea" unique_id=1172363309]
-transform = Transform3D(3.0598096e-07, 0, -1, 0, 1, 0, 1, 0, 3.059797e-07, -4.04167, 0.5000001, 3.0416632)
+transform = Transform3D(3.0598096e-07, 0, -1, 0, 1, 0, 1, 0, 3.059797e-07, 3.742258, 0.5000001, 3.0416632)
 size = Vector3(3, 4, 4)
 material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="ChasePSNBoothSubtraction1" type="CSGBox3D" parent="ChasePSArea/ChasePSBooth5" unique_id=1859346838]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.5, 0)
-operation = 2
-size = Vector3(3, 2.5, 2.125)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="ChasePSNBoothSubtraction2" type="CSGBox3D" parent="ChasePSArea/ChasePSBooth5" unique_id=311158503]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.25, -0.25, 0)
-operation = 2
-size = Vector3(3, 1.5, 0.5)
-material = SubResource("StandardMaterial3D_ttobh")
-
-[node name="NPC2" parent="ChasePSArea/ChasePSBooth5" unique_id=1757779065 instance=ExtResource("7_x8ifo")]
-transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, 0, -1.7445507, -0.1250019)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="ChasePSArea/ChasePSBooth5" unique_id=63431806]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePSArea/ChasePSBooth5/StaticBody3D" unique_id=1290142667]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.062959, -0.24224854, -0.0010986328)
-shape = SubResource("BoxShape3D_sftu8")
 
 [node name="ChasePSBooth6" type="CSGBox3D" parent="ChasePSArea" unique_id=1558641090]
 transform = Transform3D(6.5567707e-07, 0, -1, 0, 1, 0, 1, 0, 6.5567076e-07, 3.270831, 0.5000001, 3.0416677)
@@ -549,7 +532,7 @@ size = Vector3(3, 4, 3.375)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSBooth7" type="CSGBox3D" parent="ChasePSArea" unique_id=1430368619]
-transform = Transform3D(-1.2676427e-06, 0, 1, 0, 1, 0, -1, 0, -1.2676302e-06, -0.22916889, 0.5000001, 3.041668)
+transform = Transform3D(-1.2676427e-06, 0, 1, 0, 1, 0, -1, 0, -1.2676302e-06, 0.33881092, 0.5000001, 3.041668)
 size = Vector3(3, 4, 3.375)
 material = SubResource("StandardMaterial3D_ttobh")
 
@@ -597,7 +580,7 @@ size = Vector3(2.0932617, 1, 2.125)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSJumpBox5" type="CSGBox3D" parent="ChasePSArea" unique_id=1968032359]
-transform = Transform3D(1.0000029, 0, 1.7484605e-07, 0, 1, 0, -1.7484606e-07, 0, 1.0000029, 1.8110361, -0.5, 5.75)
+transform = Transform3D(1.0000029, 0, 1.7484605e-07, 0, 1, 0, -1.7484606e-07, 0, 1.0000029, 1.8110361, -0.48292112, 5.75)
 size = Vector3(1.9970703, 2, 2.25)
 material = SubResource("StandardMaterial3D_ttobh")
 
@@ -834,6 +817,9 @@ shape = SubResource("BoxShape3D_3layp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.986101, 2.8095543, -0.09692383)
 shape = SubResource("BoxShape3D_3layp")
 
+[node name="directorysign" parent="BeanArea" unique_id=1763080491 instance=ExtResource("24_xyhvy")]
+transform = Transform3D(0.030016758, 0, 1.6980686, 0, 0.80019647, 0, -0.8320852, 0, 0.061256327, -23.048674, -1.254348, -26.29739)
+
 [node name="Locked Door" type="Node3D" parent="." unique_id=1395292766]
 
 [node name="LockedGate" parent="Locked Door" unique_id=253240729 instance=ExtResource("10_3vhle")]
@@ -983,3 +969,18 @@ transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e
 
 [node name="scaffolding" parent="." unique_id=85770791 instance=ExtResource("31_sftu8")]
 transform = Transform3D(-4.3711392e-08, 0, 1.0540817, 0, 1, 0, -1.0000001, 0, -4.6075375e-08, -17.936525, 0.3596139, -32.25985)
+
+[node name="umbrella1" parent="." unique_id=1784584958 instance=ExtResource("33_nxya1")]
+transform = Transform3D(1.1261408, 0, 0, 0, 1.1261407, 0, 0, 0, 1.1261407, -22.593695, 0.43458056, -32.020138)
+
+[node name="shop11" parent="." unique_id=790317672 instance=ExtResource("34_l3f6x")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.003614, 0.34010828, 3.229138)
+
+[node name="NPC2" parent="shop11" unique_id=1757779065 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-1, 0, -2.6226954e-07, 0, 1, 0, 2.6226834e-07, 0, -1, 0.086945534, 0.49928486, 0.3534193)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="shop11" unique_id=63431806]
+transform = Transform3D(3.0598093e-07, 0, -0.99999994, 0, 1, 0, 1, 0, 3.059797e-07, -0.038056374, 2.2438354, -0.34978056)
+
+[node name="pavillion" parent="." unique_id=1330511125 instance=ExtResource("35_bsvmp")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 21.162525, 0.3695526, -27.76998)
