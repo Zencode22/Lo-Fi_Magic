@@ -188,6 +188,25 @@ size = Vector3(9.334839, 4.3197937, 7.4240723)
 height = 1.1130371
 radius = 0.110839844
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3f6x"]
+sky_top_color = Color(0.0121366475, 0.018320978, 0.02894958, 1)
+sky_horizon_color = Color(0.086293526, 0.08847783, 0.09503224, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.08225953, 0.084843405, 0.09001712, 1)
+
+[sub_resource type="Sky" id="Sky_bsvmp"]
+sky_material = SubResource("ProceduralSkyMaterial_l3f6x")
+
+[sub_resource type="Environment" id="Environment_r8vtt"]
+background_mode = 2
+background_color = Color(0.06469653, 0.06469653, 0.06469653, 1)
+sky = SubResource("Sky_bsvmp")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.8
+ambient_light_energy = 0.15
+ssao_enabled = true
+
 [node name="Node3D" type="Node3D" unique_id=211779595]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
@@ -1156,10 +1175,17 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.517207, 1.2567806
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=730012497]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 4.8695507, 0)
-light_color = Color(0.4348803, 0.58451, 1, 1)
+light_energy = 0.1
+light_indirect_energy = 2.0
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_blur = 5.0
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=33895425]
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="Player" parent="." unique_id=862147463 instance=ExtResource("1_8k8km")]
 transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.409538, 0.36954963, 19.805424)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=754476888]
+environment = SubResource("Environment_r8vtt")
