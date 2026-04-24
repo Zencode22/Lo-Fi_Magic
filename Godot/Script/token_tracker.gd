@@ -20,6 +20,14 @@ var token_sets := {
 		"layers": {},
 		"music_player": null,
 		"master_volume_param": "Volume_Set2"
+	},
+	"Set 3": {
+		"total": 0,
+		"collected": 0,
+		"stack": [],
+		"layers": {},
+		"music_player": null,
+		"master_volume_param": "Volume_Set3"
 	}
 }
 

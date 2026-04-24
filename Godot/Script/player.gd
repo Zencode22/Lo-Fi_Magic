@@ -41,6 +41,7 @@ var jump_protection_duration: float = 0.2  # 200ms of jump protection
 # UI References (keeping only token UI)
 var token_counter_label: Label
 var set2_token_label: Label
+var set3_token_label: Label
 var gate_message_label: Label
 
 var is_grounded := true
@@ -87,6 +88,7 @@ func _ready() -> void:
 			var music_player = $LoFi_Magic_Temp_Character/FmodMusicPlayer
 			token_tracker.set_music_player("Set 1", music_player)
 			token_tracker.set_music_player("Set 2", music_player)
+			token_tracker.set_music_player("Set 3", music_player)
 			print("Music player connected successfully at: LoFi_Magic_Temp_Character/FmodMusicPlayer")
 		else:
 			print("FmodMusicPlayer not found at LoFi_Magic_Temp_Character/FmodMusicPlayer")
@@ -148,6 +150,15 @@ func setup_token_ui() -> void:
 	set2_token_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	vbox.add_child(set2_token_label)
 
+	set3_token_label = Label.new()
+	set3_token_label.name = "Set3TokenLabel"
+	set3_token_label.text = "Set 3: 0/10"
+	set3_token_label.add_theme_font_size_override("font_size", 24)
+	set3_token_label.add_theme_color_override("font_color", Color.ORANGE)
+	set3_token_label.add_theme_constant_override("outline_size", 4)
+	set3_token_label.add_theme_color_override("font_outline_color", Color.BLACK)
+	vbox.add_child(set3_token_label)
+
 	gate_message_label = Label.new()
 	gate_message_label.name = "GateMessageLabel"
 	gate_message_label.text = "Gate opened!"
@@ -173,6 +184,13 @@ func _on_token_collected_updated(token_set: String, current: int, total: int) ->
 				var tween = create_tween()
 				tween.tween_property(set2_token_label, "scale", Vector2(1.3, 1.3), 0.1)
 				tween.tween_property(set2_token_label, "scale", Vector2(1.0, 1.0), 0.1)
+	elif token_set == "Set 3":
+		if set3_token_label:
+			set3_token_label.text = "Set 3: %d/%d" % [current, total]
+			if current > 0:
+				var tween = create_tween()
+				tween.tween_property(set3_token_label, "scale", Vector2(1.3, 1.3), 0.1)
+				tween.tween_property(set3_token_label, "scale", Vector2(1.0, 1.0), 0.1)
 
 func _on_all_tokens_collected(token_set: String) -> void:
 	if gate_message_label:
@@ -180,6 +198,8 @@ func _on_all_tokens_collected(token_set: String) -> void:
 			gate_message_label.text = "Set 1 Complete! Gate 1 opened!"
 		elif token_set == "Set 2":
 			gate_message_label.text = "Set 2 Complete! Gate 2 opened!"
+		elif token_set == "Set 3":
+			gate_message_label.text = "Set 3 Complete!"
 		
 		gate_message_label.show()
 
