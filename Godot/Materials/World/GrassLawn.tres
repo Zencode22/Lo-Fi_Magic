@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://1et5t7rn637r"]
+
+[ext_resource type="Texture2D" uid="uid://d17ds04w8cv4" path="res://Models/grass/Grass_beanback_1.png" id="1_34gis"]
+[ext_resource type="Texture2D" uid="uid://c836t07vavo6j" path="res://Models/grass/Grass_beanleft_0.png" id="2_yhaax"]
+
+[resource]
+albedo_texture = ExtResource("1_34gis")
+roughness_texture = ExtResource("2_yhaax")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv2_scale = Vector3(0.5, 0.5, 0.5)
+uv2_triplanar = true
