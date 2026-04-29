@@ -235,6 +235,7 @@ material = SubResource("StandardMaterial3D_ttobh")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.12501, 0.3717308, -30.375)
 size = Vector3(22.75, 0.25, 20.75)
 material = ExtResource("2_bsvmp")
+metadata/SurfaceIndex = 1
 
 [node name="ParkWall2" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1957086991]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 3.3695507, -40.125)
@@ -1097,6 +1098,7 @@ shape = SubResource("BoxShape3D_k2tbx")
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -17.7534, -1.4999995, -32.319828)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BeanArea/scaffolding2" unique_id=1535392102]
+metadata/SurfaceIndex = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/scaffolding2/StaticBody3D" unique_id=1354618915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12786865, 2.1906762, 1.4180908)
