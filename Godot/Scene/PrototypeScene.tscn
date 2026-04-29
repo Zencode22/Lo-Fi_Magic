@@ -1300,3 +1300,8 @@ transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=754476888]
 environment = SubResource("Environment_r8vtt")
+
+[node name="AMBemitter" type="FmodEventEmitter2D" parent="." unique_id=1882042418]
+event_name = "event:/Environment/AMB"
+event_guid = "{4902f0ae-eb4b-41e3-bc65-7a560478ac76}"
+autoplay = true
