@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bwadypohn8rmk" path="res://Models/Buildings/shop4.fbx" id="13_0inoe"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://Scene/movable_cube.tscn" id="13_3vhle"]
 [ext_resource type="PackedScene" uid="uid://cd6v2c3nnqnn5" path="res://Models/Bean/bean.fbx" id="15_sbbyl"]
+[ext_resource type="PackedScene" uid="uid://c2dhw7lhn7qr2" path="res://Models/Barricade/Wall2.fbx" id="17_2g6ch"]
 [ext_resource type="PackedScene" uid="uid://cu4mak0j3teg0" path="res://Models/Plants/Tree.fbx" id="19_45hoa"]
 [ext_resource type="PackedScene" uid="uid://dqeasshaqimfu" path="res://Models/Plants/Bush.fbx" id="21_ktqbh"]
 [ext_resource type="PackedScene" uid="uid://bk6g60qpc6r00" path="res://Models/Buildings/shop5.fbx" id="22_ms50h"]
@@ -35,6 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://cy067ewdu7fbg" path="res://Models/DirectorySign/umbrella1.fbx" id="33_nxya1"]
 [ext_resource type="PackedScene" uid="uid://dvo2x16si7vqa" path="res://Models/Buildings/shop11.fbx" id="34_l3f6x"]
 [ext_resource type="PackedScene" uid="uid://c4patlmqxm38u" path="res://Models/Buildings/pavillion.fbx" id="35_bsvmp"]
+[ext_resource type="PackedScene" uid="uid://b0nb7x7q0ut17" path="res://Models/Cart/foodcart.fbx" id="36_r8vtt"]
+[ext_resource type="PackedScene" uid="uid://otw3ra2leguo" path="res://Models/Barricade/wall1.fbx" id="38_lo2t0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -537,7 +540,7 @@ size = Vector3(3, 4, 3.375)
 material = SubResource("StandardMaterial3D_ttobh")
 
 [node name="ChasePSJumpBox1" type="CSGBox3D" parent="ChasePSArea" unique_id=25813978]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.085766, -0.44622517, -1.1874999, 11.5)
+transform = Transform3D(1.7447689, 0, 0, 0, 3.3811255, 0, 0, 0, 1.085766, -0.6164894, -1.0707897, 11.5)
 size = Vector3(0.875, 0.625, 2.75)
 material = SubResource("StandardMaterial3D_ttobh")
 
@@ -608,6 +611,9 @@ material = SubResource("StandardMaterial3D_trvnc")
 
 [node name="ChasePSTallBarricade7" parent="ChasePSArea" unique_id=685124273 instance=ExtResource("6_tddbr")]
 transform = Transform3D(-0.9850322, 0, -0.021038217, 0, 1.1825442, 0, 0.0149755, 0, -1.3838142, 0.37948418, 1.012894, 17.071596)
+
+[node name="Wall2" parent="ChasePSArea" unique_id=1519603917 instance=ExtResource("17_2g6ch")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 9.6574545, -2.3322587, -20.60307)
 
 [node name="BeanArea" type="CSGCombiner3D" parent="." unique_id=13922522]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8695506, 0)
@@ -984,3 +990,12 @@ transform = Transform3D(3.0598093e-07, 0, -0.99999994, 0, 1, 0, 1, 0, 3.059797e-
 
 [node name="pavillion" parent="." unique_id=1330511125 instance=ExtResource("35_bsvmp")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 21.162525, 0.3695526, -27.76998)
+
+[node name="foodcart" parent="." unique_id=1570687670 instance=ExtResource("36_r8vtt")]
+transform = Transform3D(-0.04667059, 0, 0.99891055, 0, 1, 0, -0.9989104, 0, -0.046670616, -11.23165, 0.32220292, 11.609607)
+
+[node name="wall1" parent="." unique_id=942767599 instance=ExtResource("38_lo2t0")]
+transform = Transform3D(-0.035423957, 0, -0.99098814, 0, 1, 0, 1.3227874, 0, -0.026538432, -3.6979373, 0.51630926, -39.80392)
+
+[node name="Wall2" parent="." unique_id=244293986 instance=ExtResource("17_2g6ch")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -2.0863266, 0.6294521, -22.051886)
