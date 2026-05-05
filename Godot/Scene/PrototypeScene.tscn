@@ -17,7 +17,7 @@
 [ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
 [ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://Scene/gates_lockable.tscn" id="10_3vhle"]
 [ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://Script/sound_token2.gd" id="11_a4s3b"]
-[ext_resource type="Script" path="res://Script/sound_token3.gd" id="12_2g6ch"]
+[ext_resource type="Script" uid="uid://cfu6omj8wksbv" path="res://Script/sound_token3.gd" id="12_2g6ch"]
 [ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://Script/gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://c4patlmqxm38u" path="res://Models/Buildings/pavillion.fbx" id="12_eglx6"]
 [ext_resource type="PackedScene" uid="uid://cqylo6usrups5" path="res://Models/Buildings/Booths/shop2.fbx" id="12_oi2a6"]
@@ -1327,7 +1327,7 @@ shadow_blur = 5.0
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="Player" parent="." unique_id=862147463 instance=ExtResource("1_8k8km")]
-transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, 18.93766, 0.39323616, -11.961416)
+transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.2614155, 0.39323616, 19.957859)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=754476888]
 environment = SubResource("Environment_r8vtt")
