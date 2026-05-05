@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bwadypohn8rmk" path="res://Models/Buildings/Booths/shop4.fbx" id="13_0inoe"]
 [ext_resource type="PackedScene" uid="uid://bbl5g7kqjr4o6" path="res://Scene/movable_cube.tscn" id="13_3vhle"]
 [ext_resource type="PackedScene" uid="uid://da8y56kto40h4" path="res://Models/Buildings/Concertstage2.fbx" id="14_2g6ch"]
+[ext_resource type="Texture2D" uid="uid://buk0jpnc6tvh8" path="res://Textures/Sprites/light_glare_alpha.png" id="15_nolbf"]
 [ext_resource type="PackedScene" uid="uid://cd6v2c3nnqnn5" path="res://Models/Bean/bean.fbx" id="15_sbbyl"]
 [ext_resource type="PackedScene" uid="uid://dl1uy6yul55oj" path="res://Models/Plants/flowerbed2.fbx" id="17_h6lio"]
 [ext_resource type="PackedScene" uid="uid://b03sef6qnx6ir" path="res://Models/Crate/wooden Crate.fbx" id="17_xyhvy"]
@@ -62,6 +63,20 @@ size = Vector3(3.0041504, 0.45947266, 2.9786377)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37du5"]
 size = Vector3(1.0380859, 2.8669434, 1.0825195)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gk04j"]
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4jx7o"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0.6901961, 0.1254902, 1)
+albedo_texture = ExtResource("15_nolbf")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgpoy"]
 size = Vector3(3.2609863, 1.5852051, 2.076538)
@@ -481,11 +496,509 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 36.35543, 6.466425, -
 script = ExtResource("12_2g6ch")
 
 [node name="Sound_Token_Collectable7" parent="MillenniumParkArea" unique_id=794610563 instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 23.792099, 1.8661354, -46.96406)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.0421, 1.8661354, -46.96406)
 script = ExtResource("12_2g6ch")
 
-[node name="pavillion" parent="MillenniumParkArea" unique_id=1909673997 instance=ExtResource("12_eglx6")]
-transform = Transform3D(0.65, 0, 0, 0, 0.8, 0, 0, 0, 0.55, 26.260952, 0.37172985, -28.993912)
+[node name="PavillionGroup" type="Node3D" parent="MillenniumParkArea" unique_id=564956352]
+transform = Transform3D(0.64999926, 0, 0, 0, 0.79999316, 0, 0, 0, 0.54999375, 27.260656, 6.4077983, -35.212162)
+
+[node name="pavillion" parent="MillenniumParkArea/PavillionGroup" unique_id=1909673997 instance=ExtResource("12_eglx6")]
+transform = Transform3D(1.0000011, 0, 0, 0, 1.0000085, 0, 0, 0, 1.0000113, -1.5380058, -7.54515, 11.306034)
+
+[node name="LightGroup1" type="Node3D" parent="MillenniumParkArea/PavillionGroup" unique_id=1732629733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -0.262, 0)
+
+[node name="SmallLight16" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1319225785]
+transform = Transform3D(0.9999619, 0, 0, 0, 0.99992514, 0, 0, 0, 0.999972, -4.112999, -0.24500036, 16.60809)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight15" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1865046954]
+transform = Transform3D(0.999981, 0, 0, 0, 0.9999626, 0, 0, 0, 0.999986, -4.112999, -0.24500036, 18.480076)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight14" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1199454906]
+transform = Transform3D(0.9999905, 0, 0, 0, 0.9999813, 0, 0, 0, 0.999993, -4.112999, -0.24500036, 20.005589)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight13" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1045403375]
+transform = Transform3D(0.9999953, 0, 0, 0, 0.9999907, 0, 0, 0, 0.9999965, -4.112999, -0.24500036, 21.892097)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight12" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=2063465698]
+transform = Transform3D(0.9999977, 0, 0, 0, 0.9999953, 0, 0, 0, 0.9999982, -4.112999, -0.24500036, 23.4651)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight11" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1346423026]
+transform = Transform3D(0.99999887, 0, 0, 0, 0.9999979, 0, 0, 0, 0.9999991, -4.112999, -0.24500036, -5.5342712)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight10" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=696979429]
+transform = Transform3D(0.9999994, 0, 0, 0, 0.99999905, 0, 0, 0, 0.9999995, -4.112999, -0.24500036, -4.2390137)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight9" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=488405719]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999996, 0, 0, 0, 0.99999976, -4.112999, -0.24500036, -2.1504517)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight8" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=221105977]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -4.112999, -0.24500036, -0.32600403)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight7" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=682257006]
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000004, 0, 0, 0, 0.99999994, -4.112999, -0.24500036, 1.2961769)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight6" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=553223523]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000045, 0, 0, 0, 1.000006, -4.112999, -0.24500036, 4.4917145)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight5" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1876561086]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000045, 0, 0, 0, 1.000006, -4.112999, -0.24500036, 3.1364899)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight4" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1527564157]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000067, 0, 0, 0, 1.0000086, -4.112999, -0.24500036, 6.526886)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight3" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=1328406709]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000069, 0, 0, 0, 1.0000092, -4.112999, -0.24500036, 7.95673)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight2" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=90066730]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000069, 0, 0, 0, 1.0000095, -4.112999, -0.24500036, 9.994862)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight1" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=26025765]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000073, 0, 0, 0, 1.0000095, -4.112999, -0.24500036, 11.350784)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../../pavillion")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight18" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=375156127]
+transform = Transform3D(0.9998475, 0, 0, 0, 0.99970007, 0, 0, 0, 0.9998881, -4.112999, -0.24500084, 13.167755)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight17" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup1" unique_id=723477432]
+transform = Transform3D(0.99992377, 0, 0, 0, 0.99985003, 0, 0, 0, 0.99994403, -4.112999, -0.24500084, 14.791943)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../SmallLight1")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="LightGroup2" type="Node3D" parent="MillenniumParkArea/PavillionGroup" unique_id=414890200]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 2.5, -0.2624073, 0)
+
+[node name="SmallLight19" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1914021867]
+transform = Transform3D(0.99984837, 0, 0, 0, 0.99970704, 0, 0, 0, 0.9998978, 4.225998, -0.24500084, 13.122021)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight20" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1617592460]
+transform = Transform3D(0.99992466, 0, 0, 0, 0.999857, 0, 0, 0, 0.99995375, 4.225998, -0.24500084, 14.883972)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight21" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=807691771]
+transform = Transform3D(0.9999628, 0, 0, 0, 0.99993205, 0, 0, 0, 0.9999817, 4.225998, -0.24500084, 16.564812)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight22" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1532514446]
+transform = Transform3D(0.9999819, 0, 0, 0, 0.9999695, 0, 0, 0, 0.99999565, 4.225998, -0.24500084, 18.57222)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight23" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=286717588]
+transform = Transform3D(0.9999914, 0, 0, 0, 0.99998826, 0, 0, 0, 1.0000025, 4.225998, -0.24500084, 19.947662)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight24" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=147712687]
+transform = Transform3D(0.9999962, 0, 0, 0, 0.99999774, 0, 0, 0, 1.0000062, 4.225998, -0.24500084, 21.988705)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight25" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=7804965]
+transform = Transform3D(0.99999857, 0, 0, 0, 1.0000029, 0, 0, 0, 1.0000073, 4.225998, -0.24500084, 23.437374)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight26" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1083821963]
+transform = Transform3D(0.99999976, 0, 0, 0, 1.0000052, 0, 0, 0, 1.0000085, 4.225998, -0.24500084, -5.4565353)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight27" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1672293844]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000064, 0, 0, 0, 1.0000092, 4.225998, -0.24500084, -4.3064804)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight28" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=352835100]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.000007, 0, 0, 0, 1.0000094, 4.225998, -0.24500084, -2.059021)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight29" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1654402099]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.000007, 0, 0, 0, 1.0000095, 4.225998, -0.24500084, -0.370018)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight30" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=30543401]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000076, 0, 0, 0, 1.0000097, 4.225998, -0.24500084, 1.3969612)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight31" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1129600835]
+transform = Transform3D(1.0000012, 0, 0, 0, 1.0000122, 0, 0, 0, 1.0000156, 4.225998, -0.24500084, 4.5896645)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight32" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1626468512]
+transform = Transform3D(1.0000012, 0, 0, 0, 1.0000118, 0, 0, 0, 1.0000156, 4.225998, -0.24500084, 3.0835495)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight33" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=717517819]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.000014, 0, 0, 0, 1.000018, 4.225998, -0.24500084, 6.4734573)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight34" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1117125530]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000142, 0, 0, 0, 1.0000188, 4.225998, -0.24500084, 8.032543)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight35" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1038549499]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000145, 0, 0, 0, 1.0000192, 4.225998, -0.24500084, 9.934517)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight36" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup2" unique_id=1674484951]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000145, 0, 0, 0, 1.0000192, 4.225998, -0.24500084, 11.415108)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../../pavillion")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="LightGroup3" type="Node3D" parent="MillenniumParkArea/PavillionGroup" unique_id=1070216576]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, 0, 0, 0, 0.99999976, -4.269394, 0.25543404, 0)
+
+[node name="SmallLight19" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=893564842]
+transform = Transform3D(0.9998483, 0, 0, 0, 0.999707, 0, 0, 0, 0.99989766, 4.2260017, -0.24500132, 13.538067)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight20" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=198304026]
+transform = Transform3D(0.9999246, 0, 0, 0, 0.99985695, 0, 0, 0, 0.99995357, 4.2260017, -0.24500132, 14.542225)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight21" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=730784840]
+transform = Transform3D(0.99996275, 0, 0, 0, 0.999932, 0, 0, 0, 0.9999815, 4.2260017, -0.24500132, 17.025433)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight22" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=242866007]
+transform = Transform3D(0.9999818, 0, 0, 0, 0.9999695, 0, 0, 0, 0.9999955, 4.2260017, -0.24500132, 18.23019)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight23" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1853486476]
+transform = Transform3D(0.99999136, 0, 0, 0, 0.99998826, 0, 0, 0, 1.0000024, 4.2260017, -0.24500132, 20.402214)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight24" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=495380078]
+transform = Transform3D(0.9999961, 0, 0, 0, 0.9999976, 0, 0, 0, 1.000006, 4.2260017, -0.24500132, 21.633308)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight25" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=388369368]
+transform = Transform3D(0.9999985, 0, 0, 0, 1.0000027, 0, 0, 0, 1.0000072, 4.2260017, -0.24500132, 23.739136)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight26" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=486985629]
+transform = Transform3D(0.9999997, 0, 0, 0, 1.0000051, 0, 0, 0, 1.0000083, 4.2260017, -0.24500132, -5.795555)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight27" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1158384239]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000063, 0, 0, 0, 1.0000091, 4.2260017, -0.24500132, -3.8376083)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight28" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=2000924872]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000069, 0, 0, 0, 1.0000093, 4.2260017, -0.24500132, -2.4124603)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight29" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1048220947]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000069, 0, 0, 0, 1.0000094, 4.2260017, -0.24500132, 0.06336594)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight30" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=782757406]
+transform = Transform3D(1.0000008, 0, 0, 0, 1.0000075, 0, 0, 0, 1.0000095, 4.2260017, -0.24500132, 1.0719185)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight31" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=293148690]
+transform = Transform3D(1.0000012, 0, 0, 0, 1.000012, 0, 0, 0, 1.0000155, 4.2260017, -0.24500132, 4.2546883)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight32" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1023415093]
+transform = Transform3D(1.0000012, 0, 0, 0, 1.0000117, 0, 0, 0, 1.0000155, 4.2260017, -0.24500132, 3.5322876)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight33" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1772417290]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000138, 0, 0, 0, 1.0000179, 4.2260017, -0.24500132, 6.87796)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight34" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1516548270]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000141, 0, 0, 0, 1.0000187, 4.2260017, -0.24500132, 7.701973)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight35" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=110574946]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000144, 0, 0, 0, 1.0000191, 4.2260017, -0.24500132, 10.365139)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="SmallLight36" type="MeshInstance3D" parent="MillenniumParkArea/PavillionGroup/LightGroup3" unique_id=1663357687]
+transform = Transform3D(1.0000015, 0, 0, 0, 1.0000144, 0, 0, 0, 1.0000191, 4.2260017, -0.24500132, 11.088242)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath("../../pavillion")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="CenterLight13" type="OmniLight3D" parent="MillenniumParkArea" unique_id=543905098]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.91773, 3.316, -23.04451)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight14" type="OmniLight3D" parent="MillenniumParkArea" unique_id=977293313]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.91773, 3.316, -25.960098)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight15" type="OmniLight3D" parent="MillenniumParkArea" unique_id=558565854]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.917723, 3.316, -28.810532)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight16" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1362179749]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.917723, 3.316, -31.473648)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight17" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1244512709]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.917715, 3.316, -34.348648)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight18" type="OmniLight3D" parent="MillenniumParkArea" unique_id=2094195027]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.917715, 3.316, -37.348648)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight7" type="OmniLight3D" parent="MillenniumParkArea" unique_id=910966172]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.646366, 3.3155956, -23.120186)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight8" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1520394195]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.646366, 3.3155956, -26.035774)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight9" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1414800325]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.646358, 3.3155956, -28.886208)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight10" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1224564815]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.646358, 3.3155956, -31.549324)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight11" type="OmniLight3D" parent="MillenniumParkArea" unique_id=869432072]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.64635, 3.3155956, -34.424324)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight12" type="OmniLight3D" parent="MillenniumParkArea" unique_id=459217858]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 31.64635, 3.3155956, -37.424324)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight6" type="OmniLight3D" parent="MillenniumParkArea" unique_id=29492284]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.26069, 3.9077978, -23.158026)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight5" type="OmniLight3D" parent="MillenniumParkArea" unique_id=2037817533]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.260689, 3.9077978, -26.07361)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight4" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1489111160]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.260685, 3.9077978, -28.924044)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight3" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1908782793]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.260681, 3.9077978, -31.587162)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight2" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1754736013]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.260677, 3.9077978, -34.462162)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
+
+[node name="CenterLight1" type="OmniLight3D" parent="MillenniumParkArea" unique_id=1205510944]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.260674, 3.9077978, -37.462162)
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 4.625
+omni_attenuation = 1.75
 
 [node name="icecreamcart2" parent="MillenniumParkArea" unique_id=694690611 instance=ExtResource("25_lo2t0")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 20.875296, 0.35652173, -4.6366673)
@@ -516,7 +1029,7 @@ shape = SubResource("BoxShape3D_37du5")
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, 11.335145, 0.39887607, -28.363163)
 
 [node name="Concertstage2" parent="MillenniumParkArea" unique_id=935132134 instance=ExtResource("14_2g6ch")]
-transform = Transform3D(0.72614044, 0, 0, 0, 0.72614014, 0, 0, 0, 0.72614014, 21.612965, 0.4471302, -51.544914)
+transform = Transform3D(0.72614044, 0, 0, 0, 0.72614014, 0, 0, 0, 0.72614014, 25.237978, 0.3221302, -51.544914)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/Concertstage2" unique_id=2125991900]
 
