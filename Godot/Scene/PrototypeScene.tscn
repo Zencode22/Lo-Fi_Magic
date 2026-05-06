@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bkfva1v0g1mm" path="res://Models/Unbrella table/umbrella1.fbx" id="30_wq1ld"]
 [ext_resource type="PackedScene" uid="uid://vasfvanhekcy" path="res://Models/Scaffolding/scaffolding.fbx" id="34_27ek6"]
 [ext_resource type="PackedScene" uid="uid://cb0jimfcbadrp" path="res://Models/Food Truck&cart/foodtruck2.fbx" id="41_27ek6"]
+[ext_resource type="Material" uid="uid://be6q6cjbj0abh" path="res://Shader/StarrySkybox.tres" id="45_p6u35"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttobh"]
 albedo_texture = ExtResource("2_jl5o3")
@@ -178,6 +179,9 @@ size = Vector3(1, 4.5740967, 1.7104492)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ui27"]
 size = Vector3(4.832245, 1, 2.8867188)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m3wf"]
+size = Vector3(4.855426, 4.221, 2.898)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yn55"]
 albedo_texture = ExtResource("26_4jx7o")
 uv1_triplanar = true
@@ -242,14 +246,8 @@ radius = 0.110839844
 [sub_resource type="BoxShape3D" id="BoxShape3D_ii617"]
 size = Vector3(9.34906, 4.8632813, 4.248749)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3f6x"]
-sky_top_color = Color(0.0121366475, 0.018320978, 0.02894958, 1)
-sky_horizon_color = Color(0.086293526, 0.08847783, 0.09503224, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.08225953, 0.084843405, 0.09001712, 1)
-
 [sub_resource type="Sky" id="Sky_bsvmp"]
-sky_material = SubResource("ProceduralSkyMaterial_l3f6x")
+sky_material = ExtResource("45_p6u35")
 
 [sub_resource type="Environment" id="Environment_r8vtt"]
 background_mode = 2
@@ -257,9 +255,11 @@ background_color = Color(0.06469653, 0.06469653, 0.06469653, 1)
 sky = SubResource("Sky_bsvmp")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.8
-ambient_light_energy = 0.15
+reflected_light_source = 2
+tonemap_exposure = 1.5
 ssao_enabled = true
+glow_enabled = true
+glow_bloom = 0.21
 
 [node name="Node3D" type="Node3D" unique_id=211779595]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -1329,7 +1329,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2400055, 3.5855882, -0.1923
 shape = SubResource("BoxShape3D_4ui27")
 
 [node name="MagazineStand" parent="ChasePSArea" unique_id=444634657 instance=ExtResource("27_gk04j")]
-transform = Transform3D(-0.9778437, 0, -8.742277e-08, 0, 0.9787814, 0, 8.548567e-08, 0, -1, 1.9373102, -1.4726348, 8.428152)
+transform = Transform3D(-0.97784376, 0, -8.742277e-08, 0, 0.9787814, 0, 8.548567e-08, 0, -1, 1.9373102, -1.4726348, 8.428152)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ChasePSArea/MagazineStand" unique_id=151373935]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePSArea/MagazineStand/StaticBody3D" unique_id=964729176]
+transform = Transform3D(0.9999987, 0, -1.07647224e-11, 0, 1.0000805, 0, 4.7819526e-12, 0, 1, -0.5508661, 1.9937134, -0.05099964)
+shape = SubResource("BoxShape3D_1m3wf")
 
 [node name="shop6" parent="ChasePSArea" unique_id=1832366288 instance=ExtResource("13_0inoe")]
 transform = Transform3D(0.9134082, 0, 0.00402553, 0, 1.0113837, 0, -0.0035233737, 0, 1.043588, 0.17823696, -1.4726348, 1.6444764)
@@ -1667,8 +1673,8 @@ size = Vector3(4, 7, 32)
 material = SubResource("StandardMaterial3D_tj11c")
 
 [node name="MainWall2" type="CSGBox3D" parent="." unique_id=2124512865]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.500006, 2.8695507, 7.5625)
-size = Vector3(4, 7, 32.125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.500006, 2.8695507, 7.5)
+size = Vector3(4, 7, 32)
 material = SubResource("StandardMaterial3D_tj11c")
 
 [node name="Locked Door" type="Node3D" parent="." unique_id=1395292766]
@@ -1803,10 +1809,16 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.517206, 1.2567806
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -14.517207, 1.2567806, 21.437595)
 
 [node name="Bush8" parent="FloraItems" unique_id=89746180 instance=ExtResource("21_ktqbh")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -15.017208, 1.2567806, 19.135359)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -16.39221, 1.2567806, 19.135359)
 
 [node name="Bush9" parent="FloraItems" unique_id=434963542 instance=ExtResource("21_ktqbh")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -18.64221, 1.2567806, 19.510359)
+
+[node name="Bush10" parent="FloraItems" unique_id=750875919 instance=ExtResource("21_ktqbh")]
+transform = Transform3D(0.2588191, 0, -0.965926, 0, 1, 0, 0.9659258, 0, 0.25881907, -19.64221, 1.2567806, 13.385359)
+
+[node name="Bush11" parent="FloraItems" unique_id=1013130718 instance=ExtResource("21_ktqbh")]
+transform = Transform3D(-0.9659259, 0, -0.25881904, 0, 1, 0, 0.258819, 0, -0.9659261, -19.64221, 1.2567806, 3.6353598)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=730012497]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 4.8695507, 0)

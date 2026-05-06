@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bgbjssa2qfexv"]
+
+[ext_resource type="PackedScene" uid="uid://ifw6dfotmr7u" path="res://Models/Buildings/Booths/booth1.fbx" id="1_k0hid"]
+[ext_resource type="PackedScene" uid="uid://dja208staafji" path="res://Models/Buildings/Building 2.fbx" id="2_atldu"]
+[ext_resource type="PackedScene" uid="uid://dbdcbn7osrexs" path="res://Models/Buildings/Building 3.fbx" id="3_ecx35"]
+[ext_resource type="Material" uid="uid://be6q6cjbj0abh" path="res://Shader/StarrySkybox.tres" id="4_krox4"]
+
+[sub_resource type="Sky" id="Sky_flimj"]
+sky_material = ExtResource("4_krox4")
+
+[sub_resource type="Environment" id="Environment_h1fj8"]
+background_mode = 2
+sky = SubResource("Sky_flimj")
+
+[node name="Museum" type="Node2D" unique_id=628024725]
+
+[node name="booth1" parent="." unique_id=1344119288 instance=ExtResource("1_k0hid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.875, 0, -0.125)
+
+[node name="Building 2" parent="." unique_id=1260564367 instance=ExtResource("2_atldu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.375, 0, -1.5)
+
+[node name="Building 3" parent="." unique_id=557403903 instance=ExtResource("3_ecx35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.625, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Building 3" unique_id=733814515]
+environment = SubResource("Environment_h1fj8")

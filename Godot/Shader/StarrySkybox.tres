@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://be6q6cjbj0abh"]
+
+[ext_resource type="Shader" uid="uid://d34fbncj8rhpf" path="res://Shader/StarrySkybox.gdshader" id="1_wn0hc"]
+[ext_resource type="Texture2D" uid="uid://xh8b2glt3q2b" path="res://Textures/Tool/NoiseForStar.tres" id="2_fffmy"]
+
+[resource]
+shader = ExtResource("1_wn0hc")
+shader_parameter/noise_texture = ExtResource("2_fffmy")
+shader_parameter/star_threshold = 0.82000003895
+shader_parameter/star_brightness = 2.7890001324775
+shader_parameter/star_sharpness = 1.0
+shader_parameter/sky_color_top = Color(0.06941332, 0.060799997, 0.19, 1)
+shader_parameter/sky_color_horizon = Color(0.21528, 0.19780001, 0.46, 1)
+shader_parameter/horizon_blend = 8.0
