@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cu4mak0j3teg0"
-path="res://.godot/imported/Tree.fbx-f2c02f49daa5a8dc7c15765001fbc023.scn"
+uid="uid://coa7lr7hkmxmd"
+path="res://.godot/imported/ChasePSWall.fbx-62462a03974d4cf6dde9fbed360af26e.scn"
 
 [deps]
 
-source_file="res://Models/Plants/Tree.fbx"
-dest_files=["res://.godot/imported/Tree.fbx-f2c02f49daa5a8dc7c15765001fbc023.scn"]
+source_file="res://Models/Geometry/ChasePSWall.fbx"
+dest_files=["res://.godot/imported/ChasePSWall.fbx-62462a03974d4cf6dde9fbed360af26e.scn"]
 
 [params]
 
@@ -37,20 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"lambert2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/Plants/lambert2.tres",
-"use_external/path": "uid://2biftxs7y88l"
-},
-"standardSurface2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/Plants/standardSurface2.tres",
-"use_external/path": "uid://cdth71goij00o"
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b2ynq4l8advj0"]
+
+[ext_resource type="Texture2D" uid="uid://buk0jpnc6tvh8" path="res://Textures/Sprites/light_glare_alpha.png" id="1_n0ybq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_n0ybq"]
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0vnu6"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0.6901961, 0.1254902, 1)
+albedo_texture = ExtResource("1_n0ybq")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="LightPlacement" type="Node3D" unique_id=1092652981]
+
+[node name="SmallLight24" type="MeshInstance3D" parent="." unique_id=1103020176]
+mesh = SubResource("QuadMesh_n0ybq")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_0vnu6")
+
+[node name="CenterLight6" type="OmniLight3D" parent="." unique_id=1008315466]
+light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
+light_energy = 2.0
+light_size = 0.2
+light_specular = 0.1
+omni_range = 6.7
+omni_attenuation = 1.75
