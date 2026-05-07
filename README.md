@@ -63,5 +63,5 @@ The game can be obtained **only** from the official GitHub repository.
 - **Phap Le** - Prop Design
   - B.A. in Game Art (Columbia College Chicago)
 
-- **Marcus Escoto**
+- **Marcus Escoto** - SFX Design
   - B.A. in Sound Design (Columbia College Chicago)
