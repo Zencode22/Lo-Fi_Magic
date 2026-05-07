@@ -10,6 +10,10 @@ extends RigidBody3D
 	"NPC_Anims/Point",
 	"NPC_Anims/Wave",
 	"NPC_Anims/Cheer1",
+	"NPC_Anims/Cheer1a",
+	"NPC_Anims/Cheer2",
+	"NPC_Anims/Cheer3",
+	"NPC_Anims/Cheer4",
 	) var idle_animation_name: String = "Idle"
 @export var animation_library: String = "PlayerAnims"
 @export_group("Appearance")
