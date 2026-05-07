@@ -2,42 +2,42 @@
 
 [ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="1_uiqxh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mon1v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiqxh"]
 albedo_texture = ExtResource("1_uiqxh")
 uv1_triplanar = true
 
 [node name="BlenderExport" type="Node2D" unique_id=1855520816]
 
-[node name="ChasePSWallScene" type="Node3D" parent="." unique_id=606066004]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.000001, -1, 7.502)
+[node name="BeanWallScene" type="Node3D" parent="." unique_id=1340119059]
 
-[node name="ChasePSWall1" type="CSGBox3D" parent="ChasePSWallScene" unique_id=1242921588]
-size = Vector3(3, 1, 32)
-material = SubResource("StandardMaterial3D_mon1v")
+[node name="BeanWall1" type="CSGBox3D" parent="BeanWallScene" unique_id=822158619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.997879, -1, -17.5)
+size = Vector3(31, 1, 2)
+material = SubResource("StandardMaterial3D_uiqxh")
 
-[node name="ChasePSWall2" type="CSGBox3D" parent="ChasePSWallScene" unique_id=1957540027]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -0.001999855)
-size = Vector3(3, 1, 32)
-material = SubResource("StandardMaterial3D_mon1v")
-
-[node name="ChasePSWall3" type="CSGBox3D" parent="ChasePSWallScene" unique_id=942529330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9967785, 0, 13.500657)
-size = Vector3(17, 1, 5)
-material = SubResource("StandardMaterial3D_mon1v")
-
-[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSWallScene/ChasePSWall3" unique_id=1654943715]
-transform = Transform3D(1.1586682, 0, 0, 0, 1, 0, 0, 0, 1, -2.365367, 0, -0.5)
+[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="BeanWallScene/BeanWall1" unique_id=1702789941]
+transform = Transform3D(1.0038435, 0, 0, 0, 1.003849, 0, 0, 0, 1.003849, 8.02862, 0.062740564, 0)
 operation = 2
-size = Vector3(3.2324219, 1, 4)
-material = SubResource("StandardMaterial3D_mon1v")
+size = Vector3(3, 1.125, 2)
+material = SubResource("StandardMaterial3D_uiqxh")
 
-[node name="ChasePSWall4" type="CSGBox3D" parent="ChasePSWallScene" unique_id=297233215]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.000001, 0, -14.502)
-size = Vector3(17, 1, 3)
-material = SubResource("StandardMaterial3D_mon1v")
+[node name="BeanWall2" type="CSGBox3D" parent="BeanWallScene" unique_id=206614987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.000004, -1, -43.5)
+size = Vector3(31, 1, 2)
+material = SubResource("StandardMaterial3D_uiqxh")
 
-[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="ChasePSWallScene/ChasePSWall4" unique_id=1771507908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.500002, 0, 0)
+[node name="BeanWall3" type="CSGBox3D" parent="BeanWallScene" unique_id=659481617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1, -30.5)
+size = Vector3(2, 1, 24)
+material = SubResource("StandardMaterial3D_uiqxh")
+
+[node name="ChasePSWall3Subtraction2" type="CSGBox3D" parent="BeanWallScene/BeanWall3" unique_id=507806974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -0.0006489754, 0, 0.99900055)
 operation = 2
-size = Vector3(3.25, 1, 3)
-material = SubResource("StandardMaterial3D_mon1v")
+size = Vector3(2.0039063, 1, 1.5)
+material = SubResource("StandardMaterial3D_uiqxh")
+
+[node name="BeanWall4" type="CSGBox3D" parent="BeanWallScene" unique_id=1869266588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.500006, -1, -30.5)
+size = Vector3(2, 1, 24)
+material = SubResource("StandardMaterial3D_uiqxh")
