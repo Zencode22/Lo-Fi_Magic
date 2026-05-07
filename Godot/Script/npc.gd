@@ -1,7 +1,16 @@
 extends RigidBody3D
 
-@export_group("Idle Anim")
-@export var idle_animation_name: String = "Idle"
+@export_group("Idle Anims")
+@export_enum(
+	"Idle",
+	"NPC_Anims/Idle2",
+	"NPC_Anims/Idle3",
+	"NPC_Anims/Idle4",
+	"NPC_Anims/Idle5",
+	"NPC_Anims/Point",
+	"NPC_Anims/Wave",
+	"NPC_Anims/Cheer1",
+	) var idle_animation_name: String = "Idle"
 @export var animation_library: String = "PlayerAnims"
 @export_group("Appearance")
 @export var HeadTex: StandardMaterial3D
