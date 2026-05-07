@@ -41,6 +41,7 @@ func collect_token() -> void:
 	
 	TokenTracker.collect_token("Set 3", stack_position, layer_name, fmod_parameter)
 	
+	MusicManager.add_token()
 	var tween = create_tween()
 	tween.tween_property(mesh, "scale", Vector3.ZERO, 0.3)
 	tween.tween_callback(queue_free)

@@ -18,7 +18,7 @@
 [ext_resource type="Material" uid="uid://bkuvam5bdgvok" path="res://Materials/Characters/Body8.tres" id="9_ydnef"]
 [ext_resource type="PackedScene" uid="uid://b6e82j82ym542" path="res://Scene/gates_lockable.tscn" id="10_3vhle"]
 [ext_resource type="Script" uid="uid://d04onh16vkgki" path="res://Script/sound_token2.gd" id="11_a4s3b"]
-[ext_resource type="Script" path="res://Script/sound_token3.gd" id="12_2g6ch"]
+[ext_resource type="Script" uid="uid://cfu6omj8wksbv" path="res://Script/sound_token3.gd" id="12_2g6ch"]
 [ext_resource type="Script" uid="uid://6ndduecoxcnq" path="res://Script/gates_lockable_1.gd" id="12_3vhle"]
 [ext_resource type="PackedScene" uid="uid://c4patlmqxm38u" path="res://Models/Buildings/pavillion.fbx" id="12_eglx6"]
 [ext_resource type="PackedScene" uid="uid://cqylo6usrups5" path="res://Models/Buildings/Booths/shop2.fbx" id="12_oi2a6"]
@@ -54,6 +54,7 @@
 [ext_resource type="Material" uid="uid://civgbwy1rqwjb" path="res://Materials/World/BrightLight.tres" id="52_4ui27"]
 [ext_resource type="PackedScene" uid="uid://dbdcbn7osrexs" path="res://Models/Buildings/Building 3.fbx" id="52_pykmp"]
 [ext_resource type="PackedScene" uid="uid://cd8jjqpsi82k4" path="res://Models/Geometry/BeanWall.glb" id="54_4ui27"]
+[ext_resource type="Script" uid="uid://kflt8inld0ih" path="res://Scene/music_player.gd" id="55_22h0s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45hoa"]
 size = Vector3(3.2818604, 5.107666, 30.5667)
@@ -1030,6 +1031,7 @@ transform = Transform3D(-1.838698e-08, 0, 0.42064506, 0, 0.5690505, 0, -0.420645
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/scaffolding/StaticBody3D" unique_id=1900959807]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, -3.8262726e-12, 0, 1, 0.00015258789, 1.9316404, 1.4932404)
 shape = SubResource("BoxShape3D_ii617")
+metadata/SurfaceIndex = 3
 
 [node name="Node3D" parent="BeanArea/scaffolding/StaticBody3D" unique_id=1717257867 instance=ExtResource("6_tddbr")]
 transform = Transform3D(-3.1460573e-08, 0, -1.6353909, 0, 0.58958024, 0, 0.7197345, 0, -7.14852e-08, -86.92153, 1.4288974, 36.293842)
@@ -2713,3 +2715,12 @@ material = ExtResource("52_4ui27")
 transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8622171, 0.32445717)
 size = Vector3(0.125, 0.25, 0.001)
 material = ExtResource("52_4ui27")
+
+[node name="MusicPlayer" type="FmodEventEmitter2D" parent="." unique_id=800809374]
+event_name = "event:/Music/LevelMusic"
+event_guid = "{c2077b4b-9048-4e6d-bb5d-a99f058d3cca}"
+autoplay = true
+"fmod_parameters/Token Count/id" = -6842346081818615097
+"fmod_parameters/Token Count" = 0
+"fmod_parameters/Token Count/variant_type" = 2
+script = ExtResource("55_22h0s")
