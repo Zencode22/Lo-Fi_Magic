@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://l0p55v60cku7" path="res://Models/Characters/npc_character.tscn" id="1_twre2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ll5ud"]
-height = 2.1809082
+height = 2.5118408
 
 [node name="NPC" type="RigidBody3D" unique_id=145600866]
 script = ExtResource("1_ll5ud")
 
 [node name="NPC_Character" parent="." unique_id=1083503614 instance=ExtResource("1_twre2")]
-transform = Transform3D(1.1130599, 0, 0, 0, 1.1130599, 0, 0, 0, 1.1130599, 0, 0, 0)
+transform = Transform3D(1.2625117, 0, 0, 0, 1.2625117, 0, 0, 0, 1.2625117, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=419697164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0860796, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2515459, 0)
 shape = SubResource("CapsuleShape3D_ll5ud")
