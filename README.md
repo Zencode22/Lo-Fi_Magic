@@ -68,5 +68,5 @@ The game can be obtained **only** from the official GitHub repository.
  
 - **Henny Jung-hyun Kim** - Composer
   - B.M. in Music Theory and Composition (Yeungnam University)
-  - M.M in Studio Composition (Purchase College, State University of New York)
+  - M.M. in Studio Composition (Purchase College, State University of New York)
   - MFA in Music Composition for the Screen (Columbia College Chicago)
