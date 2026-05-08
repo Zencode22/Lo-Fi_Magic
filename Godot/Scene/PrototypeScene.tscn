@@ -253,6 +253,12 @@ uv1_triplanar = true
 albedo_texture = ExtResource("8_nolbf")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2yn55"]
+size = Vector3(9.26165, 4.0200195, 3.0964355)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tj11c"]
+size = Vector3(3.29187, 1.8515015, 1.5234375)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_v250a"]
 size = Vector3(16.301605, 2.008789, 6.7655945)
 
@@ -875,6 +881,10 @@ script = ExtResource("11_a4s3b")
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -22.75, 1.755, -29.187)
 script = ExtResource("11_a4s3b")
 
+[node name="Sound_Token_Collectable5_1" parent="BeanArea" unique_id=1613768128 instance=ExtResource("5_ydnef")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -17.098259, 3.9429998, -31.624334)
+script = ExtResource("11_a4s3b")
+
 [node name="Sound_Token_Collectable6_1" parent="BeanArea" unique_id=600576589 instance=ExtResource("5_ydnef")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, -8.75, 3.943, -29.187)
 script = ExtResource("11_a4s3b")
@@ -1272,12 +1282,12 @@ material = SubResource("StandardMaterial3D_ttobh")
 [node name="wooden Crate" parent="MillenniumParkArea/ParkJumpBox4" unique_id=1656189940 instance=ExtResource("17_xyhvy")]
 transform = Transform3D(4.835187, 0, -3.7252903e-08, 0, 2.5420458, 0, 1.1175871e-07, 0, 5.152214, 0.001250267, -0.660236, 0.072128296)
 
-[node name="ParkJumpBox4" type="CSGBox3D" parent="MillenniumParkArea/ParkJumpBox4" unique_id=126287585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.629385, 0, 7.3858833)
+[node name="ParkJumpBox7" type="CSGBox3D" parent="MillenniumParkArea" unique_id=126287585]
+transform = Transform3D(0.4999248, 0, -0.008690998, 0, 1, 0, 0.008690998, 0, 0.49992445, 27.100441, 1.0575505, -30.707045)
 size = Vector3(2.0932617, 1, 2.125)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="wooden Crate" parent="MillenniumParkArea/ParkJumpBox4/ParkJumpBox4" unique_id=2013510648 instance=ExtResource("17_xyhvy")]
+[node name="wooden Crate" parent="MillenniumParkArea/ParkJumpBox7" unique_id=2013510648 instance=ExtResource("17_xyhvy")]
 transform = Transform3D(4.835187, 0, -3.7252903e-08, 0, 2.5420458, 0, 1.1175871e-07, 0, 5.152214, 0.001250267, -0.660236, 0.072128296)
 
 [node name="ParkJumpBox5" type="CSGBox3D" parent="MillenniumParkArea" unique_id=324108156]
@@ -1302,14 +1312,12 @@ size = Vector3(34, 1, 67.5)
 material = SubResource("StandardMaterial3D_tot7q")
 
 [node name="ParkBox1" type="CSGBox3D" parent="MillenniumParkArea" unique_id=727332034]
-transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, 6.375008, 0.8695507, -22.344564)
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, 6.71808, 0.8695507, -22.344564)
 size = Vector3(1.5, 1, 1.5)
 material = SubResource("StandardMaterial3D_ttobh")
 
-[node name="ParkDumpster" type="CSGBox3D" parent="MillenniumParkArea" unique_id=973479773]
-transform = Transform3D(1, 0, 2.7975289e-06, 0, 1, 0, -2.7975289e-06, 0, 1, 8.341348, 1.3070507, -21.687506)
-size = Vector3(1.5, 1.875, 2.75)
-material = SubResource("StandardMaterial3D_ttobh")
+[node name="wooden Crate" parent="MillenniumParkArea/ParkBox1" unique_id=1090486685 instance=ExtResource("17_xyhvy")]
+transform = Transform3D(3.319067, 0, -2.7229362e-08, 0, 2.5420458, 0, 7.671588e-08, 0, 3.766068, 0.0012488365, -0.660236, 0.072128296)
 
 [node name="TallBarricade2" parent="MillenniumParkArea" unique_id=431067128 instance=ExtResource("6_tddbr")]
 transform = Transform3D(1, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 18.750002, 3.0375307, -7.25)
@@ -1388,7 +1396,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 29.667109, 1.8661354,
 script = ExtResource("12_2g6ch")
 
 [node name="Sound_Token_Collectable9" parent="MillenniumParkArea" unique_id=1755452713 instance=ExtResource("5_ydnef")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 17.79211, 2.3661354, -26.464062)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 27.11241, 4.0120144, -30.711508)
 script = ExtResource("12_2g6ch")
 
 [node name="Sound_Token_Collectable10" parent="MillenniumParkArea" unique_id=116246019 instance=ExtResource("5_ydnef")]
@@ -1916,6 +1924,16 @@ shape = SubResource("BoxShape3D_sgpoy")
 [node name="foodtruck2" parent="MillenniumParkArea" unique_id=2088306877 instance=ExtResource("41_27ek6")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, 9.349618, 0.3123455, -34.821663)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/foodtruck2" unique_id=1432885953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/foodtruck2/StaticBody3D" unique_id=316347532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67184067, 2.0812688, -0.08850098)
+shape = SubResource("BoxShape3D_2yn55")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/foodtruck2/StaticBody3D" unique_id=483030974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5956421, 2.5811143, 2.0444984)
+shape = SubResource("BoxShape3D_tj11c")
+
 [node name="umbrella4" parent="MillenniumParkArea" unique_id=1615279659 instance=ExtResource("30_wq1ld")]
 transform = Transform3D(1.0950284, 0, 0, 0, 1.2147639, 0, 0, 0, 1.0950282, 16.029034, 0.35300913, -12.049034)
 
@@ -1949,6 +1967,15 @@ transform = Transform3D(-4.371139e-08, 0, 1.25, 0, 1, 0, -1, 0, -5.4639237e-08, 
 
 [node name="TallBarricade15" parent="MillenniumParkArea" unique_id=62999010 instance=ExtResource("6_tddbr")]
 transform = Transform3D(-4.371139e-08, 0, 1.25, 0, 1, 0, -1, 0, -5.4639237e-08, 12.658195, 2.5, -15.857074)
+
+[node name="icecreamcart3" parent="MillenniumParkArea" unique_id=1575035183 instance=ExtResource("25_lo2t0")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, 8.047324, 0.2714802, -21.377304)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/icecreamcart3" unique_id=1225486120]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/icecreamcart3/StaticBody3D" unique_id=331374636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04284668, 0.8572328, 0.16619873)
+shape = SubResource("BoxShape3D_sgpoy")
 
 [node name="MainWall1" type="CSGBox3D" parent="." unique_id=1506684819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4999971, 2.8695507, 7.5)
@@ -2193,11 +2220,11 @@ transform = Transform3D(0.99999964, 0, -3.129244e-07, 0, 0.9999982, 0, 4.172325e
 [node name="Bush35" parent="FloraItems" unique_id=1779610710 instance=ExtResource("21_ktqbh")]
 transform = Transform3D(0.99999976, 0, -3.129244e-07, 0, 0.99999857, 0, 4.172325e-07, 0, 1, -17.011642, 1.1249995, -17.50413)
 
+[node name="Bush38" parent="FloraItems" unique_id=2092166141 instance=ExtResource("21_ktqbh")]
+transform = Transform3D(0.9999995, 0, -2.9802317e-07, 0, 0.9999989, 0, 4.1723234e-07, 0, 0.99999976, -6.1366515, 1.1249995, -17.629145)
+
 [node name="Bush36" parent="FloraItems" unique_id=766799391 instance=ExtResource("21_ktqbh")]
 transform = Transform3D(0.99999964, 0, -2.9802325e-07, 0, 0.9999989, 0, 4.172325e-07, 0, 0.99999994, -9.51165, 1.1249995, -17.254145)
-
-[node name="Bush36" parent="FloraItems/Bush36" unique_id=2092166141 instance=ExtResource("21_ktqbh")]
-transform = Transform3D(0.9999998, 0, 2.842171e-14, 0, 1, 0, -8.526513e-14, 0, 0.9999998, 3.375, 0, -0.3750019)
 
 [node name="Bush31" parent="FloraItems" unique_id=853341763 instance=ExtResource("21_ktqbh")]
 transform = Transform3D(-0.9659258, 0, 0.25882003, 0, 0.9999993, 0, -0.2588205, 0, -0.96592563, -26.75, 1.1250001, -40.75)
@@ -2238,7 +2265,7 @@ shadow_blur = 5.0
 bank_paths = ["res://Sounds/FMODBanks/Desktop/Master.bank"]
 
 [node name="Player" parent="." unique_id=862147463 instance=ExtResource("1_8k8km")]
-transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.261416, 0.39323616, 21.582859)
+transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.334843, 0.39655757, 20.644815)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=754476888]
 environment = SubResource("Environment_r8vtt")
@@ -2294,6 +2321,12 @@ material = ExtResource("50_rkh4t")
 
 [node name="Street7" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean" unique_id=1712590848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5, 0, 3.8146973e-06)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street8" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean" unique_id=581809021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.228516, 0, 0)
 material_override = ExtResource("50_rkh4t")
 size = Vector3(10.25, 1, 10.25)
 material = ExtResource("50_rkh4t")
@@ -2712,6 +2745,271 @@ size = Vector3(0.125, 0.25, 0.001)
 material = ExtResource("52_4ui27")
 
 [node name="FakeLight13" type="CSGBox3D" parent="SkyboxRegion/Building 11" unique_id=1802580544]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8622171, 0.32445717)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="StreetFromBean2" type="Node3D" parent="SkyboxRegion" unique_id=1490334045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 11.067234, -2.1304493, 57.29146)
+
+[node name="Street1" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=1151809828]
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street2" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=861524935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, 0, 0)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street3" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=1177906906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.75, 0, 0)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street4" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=1858510993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street5" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=895125064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.25, 0, 3.8146973e-06)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street6" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=1672251866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0, 0)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street7" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=622943841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5, 0, 3.8146973e-06)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Street8" type="CSGBox3D" parent="SkyboxRegion/StreetFromBean2" unique_id=779829328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.228516, 0, 0)
+material_override = ExtResource("50_rkh4t")
+size = Vector3(10.25, 1, 10.25)
+material = ExtResource("50_rkh4t")
+
+[node name="Building 12" parent="SkyboxRegion" unique_id=1529697817 instance=ExtResource("51_pykmp")]
+transform = Transform3D(-3.496911e-07, 0, -8, 0, 8, 0, 8, 0, -3.496911e-07, 54.491356, -5.875, 44.714012)
+
+[node name="FakeLight1" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=33419510]
+transform = Transform3D(1.0000002, 0, 4.725109e-12, 0, 1.0000002, 0, -5.506706e-12, 0, 1.0000001, -0.23143959, 0.5554491, 0.5495014)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight2" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=1738859835]
+transform = Transform3D(1.0000002, 0, 1.0238921e-11, 0, 1.0000002, 0, -1.10240705e-11, 0, 1.0000001, -0.34808254, 0.5554491, 0.5495014)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight3" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=1564239111]
+transform = Transform3D(1.0000006, 0, 9.432455e-12, 0, 1.0000006, 0, -1.0981438e-11, 0, 1, -0.23491001, 1.8108981, 0.54900265)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight4" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=1945006122]
+transform = Transform3D(1.0000006, 0, 1.4946266e-11, 0, 1.0000006, 0, -1.6502355e-11, 0, 1, -0.35155487, 1.8108981, 0.54900265)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight5" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=1404866771]
+transform = Transform3D(1.0000012, 0, 1.8886226e-11, 0, 1.0000012, 0, -2.1973534e-11, 0, 1.0000001, -0.22760391, 3.6967983, 0.5480051)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight6" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=990614954]
+transform = Transform3D(1.0000012, 0, 2.4400038e-11, 0, 1.0000012, 0, -2.7487346e-11, 0, 1.0000001, -0.34424973, 3.6967983, 0.5480051)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight7" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=55591572]
+transform = Transform3D(1.0000026, 0, 4.3318238e-11, 0, 1.0000026, 0, -4.945022e-11, 0, 1.0000002, 0.39780712, 2.3935995, 0.5460129)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight8" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=907576497]
+transform = Transform3D(1.0000026, 0, 4.883205e-11, 0, 1.0000026, 0, -5.4964033e-11, 0, 1.0000002, 0.28116226, 2.3935995, 0.5460167)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight9" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=167911098]
+transform = Transform3D(1.0000055, 0, 9.215029e-11, 0, 1.0000055, 0, -1.044107e-10, 0, 1.0000006, 0.40107632, 3.0962892, 0.53001213)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight10" type="CSGBox3D" parent="SkyboxRegion/Building 12" unique_id=911376291]
+transform = Transform3D(1.0000055, 0, 9.76641e-11, 0, 1.0000055, 0, -1.09924514e-10, 0, 1.0000006, 0.28443146, 3.0962892, 0.53001595)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="Building 13" parent="SkyboxRegion" unique_id=875627170 instance=ExtResource("51_2yx4e")]
+transform = Transform3D(6.039832e-07, 0, -8, 0, 8, 0, 8, 0, 6.039832e-07, 54.112827, -7.75, 31.5574)
+
+[node name="Building 14" parent="SkyboxRegion" unique_id=853139055 instance=ExtResource("51_pykmp")]
+transform = Transform3D(-8, 0, -6.993822e-07, 0, 8, 0, 6.993822e-07, 0, -8, 69.38667, -5.875, 32.69564)
+
+[node name="FakeLight1" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1774747398]
+transform = Transform3D(1.0000002, 0, 4.725109e-12, 0, 1.0000002, 0, -5.506706e-12, 0, 1.0000001, -0.23143959, 0.5554491, 0.5495014)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight2" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1811809532]
+transform = Transform3D(1.0000002, 0, 1.0238921e-11, 0, 1.0000002, 0, -1.10240705e-11, 0, 1.0000001, -0.34808254, 0.5554491, 0.5495014)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight3" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1106611141]
+transform = Transform3D(1.0000006, 0, 9.432455e-12, 0, 1.0000006, 0, -1.0981438e-11, 0, 1, -0.23491001, 1.8108981, 0.54900265)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight4" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=945132210]
+transform = Transform3D(1.0000006, 0, 1.4946266e-11, 0, 1.0000006, 0, -1.6502355e-11, 0, 1, -0.35155487, 1.8108981, 0.54900265)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight5" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1017392443]
+transform = Transform3D(1.0000012, 0, 1.8886226e-11, 0, 1.0000012, 0, -2.1973534e-11, 0, 1.0000001, -0.22760391, 3.6967983, 0.5480051)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight6" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1066362144]
+transform = Transform3D(1.0000012, 0, 2.4400038e-11, 0, 1.0000012, 0, -2.7487346e-11, 0, 1.0000001, -0.34424973, 3.6967983, 0.5480051)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight7" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=660834046]
+transform = Transform3D(1.0000026, 0, 4.3318238e-11, 0, 1.0000026, 0, -4.945022e-11, 0, 1.0000002, 0.39780712, 2.3935995, 0.5460129)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight8" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1720130353]
+transform = Transform3D(1.0000026, 0, 4.883205e-11, 0, 1.0000026, 0, -5.4964033e-11, 0, 1.0000002, 0.28116226, 2.3935995, 0.5460167)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight9" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=574475794]
+transform = Transform3D(1.0000055, 0, 9.215029e-11, 0, 1.0000055, 0, -1.044107e-10, 0, 1.0000006, 0.40107632, 3.0962892, 0.53001213)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight10" type="CSGBox3D" parent="SkyboxRegion/Building 14" unique_id=1009626811]
+transform = Transform3D(1.0000055, 0, 9.76641e-11, 0, 1.0000055, 0, -1.09924514e-10, 0, 1.0000006, 0.28443146, 3.0962892, 0.53001595)
+size = Vector3(0.07556152, 0.21142578, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="Building 15" parent="SkyboxRegion" unique_id=11622192 instance=ExtResource("52_pykmp")]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 79.873344, -5.25, 44.089417)
+
+[node name="FakeLight1" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=158276908]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.6856556, 3.4363146, 1.8139362)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight3" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=120763303]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68486786, 3.431066, -1.2074995)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight5" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1675903453]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.6826105, 3.4362414, -1.9226103)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight6" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=490237904]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.69324017, 3.4612374, 0.35356426)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight7" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1230828170]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439865, 2.5479038, 1.8257761)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight8" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1960314609]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439865, 0.91743326, 1.7904577)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight9" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1311869730]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 1.6192667, -0.37405205)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight10" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=401723348]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8911222, -0.398942)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight11" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1643994239]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8872231, -1.9302073)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight13" type="CSGBox3D" parent="SkyboxRegion/Building 15" unique_id=1147070368]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8622171, 0.32445717)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="Building 16" parent="SkyboxRegion" unique_id=883860384 instance=ExtResource("52_pykmp")]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 33.80934, -5.25, 70.25229)
+
+[node name="FakeLight1" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1468740100]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.6856556, 3.4363146, 1.8139362)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight3" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1436050979]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68486786, 3.431066, -1.2074995)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight5" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=2044895051]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.6826105, 3.4362414, -1.9226103)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight6" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=19867586]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.69324017, 3.4612374, 0.35356426)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight7" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=105494399]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439865, 2.5479038, 1.8257761)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight8" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1555685397]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439865, 0.91743326, 1.7904577)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight9" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1697080509]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 1.6192667, -0.37405205)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight10" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1727184973]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8911222, -0.398942)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight11" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=1367301596]
+transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8872231, -1.9302073)
+size = Vector3(0.125, 0.25, 0.001)
+material = ExtResource("52_4ui27")
+
+[node name="FakeLight13" type="CSGBox3D" parent="SkyboxRegion/Building 16" unique_id=51967429]
 transform = Transform3D(-6.845431e-08, 0, 1.5625012, 0, 1.5625168, 0, -1.5625168, 0, -6.843453e-08, 0.68439674, 0.8622171, 0.32445717)
 size = Vector3(0.125, 0.25, 0.001)
 material = ExtResource("52_4ui27")
