@@ -45,17 +45,30 @@
 [ext_resource type="Texture2D" uid="uid://bfilt8mm5fujv" path="res://Textures/World/Wall_brick.png" id="27_p6u35"]
 [ext_resource type="PackedScene" uid="uid://ujqkyn447hsi" path="res://Models/Scaffolding/scaffolding2.fbx" id="28_l3f6x"]
 [ext_resource type="PackedScene" uid="uid://bkfva1v0g1mm" path="res://Models/Unbrella table/umbrella1.fbx" id="30_wq1ld"]
+[ext_resource type="Material" uid="uid://b6cfakoauhowt" path="res://Materials/Characters/Head12.tres" id="32_ii617"]
+[ext_resource type="Material" uid="uid://dde6mo3446b7r" path="res://Materials/Characters/Body1.tres" id="33_v250a"]
+[ext_resource type="Material" uid="uid://dtt4kg3fr3yii" path="res://Materials/Characters/Head8.tres" id="34_1m3wf"]
 [ext_resource type="PackedScene" uid="uid://vasfvanhekcy" path="res://Models/Scaffolding/scaffolding.fbx" id="34_27ek6"]
+[ext_resource type="Material" uid="uid://dk1rlt8468ndl" path="res://Materials/Characters/Body7.tres" id="35_2yn55"]
+[ext_resource type="Material" uid="uid://biosue063863o" path="res://Materials/Characters/Head9.tres" id="36_tj11c"]
+[ext_resource type="Material" uid="uid://dbaiq4csidn5i" path="res://Materials/Characters/Body3.tres" id="37_wlsns"]
 [ext_resource type="PackedScene" uid="uid://cb0jimfcbadrp" path="res://Models/Food Truck&cart/foodtruck2.fbx" id="41_27ek6"]
 [ext_resource type="PackedScene" uid="uid://ifw6dfotmr7u" path="res://Models/Buildings/Booths/booth1.fbx" id="42_37du5"]
+[ext_resource type="PackedScene" uid="uid://cbldkxw67d6yn" path="res://Models/LightPole/LightPoleTxt.fbx" id="42_v250a"]
 [ext_resource type="Material" uid="uid://be6q6cjbj0abh" path="res://Shader/StarrySkybox.tres" id="45_p6u35"]
+[ext_resource type="Material" uid="uid://d16pyhx2k7sow" path="res://Materials/Characters/Head5.tres" id="46_2yn55"]
+[ext_resource type="Material" uid="uid://bp1vedfcbyuqs" path="res://Materials/Characters/Head7.tres" id="48_wlsns"]
+[ext_resource type="Material" uid="uid://cxu5vmghqjqxn" path="res://Materials/Characters/Body6.tres" id="49_nq4sg"]
 [ext_resource type="Material" uid="uid://c4tr5r557xbmu" path="res://Materials/World/Road.tres" id="50_rkh4t"]
+[ext_resource type="Material" uid="uid://cykdiumk8ap32" path="res://Materials/Characters/Head1.tres" id="50_tuv5r"]
 [ext_resource type="PackedScene" uid="uid://tl80qr4diy7x" path="res://Models/Buildings/Building 1.fbx" id="51_2yx4e"]
+[ext_resource type="Material" uid="uid://cxt5nscbsxhv3" path="res://Materials/Characters/Head6.tres" id="51_a52cd"]
 [ext_resource type="PackedScene" uid="uid://dja208staafji" path="res://Models/Buildings/Building 2.fbx" id="51_pykmp"]
 [ext_resource type="Material" uid="uid://civgbwy1rqwjb" path="res://Materials/World/BrightLight.tres" id="52_4ui27"]
 [ext_resource type="PackedScene" uid="uid://dbdcbn7osrexs" path="res://Models/Buildings/Building 3.fbx" id="52_pykmp"]
 [ext_resource type="PackedScene" uid="uid://cd8jjqpsi82k4" path="res://Models/Geometry/BeanWall.glb" id="54_4ui27"]
 [ext_resource type="Script" uid="uid://kflt8inld0ih" path="res://Scene/music_player.gd" id="55_22h0s"]
+[ext_resource type="PackedScene" uid="uid://d0mbnmhhft2oy" path="res://Models/Bench/BenchTxt.fbx" id="63_1m3wf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45hoa"]
 size = Vector3(3.2818604, 5.107666, 30.5667)
@@ -765,6 +778,7 @@ material = SubResource("StandardMaterial3D_trvnc")
 
 [node name="TallBarricade1" parent="Hallway1Area" unique_id=1722968806 instance=ExtResource("6_tddbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.25, 5.1250005, 0.6304494, -9.75)
+visible = false
 
 [node name="TallBarricade2" parent="Hallway1Area" unique_id=809231513 instance=ExtResource("6_tddbr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.25, 5.1250005, 0.6304494, -15.25)
@@ -934,6 +948,71 @@ shape = SubResource("BoxShape3D_whge6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeanArea/shops/StaticBody3D3" unique_id=1083544787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.014511, 1.2210808, -1.5306044)
 shape = SubResource("BoxShape3D_tot7q")
+
+[node name="LampPlacement2" type="Node3D" parent="BeanArea/shops" unique_id=1077419494]
+transform = Transform3D(-0.83782953, 0, -6.174466e-08, 0, 0.97837585, 0, 1.998204e-08, 0, -1, 2.648449, 3.4168088, -0.15333271)
+
+[node name="Lamp" type="OmniLight3D" parent="BeanArea/shops/LampPlacement2" unique_id=1452105371]
+transform = Transform3D(1, 0, 1.9007018e-13, 0, 1, 0, -1.9007018e-13, 0, 1, 0, -0.2555251, 0)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight24" type="MeshInstance3D" parent="BeanArea/shops/LampPlacement2" unique_id=1026710414]
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="LampPlacement3" type="Node3D" parent="BeanArea/shops" unique_id=962292506]
+transform = Transform3D(-0.8378296, 0, -6.174466e-08, 0, 0.97837585, 0, 1.9982036e-08, 0, -1, -1.976551, 3.4168088, -0.15333271)
+
+[node name="Lamp" type="OmniLight3D" parent="BeanArea/shops/LampPlacement3" unique_id=1428434841]
+transform = Transform3D(1, 0, 1.9007018e-13, 0, 1, 0, -1.9007018e-13, 0, 1, 0, -0.2555251, 0)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight24" type="MeshInstance3D" parent="BeanArea/shops/LampPlacement3" unique_id=801854848]
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="LampPlacement4" type="Node3D" parent="BeanArea/shops" unique_id=1214190058]
+transform = Transform3D(-0.83782953, 0, -6.174466e-08, 0, 0.97837585, 0, 1.998204e-08, 0, -1, -6.976551, 3.4168088, -0.15333271)
+
+[node name="Lamp" type="OmniLight3D" parent="BeanArea/shops/LampPlacement4" unique_id=406801866]
+transform = Transform3D(1, 0, 1.9007018e-13, 0, 1, 0, -1.9007018e-13, 0, 1, 0, -0.2555251, 0)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight24" type="MeshInstance3D" parent="BeanArea/shops/LampPlacement4" unique_id=1284795582]
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
+[node name="NPC2" parent="BeanArea/shops" unique_id=246739415 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-1, 0, -2.6226954e-07, 0, 1, 0, 2.6226834e-07, 0, -1, 2.5679245, 0.5913497, 0.4615078)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Idle4"
+HeadTex = ExtResource("32_ii617")
+BodyTex = ExtResource("33_v250a")
+
+[node name="NPC3" parent="BeanArea/shops" unique_id=447437612 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-1, 0, -2.6226954e-07, 0, 1, 0, 2.6226834e-07, 0, -1, -2.0570755, 0.34134972, 0.4615078)
+sleeping = true
+freeze = true
+HeadTex = ExtResource("34_1m3wf")
+BodyTex = ExtResource("35_2yn55")
+
+[node name="NPC4" parent="BeanArea/shops" unique_id=982958568 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-1, 0, -2.6226954e-07, 0, 1, 0, 2.6226834e-07, 0, -1, -7.1820755, 0.09134972, -0.1634922)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Idle4"
+HeadTex = ExtResource("36_tj11c")
+BodyTex = ExtResource("37_wlsns")
 
 [node name="Sign" parent="BeanArea" unique_id=1745541280 instance=ExtResource("23_el850")]
 transform = Transform3D(1.0856886, 0, 0, 0, 1.0856885, 0, 0, 0, 1.0856885, -3.0232058, -1.4999996, -36.86253)
@@ -1734,6 +1813,49 @@ mesh = SubResource("QuadMesh_gk04j")
 skeleton = NodePath("../../pavillion")
 surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
 
+[node name="NPCCluster1" type="Node3D" parent="MillenniumParkArea" unique_id=1933844399]
+transform = Transform3D(-0.9659262, 0, 0.25881892, 0, 0.99999994, 0, -0.25881895, 0, -0.9659259, 25.027945, 0.42428446, -32.6875)
+
+[node name="NPC3" parent="MillenniumParkArea/NPCCluster1" unique_id=888234835 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(0.96592546, 0, -0.25881898, 0, 0.99999964, 0, 0.258819, 0, 0.9659253, 4.504403, 0, 2.8047447)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Cheer1"
+HeadTex = ExtResource("46_2yn55")
+BodyTex = ExtResource("4_0inoe")
+
+[node name="NPC4" parent="MillenniumParkArea/NPCCluster1" unique_id=2112126644 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(0.9999993, 0, 1.4901161e-08, 0, 0.9999992, 0, 1.0430813e-07, 0, 0.9999991, 2.9971542, 0, 1.5262909)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Cheer2"
+HeadTex = ExtResource("48_wlsns")
+BodyTex = ExtResource("49_nq4sg")
+
+[node name="NPC7" parent="MillenniumParkArea/NPCCluster1" unique_id=1643499906 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(0.9999993, 0, 1.4901161e-08, 0, 0.999999, 0, 1.0430813e-07, 0, 0.9999991, 3.978094, 0, 0.3575821)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Cheer1a"
+HeadTex = ExtResource("50_tuv5r")
+BodyTex = ExtResource("37_wlsns")
+
+[node name="NPC5" parent="MillenniumParkArea/NPCCluster1" unique_id=436932368 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(0.96592444, 0, -0.2588188, 0, 0.9999986, 0, 0.25881886, 0, 0.9659249, 5.332247, 0, 1.5476494)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Cheer3"
+HeadTex = ExtResource("32_ii617")
+BodyTex = ExtResource("18_2yx4e")
+
+[node name="NPC6" parent="MillenniumParkArea/NPCCluster1" unique_id=1147797391 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(0.86602414, 0, 0.4999993, 0, 0.9999984, 0, -0.499999, 0, 0.86602414, 2.5638752, 0, 2.8070831)
+sleeping = true
+freeze = true
+idle_animation_name = "NPC_Anims/Cheer4"
+HeadTex = ExtResource("51_a52cd")
+BodyTex = ExtResource("9_ydnef")
+
 [node name="CenterLight13" type="OmniLight3D" parent="MillenniumParkArea" unique_id=543905098]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 22.91773, 4.691, -23.04451)
 light_color = Color(2.454227, 1.7173848, 0.37428045, 1)
@@ -1977,8 +2099,23 @@ shape = SubResource("BoxShape3D_tuv5r")
 
 [node name="NPC2" parent="MillenniumParkArea/booth1" unique_id=1796218408 instance=ExtResource("7_x8ifo")]
 transform = Transform3D(-1, 0, -8.742273e-08, 0, 1, 0, 8.7423885e-08, 0, -1.0000001, -0.31892776, 0.091159105, 0.73327446)
+sleeping = true
 HeadTex = ExtResource("3_oi2a6")
 BodyTex = ExtResource("4_0inoe")
+
+[node name="LampPlacement2" type="Node3D" parent="MillenniumParkArea/booth1" unique_id=513748945]
+transform = Transform3D(-0.8378294, 0, -6.174466e-08, 0, 0.97837585, 0, 1.9982036e-08, 0, -1, -0.22655106, 3.4168088, -0.15333271)
+
+[node name="Lamp" type="OmniLight3D" parent="MillenniumParkArea/booth1/LampPlacement2" unique_id=856961280]
+transform = Transform3D(1, 0, 1.9007018e-13, 0, 1, 0, -1.9007018e-13, 0, 1, 0, -0.2555251, 0)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight24" type="MeshInstance3D" parent="MillenniumParkArea/booth1/LampPlacement2" unique_id=1826743856]
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
 
 [node name="ParkBooth9" type="CSGBox3D" parent="MillenniumParkArea" unique_id=905845783]
 transform = Transform3D(-5.6387694e-06, 0, 1, 0, 1, 0, -1, 0, -5.6388526e-06, 12.360264, 2.1769238, -28.239893)
@@ -3375,6 +3512,87 @@ material = SubResource("StandardMaterial3D_trvnc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.627411, 0, -0.45532227)
 size = Vector3(10.25, 1, 95.77002)
 material = SubResource("StandardMaterial3D_trvnc")
+
+[node name="LightPoleTxt3" parent="SkyboxRegion" unique_id=1329491286 instance=ExtResource("42_v250a")]
+transform = Transform3D(5.841218e-06, 0, 30.000004, 0, 30, 0, -30.000013, 0, 5.841216e-06, 1.9239616, -1.6251183, -11.375977)
+
+[node name="Lamp" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt3" unique_id=1261745278]
+transform = Transform3D(1, 0, 1.5654149e-13, 0, 1, 0, -1.5654149e-13, 0, 1, -0.04583341, 0.16947505, 0.11249995)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="Lamp2" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt3" unique_id=1559695384]
+transform = Transform3D(1, 0, 2.9309896e-13, 0, 1, 0, -2.9309896e-13, 0, 1, -0.097, 0.169, 0.116)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="LightPoleTxt2" parent="SkyboxRegion" unique_id=741134464 instance=ExtResource("42_v250a")]
+transform = Transform3D(-4.8876227e-06, 0, -30.000004, 0, 30, 0, 30.000013, 0, -4.8876213e-06, 8.6249695, -1.8750038, 12.374847)
+
+[node name="Lamp" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt2" unique_id=1433690670]
+transform = Transform3D(1, 0, 1.5654149e-13, 0, 1, 0, -1.5654149e-13, 0, 1, -0.04583341, 0.16947505, 0.11249995)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="Lamp2" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt2" unique_id=215972971]
+transform = Transform3D(1, 0, 2.9309896e-13, 0, 1, 0, -2.9309896e-13, 0, 1, -0.097, 0.169, 0.116)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="LightPoleTxt" parent="SkyboxRegion" unique_id=1351877133 instance=ExtResource("42_v250a")]
+transform = Transform3D(-1.3113421e-06, 0, -30.000004, 0, 30, 0, 30.00001, 0, -1.3113419e-06, 8.749992, -1.6250001, 2.75)
+
+[node name="Lamp" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt" unique_id=1503694066]
+transform = Transform3D(1, 0, 1.5654149e-13, 0, 1, 0, -1.5654149e-13, 0, 1, -0.04583341, 0.16947505, 0.11249995)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="Lamp2" type="OmniLight3D" parent="SkyboxRegion/LightPoleTxt" unique_id=39636317]
+transform = Transform3D(1, 0, 2.9309896e-13, 0, 1, 0, -2.9309896e-13, 0, 1, -0.097, 0.169, 0.116)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_energy = 3.6
+light_size = 0.2
+light_specular = 0.1
+omni_range = 7.6
+
+[node name="BenchTxt2" parent="SkyboxRegion" unique_id=947941194 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(40, 0, -6.9938224e-06, 0, 40, 0, 6.9938224e-06, 0, 40, 8.875, -2.125, -11.000019)
+
+[node name="BenchTxt" parent="SkyboxRegion" unique_id=1604322750 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(-40, 0, 3.4969112e-06, 0, 40, 0, -3.4969112e-06, 0, -40, 5.375, -2.125, -0.625)
+
+[node name="BenchTxt3" parent="SkyboxRegion" unique_id=416371930 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(40, 0, -6.9938224e-06, 0, 40, 0, 6.9938224e-06, 0, 40, 8.875, -2.125, -8.250019)
+
+[node name="BenchTxt4" parent="SkyboxRegion" unique_id=167352494 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(-40, 0, 3.4969112e-06, 0, 40, 0, -3.4969112e-06, 0, -40, 5.375, -2.125, 2.125)
+
+[node name="BenchTxt5" parent="SkyboxRegion" unique_id=1017517711 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(40, 0, -6.9938224e-06, 0, 40, 0, 6.9938224e-06, 0, 40, 8.875, -2.125, -1.1250191)
+
+[node name="BenchTxt6" parent="SkyboxRegion" unique_id=1203046160 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(-40, 0, 3.4969112e-06, 0, 40, 0, -3.4969112e-06, 0, -40, 5.375, -2.125, 9.25)
+
+[node name="BenchTxt7" parent="SkyboxRegion" unique_id=1180243050 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(40, 0, -6.9938224e-06, 0, 40, 0, 6.9938224e-06, 0, 40, 8.875, -2.125, 1.6249809)
+
+[node name="BenchTxt8" parent="SkyboxRegion" unique_id=1542587021 instance=ExtResource("63_1m3wf")]
+transform = Transform3D(-40, 0, 3.4969112e-06, 0, 40, 0, -3.4969112e-06, 0, -40, 5.375, -2.125, 12)
 
 [node name="MusicPlayer" type="FmodEventEmitter2D" parent="." unique_id=800809374]
 event_name = "event:/Music/LevelMusic"

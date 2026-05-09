@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c64p78gimaq0l"]
+
+[ext_resource type="Texture2D" uid="uid://cdfe0fssmivc0" path="res://Models/LightPole/LightPoleTxt_2.png" id="1_hknga"]
+
+[resource]
+resource_name = "LightPoleLights"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
+albedo_texture = ExtResource("1_hknga")
+emission_enabled = true
+emission = Color(0.93333334, 0.85882354, 0.7176471, 1)

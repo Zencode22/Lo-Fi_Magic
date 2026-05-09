@@ -37,7 +37,40 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"LightPoleConCret": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/LightPoleConCret.tres",
+"use_external/path": "uid://b55e6qehi6qgn"
+},
+"LightPoleLights": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/LightPoleLights.tres",
+"use_external/path": "uid://c64p78gimaq0l"
+},
+"LightPoleMetal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/LightPoleMetal.tres",
+"use_external/path": "uid://in7torck1bm8"
+},
+"LightPoleSpeakers": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/LightPoleSpeakers.tres",
+"use_external/path": "uid://cuuondfhscd7b"
+},
+"LightPoleWires": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/LightPoleWires.tres",
+"use_external/path": "uid://1yp657wr5dmx"
+},
+"openPBR_shader1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/LightPole/openPBR_shader1.tres",
+"use_external/path": "uid://chqtkfubmpqsv"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

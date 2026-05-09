@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b55e6qehi6qgn"]
+
+[ext_resource type="Texture2D" uid="uid://bes1nhmvh5e8y" path="res://Models/LightPole/LightPoleTxt_4.png" id="1_sxo46"]
+
+[resource]
+resource_name = "LightPoleConCret"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.8)
+albedo_texture = ExtResource("1_sxo46")
+emission_enabled = true
