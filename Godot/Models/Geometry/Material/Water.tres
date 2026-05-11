@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1xw4v6ticehy"]
+
+[ext_resource type="Texture2D" uid="uid://d2r27ar00e56v" path="res://Models/Geometry/BeachScene_tex_Water.jpg" id="1_wesb2"]
+
+[resource]
+resource_name = "Water"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.7194667, 0.703, 0.95, 1)
+albedo_texture = ExtResource("1_wesb2")
+metallic_specular = 1.0
+metallic_texture_channel = 2
+roughness = 0.5

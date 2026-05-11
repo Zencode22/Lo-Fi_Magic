@@ -1,43 +1,18 @@
 [gd_scene format=3 uid="uid://bkckrmcgvtolw"]
 
-[ext_resource type="Texture2D" uid="uid://dvbc4n1268nu3" path="res://Alvaro Work/Texture/PrototypePNG/Light/texture_08.png" id="1_uiqxh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiqxh"]
-albedo_texture = ExtResource("1_uiqxh")
-uv1_triplanar = true
+[ext_resource type="Material" uid="uid://c1bgtf1hgjrhj" path="res://Alvaro Work/Materials/Mat_OrangePrototype.tres" id="1_mon1v"]
+[ext_resource type="Material" uid="uid://dv8ux85akea7d" path="res://Alvaro Work/Materials/Mat_PurplePrototype.tres" id="2_qihya"]
 
 [node name="BlenderExport" type="Node2D" unique_id=1855520816]
 
 [node name="BeanWallScene" type="Node3D" parent="." unique_id=1340119059]
 
-[node name="BeanWall1" type="CSGBox3D" parent="BeanWallScene" unique_id=822158619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.997879, -1, -17.5)
-size = Vector3(31, 1, 2)
-material = SubResource("StandardMaterial3D_uiqxh")
+[node name="SandFloor" type="CSGBox3D" parent="BeanWallScene" unique_id=71494974]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 109.85, -2.3804493, -2.125)
+size = Vector3(20, 1, 205.25)
+material = ExtResource("1_mon1v")
 
-[node name="ChasePSWall3Subtraction" type="CSGBox3D" parent="BeanWallScene/BeanWall1" unique_id=1702789941]
-transform = Transform3D(1.0038435, 0, 0, 0, 1.003849, 0, 0, 0, 1.003849, 8.02862, 0.062740564, 0)
-operation = 2
-size = Vector3(3, 1.125, 2)
-material = SubResource("StandardMaterial3D_uiqxh")
-
-[node name="BeanWall2" type="CSGBox3D" parent="BeanWallScene" unique_id=206614987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.000004, -1, -43.5)
-size = Vector3(31, 1, 2)
-material = SubResource("StandardMaterial3D_uiqxh")
-
-[node name="BeanWall3" type="CSGBox3D" parent="BeanWallScene" unique_id=659481617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000002, -1, -30.5)
-size = Vector3(2, 1, 24)
-material = SubResource("StandardMaterial3D_uiqxh")
-
-[node name="ChasePSWall3Subtraction2" type="CSGBox3D" parent="BeanWallScene/BeanWall3" unique_id=507806974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -0.0006489754, 0, 0.99900055)
-operation = 2
-size = Vector3(2.0039063, 1, 1.5)
-material = SubResource("StandardMaterial3D_uiqxh")
-
-[node name="BeanWall4" type="CSGBox3D" parent="BeanWallScene" unique_id=1869266588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.500006, -1, -30.5)
-size = Vector3(2, 1, 24)
-material = SubResource("StandardMaterial3D_uiqxh")
+[node name="Water" type="CSGBox3D" parent="BeanWallScene" unique_id=1656605575]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 157.0375, -2.6304493, 1.25)
+size = Vector3(92.625, 0.5, 215)
+material = ExtResource("2_qihya")

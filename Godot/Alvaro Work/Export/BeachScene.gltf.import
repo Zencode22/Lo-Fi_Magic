@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://coa7lr7hkmxmd"
-path="res://.godot/imported/ChasePSWall.fbx-62462a03974d4cf6dde9fbed360af26e.scn"
+uid="uid://cf4t1ho1nxob8"
+path="res://.godot/imported/BeachScene.gltf-78af3b647ffe655a91253457151650cd.scn"
 
 [deps]
 
-source_file="res://Models/Geometry/ChasePSWall.fbx"
-dest_files=["res://.godot/imported/ChasePSWall.fbx-62462a03974d4cf6dde9fbed360af26e.scn"]
+source_file="res://Alvaro Work/Export/BeachScene.gltf"
+dest_files=["res://.godot/imported/BeachScene.gltf-78af3b647ffe655a91253457151650cd.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
