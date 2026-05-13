@@ -2415,12 +2415,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.06254, 0.2445507, 25.8125
 size = Vector3(43.125, 12.25, 4.625)
 material = SubResource("StandardMaterial3D_tj11c")
 
-[node name="Locked Door" type="Node3D" parent="." unique_id=1395292766]
+[node name="gates" type="Node3D" parent="." unique_id=1395292766]
 
-[node name="LockedGate" parent="Locked Door" unique_id=253240729 instance=ExtResource("10_3vhle")]
+[node name="LockedGate" parent="gates" unique_id=253240729 instance=ExtResource("10_3vhle")]
 transform = Transform3D(-1.0151451, 0, -8.742278e-08, 0, 1, 0, 8.87468e-08, 0, -1, -14.500008, 0.375, -6.5)
 
-[node name="LockedGate_1" parent="Locked Door" unique_id=432444428 instance=ExtResource("10_3vhle")]
+[node name="LockedGate_1" parent="gates" unique_id=432444428 instance=ExtResource("10_3vhle")]
 transform = Transform3D(-4.1957545e-08, 0, 1, 0, 1, 0, -0.9598767, 0, -4.371139e-08, 4.5, 0.375, -29.5)
 script = ExtResource("12_3vhle")
 
@@ -3738,7 +3738,7 @@ transform = Transform3D(-40, 0, 3.4969112e-06, 0, 40, 0, -3.4969112e-06, 0, -40,
 [node name="BeachScene" parent="SkyboxRegion" unique_id=1220181123 instance=ExtResource("71_3h6t3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.62508, 0.125, 0.125)
 
-[node name="MusicPlayer" type="FmodEventEmitter2D" parent="." unique_id=800809374]
+[node name="music_player" type="FmodEventEmitter2D" parent="." unique_id=800809374]
 event_name = "event:/Music/LevelMusic"
 event_guid = "{c2077b4b-9048-4e6d-bb5d-a99f058d3cca}"
 autoplay = true
@@ -3746,3 +3746,6 @@ autoplay = true
 "fmod_parameters/Token Count" = 0
 "fmod_parameters/Token Count/variant_type" = 2
 script = ExtResource("55_22h0s")
+
+[node name="start_position" type="Marker3D" parent="." unique_id=39031245]
+transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.362719, 0.39655757, 20.724487)

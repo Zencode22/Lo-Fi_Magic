@@ -28,6 +28,7 @@ config/icon="res://icon.svg"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 TokenTracker="*res://Script/token_tracker.gd"
 MusicManager="*uid://cdd4k76j85w76"
+ResetManager="*uid://c07t2qbvv0e77"
 
 [display]
 

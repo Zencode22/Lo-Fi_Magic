@@ -6,7 +6,7 @@ signal music_layer_activated(token_set: String, layer_name: String, layer_value:
 
 var token_sets := {
 	"Set 1": {
-		"total": 0,
+		"total": 4,
 		"collected": 0,
 		"stack": [],
 		"layers": {},
@@ -14,7 +14,7 @@ var token_sets := {
 		"master_volume_param": "Volume_Set1"
 	},
 	"Set 2": {
-		"total": 0,
+		"total": 6,
 		"collected": 0,
 		"stack": [],
 		"layers": {},
@@ -22,7 +22,7 @@ var token_sets := {
 		"master_volume_param": "Volume_Set2"
 	},
 	"Set 3": {
-		"total": 0,
+		"total": 10,
 		"collected": 0,
 		"stack": [],
 		"layers": {},
@@ -44,7 +44,9 @@ func register_token(token_set: String, token_node = null) -> void:
 			"master_volume_param": "Volume_" + token_set.replace(" ", "")
 		}
 	
-	token_sets[token_set].total += 1
+	if token_sets[token_set].total == 0:
+		token_sets[token_set].total += 1
+	
 	if token_node:
 		token_sets[token_set].stack.append(token_node)
 	
@@ -68,6 +70,9 @@ func collect_token(token_set: String, _stack_position: int = -1, layer_name: Str
 		return
 	
 	var set_data = token_sets[token_set]
+	
+	if set_data.collected >= set_data.total:
+		return
 	
 	if layer_name != "" and fmod_parameter != "":
 		set_data.layers[layer_name] = {
@@ -119,8 +124,11 @@ func reset_token_set(token_set: String) -> void:
 		
 		set_data.collected = 0
 		set_data.layers.clear()
-		set_data.stack.clear()
 		
 		update_master_volume(token_set)
 		
 		token_collected_updated.emit(token_set, 0, set_data.total)
+
+func full_reset() -> void:
+	for token_set_name in token_sets.keys():
+		reset_token_set(token_set_name)

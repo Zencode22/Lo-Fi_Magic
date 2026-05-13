@@ -83,15 +83,6 @@ func _ready() -> void:
 	if token_tracker:
 		token_tracker.token_collected_updated.connect(_on_token_collected_updated)
 		token_tracker.all_tokens_collected.connect(_on_all_tokens_collected)
-		
-		if has_node("LoFi_Magic_Temp_Character/FmodMusicPlayer"):
-			var music_player = $LoFi_Magic_Temp_Character/FmodMusicPlayer
-			token_tracker.set_music_player("Set 1", music_player)
-			token_tracker.set_music_player("Set 2", music_player)
-			token_tracker.set_music_player("Set 3", music_player)
-			print("Music player connected successfully at: LoFi_Magic_Temp_Character/FmodMusicPlayer")
-		else:
-			print("FmodMusicPlayer not found at LoFi_Magic_Temp_Character/FmodMusicPlayer")
 
 func initialize_animations() -> void:
 	anim_tree.set("parameters/conditions/grounded", true)
