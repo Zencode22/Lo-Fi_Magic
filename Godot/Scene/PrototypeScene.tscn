@@ -262,6 +262,12 @@ size = Vector3(9.34906, 4.8632813, 4.248749)
 albedo_texture = ExtResource("8_nolbf")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcmfv"]
+size = Vector3(2.0629883, 8.262024, 54.35974)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_15gc3"]
+size = Vector3(33.609375, 8.093018, 5.058838)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yn55"]
 size = Vector3(9.26165, 4.0200195, 3.0964355)
 
@@ -1361,6 +1367,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.374996, 0.2445507, -50.125
 size = Vector3(5.75, 12.25, 20.5)
 material = SubResource("StandardMaterial3D_tj11c")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/MainWall3" unique_id=684186918]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/MainWall3/StaticBody3D" unique_id=1904896400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.858574, 3.631012, 26.67987)
+shape = SubResource("BoxShape3D_rcmfv")
+
 [node name="MainWall5" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1505869166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.374993, 0.2445507, -50.8125)
 size = Vector3(5.75, 12.25, 19.125)
@@ -1370,6 +1382,12 @@ material = SubResource("StandardMaterial3D_tj11c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.499994, 0.2445507, 1.625)
 size = Vector3(36, 12.25, 4.75)
 material = SubResource("StandardMaterial3D_tj11c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/MainWall4" unique_id=929195448]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/MainWall4/StaticBody3D" unique_id=960290878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3964729, 3.5465088, -2.029419)
+shape = SubResource("BoxShape3D_15gc3")
 
 [node name="TallBarricade2" parent="MillenniumParkArea" unique_id=431067128 instance=ExtResource("6_tddbr")]
 transform = Transform3D(1, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 18.750002, 3.0375307, -7.25)
