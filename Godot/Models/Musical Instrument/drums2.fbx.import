@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyn8mp5vivwbw"
-path="res://.godot/imported/Drums.fbx-5eb3cbda7dd6f034312b6f6817ec1b84.scn"
+uid="uid://db1or5y5tfi6q"
+path="res://.godot/imported/drums2.fbx-923134def003483f91782784504ce828.scn"
 
 [deps]
 
-source_file="res://Models/Musical Instrument/Drums.fbx"
-dest_files=["res://.godot/imported/Drums.fbx-5eb3cbda7dd6f034312b6f6817ec1b84.scn"]
+source_file="res://Models/Musical Instrument/drums2.fbx"
+dest_files=["res://.godot/imported/drums2.fbx-923134def003483f91782784504ce828.scn"]
 
 [params]
 
