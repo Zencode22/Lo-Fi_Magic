@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bpnb261oa5vvt"]
 
 [ext_resource type="PackedScene" uid="uid://dprxpvoq7hu88" path="res://Characters/Band/LoFi_Magic_Temp_Character_Band_Member.glb" id="1_aa2u6"]
-[ext_resource type="Script" uid="uid://dhm7viq4fylkn" path="res://Script/npc_band.gd" id="2_a5qae"]
 
 [node name="Band_Member" unique_id=902995038 instance=ExtResource("1_aa2u6")]
-script = ExtResource("2_a5qae")
 
-[node name="Skeleton3D" parent="Armature_TempChar" parent_id_path=PackedInt32Array(1813023454) index="0" unique_id=1997274155]
+[node name="Skeleton3D" parent="Armature_TempChar" parent_id_path=PackedInt32Array(887811330) index="0" unique_id=1966724789]
 bones/0/position = Vector3(0, 0.49303478, 0.0016531142)
 bones/0/rotation = Quaternion(-0.068917826, 0.0012417272, 0.01797174, 0.9974597)
 bones/1/rotation = Quaternion(0.10454504, -0.0018836419, 0.017915837, 0.99435705)
