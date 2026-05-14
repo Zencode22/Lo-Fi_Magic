@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b0w0xvkf0thvw"]
+
+[ext_resource type="PackedScene" uid="uid://bpnb261oa5vvt" path="res://Characters/Band/band_member.tscn" id="1_4fvp2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ancat"]
+height = 2.5118408
+
+[node name="NPC_Band" type="RigidBody3D" unique_id=308333268]
+
+[node name="Band_Member" parent="." unique_id=902995038 instance=ExtResource("1_4fvp2")]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=845650438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2515459, 0)
+shape = SubResource("CapsuleShape3D_ancat")
