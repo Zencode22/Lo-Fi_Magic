@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://b0w0xvkf0thvw"]
 
-[ext_resource type="PackedScene" uid="uid://bpnb261oa5vvt" path="res://Characters/Band/band_member.tscn" id="1_4fvp2"]
+[ext_resource type="PackedScene" uid="uid://bpnb261oa5vvt" path="res://Characters/Band/band_member_modelrig.tscn" id="1_4fvp2"]
+[ext_resource type="Script" uid="uid://dhm7viq4fylkn" path="res://Script/npc_band.gd" id="1_ancat"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ancat"]
 height = 2.5118408
 
 [node name="NPC_Band" type="RigidBody3D" unique_id=308333268]
+script = ExtResource("1_ancat")
+animation_library = "None"
 
 [node name="Band_Member" parent="." unique_id=902995038 instance=ExtResource("1_4fvp2")]
 script = null
