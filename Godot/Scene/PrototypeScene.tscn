@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://ifw6dfotmr7u" path="res://Models/Buildings/Booths/booth1.fbx" id="42_37du5"]
 [ext_resource type="PackedScene" uid="uid://cbldkxw67d6yn" path="res://Models/LightPole/LightPoleTxt.fbx" id="42_v250a"]
 [ext_resource type="PackedScene" uid="uid://bjb5cwgka2lmd" path="res://Models/Buildings/Booths/barbooth.fbx" id="43_15gc3"]
+[ext_resource type="PackedScene" uid="uid://cletea74nwrcg" path="res://Models/Buildings/Booths/juice shop.fbx" id="43_smebo"]
 [ext_resource type="Material" uid="uid://be6q6cjbj0abh" path="res://Shader/StarrySkybox.tres" id="45_p6u35"]
 [ext_resource type="Material" uid="uid://d16pyhx2k7sow" path="res://Materials/Characters/Head5.tres" id="46_2yn55"]
 [ext_resource type="Material" uid="uid://bp1vedfcbyuqs" path="res://Materials/Characters/Head7.tres" id="48_wlsns"]
@@ -70,9 +71,18 @@
 [ext_resource type="Script" uid="uid://kflt8inld0ih" path="res://Scene/music_player.gd" id="55_22h0s"]
 [ext_resource type="PackedScene" uid="uid://dwglt0ieuxw2u" path="res://Models/Barricade/Wall2.fbx" id="55_tuv5r"]
 [ext_resource type="PackedScene" uid="uid://bub0f8mmdinsk" path="res://Models/Geometry/MilleniumWall.glb" id="56_a52cd"]
+[ext_resource type="PackedScene" uid="uid://b0w0xvkf0thvw" path="res://Characters/Band/npc_band.tscn" id="57_u43sa"]
+[ext_resource type="PackedScene" uid="uid://prp7xpjkv0al" path="res://Models/Musical Instrument/Chello Bow.fbx" id="58_yc5dl"]
+[ext_resource type="PackedScene" uid="uid://db1or5y5tfi6q" path="res://Models/Musical Instrument/drums2.fbx" id="59_dmmfi"]
+[ext_resource type="PackedScene" uid="uid://bo025sdqiwp3h" path="res://Models/Musical Instrument/drum stick.fbx" id="60_uv6lo"]
+[ext_resource type="PackedScene" uid="uid://bjotkc2qw18dy" path="res://Models/Musical Instrument/flute.fbx" id="61_dmmfi"]
+[ext_resource type="PackedScene" uid="uid://njpvgvy0nm1m" path="res://Models/Musical Instrument/Glockenspiel.fbx" id="62_s0r3s"]
 [ext_resource type="PackedScene" uid="uid://d0mbnmhhft2oy" path="res://Models/Bench/BenchTxt.fbx" id="63_1m3wf"]
+[ext_resource type="PackedScene" uid="uid://pntjhgyusaoe" path="res://Models/Musical Instrument/Glockenspiel mallet .fbx" id="63_y6p52"]
+[ext_resource type="PackedScene" uid="uid://b3adqe2sqw350" path="res://Models/Musical Instrument/Violin.fbx" id="64_eqk44"]
+[ext_resource type="PackedScene" uid="uid://umnbday8qvdd" path="res://Models/Musical Instrument/Violin Bow.fbx" id="65_kh1qe"]
 [ext_resource type="PackedScene" uid="uid://wnikedng2dfh" path="res://Models/Geometry/BeachScene.glb" id="71_3h6t3"]
-[ext_resource type="PackedScene" uid="uid://ci8knlp1okpe3" path="res://Characters/Band/band_member.tscn" id="73_smebo"]
+[ext_resource type="PackedScene" uid="uid://b1nog2r4xig6n" path="res://Models/Musical Instrument/chello.fbx" id="74_smebo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_45hoa"]
 size = Vector3(3.2818604, 5.107666, 30.5667)
@@ -259,6 +269,9 @@ radius = 0.110839844
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ii617"]
 size = Vector3(9.34906, 4.8632813, 4.248749)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u43sa"]
+size = Vector3(3.875, 5, 4.875)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tot7q"]
 albedo_texture = ExtResource("8_nolbf")
@@ -1295,20 +1308,41 @@ material = SubResource("StandardMaterial3D_ttobh")
 [node name="shop4" parent="MillenniumParkArea/ParkBooth8" unique_id=220814473 instance=ExtResource("13_0inoe")]
 transform = Transform3D(-4.8126367e-08, 0, -1.3589176, 0, 1.1010351, 0, 1.1010337, 0, -5.9395916e-08, 1.3778176, -2.176798, 0.105415344)
 
-[node name="ParkBooth11" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1523607661]
-transform = Transform3D(-8.436298e-06, 0, 1, 0, 1, 0, -1, 0, -8.436424e-06, 29.875048, 2.9945507, -6.437497)
-size = Vector3(3.75, 5.25, 5.25)
-material = SubResource("StandardMaterial3D_ttobh")
+[node name="juice shop" parent="MillenniumParkArea" unique_id=1097278309 instance=ExtResource("43_smebo")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 0.99999994, 0, -1.0000001, 0, -4.371139e-08, 30.87502, 0.8750005, -7.125002)
 
-[node name="ParkBooth11Roofing" type="CSGBox3D" parent="MillenniumParkArea/ParkBooth11" unique_id=943621082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1250138, 0.75, -3.1249905)
-size = Vector3(3.5, 0.5, 1)
-material = SubResource("StandardMaterial3D_ttobh")
+[node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/juice shop" unique_id=1633934226]
 
-[node name="ParkBooth11Roofing2" type="CSGBox3D" parent="MillenniumParkArea/ParkBooth11" unique_id=1807713769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.375009, 0.75, 1.9073486e-06)
-size = Vector3(1, 0.5, 5.25)
-material = SubResource("StandardMaterial3D_ttobh")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/juice shop/StaticBody3D" unique_id=1543832499]
+transform = Transform3D(1.0000899, 0, 2.6787461e-12, 0, 1, 0, 1.2505552e-12, 0, 1, -0.43751812, 2, -0.9375)
+shape = SubResource("BoxShape3D_u43sa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/juice shop/StaticBody3D" unique_id=1489326583]
+transform = Transform3D(0.3000272, 0, 2.7000624e-12, 0, 0.12000004, 0, 3.7392311e-13, 0, 1, 2.062488, 2.8750005, -0.9375)
+shape = SubResource("BoxShape3D_u43sa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MillenniumParkArea/juice shop/StaticBody3D" unique_id=1765929642]
+transform = Transform3D(-1.3114263e-08, 0, 0.6600007, 0, 0.12000011, 0, -0.30002722, 0, -2.8851305e-08, 1.0407376, 2.8750005, -3.9375)
+shape = SubResource("BoxShape3D_u43sa")
+
+[node name="NPC3" parent="MillenniumParkArea/juice shop" unique_id=68385629 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-4.37125e-08, 0, 1.0000002, 0, 1.0000001, 0, -1, 0, -4.3711328e-08, -0.13366127, -0.5757164, -1.4164124)
+freeze = true
+idle_animation_name = "NPC_Anims/Idle4"
+HeadTex = ExtResource("51_a52cd")
+BodyTex = ExtResource("9_ydnef")
+
+[node name="Lamp2" type="OmniLight3D" parent="MillenniumParkArea/juice shop" unique_id=1302502652]
+transform = Transform3D(-2.512212e-08, 0, 1, 0, 1.0000001, 0, -1.0000001, 0, -2.5122127e-08, 0.62795067, 2.4999347, -1.3240337)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight25" type="MeshInstance3D" parent="MillenniumParkArea/juice shop" unique_id=984808625]
+transform = Transform3D(-2.512196e-08, 0, 0.83782953, 0, 0.978376, 0, -1, 0, 2.372939e-08, 0.62795067, 2.7499337, -1.3240337)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
 
 [node name="ParkJumpBox4" type="CSGBox3D" parent="MillenniumParkArea" unique_id=1442125666]
 transform = Transform3D(0.4999245, 0, -0.008690998, 0, 1, 0, 0.008690998, 0, 0.49992445, 14.566859, 1.0575505, -30.230492)
@@ -1439,6 +1473,24 @@ shape = SubResource("BoxShape3D_smebo")
 transform = Transform3D(0.3200002, 0, -1.9428891e-14, 0, 0.12, 0, 6.217249e-15, 0, 1, 2.0240164, 3.75, 0.5)
 shape = SubResource("BoxShape3D_smebo")
 
+[node name="NPC4" parent="MillenniumParkArea/barbooth" unique_id=1380290961 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-4.3712514e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.3711314e-08, 0.24134064, -0.3257159, 0.5836029)
+freeze = true
+HeadTex = ExtResource("8_3layp")
+BodyTex = ExtResource("33_v250a")
+
+[node name="Lamp3" type="OmniLight3D" parent="MillenniumParkArea/barbooth" unique_id=2056836310]
+transform = Transform3D(-2.512219e-08, 0, 0.99999994, 0, 1, 0, -1.0000001, 0, -2.5122205e-08, -0.37204647, 3.4999352, 0.5509834)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight26" type="MeshInstance3D" parent="MillenniumParkArea/barbooth" unique_id=508213293]
+transform = Transform3D(-2.5122024e-08, 0, 0.83783066, 0, 0.97837645, 0, -1, 0, 2.3729408e-08, -0.37204647, 3.7499342, 0.5509834)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
+
 [node name="barbooth2" parent="MillenniumParkArea" unique_id=1861322334 instance=ExtResource("43_15gc3")]
 transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e-08, 37.000004, 0.875, -14.75)
 
@@ -1451,6 +1503,25 @@ shape = SubResource("BoxShape3D_smebo")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1454553798]
 transform = Transform3D(0.3200002, 0, -1.9428891e-14, 0, 0.12, 0, 6.217249e-15, 0, 1, 2.0240164, 3.75, 0.5)
 shape = SubResource("BoxShape3D_smebo")
+
+[node name="NPC5" parent="MillenniumParkArea/barbooth2" unique_id=1323110093 instance=ExtResource("7_x8ifo")]
+transform = Transform3D(-4.3712507e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.371132e-08, 0.5765095, -0.32571602, 0.7098923)
+freeze = true
+idle_animation_name = "NPC_Anims/Idle2"
+HeadTex = ExtResource("46_2yn55")
+BodyTex = ExtResource("18_2yx4e")
+
+[node name="Lamp4" type="OmniLight3D" parent="MillenniumParkArea/barbooth2" unique_id=1618404658]
+transform = Transform3D(-2.5122182e-08, 0, 0.99999994, 0, 1, 0, -1.0000001, 0, -2.5122178e-08, -0.036877632, 3.4999352, 0.6772728)
+light_color = Color(0.9320419, 0.85712194, 0.7179847, 1)
+light_size = 0.2
+light_specular = 0.1
+
+[node name="SmallLight27" type="MeshInstance3D" parent="MillenniumParkArea/barbooth2" unique_id=864443276]
+transform = Transform3D(-2.5122004e-08, 0, 0.837831, 0, 0.97837645, 0, -1, 0, 2.3729413e-08, -0.036877632, 3.7499342, 0.6772728)
+mesh = SubResource("QuadMesh_gk04j")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
 
 [node name="Sound_Token_Collectable" parent="MillenniumParkArea" unique_id=1121827450 instance=ExtResource("5_ydnef")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 8.429889, 3.0174549, -21.997261)
@@ -2330,7 +2401,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019042969, 0.9334718, -0.01
 shape = SubResource("BoxShape3D_37du5")
 
 [node name="Concertstage2" parent="MillenniumParkArea" unique_id=935132134 instance=ExtResource("14_2g6ch")]
-transform = Transform3D(0.72614044, 0, 0, 0, 0.72614014, 0, 0, 0, 0.72614014, 25.23798, 0.3221302, -51.544914)
+transform = Transform3D(0.72614044, 0, 0, 0, 0.72614014, 0, 0, 0, 0.72614014, 25.237984, 0.3221302, -51.544914)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/Concertstage2" unique_id=2125991900]
 
@@ -2360,6 +2431,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_4jx7o")
 transform = Transform3D(0.7071069, -0.4999999, -0.4999999, -6.181724e-08, -0.7071068, 0.70710677, -0.70710665, -0.50000006, -0.5000002, 0.5329933, 7.1306753, 2.6440048)
 light_color = Color(0.93333334, 0.85882354, 0.7176471, 1)
 light_energy = 6.7
+spot_range = 7.0
 spot_attenuation = 0.41
 spot_angle = 67.0
 
@@ -2367,6 +2439,7 @@ spot_angle = 67.0
 transform = Transform3D(1, 0, 0, 0, -0.70710677, 0.70710677, 0, -0.70710677, -0.70710677, 2.770855, 7.1306753, 2.6440048)
 light_color = Color(0.93333334, 0.85882354, 0.7176471, 1)
 light_energy = 6.7
+spot_range = 7.0
 spot_attenuation = 0.41
 spot_angle = 67.0
 
@@ -2374,38 +2447,77 @@ spot_angle = 67.0
 transform = Transform3D(0.7071068, 0.49999988, 0.5, -6.181724e-08, -0.7071068, 0.7071067, 0.7071067, -0.5, -0.5, 5.1808586, 7.1306753, 2.6440048)
 light_color = Color(0.93333334, 0.85882354, 0.7176471, 1)
 light_energy = 6.7
+spot_range = 7.0
 spot_attenuation = 0.41
 spot_angle = 67.0
 
-[node name="Band_Member1" parent="MillenniumParkArea/Concertstage2" unique_id=902995038 instance=ExtResource("73_smebo")]
-transform = Transform3D(1.3771442, 0, 0, 0, 1.3771445, 0, 0, 0, 1.3771445, 2.9430008, 1.2778109, 3.6768646)
-idle_animation_name = "Cello"
-HeadTex = ExtResource("3_oi2a6")
-BodyTex = ExtResource("35_2yn55")
-
-[node name="Band_Member2" parent="MillenniumParkArea/Concertstage2" unique_id=1703590956 instance=ExtResource("73_smebo")]
-transform = Transform3D(1.3302191, 0, 0.35643125, 0, 1.3771446, 0, -0.3564312, 0, 1.3302195, 0.877285, 1.2778109, 4.0211563)
+[node name="NPC_Band" parent="MillenniumParkArea/Concertstage2" unique_id=308333268 instance=ExtResource("57_u43sa")]
+transform = Transform3D(1.2500001, 0, 0, 0, 1.2499999, 0, 0, 0, 1.2499999, 3.0985756, 1.3771446, 3.6150208)
+freeze = true
 idle_animation_name = "Flute"
 HeadTex = ExtResource("34_1m3wf")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="Band_Member4" parent="MillenniumParkArea/Concertstage2" unique_id=1775787996 instance=ExtResource("73_smebo")]
-transform = Transform3D(1.1926419, 0, 0.6885723, 0, 1.3771445, 0, -0.6885722, 0, 1.1926422, -1.0162888, 1.2778109, 4.53759)
-idle_animation_name = "Flute"
+[node name="flute" parent="MillenniumParkArea/Concertstage2/NPC_Band" unique_id=1366473273 instance=ExtResource("61_dmmfi")]
+transform = Transform3D(1.1017152, 0, 0, 0, 1.1017157, 0, 0, 0, 1.1017157, 0.2886715, 0.05824709, 0.049484253)
+
+[node name="NPC_Band2" parent="MillenniumParkArea/Concertstage2" unique_id=207766518 instance=ExtResource("57_u43sa")]
+transform = Transform3D(1.2074076, 0, 0.3235238, 0, 1.2499999, 0, -0.3235236, 0, 1.2074071, 1.3771477, 1.3771446, 3.7871628)
+freeze = true
+idle_animation_name = "Drum"
 HeadTex = ExtResource("48_wlsns")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="Band_Member5" parent="MillenniumParkArea/Concertstage2" unique_id=162976991 instance=ExtResource("73_smebo")]
-transform = Transform3D(1.1926419, 0, -0.6885723, 0, 1.3771445, 0, 0.6885722, 0, 1.1926422, 7.0744324, 1.2778109, 4.53759)
-idle_animation_name = "Flute"
+[node name="drums2" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=280194387 instance=ExtResource("59_dmmfi")]
+transform = Transform3D(1.0641752, 0, 0.28514493, 0, 1.1017157, 0, -0.28514534, 0, 1.0641757, 0.0029067993, 0.19596183, 0.0079193115)
+
+[node name="drum stick" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=221044089 instance=ExtResource("60_uv6lo")]
+transform = Transform3D(0.55085766, 0, 0.9541135, 0, 1.1017157, 0, -0.954114, 0, 0.55085766, -0.36344528, 0.058247566, -0.18873215)
+
+[node name="drum stick2" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=1939840167 instance=ExtResource("60_uv6lo")]
+transform = Transform3D(1.0641752, 0, -0.2851449, 0, 1.1017157, 0, 0.28514472, 0, 1.0641757, 1.038063, 0.058247566, -0.098342896)
+
+[node name="NPC_Band3" parent="MillenniumParkArea/Concertstage2" unique_id=513267403 instance=ExtResource("57_u43sa")]
+transform = Transform3D(1.0825319, 0, 0.62500006, 0, 1.2499999, 0, -0.6249999, 0, 1.0825313, -0.34428406, 1.3771446, 4.475746)
+freeze = true
+idle_animation_name = "Cello"
 HeadTex = ExtResource("36_tj11c")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="Band_Member3" parent="MillenniumParkArea/Concertstage2" unique_id=2092284927 instance=ExtResource("73_smebo")]
-transform = Transform3D(1.3302191, 0, -0.35643125, 0, 1.3771446, 0, 0.3564312, 0, 1.3302195, 5.008713, 1.2778109, 4.0211563)
-idle_animation_name = "Drum"
+[node name="chello" parent="MillenniumParkArea/Concertstage2/NPC_Band3" unique_id=2010571777 instance=ExtResource("74_smebo")]
+transform = Transform3D(1.0641751, 0, 0.28514475, 0, 1.1017157, 0, -0.2851452, 0, 1.0641758, 0.0051841736, -0.07946694, -0.25793076)
+
+[node name="Chello Bow" parent="MillenniumParkArea/Concertstage2/NPC_Band3" unique_id=646846984 instance=ExtResource("58_yc5dl")]
+transform = Transform3D(1.0641751, 0, -0.28514534, 0, 1.1017157, 0, 0.28514472, 0, 1.064176, 0.619957, -0.21718144, -0.22102737)
+
+[node name="NPC_Band4" parent="MillenniumParkArea/Concertstage2" unique_id=467835955 instance=ExtResource("57_u43sa")]
+transform = Transform3D(1.2074074, 0, -0.3235238, 0, 1.2499998, 0, 0.3235238, 0, 1.207407, 4.8200073, 1.3771446, 3.7871704)
+freeze = true
+idle_animation_name = "Glocken"
+HeadTex = ExtResource("36_tj11c")
+BodyTex = ExtResource("35_2yn55")
+
+[node name="Glockenspiel" parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=1135089979 instance=ExtResource("62_s0r3s")]
+transform = Transform3D(1.1017152, 0, 0, 0, 1.1017158, 0, 5.9604645e-08, 0, 1.1017157, 0.016038895, -0.21718144, -0.52337265)
+
+[node name="Glockenspiel mallet " parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=358578764 instance=ExtResource("63_y6p52")]
+transform = Transform3D(1.0641752, 0, 0.285145, 0, 1.1017158, 0, -0.28514495, 0, 1.0641757, -0.08133888, -0.07946718, -0.354702)
+
+[node name="Glockenspiel mallet 2" parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=680715369 instance=ExtResource("63_y6p52")]
+transform = Transform3D(1.0641752, 0, -0.2851449, 0, 1.1017158, 0, 0.2851451, 0, 1.0641758, 1.25844, -0.07946718, -0.14339066)
+
+[node name="NPC_Band5" parent="MillenniumParkArea/Concertstage2" unique_id=1924454344 instance=ExtResource("57_u43sa")]
+transform = Transform3D(1.0825318, 0, -0.6249999, 0, 1.2499998, 0, 0.62499994, 0, 1.0825313, 6.5414352, 1.3771446, 4.475746)
+freeze = true
+idle_animation_name = "Violin"
 HeadTex = ExtResource("8_x8ifo")
 BodyTex = ExtResource("35_2yn55")
+
+[node name="Violin" parent="MillenniumParkArea/Concertstage2" unique_id=1039239947 instance=ExtResource("64_eqk44")]
+transform = Transform3D(0.68857205, 0, 1.1926421, 0, 1.3771445, 0, -1.1926416, 0, 0.6885722, 6.557991, 1.4499538, 4.3654327)
+
+[node name="Violin Bow" parent="MillenniumParkArea/Concertstage2" unique_id=142181284 instance=ExtResource("65_kh1qe")]
+transform = Transform3D(-0.30867848, -0.6885723, -1.1520038, -0.17821558, 1.192642, -0.6651097, 1.3302188, 6.8243757e-09, -0.35643116, 7.271496, 1.6815566, 5.570442)
 
 [node name="Node3D" parent="MillenniumParkArea" unique_id=212650428 instance=ExtResource("6_tddbr")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, 6.7009554, 2.5570507, -31.866325)
@@ -2603,7 +2715,7 @@ transform = Transform3D(-0.5989586, 0, 2.2353437, 0, 2.314198, 0, -2.2353437, 0,
 transform = Transform3D(-1.157099, 0, 2.0041542, 0, 2.314198, 0, -2.0041544, 0, -1.1570991, 40.38209, 1.2427891, -33.76895)
 
 [node name="Tree66" parent="FloraItems" unique_id=413497256 instance=ExtResource("19_45hoa")]
-transform = Transform3D(-1.0115684e-07, 0, 2.3141983, 0, 2.314198, 0, -2.314198, 0, -1.0115681e-07, 40.13209, 1.2427891, -15.768949)
+transform = Transform3D(-1.0115685e-07, 0, 2.3141983, 0, 2.314198, 0, -2.314198, 0, -1.0115681e-07, 40.63209, 1.2427891, -15.768949)
 
 [node name="Tree67" parent="FloraItems" unique_id=919337414 instance=ExtResource("19_45hoa")]
 transform = Transform3D(-1.157099, 0, 2.0041542, 0, 2.314198, 0, -2.0041544, 0, -1.1570991, 40.63209, 1.2427891, -5.7689486)
