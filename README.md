@@ -42,6 +42,7 @@ The game can be obtained **only** from the official GitHub repository.
 | Jump                  | **Space** |
 | Interact              | **E** |
 | Pause / Open menu     | **Esc** |
+| Reset                 | **R** |
 
 ---  
 
@@ -62,6 +63,9 @@ The game can be obtained **only** from the official GitHub repository.
 
 - **Phap Le** - Prop Design
   - B.A. in Game Art (Columbia College Chicago)
+ 
+- **Cameron Anderson** - Prop Design
+  - B.A. in Game Design (Columbia College Chicago)
 
 - **Marcus Escoto** - SFX Design
   - B.A. in Sound Design (Columbia College Chicago)
