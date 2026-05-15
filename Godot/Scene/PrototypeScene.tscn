@@ -2537,8 +2537,36 @@ idle_animation_name = "Flute"
 HeadTex = ExtResource("34_1m3wf")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="flute" parent="MillenniumParkArea/Concertstage2/NPC_Band" unique_id=1366473273 instance=ExtResource("61_dmmfi")]
-transform = Transform3D(1.1017152, 0, 0, 0, 1.1017157, 0, 0, 0, 1.1017157, 0.2886715, 0.05824709, 0.049484253)
+[node name="Skeleton3D" parent="MillenniumParkArea/Concertstage2/NPC_Band/Band_Member/Armature_TempChar" parent_id_path=PackedInt32Array(308333268, 902995038, 1840134029) index="0" unique_id=986468989]
+bones/0/position = Vector3(-0.09183407, 0.6604854, 0.083345644)
+bones/0/rotation = Quaternion(-0.052496478, -0.15090092, 0.09177959, 0.9828782)
+bones/1/rotation = Quaternion(0.10277172, -0.1737127, -0.0058741793, 0.9794016)
+bones/2/rotation = Quaternion(0.09983874, 0.08680339, -0.07485749, 0.98837936)
+bones/3/rotation = Quaternion(0.056717355, -0.0071415245, -0.09410163, 0.99392)
+bones/4/rotation = Quaternion(-0.10344822, -0.65204644, -0.6763186, 0.3266911)
+bones/5/rotation = Quaternion(0.059307404, -0.0019888259, 0.4099509, 0.91017526)
+bones/6/rotation = Quaternion(0.822525, 0.2524277, 0.2966099, -0.4144339)
+bones/7/rotation = Quaternion(0.11225071, 0.0013564591, -0.7759121, 0.6207725)
+bones/8/rotation = Quaternion(0.9632248, 0.056369446, -0.19873676, 0.17182612)
+bones/9/rotation = Quaternion(0.51251036, -3.9890686e-09, 7.529254e-08, 0.8586811)
+bones/10/rotation = Quaternion(0.97484434, 0.027796753, -0.21527737, -0.050611034)
+bones/11/rotation = Quaternion(0.23238221, -2.8456673e-09, 3.255894e-08, 0.97262466)
+bones/12/position = Vector3(-0.17785954, 1.4043463, 0.5396811)
+bones/12/rotation = Quaternion(-0.4222583, 0.41664648, 0.46359295, 0.6581681)
+bones/13/position = Vector3(-0.56600994, 0.37144122, -0.24802783)
+bones/15/position = Vector3(0.2194863, 1.3223931, 0.5983625)
+bones/15/rotation = Quaternion(-0.12278929, -0.14674348, -0.47699928, 0.8578234)
+bones/16/position = Vector3(0.27281535, 0.44710046, -0.8297146)
+bones/19/position = Vector3(1.3059005e-06, 8.7555793e-07, -7.1461313e-06)
+bones/23/position = Vector3(3.0789522e-07, 2.6520337e-07, -1.5778132e-06)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band/Band_Member/Armature_TempChar/Skeleton3D" index="2" unique_id=1087247268]
+transform = Transform3D(0.9252031, -0.08292647, -0.3703007, -0.10799525, 0.8779373, -0.4664366, 0.36378074, 0.47153926, 0.8033145, -0.30402386, 1.615852, 0.12651756)
+bone_name = "hand.r"
+bone_idx = 3
+
+[node name="flute" parent="MillenniumParkArea/Concertstage2/NPC_Band/Band_Member/Armature_TempChar/Skeleton3D/BoneAttachment3D" unique_id=1366473273 instance=ExtResource("61_dmmfi")]
+transform = Transform3D(1.068363, 0.1236891, 0.23891255, -0.13004929, 1.0939074, 0.015215516, -0.23551092, -0.042957395, 1.0753913, 0.5367012, -1.3838711, -0.085681915)
 
 [node name="NPC_Band2" parent="MillenniumParkArea/Concertstage2" unique_id=207766518 instance=ExtResource("57_u43sa")]
 transform = Transform3D(1.2074076, 0, 0.3235238, 0, 1.2499999, 0, -0.3235236, 0, 1.2074071, 1.3771477, 1.3771446, 3.7871628)
@@ -2547,14 +2575,52 @@ idle_animation_name = "Drum"
 HeadTex = ExtResource("48_wlsns")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="drums2" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=280194387 instance=ExtResource("59_dmmfi")]
-transform = Transform3D(1.0641752, 0, 0.28514493, 0, 1.1017157, 0, -0.28514534, 0, 1.0641757, 0.0029067993, 0.19596183, 0.0079193115)
+[node name="Skeleton3D" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar" parent_id_path=PackedInt32Array(207766518, 902995038, 1840134029) index="0" unique_id=986468989]
+bones/0/position = Vector3(-0.012077371, 0.66607904, -0.03721396)
+bones/0/rotation = Quaternion(-0.29405564, -0.0620711, -0.04069566, 0.95290214)
+bones/1/rotation = Quaternion(0.27798468, -1.6652779e-09, -1.126394e-09, 0.96058553)
+bones/2/rotation = Quaternion(0.014281249, 0.004529584, 0.00013358697, 0.99988776)
+bones/3/rotation = Quaternion(0.017084645, 0.004529007, 0.0001513399, 0.9998438)
+bones/4/rotation = Quaternion(0.56524575, -0.06676918, -0.59123284, -0.5713868)
+bones/5/rotation = Quaternion(0.08491573, -0.0017593483, 0.58696353, 0.8051461)
+bones/6/rotation = Quaternion(0.24878845, -0.06778521, 0.8487315, -0.46169716)
+bones/7/rotation = Quaternion(0.08868293, 0.0017155062, -0.6130046, 0.78508455)
+bones/8/rotation = Quaternion(0.9961442, 0.07025454, -0.048484735, -0.020259019)
+bones/9/rotation = Quaternion(0.40060115, 5.666785e-10, -2.3123174e-08, 0.9162525)
+bones/10/rotation = Quaternion(0.9957317, 0.074263416, -0.048830826, -0.02488039)
+bones/11/rotation = Quaternion(0.452253, 4.6866566e-10, -2.7495824e-08, 0.8918897)
+bones/12/position = Vector3(-0.6975509, 0.8896691, -0.21500213)
+bones/12/rotation = Quaternion(-0.4300194, -0.47922412, -0.31990567, 0.69504523)
+bones/13/position = Vector3(-0.77097666, -0.16839421, 0.016032083)
+bones/15/position = Vector3(0.3780278, 0.6317209, -0.06762135)
+bones/15/rotation = Quaternion(-0.8023021, -0.1299965, -0.20272091, 0.5461835)
+bones/16/position = Vector3(0.59765756, 0.58483225, 0.054221414)
+bones/19/position = Vector3(2.4419276e-07, -8.9754735e-07, -9.8809305e-06)
+bones/23/position = Vector3(3.5036354e-07, 8.533126e-08, -1.1791229e-05)
 
-[node name="drum stick" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=221044089 instance=ExtResource("60_uv6lo")]
-transform = Transform3D(0.55085766, 0, 0.9541135, 0, 1.1017157, 0, -0.954114, 0, 0.55085766, -0.36344528, 0.058247566, -0.18873215)
+[node name="Drum_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D" index="2" unique_id=1743594670]
+transform = Transform3D(0.9889821, 0.04603968, -0.14069393, -0.041053254, 0.9984286, 0.038142532, 0.14222893, -0.03194639, 0.9893181, 0.023945248, 0.92623115, -0.21260473)
+bone_name = "spine.001"
+bone_idx = 1
 
-[node name="drum stick2" parent="MillenniumParkArea/Concertstage2/NPC_Band2" unique_id=1939840167 instance=ExtResource("60_uv6lo")]
-transform = Transform3D(1.0641752, 0, -0.2851449, 0, 1.1017157, 0, 0.28514472, 0, 1.0641757, 1.038063, 0.058247566, -0.098342896)
+[node name="drums2" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D/Drum_Bone" unique_id=280194387 instance=ExtResource("59_dmmfi")]
+transform = Transform3D(1.0641752, 7.450581e-09, 0.28514552, -3.7252903e-09, 1.1017157, -2.9802322e-08, -0.28514543, 0, 1.0641757, 0.06232071, -0.6809833, -0.0063819885)
+
+[node name="DrumStickL_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D" index="3" unique_id=884104565]
+transform = Transform3D(0.8840103, 0.43003857, 0.18328294, -0.012852728, -0.36956894, 0.9291144, 0.46729073, -0.8237024, -0.32117558, 0.3780278, 0.6317209, -0.06762135)
+bone_name = "hand.L"
+bone_idx = 17
+
+[node name="drum stick2" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D/DrumStickL_Bone" unique_id=1939840167 instance=ExtResource("60_uv6lo")]
+transform = Transform3D(1.1002731, 0.056342557, 0.0011280775, -0.016582638, 0.34478194, -1.0462456, -0.05385876, 1.0448589, 0.34517914, 0.42176628, 0.034870148, -0.77049065)
+
+[node name="DrumStickR_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D" index="4" unique_id=965344436]
+transform = Transform3D(0.3360092, 0.8568492, -0.3910336, -0.03254649, 0.42548734, 0.9043789, 0.94129616, -0.29115283, 0.1708551, -0.6975509, 0.8896691, -0.21500213)
+bone_name = "hand.R"
+bone_idx = 14
+
+[node name="drum stick" parent="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member/Armature_TempChar/Skeleton3D/DrumStickR_Bone" unique_id=221044089 instance=ExtResource("60_uv6lo")]
+transform = Transform3D(-0.067245245, 0.93276596, 0.58241516, -0.37268457, 0.5296384, -0.8912744, -1.0345861, -0.2514178, 0.2832045, -0.8028984, -0.350626, -0.30633545)
 
 [node name="NPC_Band3" parent="MillenniumParkArea/Concertstage2" unique_id=513267403 instance=ExtResource("57_u43sa")]
 transform = Transform3D(1.0825319, 0, 0.62500006, 0, 1.2499999, 0, -0.6249999, 0, 1.0825313, -0.34428406, 1.3771446, 4.475746)
@@ -2563,27 +2629,99 @@ idle_animation_name = "Cello"
 HeadTex = ExtResource("36_tj11c")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="chello" parent="MillenniumParkArea/Concertstage2/NPC_Band3" unique_id=2010571777 instance=ExtResource("74_smebo")]
-transform = Transform3D(1.0641751, 0, 0.28514475, 0, 1.1017157, 0, -0.2851452, 0, 1.0641758, 0.0051841736, -0.07946694, -0.25793076)
+[node name="Skeleton3D" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar" parent_id_path=PackedInt32Array(513267403, 902995038, 1840134029) index="0" unique_id=986468989]
+bones/0/position = Vector3(0, 0.66875184, -0.0064469734)
+bones/0/rotation = Quaternion(-0.044546746, -0.001305876, -0.026613403, 0.9986519)
+bones/1/rotation = Quaternion(0.12903771, 0.0033178916, -0.026563583, 0.99127835)
+bones/2/rotation = Quaternion(0.021765515, -0.0017767419, 0.0026619027, 0.999758)
+bones/4/rotation = Quaternion(0.21701296, -0.48380768, -0.84718025, -0.03348509)
+bones/5/rotation = Quaternion(0.08149226, -0.0017966715, 0.56329876, 0.8222228)
+bones/6/rotation = Quaternion(0.49989918, 0.7827739, 0.24735546, -0.27600938)
+bones/7/rotation = Quaternion(0.08984437, 0.0017013501, -0.6210311, 0.7786177)
+bones/8/rotation = Quaternion(0.98054963, 0.027059315, 0.0049917684, 0.19433314)
+bones/9/rotation = Quaternion(0.40370822, -2.931817e-10, 7.189498e-09, 0.9148878)
+bones/10/rotation = Quaternion(0.97421825, 0.027337097, 0.005685124, 0.22387351)
+bones/11/rotation = Quaternion(0.45574015, -3.147446e-10, 8.362496e-09, 0.8901129)
+bones/12/position = Vector3(0.007888138, 1.0246446, 0.5625584)
+bones/13/position = Vector3(-0.40400708, 0.65565133, -0.45947647)
+bones/15/position = Vector3(0.53516227, 1.6058631, 0.39368775)
+bones/16/position = Vector3(0.08840561, 0.3201982, 1.3049512)
+bones/19/position = Vector3(-2.1234154e-08, -4.7457376e-09, -8.732659e-06)
+bones/23/position = Vector3(-2.1234154e-08, -2.0480513e-09, -9.6694275e-06)
 
-[node name="Chello Bow" parent="MillenniumParkArea/Concertstage2/NPC_Band3" unique_id=646846984 instance=ExtResource("58_yc5dl")]
-transform = Transform3D(1.0641751, 0, -0.28514534, 0, 1.1017157, 0, 0.28514472, 0, 1.064176, 0.619957, -0.21718144, -0.22102737)
+[node name="CelloBow_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D" index="2" unique_id=2038661932]
+transform = Transform3D(0.4844193, -0.8492772, 0.20991966, -0.17438108, 0.14139956, 0.97447294, -0.85728014, -0.50865954, -0.07960117, 0.007888138, 1.0246446, 0.5625584)
+bone_name = "hand.R"
+bone_idx = 14
+
+[node name="Chello Bow" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/CelloBow_Bone" unique_id=646846984 instance=ExtResource("58_yc5dl")]
+transform = Transform3D(-0.35867324, -0.19211839, -1.0238268, -1.038102, 0.15578222, 0.3344432, 0.08644822, 1.0735923, -0.23174185, 0.89622116, -0.761446, -0.7272396)
+
+[node name="pCube4476" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/CelloBow_Bone/Chello Bow/group459" parent_id_path=PackedInt32Array(646846984, 752069330) index="0" unique_id=1337937336]
+transform = Transform3D(0.8850986, 0.0056207897, 0.00911438, -0.3034402, 0.017246198, -0.0014106093, -0.28556252, -0.0009043173, 0.02974889, -3.28125, 77.44745, 67.74414)
+
+[node name="group460" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/CelloBow_Bone/Chello Bow" index="1" unique_id=392396874]
+visible = false
+
+[node name="pCube44762" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/CelloBow_Bone/Chello Bow/group460" index="0" unique_id=884576493]
+visible = false
+
+[node name="Cello_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D" index="3" unique_id=1975637024]
+transform = Transform3D(0.85620093, -0.23284146, 0.46119937, -0.096642844, -0.9491092, -0.29975376, 0.50752354, 0.21207783, -0.8351306, 0.53516227, 1.6058631, 0.39368775)
+bone_name = "hand.L"
+bone_idx = 17
+
+[node name="chello" parent="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/Cello_Bone" unique_id=2010571777 instance=ExtResource("74_smebo")]
+transform = Transform3D(1.0608552, -0.29613885, -0.025766946, -0.27119014, -1.0032917, 0.36556953, -0.12172806, -0.3456686, -1.0389783, 0.20252419, 1.2256374, 0.8644371)
 
 [node name="NPC_Band4" parent="MillenniumParkArea/Concertstage2" unique_id=467835955 instance=ExtResource("57_u43sa")]
-transform = Transform3D(1.2074074, 0, -0.3235238, 0, 1.2499998, 0, 0.3235238, 0, 1.207407, 4.8200073, 1.3771446, 3.7871704)
+transform = Transform3D(1.2074074, 0, -0.3235238, 0, 1.2499998, 0, 0.3235238, 0, 1.207407, 4.8200073, 1.3075674, 3.5106354)
 freeze = true
 idle_animation_name = "Glocken"
 HeadTex = ExtResource("36_tj11c")
 BodyTex = ExtResource("35_2yn55")
 
+[node name="Skeleton3D" parent="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member/Armature_TempChar" parent_id_path=PackedInt32Array(467835955, 902995038, 1840134029) index="0" unique_id=986468989]
+bones/0/position = Vector3(0, 0.701151, 0.0023556883)
+bones/0/rotation = Quaternion(-0.06892901, 0, 0, 0.9976216)
+bones/1/rotation = Quaternion(0.11372384, -0.0019304802, -4.35504e-05, 0.99351054)
+bones/2/rotation = Quaternion(-0.007052205, 2.454519e-07, 2.93783e-06, 0.9999752)
+bones/3/rotation = Quaternion(0.038525447, 0.0007216268, 0.009099483, 0.99921596)
+bones/4/rotation = Quaternion(0.6213241, -0.21549821, -0.74063164, -0.13777396)
+bones/5/rotation = Quaternion(0.09904772, -0.0015778776, 0.6846489, 0.7221101)
+bones/6/rotation = Quaternion(0.7260871, 0.10407665, 0.66321975, -0.14867812)
+bones/7/rotation = Quaternion(0.11085445, 0.0013829444, -0.76626074, 0.6328933)
+bones/8/rotation = Quaternion(0.99659437, 1.6015532e-08, -2.5822048e-08, 0.08245979)
+bones/9/rotation = Quaternion(0.26771685, 1.1951774e-15, 2.4704468e-16, 0.9634977)
+bones/10/rotation = Quaternion(0.99659437, -7.098878e-09, -1.7043334e-08, 0.08245979)
+bones/11/rotation = Quaternion(0.26771685, -1.2111231e-18, -3.874709e-16, 0.9634977)
+bones/12/position = Vector3(-0.36027634, 1.0177053, 0.4563709)
+bones/12/rotation = Quaternion(-0.82023084, 0, 0, 0.5720328)
+bones/13/position = Vector3(-0.38355547, 0.62383753, -0.24731784)
+bones/15/position = Vector3(0.40402722, 1.0460776, 0.38048336)
+bones/15/rotation = Quaternion(-0.99941087, 0, 0, 0.03432286)
+bones/16/position = Vector3(0.36151803, 0.5848322, -0.31188035)
+bones/19/position = Vector3(1.0617077e-08, 1.633474e-07, -1.3196438e-05)
+bones/23/position = Vector3(-1.0617077e-08, 1.633474e-07, -1.3196438e-05)
+
+[node name="Mallet_R" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member/Armature_TempChar/Skeleton3D" index="2" unique_id=2017657018]
+transform = Transform3D(1, 0, 0, 0, -0.3455571, 0.93839777, 0, -0.93839777, -0.3455571, -0.36027634, 1.0177053, 0.4563709)
+bone_name = "hand.R"
+bone_idx = 14
+
+[node name="Glockenspiel mallet " parent="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member/Armature_TempChar/Skeleton3D/Mallet_R" unique_id=358578764 instance=ExtResource("63_y6p52")]
+transform = Transform3D(1.0182095, -0.4131434, -0.07961488, 0.045060758, 0.31434968, -1.0549554, 0.41832447, 0.9717375, 0.30742094, 0.9023361, 0.34379196, -0.9818878)
+
+[node name="Mallet_L" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member/Armature_TempChar/Skeleton3D" index="3" unique_id=2004105300]
+transform = Transform3D(1, 0, 0, 0, -0.99764395, 0.068605274, 0, -0.068605274, -0.99764395, 0.40402722, 1.0460776, 0.38048336)
+bone_name = "hand.L"
+bone_idx = 17
+
+[node name="Glockenspiel mallet 2" parent="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member/Armature_TempChar/Skeleton3D/Mallet_L" unique_id=680715369 instance=ExtResource("63_y6p52")]
+transform = Transform3D(1.0182095, -0.41314325, -0.07961513, 0.045060795, 0.3143497, -1.0549549, 0.41832453, 0.9717372, 0.30742097, 0.89974976, 0.29875708, -0.9938469)
+
 [node name="Glockenspiel" parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=1135089979 instance=ExtResource("62_s0r3s")]
-transform = Transform3D(1.1017152, 0, 0, 0, 1.1017158, 0, 5.9604645e-08, 0, 1.1017157, 0.016038895, -0.21718144, -0.52337265)
-
-[node name="Glockenspiel mallet " parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=358578764 instance=ExtResource("63_y6p52")]
-transform = Transform3D(1.0641752, 0, 0.285145, 0, 1.1017158, 0, -0.28514495, 0, 1.0641757, -0.08133888, -0.07946718, -0.354702)
-
-[node name="Glockenspiel mallet 2" parent="MillenniumParkArea/Concertstage2/NPC_Band4" unique_id=680715369 instance=ExtResource("63_y6p52")]
-transform = Transform3D(1.0641752, 0, -0.2851449, 0, 1.1017158, 0, 0.2851451, 0, 1.0641758, 1.25844, -0.07946718, -0.14339066)
+transform = Transform3D(1.1017152, 0, 1.7881393e-07, 0, 1.1017158, 0, 5.9604645e-08, 0, 1.1017157, 0.056610107, 0.048267126, -0.37193298)
 
 [node name="NPC_Band5" parent="MillenniumParkArea/Concertstage2" unique_id=1924454344 instance=ExtResource("57_u43sa")]
 transform = Transform3D(1.0825318, 0, -0.6249999, 0, 1.2499998, 0, 0.62499994, 0, 1.0825313, 6.5414352, 1.3771446, 4.475746)
@@ -2592,11 +2730,44 @@ idle_animation_name = "Violin"
 HeadTex = ExtResource("8_x8ifo")
 BodyTex = ExtResource("35_2yn55")
 
-[node name="Violin" parent="MillenniumParkArea/Concertstage2" unique_id=1039239947 instance=ExtResource("64_eqk44")]
-transform = Transform3D(0.68857205, 0, 1.1926421, 0, 1.3771445, 0, -1.1926416, 0, 0.6885722, 6.557991, 1.4499538, 4.3654327)
+[node name="Skeleton3D" parent="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member/Armature_TempChar" parent_id_path=PackedInt32Array(1924454344, 902995038, 1840134029) index="0" unique_id=986468989]
+bones/0/position = Vector3(0, 0.70257455, 0.0023556878)
+bones/0/rotation = Quaternion(-0.06892902, 0, 0, 0.9976216)
+bones/1/rotation = Quaternion(0.104561985, 0, 0, 0.9945184)
+bones/2/rotation = Quaternion(-0.0033613357, 0, 0, 0.99999434)
+bones/3/rotation = Quaternion(-0.000557568, 0, 0, 0.99999994)
+bones/4/rotation = Quaternion(0.71773005, -0.55547297, -0.00962898, -0.4197864)
+bones/5/rotation = Quaternion(0.13286214, -0.00081440585, 0.91838455, 0.37271553)
+bones/6/rotation = Quaternion(0.68869746, 0.6432068, 0.30466315, 0.13842426)
+bones/7/rotation = Quaternion(0.095044576, 0.0016342615, -0.6569779, 0.747893)
+bones/8/rotation = Quaternion(0.99704534, 1.5837369e-08, -2.589953e-08, 0.076816425)
+bones/9/rotation = Quaternion(0.25749215, 3.351278e-16, 1.1540849e-15, 0.96628046)
+bones/10/rotation = Quaternion(0.99704534, -7.1616375e-09, -1.701527e-08, 0.076816425)
+bones/11/rotation = Quaternion(0.25749215, 7.744541e-16, 3.8269438e-16, 0.96628046)
+bones/12/position = Vector3(-0.32691658, 1.539901, 0.13371262)
+bones/12/rotation = Quaternion(-0.5350781, 0.65288436, -0.003150314, 0.5361189)
+bones/13/position = Vector3(-0.38355565, 0.6238376, -0.04494002)
+bones/15/position = Vector3(0.5519462, 1.6429125, 0.29658732)
+bones/15/rotation = Quaternion(-0.864402, 0.40762392, -0.23459408, -0.17781323)
+bones/16/position = Vector3(0.52811563, -0.081796706, 0.16201502)
+bones/19/position = Vector3(1.0617077e-08, 1.633474e-07, -1.3196438e-05)
+bones/23/position = Vector3(-1.0617077e-08, 1.633474e-07, -1.3196438e-05)
 
-[node name="Violin Bow" parent="MillenniumParkArea/Concertstage2" unique_id=142181284 instance=ExtResource("65_kh1qe")]
-transform = Transform3D(-0.30867848, -0.6885723, -1.1520038, -0.17821558, 1.192642, -0.6651097, 1.3302188, 6.8243757e-09, -0.35643116, 7.271496, 1.6815566, 5.570442)
+[node name="Violin_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member/Armature_TempChar/Skeleton3D" index="2" unique_id=72819376]
+transform = Transform3D(0.5576167, -0.7881297, 0.26060534, -0.621274, -0.60445046, -0.4986565, 0.550529, 0.116151914, -0.82669616, 0.5519462, 1.6429125, 0.29658732)
+bone_name = "hand.L"
+bone_idx = 17
+
+[node name="Violin" parent="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member/Armature_TempChar/Skeleton3D/Violin_Bone" unique_id=1039239947 instance=ExtResource("64_eqk44")]
+transform = Transform3D(-0.2320956, 0.19189358, -1.0597572, 1.0769875, 0.038770124, -0.22884873, -0.0025663078, -1.0841818, -0.19575444, -0.2810669, 1.0321512, 1.2325706)
+
+[node name="ViolinBow_Bone" type="BoneAttachment3D" parent="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member/Armature_TempChar/Skeleton3D" index="3" unique_id=532095707]
+transform = Transform3D(0.14746416, -0.69531035, 0.7034186, -0.7020662, 0.42736298, 0.56961745, -0.696676, -0.57784456, -0.42513323, -0.32691658, 1.539901, 0.13371262)
+bone_name = "hand.R"
+bone_idx = 14
+
+[node name="Violin Bow" parent="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member/Armature_TempChar/Skeleton3D/ViolinBow_Bone" unique_id=142181284 instance=ExtResource("65_kh1qe")]
+transform = Transform3D(-0.10149661, -1.094537, -0.073931515, -0.46486908, -0.024340063, 0.9985392, -0.9936653, 0.12318733, -0.45959866, 1.3009872, -0.76306725, -0.40881348)
 
 [node name="Node3D" parent="MillenniumParkArea" unique_id=212650428 instance=ExtResource("6_tddbr")]
 transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e-08, 6.7009554, 2.5570507, -31.866325)
@@ -4134,3 +4305,15 @@ script = ExtResource("55_22h0s")
 
 [node name="start_position" type="Marker3D" parent="." unique_id=39031245]
 transform = Transform3D(-1.0000027, 0, 8.742278e-08, 0, 1, 0, -8.742302e-08, 0, -1, -12.362719, 0.39655757, 20.724487)
+
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band/Band_Member"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band2"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band2/Band_Member"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band3"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band3/Band_Member/Armature_TempChar/Skeleton3D/CelloBow_Bone/Chello Bow"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band4"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band4/Band_Member"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band5"]
+[editable path="MillenniumParkArea/Concertstage2/NPC_Band5/Band_Member"]
