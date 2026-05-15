@@ -283,8 +283,39 @@ size = Vector3(2.0629883, 8.262024, 54.35974)
 [sub_resource type="BoxShape3D" id="BoxShape3D_15gc3"]
 size = Vector3(33.609375, 8.093018, 5.058838)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_smebo"]
-size = Vector3(3.875, 5, 5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0r3s"]
+size = Vector3(1.2371826, 4.46579, 4.9243164)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6p52"]
+size = Vector3(3.7787933, 1, 4.9488525)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eqk44"]
+size = Vector3(1, 4.2875366, 4.940857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh1qe"]
+size = Vector3(2.87146, 4.0008545, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wek8v"]
+height = 1.546875
+radius = 0.38867188
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcclk"]
+size = Vector3(1, 0.5703125, 4.9419556)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wh5cg"]
+size = Vector3(0.6791992, 4.985321, 4.924591)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7dl1"]
+size = Vector3(1.0888672, 0.09802246, 4.715271)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aiqks"]
+size = Vector3(3.156372, 4.982544, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_teokm"]
+size = Vector3(1, 4.9717407, 3.975708)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ccok"]
+size = Vector3(2.3382568, 1, 4.168579)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yn55"]
 size = Vector3(9.26165, 4.0200195, 3.0964355)
@@ -1465,16 +1496,40 @@ transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1.0000001, 0, -4.371139e
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/barbooth" unique_id=763773656]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=190331147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3125, 2, 0.5)
-shape = SubResource("BoxShape3D_smebo")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=1866780906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3300838, 1.7328949, 0.45751953)
+shape = SubResource("BoxShape3D_s0r3s")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=570064941]
-transform = Transform3D(0.3200002, 0, -1.9428891e-14, 0, 0.12, 0, 6.217249e-15, 0, 1, 2.0240164, 3.75, 0.5)
-shape = SubResource("BoxShape3D_smebo")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=1353750350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27129364, 3.9785733, 0.4500122)
+shape = SubResource("BoxShape3D_y6p52")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=1619408729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6659126, 1.6437683, 0.45651245)
+shape = SubResource("BoxShape3D_eqk44")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=2049477302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1828003, 1.5004272, 2.4512215)
+shape = SubResource("BoxShape3D_kh1qe")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=1726128797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5685997, -0.2265625, 1.7386055)
+shape = SubResource("CylinderShape3D_wek8v")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=2098173756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1681051, -0.2265625, 0.33675766)
+shape = SubResource("CylinderShape3D_wek8v")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=1762079187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5685978, -0.2265625, -0.89380646)
+shape = SubResource("CylinderShape3D_wek8v")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MillenniumParkArea/barbooth/StaticBody3D" unique_id=90430884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.196557, 3.686955, 0.45394897)
+shape = SubResource("BoxShape3D_qcclk")
 
 [node name="NPC4" parent="MillenniumParkArea/barbooth" unique_id=1380290961 instance=ExtResource("7_x8ifo")]
-transform = Transform3D(-4.3712514e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.3711314e-08, 0.24134064, -0.3257159, 0.5836029)
+transform = Transform3D(-4.3712514e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.3711314e-08, 0.07680845, -0.3257159, 0.5836029)
 freeze = true
 HeadTex = ExtResource("8_3layp")
 BodyTex = ExtResource("33_v250a")
@@ -1496,16 +1551,40 @@ transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, 1.0000001, 0, -4.371139e
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MillenniumParkArea/barbooth2" unique_id=295189699]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=318475446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3125, 2, 0.5)
-shape = SubResource("BoxShape3D_smebo")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1937998736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2999516, 1.9926605, 0.46403503)
+shape = SubResource("BoxShape3D_wh5cg")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1454553798]
-transform = Transform3D(0.3200002, 0, -1.9428891e-14, 0, 0.12, 0, 6.217249e-15, 0, 1, 2.0240164, 3.75, 0.5)
-shape = SubResource("BoxShape3D_smebo")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1666611643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3942633, 1.1409533, 0.42642212)
+shape = SubResource("BoxShape3D_u7dl1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1024414485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5757446, 1.991272, 2.445736)
+shape = SubResource("BoxShape3D_aiqks")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=928039984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6850328, 1.9858704, -0.01763916)
+shape = SubResource("BoxShape3D_teokm")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=2084195585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12823486, 4.025192, 0.06719971)
+shape = SubResource("BoxShape3D_5ccok")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1492876558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5685997, -0.2265625, 1.7386055)
+shape = SubResource("CylinderShape3D_wek8v")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=1272744548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1356754, -0.2265625, 0.3459053)
+shape = SubResource("CylinderShape3D_wek8v")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="MillenniumParkArea/barbooth2/StaticBody3D" unique_id=404172605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5685997, -0.2265625, -0.88500977)
+shape = SubResource("CylinderShape3D_wek8v")
 
 [node name="NPC5" parent="MillenniumParkArea/barbooth2" unique_id=1323110093 instance=ExtResource("7_x8ifo")]
-transform = Transform3D(-4.3712507e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.371132e-08, 0.5765095, -0.32571602, 0.7098923)
+transform = Transform3D(-4.3712507e-08, 0, 1.0000005, 0, 1, 0, -1, 0, -4.371132e-08, 0.4101019, -0.32571602, 0.7098923)
 freeze = true
 idle_animation_name = "NPC_Anims/Idle2"
 HeadTex = ExtResource("46_2yn55")
